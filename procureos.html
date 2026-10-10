@@ -47,10 +47,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3.2.0" />
+  <link rel="stylesheet" href="styles.css?v=3.3.0" />
 
   <!-- APP INTERACTIVITY SCRIPT -->
-  <script src="app.js?v=3.2.0" defer></script>
+  <script src="app.js?v=3.3.0" defer></script>
 
   <!-- STRUCTURED DATA: Multi-Entity JSON-LD Schema Graph -->
   <script type="application/ld+json">
@@ -188,11 +188,14 @@
   </header>
 
   <main id="main">
-    <!-- HERO SECTION (Pillar Hero with Integrated Breadcrumbs) -->
-    <section class="hero pillar-hero-section">
-      <div class="hero-ambient-glow" aria-hidden="true"></div>
-      <div class="hero-cursor-spotlight" aria-hidden="true"></div>
-      <div class="shell">
+    <!-- REACT BITS PRO: HERO 21 - AURORA HERO WITH A GLOWING ORB MARK -->
+    <section class="hero hero-21 pillar-hero-21 section-pad" aria-label="ProcureOS Enterprise Procure-to-Pay Platform">
+      <!-- GLSL AURORA CANVAS BACKGROUND -->
+      <div class="hero-aurora-canvas" aria-hidden="true"></div>
+      <div class="hero-aurora-overlay" aria-hidden="true"></div>
+
+      <div class="shell hero-21-content reveal">
+        <!-- BREADCRUMBS -->
         <div class="pillar-breadcrumb-wrap">
           <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
             <ol class="breadcrumb-list">
@@ -203,69 +206,78 @@
           </nav>
         </div>
 
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <div class="pillar-badge"><span class="pillar-badge-dot"></span> ENTERPRISE PROCURE-TO-PAY &amp; GST RECONCILIATION</div>
-            <h1>Eliminate procurement leakage<br /><span class="headline-second">with automated <em>3-way matching.</em></span></h1>
-            <p class="hero-lede">Reconcile purchase orders, warehouse gate entries, and GST e-invoices in real time. Designed for Indian manufacturing, retail, and enterprise operations that refuse to lose money to manual reconciliation friction.</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Schedule Procurement Audit <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="#modules">Explore Capabilities <span aria-hidden="true">↓</span></a>
+        <!-- GLOWING ORB MARK & SOVEREIGN STATUS PILL -->
+        <div class="hero-21-header">
+          <div class="hero-glowing-orb" aria-hidden="true">
+            <div class="orb-halo-outer"></div>
+            <div class="orb-halo-inner"></div>
+            <div class="orb-sphere">
+              <div class="orb-specular"></div>
+              <div class="orb-core-pulse"></div>
             </div>
-            <div class="hero-proof"><span class="proof-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span>Eliminates <strong>14-day manual reconciliation cycles</strong> and prevents GSTR-2B tax leakage.</span></div>
+            <div class="orb-beam"></div>
           </div>
+          <div class="hero-eyebrow-pill">
+            <span class="pill-beacon" aria-hidden="true"></span>
+            <span class="pill-label">ENTERPRISE PROCURE-TO-PAY</span>
+            <span class="pill-sep" aria-hidden="true">·</span>
+            <span class="pill-loc">FISCAL GOVERNANCE</span>
+          </div>
+        </div>
 
-          <div class="hero-visual reveal" aria-label="Interactive ProcureOS reconciliation workspace window">
-            <div class="visual-topline"><span><span class="live-dot"></span> P2P RECONCILIATION &amp; ITC AUDIT</span><span class="visual-context">TALLY PRIME &amp; SAP ECC / LIVE</span></div>
-            <div class="workspace-window" id="workspace-window">
-              <div class="hero-shader-stage" aria-hidden="true"></div>
-              <div class="shader-cursor-spotlight" aria-hidden="true"></div>
-              <div class="window-head">
-                <div>
-                  <span class="window-kicker">SUPPLY CHAIN FISCAL GOVERNANCE</span>
-                  <h2>Live 3-Way Match &amp; GSTN Input Tax Credit Engine</h2>
-                  <div class="view-pill status-live">
-                    <span class="pill-dot"></span>
-                    <span>Zero Duplicate Payouts Locked</span>
-                  </div>
-                </div>
-                <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="window-avatar" width="38" height="38" />
-              </div>
-              <div class="workspace-metrics">
-                <div class="metric-card metric-featured">
-                  <span class="metric-label">PO-to-GRN Match Speed</span>
-                  <div class="metric-value">Sub-sec<span class="metric-check" aria-hidden="true">✓</span></div>
-                  <div class="metric-foot"><span class="status-pip"></span> Zero manual backlog</div>
-                  <div class="metric-sparkline"><span style="--h:35%"></span><span style="--h:50%"></span><span style="--h:42%"></span><span style="--h:68%"></span><span style="--h:82%"></span><span style="--h:90%"></span><span style="--h:85%"></span><span style="--h:100%"></span></div>
-                </div>
-                <div class="metric-card">
-                  <span class="metric-label">Matched Invoices</span>
-                  <div class="metric-value"><span class="counter" data-target="99.8">99.8</span>% <small>auto</small></div>
-                  <div class="mini-progress"><span style="width:99%"></span></div>
-                  <div class="metric-note">100% ITC claimed</div>
-                </div>
-                <div class="metric-card">
-                  <span class="metric-label">GSTR-2B Tax Variance</span>
-                  <div class="metric-value">₹<span class="counter" data-target="0" data-prefix="0">00</span> <small>leakage</small></div>
-                  <div class="attention-row"><span class="attention-dot"></span><span>100% ITC Claimed</span></div>
-                  <div class="attention-row"><span class="attention-dot subtle"></span><span>IRN QR verified</span></div>
-                </div>
-              </div>
-              <div class="activity-panel">
-                <div class="activity-heading"><span>P2P TRANSACTION SIGNAL</span><span>JUST NOW <span class="activity-pulse"></span></span></div>
-                <div class="activity-item">
-                  <div class="activity-icon icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></div>
-                  <div class="activity-text"><strong>GRN #8492 Matched against PO #2104</strong><span>Line quantities &amp; tax rates verified · Voucher posted to Tally Prime</span></div>
-                  <span class="activity-state">MATCHED</span>
-                </div>
-                <div class="activity-item">
-                  <div class="activity-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg></div>
-                  <div class="activity-text"><strong>GST e-Invoice IRN &amp; QR Verified</strong><span>NIC portal confirmation · Full GSTR-2B Input Tax Credit claimed</span></div>
-                  <span class="activity-state">VERIFIED</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- HERO HEADLINE -->
+        <h1 class="hero-21-title">
+          Eliminate procurement leakage<br />
+          <span class="aurora-gradient-text">with automated <em>3-way matching.</em></span>
+        </h1>
+
+        <!-- HERO LEDE -->
+        <p class="hero-21-lede">
+          Reconcile purchase orders, warehouse gate entries, and GST e-invoices in real time. Designed for Indian manufacturing, retail, and enterprise operations that refuse to lose money to manual reconciliation friction.
+        </p>
+
+        <!-- AMBIENT ACTION LABELS & CTAS -->
+        <div class="hero-21-actions">
+          <a class="btn btn-primary hero-btn-glow" href="#contact">
+            <span>Schedule Procurement Audit</span>
+            <span class="btn-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-ghost hero-btn-ambient" href="#modules">
+            <span>Explore Capabilities</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <!-- TRUST PROOF CITATION -->
+        <div class="hero-21-proof">
+          <span class="proof-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
+          <span>Eliminates <strong>14-day manual reconciliation cycles</strong> and prevents GSTR-2B tax leakage.</span>
+        </div>
+
+        <!-- PILLAR CAPABILITY PILLS (NO SILLY METRICS, ZERO OVERFLOW) -->
+        <div class="hero-21-platform-strip" role="region" aria-label="ProcureOS core capabilities">
+          <span class="hero-suite-pill">
+            <span class="suite-pill-icon">📦</span>
+            <span class="suite-pill-name">3-Way Auto Match</span>
+            <span class="suite-pill-tag">PO · GRN · Invoice</span>
+          </span>
+          <span class="hero-suite-pill">
+            <span class="suite-pill-icon">🔍</span>
+            <span class="suite-pill-name">GSTR-2B Audit</span>
+            <span class="suite-pill-tag">Real-Time ITC</span>
+          </span>
+          <span class="hero-suite-pill">
+            <span class="suite-pill-icon">⚡</span>
+            <span class="suite-pill-name">IRN &amp; QR Verify</span>
+            <span class="suite-pill-tag">NIC Portal Direct</span>
+          </span>
+          <span class="hero-suite-pill">
+            <span class="suite-pill-icon">📊</span>
+            <span class="suite-pill-name">ERP Direct Sync</span>
+            <span class="suite-pill-tag">SAP ECC &amp; Tally</span>
+          </span>
         </div>
       </div>
     </section>
@@ -795,6 +807,6 @@
       </div>
     </div>
   </div>
-  <script type="module" src="assets/vendor/visual-effects.js?v=3.2.0"></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.3.0"></script>
 </body>
 </html>

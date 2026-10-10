@@ -1505,15 +1505,280 @@ export function initHeroGradientShader(containerElement, options = {}) {
 }
 
 // ============================================================================
-// 4. AUTO INITIALIZATION (Theme Adapted for OJIX)
+// 4. REACT BITS PRO: HERO 21 - THEME-AWARE GLSL AURORA WITH GLOWING ORB MARK
+// https://pro.reactbits.dev/docs/blocks/hero-section/hero-21
+// ============================================================================
+
+const auroraVertexShader = `#version 300 es
+in vec2 position;
+in vec2 uv;
+out vec2 vUv;
+void main() {
+    vUv = uv;
+    gl_Position = vec4(position, 0.0, 1.0);
+}
+`;
+
+const auroraFragmentShader = `#version 300 es
+precision highp float;
+precision highp int;
+
+in vec2 vUv;
+out vec4 fragColor;
+
+uniform vec2 uResolution;
+uniform float uTime;
+uniform vec2 uMouse;
+uniform float uSpeed;
+
+// Simplex noise function
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x * 34.0) + 1.0) * x); }
+
+float snoise(vec2 v) {
+  const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+  vec2 i  = floor(v + dot(v, C.yy));
+  vec2 x0 = v -   i + dot(i, C.xx);
+  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod289(i);
+  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+  m = m * m;
+  m = m * m;
+  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / uResolution.xy;
+    float aspect = uResolution.x / max(uResolution.y, 1.0);
+    vec2 p = uv;
+    p.x *= aspect;
+
+    vec2 mouse = uMouse;
+    mouse.x *= aspect;
+
+    float mouseDist = length(p - mouse);
+    float mouseWave = smoothstep(1.3, 0.0, mouseDist);
+
+    float t = uTime * 0.38 * uSpeed;
+
+    // Layered Aurora wavy ribbons
+    float waveA = snoise(vec2(p.x * 1.6 + t * 0.45, t * 0.25)) * 0.26;
+    float waveB = snoise(vec2(p.x * 2.6 - t * 0.50, p.y * 1.4 + t * 0.3)) * 0.16;
+    float waveC = sin(p.x * 3.8 + t * 0.85 + mouseWave * 1.8) * 0.12;
+
+    float totalWave = waveA + waveB + waveC;
+    float auroraY = (1.0 - uv.y) + totalWave - 0.12;
+
+    // Three layered luminous curtains of aurora
+    float c1 = smoothstep(0.04, 0.48, auroraY) * smoothstep(0.92, 0.42, auroraY);
+    c1 = pow(c1, 1.7);
+
+    float c2 = smoothstep(0.14, 0.58, auroraY + 0.14) * smoothstep(0.88, 0.38, auroraY + 0.14);
+    c2 = pow(c2, 2.0);
+
+    float c3 = smoothstep(0.20, 0.68, auroraY - 0.10) * smoothstep(0.94, 0.52, auroraY - 0.10);
+    c3 = pow(c3, 1.9);
+
+    // Color definitions for light-first OJIX luxury palette
+    vec3 cBg     = vec3(0.984, 0.980, 0.973); // Ivory Soft White #FAF7F2
+    vec3 cCopper = vec3(0.788, 0.400, 0.184); // Orange #C9662F
+    vec3 cAmber  = vec3(0.976, 0.451, 0.090); // Vivid Amber #F97316
+    vec3 cGold   = vec3(0.992, 0.741, 0.447); // Golden Glow #FDBA74
+    vec3 cNavy   = vec3(0.059, 0.110, 0.180); // Executive Navy #0F1C2E
+
+    vec3 aurora = vec3(0.0);
+    aurora += cCopper * c1 * 1.25;
+    aurora += cAmber  * c2 * 1.05;
+    aurora += cGold   * (c1 * c2) * 1.45;
+    aurora += cNavy   * c3 * 0.35;
+
+    // Glowing Orb center spotlight emission (emanating from top center)
+    vec2 orbCoord = vec2(0.5 * aspect, 0.82);
+    float dOrb = length(p - orbCoord);
+    float orbAura = exp(-dOrb * 2.5) * 0.55;
+    aurora += cAmber * orbAura;
+
+    // Mouse cursor radiance
+    float cursorAura = exp(-mouseDist * 2.8) * 0.32;
+    aurora += cGold * cursorAura;
+
+    // Blend into canvas background
+    vec3 finalColor = mix(cBg, cBg + aurora, clamp(length(aurora), 0.0, 0.92));
+
+    // Vertical gradient falloff toward bottom of hero
+    float bottomFade = smoothstep(0.0, 0.35, uv.y);
+    finalColor = mix(cBg, finalColor, bottomFade);
+
+    fragColor = vec4(finalColor, 1.0);
+}
+`;
+
+export function initHeroAuroraShader(containerElement, options = {}) {
+  const container = typeof containerElement === 'string'
+    ? document.querySelector(containerElement)
+    : containerElement;
+
+  if (!container) return null;
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let renderer;
+  try {
+    renderer = new Renderer({
+      dpr,
+      alpha: true,
+      antialias: true,
+      premultipliedAlpha: false
+    });
+  } catch (err) {
+    console.warn('HeroAuroraShader WebGL not supported, falling back to CSS:', err);
+    container.classList.add('aurora-fallback');
+    return null;
+  }
+
+  const gl = renderer.gl;
+  gl.canvas.style.position = 'absolute';
+  gl.canvas.style.inset = '0';
+  gl.canvas.style.width = '100%';
+  gl.canvas.style.height = '100%';
+  gl.canvas.style.pointerEvents = 'none';
+  container.prepend(gl.canvas);
+
+  const program = new Program(gl, {
+    vertex: auroraVertexShader,
+    fragment: auroraFragmentShader,
+    uniforms: {
+      uResolution: { value: [1, 1] },
+      uTime: { value: 0 },
+      uMouse: { value: [0.5, 0.5] },
+      uSpeed: { value: options.speed || 1.0 }
+    }
+  });
+
+  const triangle = new Triangle(gl);
+  const mesh = new Mesh(gl, { geometry: triangle, program });
+
+  const resize = () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || 700;
+    renderer.setSize(w, h);
+    program.uniforms.uResolution.value = [gl.drawingBufferWidth, gl.drawingBufferHeight];
+  };
+
+  let ro = null;
+  if ('ResizeObserver' in window) {
+    ro = new ResizeObserver(resize);
+    ro.observe(container);
+  } else {
+    window.addEventListener('resize', resize);
+  }
+  resize();
+
+  const mouseTarget = [0.5, 0.5];
+  const mouseSmooth = [0.5, 0.5];
+
+  const onPointerMove = (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / Math.max(rect.width, 1);
+    const y = 1.0 - ((e.clientY - rect.top) / Math.max(rect.height, 1));
+    mouseTarget[0] = Math.min(Math.max(x, 0), 1);
+    mouseTarget[1] = Math.min(Math.max(y, 0), 1);
+
+    // Update CSS variables for Glowing Orb parallax
+    const heroSection = container.closest('.hero') || container;
+    const orb = heroSection.querySelector('.hero-glowing-orb');
+    if (orb) {
+      const offsetX = ((e.clientX - window.innerWidth / 2) / window.innerWidth) * 16;
+      const offsetY = ((e.clientY - 200) / 400) * 12;
+      orb.style.setProperty('--orb-shift-x', `${offsetX.toFixed(1)}px`);
+      orb.style.setProperty('--orb-shift-y', `${offsetY.toFixed(1)}px`);
+    }
+  };
+
+  const heroSection = container.closest('.hero') || container;
+  heroSection.addEventListener('pointermove', onPointerMove, { passive: true });
+
+  let isVisible = true;
+  let io = null;
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver((entries) => {
+      if (entries[0]) isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    io.observe(container);
+  }
+
+  let raf = 0;
+  let last = performance.now();
+  let accumTime = 0;
+  let destroyed = false;
+
+  const update = (now) => {
+    if (destroyed) return;
+    const dt = Math.max(0, now - last) * 0.001;
+    last = now;
+
+    if (!isVisible || document.hidden) {
+      raf = requestAnimationFrame(update);
+      return;
+    }
+
+    accumTime += dt;
+
+    const tau = 0.08;
+    const alpha = 1 - Math.exp(-dt / tau);
+    mouseSmooth[0] += (mouseTarget[0] - mouseSmooth[0]) * alpha;
+    mouseSmooth[1] += (mouseTarget[1] - mouseSmooth[1]) * alpha;
+
+    program.uniforms.uMouse.value = mouseSmooth;
+    program.uniforms.uTime.value = accumTime;
+
+    renderer.render({ scene: mesh });
+    raf = requestAnimationFrame(update);
+  };
+
+  raf = requestAnimationFrame(update);
+
+  return {
+    destroy: () => {
+      destroyed = true;
+      cancelAnimationFrame(raf);
+      heroSection.removeEventListener('pointermove', onPointerMove);
+      ro?.disconnect();
+      if (!ro) window.removeEventListener('resize', resize);
+      io?.disconnect();
+      try {
+        if (gl.canvas.parentNode) gl.canvas.parentNode.removeChild(gl.canvas);
+      } catch (e) {}
+    }
+  };
+}
+
+// ============================================================================
+// 5. AUTO INITIALIZATION (Theme Adapted for OJIX)
 // ============================================================================
 
 export function autoInitVisuals() {
   const isFinePointer = window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ?? true;
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
-  // React Bits Pro Hero 3 WebGL Gradient Shader (Runs on Hero Stages)
+  // React Bits Pro Hero 21: Theme-Aware GLSL Aurora
   if (!reducedMotion) {
+    const auroraContainers = document.querySelectorAll('.hero-aurora-canvas, #hero-aurora-canvas');
+    auroraContainers.forEach((el) => {
+      initHeroAuroraShader(el);
+    });
+
     const shaderContainers = document.querySelectorAll('.hero-shader-stage, #hero-shader-stage');
     shaderContainers.forEach((el) => {
       initHeroGradientShader(el);

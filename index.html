@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3.2.0" />
+  <link rel="stylesheet" href="styles.css?v=3.3.0" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -216,296 +216,95 @@
   </header>
 
   <main id="main">
-    <section class="hero section-pad">
-      <div class="hero-ambient-glow" aria-hidden="true"></div>
-      <div class="hero-cursor-spotlight" aria-hidden="true"></div>
-      <div class="hero-grid shell">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">SOFTWARE, ENGINEERED AROUND THE WORK</div>
-          <h1>Make complex work<br /><span class="headline-second">feel <em>effortless.</em></span></h1>
-          <p class="hero-lede">OJIX is an enterprise software company in Bengaluru. We build custom ERP, operating platforms and carefully applied AI that turn fragmented work into connected operations.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#solution-finder">Find your solution <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#platforms">Explore our platforms <span aria-hidden="true">↓</span></a>
+    <!-- REACT BITS PRO: HERO 21 - AURORA HERO WITH A GLOWING ORB MARK -->
+    <section class="hero hero-21 section-pad" aria-label="OJIX Sovereign Operations Suite">
+      <!-- GLSL AURORA CANVAS BACKGROUND -->
+      <div class="hero-aurora-canvas" id="hero-aurora-canvas" aria-hidden="true"></div>
+      <div class="hero-aurora-overlay" aria-hidden="true"></div>
+
+      <div class="shell hero-21-content reveal">
+        <!-- GLOWING ORB MARK & SOVEREIGN STATUS PILL -->
+        <div class="hero-21-header">
+          <div class="hero-glowing-orb" aria-hidden="true">
+            <div class="orb-halo-outer"></div>
+            <div class="orb-halo-inner"></div>
+            <div class="orb-sphere">
+              <div class="orb-specular"></div>
+              <div class="orb-core-pulse"></div>
+            </div>
+            <div class="orb-beam"></div>
           </div>
-          <div class="hero-proof"><span class="proof-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/></svg></span><span>Built for actual workflows.<br /><strong>Not software for software’s sake.</strong></span></div>
+          <div class="hero-eyebrow-pill">
+            <span class="pill-beacon" aria-hidden="true"></span>
+            <span class="pill-label">SOVEREIGN ENTERPRISE OPERATING SYSTEMS</span>
+            <span class="pill-sep" aria-hidden="true">·</span>
+            <span class="pill-loc">BENGALURU TIER-IV</span>
+          </div>
         </div>
 
-        <div class="hero-visual reveal" role="region" aria-label="OJIX Connected Enterprise Operations Cockpit - React Bits Pro Hero 3">
-          <!-- REACT BITS PRO HERO 3: ROUNDED WEBGL GRADIENT SHADER PORTAL -->
-          <div class="hero-gradient-card" id="hero-bits-card">
-            <!-- WEBGL INTERACTIVE SHADER CANVAS -->
-            <div class="hero-shader-stage" id="hero-shader-stage" aria-hidden="true"></div>
-            <div class="shader-cursor-spotlight" aria-hidden="true"></div>
+        <!-- HERO HEADLINE -->
+        <h1 class="hero-21-title">
+          Make complex work<br />
+          <span class="aurora-gradient-text">feel <em>effortless.</em></span>
+        </h1>
 
-            <!-- GLASS HUD COCKPIT OVERLAY -->
-            <div class="hero-hud-cockpit">
-              <!-- TOP CONTROL TELEMETRY -->
-              <div class="hud-top-bar">
-                <div class="hud-brand-tag">
-                  <span class="hud-live-beacon" aria-hidden="true"></span>
-                  <span class="hud-system-title">ENTERPRISE OPERATIONS ENGINE</span>
-                  <span class="hud-sep" aria-hidden="true">·</span>
-                  <span class="hud-location">BENGALURU SOVEREIGN CLOUD</span>
-                </div>
-                <div class="hud-ping-pill" title="Sub-12ms Tier-IV Bengaluru latency">
-                  <span class="hud-ping-dot"></span>
-                  <span>12ms</span>
-                  <span class="hud-ping-sep">|</span>
-                  <span>99.98% SLA</span>
-                </div>
-              </div>
+        <!-- HERO LEDE -->
+        <p class="hero-21-lede">
+          OJIX is an enterprise software company in Bengaluru. We build custom ERP, mission-critical operating platforms, and carefully applied AI that turn fragmented work into connected operations.
+        </p>
 
-              <!-- INTERACTIVE SUITE TABS (KEYWORD FILTERING & WORKFLOW SWITCHING) -->
-              <div class="hud-suite-tabs" role="tablist" aria-label="Enterprise operational suites">
-                <button type="button" role="tab" class="hud-tab is-active" id="tab-company" aria-selected="true" aria-controls="view-company" data-engine-tab="company" tabindex="0">
-                  <span class="tab-indicator" aria-hidden="true"></span>
-                  <span>Enterprise ERP</span>
-                </button>
-                <button type="button" role="tab" class="hud-tab" id="tab-legal" aria-selected="false" aria-controls="view-legal" data-engine-tab="legal" tabindex="-1">
-                  <span class="tab-indicator" aria-hidden="true"></span>
-                  <span>Litigation Practice</span>
-                </button>
-                <button type="button" role="tab" class="hud-tab" id="tab-procure" aria-selected="false" aria-controls="view-procure" data-engine-tab="procure" tabindex="-1">
-                  <span class="tab-indicator" aria-hidden="true"></span>
-                  <span>Procure-to-Pay</span>
-                </button>
-              </div>
+        <!-- AMBIENT ACTION LABELS & CTAS -->
+        <div class="hero-21-actions">
+          <a class="btn btn-primary hero-btn-glow" href="#solution-finder">
+            <span>Find your solution</span>
+            <span class="btn-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-ghost hero-btn-ambient" href="#platforms">
+            <span>Explore our platforms</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
 
-              <!-- VIEW 1: ENTERPRISE ERP (COMPANYOS) -->
-              <div class="hud-view-panel is-active" id="view-company" role="tabpanel" aria-labelledby="tab-company">
-                <div class="hud-view-kicker">
-                  <span class="kicker-label">MULTI-ENTITY CORE · SOVEREIGN COMPLIANCE LEDGER</span>
-                  <span class="kicker-badge status-live"><span class="kicker-dot"></span> 4 Systems In Active Sync</span>
-                </div>
-                <h2 class="hud-view-title">Unified Multi-Entity Operations &amp; Statutory Core</h2>
+        <!-- TRUST PROOF CITATION -->
+        <div class="hero-21-proof">
+          <span class="proof-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+            </svg>
+          </span>
+          <span>Built for actual workflows. <strong>Not software for software’s sake.</strong></span>
+        </div>
 
-                <!-- EYE-CATCHING DESCRIPTIVE KEYWORD BADGES -->
-                <div class="hud-keyword-grid">
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">⚡</span>
-                      <strong>Biometric Payroll &amp; EPF/ESI</strong>
-                      <span class="keyword-pill pill-green">Compliant</span>
-                    </div>
-                    <div class="keyword-desc">240+ active staff · Daily biometric lock · Zero shortfall statutory challans</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">⚖️</span>
-                      <strong>Procure-to-Pay 3-Way Match</strong>
-                      <span class="keyword-pill pill-blue">Reconciled</span>
-                    </div>
-                    <div class="keyword-desc">PO #8492 (₹18.4L) auto-matched to dock GRN and GSTN IRN authentication</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">🧾</span>
-                      <strong>Dual-Ledger GSTN Filing</strong>
-                      <span class="keyword-pill pill-orange">ITC Secured</span>
-                    </div>
-                    <div class="keyword-desc">Automated GSTR-2B match guarantees 100% tax credit eligibility</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">🛡️</span>
-                      <strong>DPDP 2023 Sovereign Vault</strong>
-                      <span class="keyword-pill pill-purple">MeitY Cloud</span>
-                    </div>
-                    <div class="keyword-desc">Tier-IV Bengaluru data residency · Cryptographically signed consent ledgers</div>
-                  </div>
-                </div>
-
-                <!-- LIVE TELEMETRY STRIP -->
-                <div class="hud-telemetry-bar">
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">240+</span>
-                    <span class="telemetry-label">Staff Synced</span>
-                  </div>
-                  <div class="telemetry-divider"></div>
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">₹18.4L</span>
-                    <span class="telemetry-label">PO Matched</span>
-                  </div>
-                  <div class="telemetry-divider"></div>
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">100%</span>
-                    <span class="telemetry-label">ITC Secured</span>
-                  </div>
-                  <div class="telemetry-waveform" aria-hidden="true">
-                    <svg viewBox="0 0 80 20" fill="none" class="pulse-wave">
-                      <path d="M0,10 Q10,2 20,10 T40,10 T60,2 T80,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="hud-view-action">
-                  <a href="#platforms" class="hud-action-link">
-                    <span>Explore Enterprise ERP Architecture &amp; Workflows</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- VIEW 2: LITIGATION PRACTICE (LEGALOS) -->
-              <div class="hud-view-panel" id="view-legal" role="tabpanel" aria-labelledby="tab-legal" hidden>
-                <div class="hud-view-kicker">
-                  <span class="kicker-label">HIGH COURT OF KARNATAKA · COMMERCIAL DIVISION</span>
-                  <span class="kicker-badge status-urgent"><span class="kicker-dot"></span> Sec. 34: 18 Days Left</span>
-                </div>
-                <h2 class="hud-view-title">Daily Cause List Telemetry &amp; Statutory Limitation Guard</h2>
-
-                <div class="hud-keyword-grid">
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">🏛️</span>
-                      <strong>High Court Cause List Parser</strong>
-                      <span class="keyword-pill pill-blue">Live Roster</span>
-                    </div>
-                    <div class="keyword-desc">Court Hall 04, Item 28 listed before Single Judge · Real-time WhatsApp alert</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">⚖️</span>
-                      <strong>Sec. 34(3) Limitation Guard</strong>
-                      <span class="keyword-pill pill-green">Verified</span>
-                    </div>
-                    <div class="keyword-desc">Arbitral award served 14 July · 90-day statutory bar locked with vacation rules</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">📜</span>
-                      <strong>Class-3 DSC Digital Vakalatnama</strong>
-                      <span class="keyword-pill pill-purple">Executed</span>
-                    </div>
-                    <div class="keyword-desc">Senior Advocate cryptographic signing token verified under IT Act 2000</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">📁</span>
-                      <strong>Certified Paperbook &amp; Pleadings Index</strong>
-                      <span class="keyword-pill pill-orange">e-Filed</span>
-                    </div>
-                    <div class="keyword-desc">582 pages indexed with SHA-256 e-filing receipt token #KA-89104</div>
-                  </div>
-                </div>
-
-                <div class="hud-telemetry-bar">
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">1,240+</span>
-                    <span class="telemetry-label">Active Matters</span>
-                  </div>
-                  <div class="telemetry-divider"></div>
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">12</span>
-                    <span class="telemetry-label">Benches Live</span>
-                  </div>
-                  <div class="telemetry-divider"></div>
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">0</span>
-                    <span class="telemetry-label">Missed Hearings</span>
-                  </div>
-                  <div class="telemetry-waveform" aria-hidden="true">
-                    <svg viewBox="0 0 80 20" fill="none" class="pulse-wave">
-                      <path d="M0,10 Q10,18 20,10 T40,10 T60,18 T80,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="hud-view-action">
-                  <a href="legalos.html" class="hud-action-link">
-                    <span>Explore LegalOS Architecture &amp; Court Workflows</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- VIEW 3: PROCURE-TO-PAY (PROCUREOS) -->
-              <div class="hud-view-panel" id="view-procure" role="tabpanel" aria-labelledby="tab-procure" hidden>
-                <div class="hud-view-kicker">
-                  <span class="kicker-label">SUPPLY CHAIN OPERATIONS · FISCAL GOVERNANCE</span>
-                  <span class="kicker-badge status-live"><span class="kicker-dot"></span> 100% Reconciled · ₹0 Leakage</span>
-                </div>
-                <h2 class="hud-view-title">Live 3-Way Match &amp; GSTN Input Tax Credit Engine</h2>
-
-                <div class="hud-keyword-grid">
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">⚡</span>
-                      <strong>Automated 3-Way Match</strong>
-                      <span class="keyword-pill pill-green">Approved</span>
-                    </div>
-                    <div class="keyword-desc">PO ₹18,40,000 + 18% GST matched with approved vendor price contract</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">📦</span>
-                      <strong>Warehouse Dock GRN #312</strong>
-                      <span class="keyword-pill pill-blue">Dock Ingested</span>
-                    </div>
-                    <div class="keyword-desc">100% quantity physically barcode scanned into Bengaluru central inventory</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">🧾</span>
-                      <strong>GST e-Invoice &amp; IRN Authentication</strong>
-                      <span class="keyword-pill pill-purple">GSTN Validated</span>
-                    </div>
-                    <div class="keyword-desc">IRN hash verified against GST portal · 0.00% mismatch · Full GSTR-2B claimed</div>
-                  </div>
-
-                  <div class="hud-keyword-card">
-                    <div class="keyword-head">
-                      <span class="keyword-icon">🏦</span>
-                      <strong>Direct Bank API Payment Voucher</strong>
-                      <span class="keyword-pill pill-orange">Batch Queued</span>
-                    </div>
-                    <div class="keyword-desc">Voucher queued for dual-approval disbursement on contractual due date</div>
-                  </div>
-                </div>
-
-                <div class="hud-telemetry-bar">
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">₹0</span>
-                    <span class="telemetry-label">Fiscal Leakage</span>
-                  </div>
-                  <div class="telemetry-divider"></div>
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">0.00%</span>
-                    <span class="telemetry-label">GST Mismatch</span>
-                  </div>
-                  <div class="telemetry-divider"></div>
-                  <div class="telemetry-item">
-                    <span class="telemetry-value">100%</span>
-                    <span class="telemetry-label">GSTR-2B ITC</span>
-                  </div>
-                  <div class="telemetry-waveform" aria-hidden="true">
-                    <svg viewBox="0 0 80 20" fill="none" class="pulse-wave">
-                      <path d="M0,10 Q10,4 20,10 T40,10 T60,4 T80,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="hud-view-action">
-                  <a href="procureos.html" class="hud-action-link">
-                    <span>Explore ProcureOS Architecture &amp; Financial Workflows</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
+        <!-- OPERATIONAL SUITE PILLS (NO SILLY METRICS, ZERO OVERFLOW) -->
+        <div class="hero-21-platform-strip" role="region" aria-label="Core enterprise operating platforms">
+          <a href="#platforms" class="hero-suite-pill" data-platform="company">
+            <span class="suite-pill-icon">🏢</span>
+            <span class="suite-pill-name">CompanyOS</span>
+            <span class="suite-pill-tag">Enterprise ERP</span>
+          </a>
+          <a href="legalos.html" class="hero-suite-pill" data-platform="legal">
+            <span class="suite-pill-icon">⚖️</span>
+            <span class="suite-pill-name">LegalOS</span>
+            <span class="suite-pill-tag">Litigation Practice</span>
+          </a>
+          <a href="procureos.html" class="hero-suite-pill" data-platform="procure">
+            <span class="suite-pill-icon">📦</span>
+            <span class="suite-pill-name">ProcureOS</span>
+            <span class="suite-pill-tag">Procure-to-Pay</span>
+          </a>
+          <a href="campusos.html" class="hero-suite-pill" data-platform="campus">
+            <span class="suite-pill-icon">🎓</span>
+            <span class="suite-pill-name">CampusOS</span>
+            <span class="suite-pill-tag">Higher Education</span>
+          </a>
+          <a href="dpdp-compliance.html" class="hero-suite-pill" data-platform="dpdp">
+            <span class="suite-pill-icon">🛡️</span>
+            <span class="suite-pill-name">DPDP Vault</span>
+            <span class="suite-pill-tag">Sovereign Fiduciary</span>
+          </a>
         </div>
       </div>
+
       <div class="hero-bottom shell">
         <span>PRODUCT THINKING</span>
         <span class="bottom-bullet">·</span>
@@ -1334,7 +1133,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.2.0" defer></script>
-  <script type="module" src="assets/vendor/visual-effects.js?v=3.2.0"></script>
+  <script src="app.js?v=3.3.0" defer></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.3.0"></script>
 </body>
 </html>

@@ -799,6 +799,508 @@ h1 em, h2 em {
 }
 
 /* ==========================================================================
+   REACT BITS PRO: HERO 21 - AURORA HERO WITH GLOWING ORB MARK
+   https://pro.reactbits.dev/docs/blocks/hero-section/hero-21
+   ========================================================================== */
+
+.hero.hero-21 {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 64px 0 44px;
+  background-color: #FAF7F2;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(201, 102, 47, 0.14) 0%, transparent 62%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 50%, #F5F1EA 100%);
+}
+
+.hero-aurora-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+}
+
+.hero-aurora-canvas.aurora-fallback {
+  background:
+    radial-gradient(1000px 500px at 50% 15%, rgba(249, 115, 22, 0.22) 0%, rgba(201, 102, 47, 0.12) 35%, transparent 68%),
+    radial-gradient(ellipse 75% 45% at 30% 25%, rgba(201, 102, 47, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 65% 50% at 75% 20%, rgba(15, 28, 46, 0.08) 0%, transparent 60%);
+  animation: aurora-drift 12s infinite alternate ease-in-out;
+}
+
+@keyframes aurora-drift {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.05) translateY(-10px); }
+  100% { transform: scale(0.98) translateY(5px); }
+}
+
+.hero-aurora-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 32%, transparent 35%, rgba(250, 247, 242, 0.6) 80%, #FAF7F2 100%);
+}
+
+.hero-21-content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-21-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+/* Glowing Orb Mark */
+.hero-glowing-orb {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(var(--orb-shift-x, 0px), var(--orb-shift-y, 0px));
+  transition: transform 0.15s ease-out;
+}
+
+.orb-halo-outer {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.38) 0%, rgba(201, 102, 47, 0.16) 45%, transparent 72%);
+  animation: orb-pulse-outer 4s infinite ease-in-out;
+}
+
+.orb-halo-inner {
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 180, 100, 0.60) 0%, rgba(201, 102, 47, 0.28) 50%, transparent 75%);
+  animation: orb-pulse-inner 2.8s infinite ease-in-out;
+}
+
+.orb-sphere {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #FFF5EB 0%, #F97316 35%, #C9662F 68%, #0F1C2E 100%);
+  box-shadow: 
+    0 0 35px 8px rgba(249, 115, 22, 0.45),
+    0 0 65px 20px rgba(201, 102, 47, 0.25),
+    inset -3px -3px 8px rgba(15, 28, 46, 0.65),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.85);
+  animation: orb-float 5s infinite ease-in-out;
+  cursor: pointer;
+}
+
+.orb-specular {
+  position: absolute;
+  top: 18%;
+  left: 24%;
+  width: 14px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  filter: blur(1px);
+  transform: rotate(-35deg);
+}
+
+.orb-core-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+  animation: orb-core-shimmer 3s infinite ease-in-out alternate;
+}
+
+.orb-beam {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 60px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(249, 115, 22, 0.28) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes orb-pulse-outer {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes orb-pulse-inner {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes orb-core-shimmer {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+/* Eyebrow Pill */
+.hero-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(201, 102, 47, 0.28);
+  border-radius: 999px;
+  padding: 5px 15px;
+  box-shadow: 0 4px 18px rgba(201, 102, 47, 0.08), 0 1px 3px rgba(15, 28, 46, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pill-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(201, 102, 47, 0.25);
+  animation: engine-pulse 2.2s infinite ease-in-out;
+}
+
+.pill-label {
+  font-family: var(--font-mono, 'SF Mono', Menlo, Consolas, monospace);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+
+.pill-sep {
+  color: #CBD5E1;
+}
+
+.pill-loc {
+  font-family: var(--font-mono, 'SF Mono', Menlo, Consolas, monospace);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--orange-deep);
+}
+
+/* Headline */
+.hero-21-title {
+  font-size: clamp(38px, 6.2vw, 68px) !important;
+  font-weight: 850 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--navy) !important;
+  margin: 0 auto 20px !important;
+  max-width: 900px;
+}
+
+.aurora-gradient-text {
+  background: linear-gradient(135deg, #0F1C2E 0%, #C9662F 55%, #E67E22 85%, #B85320 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-21-title em {
+  font-style: italic;
+  font-weight: 850;
+  background: linear-gradient(135deg, #C9662F 0%, #F97316 60%, #E67E22 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Lede */
+.hero-21-lede {
+  font-size: clamp(16px, 1.8vw, 19px) !important;
+  line-height: 1.55 !important;
+  color: #475569 !important;
+  max-width: 680px;
+  margin: 0 auto 32px !important;
+  font-weight: 450;
+}
+
+/* Actions */
+.hero-21-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-glow {
+  position: relative;
+  box-shadow: 0 4px 20px rgba(201, 102, 47, 0.35);
+  transition: all 0.25s ease;
+}
+
+.hero-btn-glow:hover {
+  box-shadow: 0 8px 30px rgba(201, 102, 47, 0.50);
+  transform: translateY(-2px);
+}
+
+.hero-btn-ambient {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 28, 46, 0.12);
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(15, 28, 46, 0.04);
+  transition: all 0.25s ease;
+}
+
+.hero-btn-ambient:hover {
+  background: #FFFFFF;
+  border-color: rgba(201, 102, 47, 0.35);
+  color: var(--orange-deep);
+  transform: translateY(-2px);
+}
+
+/* Proof */
+.hero-21-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 36px;
+}
+
+.hero-21-proof strong {
+  color: var(--navy);
+}
+
+/* Platform Strip Pills */
+.hero-21-platform-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.hero-suite-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 999px;
+  padding: 8px 16px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(15, 28, 46, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-suite-pill:hover {
+  background: #FFFFFF;
+  border-color: rgba(201, 102, 47, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 102, 47, 0.12);
+}
+
+.suite-pill-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.suite-pill-name {
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--navy);
+}
+
+.suite-pill-tag {
+  font-size: 11.5px;
+  font-weight: 550;
+  color: #64748B;
+  padding-left: 4px;
+  border-left: 1px solid #E2E8F0;
+}
+
+/* Pillar Page Integration with Hero 21 */
+.pillar-hero-21 {
+  padding-top: 36px;
+}
+
+.pillar-hero-21 .pillar-breadcrumb-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 22px;
+  padding: 0;
+}
+
+.pillar-hero-21 .breadcrumb-nav {
+  display: inline-flex;
+}
+
+.pillar-hero-21 .breadcrumb-list {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(15, 28, 46, 0.08);
+  box-shadow: 0 2px 12px rgba(15, 28, 46, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hero 21 Responsive Breakpoints */
+@media (max-width: 820px) {
+  .hero.hero-21 {
+    min-height: auto;
+    padding: 48px 0 36px;
+  }
+
+  .hero-21-title {
+    font-size: clamp(30px, 7vw, 44px) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-21-lede {
+    font-size: 15.5px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-21-actions {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-21-actions .btn {
+    padding: 12px 20px;
+    font-size: 13.5px;
+  }
+
+  .hero-21-platform-strip {
+    gap: 8px;
+  }
+
+  .hero-suite-pill {
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero.hero-21 {
+    padding: 36px 0 28px;
+  }
+
+  .pillar-hero-21 {
+    padding-top: 20px;
+  }
+
+  .pillar-hero-21 .pillar-breadcrumb-wrap {
+    margin-bottom: 16px;
+  }
+
+  .hero-glowing-orb {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .orb-halo-outer {
+    width: 96px;
+    height: 96px;
+  }
+
+  .orb-halo-inner {
+    width: 68px;
+    height: 68px;
+  }
+
+  .orb-sphere {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-eyebrow-pill {
+    padding: 4px 12px;
+    gap: 6px;
+  }
+
+  .pill-label {
+    font-size: 9.5px;
+  }
+
+  .pill-loc {
+    font-size: 9px;
+  }
+
+  .hero-21-title {
+    font-size: clamp(25px, 8vw, 32px) !important;
+  }
+
+  .hero-21-lede {
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .hero-21-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto 18px;
+  }
+
+  .hero-21-actions .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 13px;
+  }
+
+  .hero-21-proof {
+    font-size: 12px;
+    margin-bottom: 24px;
+    text-align: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-21-platform-strip {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    gap: 6px;
+  }
+
+  .hero-suite-pill {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 14px;
+  }
+}
+
+/* ==========================================================================
    REACT BITS PRO: HERO 3 ROUNDED GRADIENT SHADER & CURSOR COCKPIT
    https://pro.reactbits.dev/docs/blocks/hero-section/hero-3
    ========================================================================== */
