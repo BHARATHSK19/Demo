@@ -1765,7 +1765,8 @@ export function initHeroAuroraShader(containerElement, options = {}) {
 }
 
 import { initScrollStack } from './components/scroll-stack.js';
-export { initScrollStack };
+import { initVaporType } from './components/vapor-type.js';
+export { initScrollStack, initVaporType };
 
 // ============================================================================
 // 5. AUTO INITIALIZATION (Theme Adapted for OJIX)
@@ -1774,6 +1775,12 @@ export { initScrollStack };
 export function autoInitVisuals() {
   const isFinePointer = window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ?? true;
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  // React Bits Pro: Vapor Type for High-Impact Headings & Key Words
+  const vaporTypeElements = document.querySelectorAll('.vapor-type, [data-vapor-words]');
+  vaporTypeElements.forEach((el) => {
+    initVaporType(el);
+  });
 
   // React Bits Pro: Scroll Stack for Portfolio Showcase
   const scrollStackContainers = document.querySelectorAll('.scroll-stack-container, #portfolio-scroll-stack');

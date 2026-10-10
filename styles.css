@@ -8049,4 +8049,77 @@ body.has-blob-cursor *::after {
   label {
     cursor: auto !important;
   }
+  .vapor-type-canvas-wrap {
+    display: none !important;
+  }
+  .vapor-type-words > span[data-vapor-word]:first-child {
+    color: inherit !important;
+  }
+}
+
+/* ==========================================================================
+   REACT BITS PRO: VAPOR TYPE COMPONENT
+   Words that condense out of vapor and drift away
+   ========================================================================== */
+
+.vapor-type,
+.vapor-type-container {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.vapor-type-sizer {
+  grid-area: 1 / 1;
+  display: inline-grid;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.vapor-type-sizer > span {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.vapor-type-words {
+  grid-area: 1 / 1;
+  display: inline-grid;
+  position: relative;
+}
+
+.vapor-type-words > span[data-vapor-word] {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  color: transparent;
+  user-select: none;
+}
+
+.vapor-type-canvas-wrap {
+  position: absolute;
+  inset: -1.5em;
+  display: block;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+
+.vapor-type-canvas-wrap canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.vapor-type-fallback .vapor-type-words > span[data-vapor-word]:first-child {
+  color: inherit !important;
+}
+
+.vapor-type-fallback .vapor-type-canvas-wrap {
+  display: none !important;
 }
