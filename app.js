@@ -86,10 +86,12 @@ if (counterElements.length > 0 && 'IntersectionObserver' in window) {
       if (entry.isIntersecting) {
         const el = entry.target;
         observer.unobserve(el);
-        const target = parseInt(el.getAttribute('data-target'), 10);
+        const rawTarget = el.getAttribute('data-target');
+        const isDecimal = rawTarget && rawTarget.includes('.');
+        const target = isDecimal ? parseFloat(rawTarget) : parseInt(rawTarget, 10);
         const prefix = el.getAttribute('data-prefix') || '';
         if (prefersReducedMotion || isNaN(target)) {
-          el.textContent = `${prefix}${target}`;
+          el.textContent = `${prefix}${rawTarget}`;
           return;
         }
 
@@ -100,13 +102,14 @@ if (counterElements.length > 0 && 'IntersectionObserver' in window) {
           const elapsed = now - startTime;
           const progress = Math.min(elapsed / duration, 1);
           const easeOut = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(target * easeOut);
-          el.textContent = `${prefix}${current}`;
+          const currentVal = target * easeOut;
+          const displayVal = isDecimal ? currentVal.toFixed(1) : Math.round(currentVal);
+          el.textContent = `${prefix}${displayVal}`;
 
           if (progress < 1) {
             requestAnimationFrame(animateCounter);
           } else {
-            el.textContent = `${prefix}${target}`;
+            el.textContent = `${prefix}${rawTarget}`;
           }
         }
         requestAnimationFrame(animateCounter);
@@ -241,9 +244,9 @@ function setupAccessibleTabs(tablist) {
   });
 }
 
-// 4C. OJIX HERO ARCHITECTURE ENGINE INTERACTION
-const engineTabs = document.querySelectorAll('.engine-tab[data-engine-tab]');
-const engineViews = document.querySelectorAll('.engine-view');
+// 4C. OJIX HERO ARCHITECTURE ENGINE INTERACTION (React Bits Pro Hero 3)
+const engineTabs = document.querySelectorAll('.engine-tab[data-engine-tab], .hud-tab[data-engine-tab]');
+const engineViews = document.querySelectorAll('.engine-view, .hud-view-panel');
 
 if (engineTabs.length > 0) {
   engineTabs.forEach((tab) => {
@@ -252,7 +255,7 @@ if (engineTabs.length > 0) {
       const targetId = `view-${mode}`;
 
       engineTabs.forEach((t) => {
-        const active = t === tab;
+        const active = t.dataset.engineTab === mode;
         t.classList.toggle('is-active', active);
         t.setAttribute('aria-selected', String(active));
         t.setAttribute('tabindex', active ? '0' : '-1');
@@ -308,16 +311,115 @@ if (document.readyState === 'loading') {
   initAccessibleTabs();
 }
 
-// Spotlight cursor reflection on hero engine surface
-const heroEngine = document.querySelector('.hero-engine-surface') || document.querySelector('.workspace-window');
-if (heroEngine && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  heroEngine.addEventListener('pointermove', (e) => {
-    const rect = heroEngine.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    heroEngine.style.setProperty('--mouse-x', `${x}px`);
-    heroEngine.style.setProperty('--mouse-y', `${y}px`);
+// ==========================================================================
+// REACT BITS PRO HERO 3: DYNAMIC GRADIENT & CURSOR SPOTLIGHT ENGINE
+// Adapted for OJIX Native Enterprise Architecture & Performance
+// ==========================================================================
+function initHero3CursorEffects() {
+  if (prefersReducedMotion || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const heroSections = document.querySelectorAll('.hero, .pillar-hero-section');
+  heroSections.forEach((section) => {
+    let ticking = false;
+    let clientX = 0;
+    let clientY = 0;
+
+    const updateHeroSpotlight = () => {
+      const rect = section.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) {
+        ticking = false;
+        return;
+      }
+      const rawPxX = Math.round(clientX - rect.left);
+      const rawPxY = Math.round(clientY - rect.top);
+      const pxX = Math.max(0, Math.min(Math.round(rect.width), rawPxX));
+      const pxY = Math.max(0, Math.min(Math.round(rect.height), rawPxY));
+      const pctX = ((pxX / rect.width) * 100).toFixed(2);
+      const pctY = ((pxY / rect.height) * 100).toFixed(2);
+
+      section.style.setProperty('--cursor-px-x', `${pxX}px`);
+      section.style.setProperty('--cursor-px-y', `${pxY}px`);
+      section.style.setProperty('--cursor-x', `${pctX}%`);
+      section.style.setProperty('--cursor-y', `${pctY}%`);
+
+      ticking = false;
+    };
+
+    const onPointerMove = (e) => {
+      clientX = e.clientX;
+      clientY = e.clientY;
+      if (!ticking) {
+        requestAnimationFrame(updateHeroSpotlight);
+        ticking = true;
+      }
+    };
+
+    const onPointerLeave = () => {
+      const rect = section.getBoundingClientRect();
+      section.style.setProperty('--cursor-x', '50%');
+      section.style.setProperty('--cursor-y', '25%');
+      if (rect.width > 0 && rect.height > 0) {
+        section.style.setProperty('--cursor-px-x', `${Math.round(rect.width * 0.5)}px`);
+        section.style.setProperty('--cursor-px-y', `${Math.round(rect.height * 0.25)}px`);
+      }
+    };
+
+    section.addEventListener('pointermove', onPointerMove, { passive: true });
+    section.addEventListener('pointerleave', onPointerLeave, { passive: true });
   });
+
+  // Interactive Card Border Glow Spotlight
+  const interactiveCards = document.querySelectorAll('.hero-engine-surface, .workspace-window');
+  interactiveCards.forEach((card) => {
+    let cardTicking = false;
+    let cX = 0;
+    let cY = 0;
+
+    const updateCardSpotlight = () => {
+      const rect = card.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) {
+        cardTicking = false;
+        return;
+      }
+      const rawCardX = Math.round(cX - rect.left);
+      const rawCardY = Math.round(cY - rect.top);
+      const cardX = Math.max(0, Math.min(Math.round(rect.width), rawCardX));
+      const cardY = Math.max(0, Math.min(Math.round(rect.height), rawCardY));
+
+      card.style.setProperty('--card-cursor-x', `${cardX}px`);
+      card.style.setProperty('--card-cursor-y', `${cardY}px`);
+      card.style.setProperty('--mouse-x', `${cardX}px`);
+      card.style.setProperty('--mouse-y', `${cardY}px`);
+
+      cardTicking = false;
+    };
+
+    const onCardMove = (e) => {
+      cX = e.clientX;
+      cY = e.clientY;
+      if (!cardTicking) {
+        requestAnimationFrame(updateCardSpotlight);
+        cardTicking = true;
+      }
+    };
+
+    const onCardLeave = () => {
+      card.style.setProperty('--card-cursor-x', '50%');
+      card.style.setProperty('--card-cursor-y', '50%');
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    };
+
+    card.addEventListener('pointermove', onCardMove, { passive: true });
+    card.addEventListener('pointerleave', onCardLeave, { passive: true });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHero3CursorEffects);
+} else {
+  initHero3CursorEffects();
 }
 
 // 5. NAVIGATION SCROLLSPY
@@ -363,24 +465,43 @@ if (menuToggle && mainNav) {
     mainNav.classList.remove('is-open');
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-label', 'Open navigation menu');
+    document.body.classList.remove('nav-open');
     if (returnFocus) menuToggle.focus();
   };
 
-  menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
     const open = menuToggle.getAttribute('aria-expanded') !== 'true';
     menuToggle.setAttribute('aria-expanded', String(open));
     menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     mainNav.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-open', open);
     if (open) mainNav.querySelector('a')?.focus();
   });
+
   mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
     closeNavigation();
   }));
+
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
       closeNavigation({ returnFocus: true });
     }
   });
+
+  document.addEventListener('click', (event) => {
+    if (mainNav.classList.contains('is-open') && !mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+      closeNavigation();
+    }
+  });
+
+  const handleViewportResize = () => {
+    if (window.innerWidth > 820 && mainNav.classList.contains('is-open')) {
+      closeNavigation();
+    }
+  };
+  window.addEventListener('resize', handleViewportResize, { passive: true });
+  window.addEventListener('orientationchange', handleViewportResize, { passive: true });
 }
 
 // 7. GENTLE REVEAL SYSTEM

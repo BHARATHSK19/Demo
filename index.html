@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#f7f7f5" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="format-detection" content="telephone=no" />
@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2.9.1" />
+  <link rel="stylesheet" href="styles.css?v=3.2.0" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -218,6 +218,7 @@
   <main id="main">
     <section class="hero section-pad">
       <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="hero-cursor-spotlight" aria-hidden="true"></div>
       <div class="hero-grid shell">
         <div class="hero-copy reveal">
           <div class="eyebrow">SOFTWARE, ENGINEERED AROUND THE WORK</div>
@@ -230,214 +231,277 @@
           <div class="hero-proof"><span class="proof-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/></svg></span><span>Built for actual workflows.<br /><strong>Not software for software’s sake.</strong></span></div>
         </div>
 
-        <div class="hero-visual reveal" role="region" aria-label="OJIX Connected Enterprise Architecture">
-          <div class="hero-engine-surface" id="hero-engine">
-            <!-- ENGINE CONTROL BAR -->
-            <div class="engine-bar">
-              <div class="engine-status">
-                <span class="engine-pulse" aria-hidden="true"></span>
-                <span class="engine-tag">OJIX KERNEL v2.8</span>
-                <span class="engine-sep">·</span>
-                <span class="engine-location">BENGALURU SOVEREIGN HOST</span>
-              </div>
-              <div class="engine-tabs" role="tablist" aria-label="Enterprise platform architectures">
-                <button type="button" role="tab" class="engine-tab is-active" id="tab-company" aria-selected="true" aria-controls="view-company" data-engine-tab="company" tabindex="0">CompanyOS</button>
-                <button type="button" role="tab" class="engine-tab" id="tab-legal" aria-selected="false" aria-controls="view-legal" data-engine-tab="legal" tabindex="-1">LegalOS</button>
-                <button type="button" role="tab" class="engine-tab" id="tab-procure" aria-selected="false" aria-controls="view-procure" data-engine-tab="procure" tabindex="-1">ProcureOS</button>
-              </div>
-            </div>
+        <div class="hero-visual reveal" role="region" aria-label="OJIX Connected Enterprise Operations Cockpit - React Bits Pro Hero 3">
+          <!-- REACT BITS PRO HERO 3: ROUNDED WEBGL GRADIENT SHADER PORTAL -->
+          <div class="hero-gradient-card" id="hero-bits-card">
+            <!-- WEBGL INTERACTIVE SHADER CANVAS -->
+            <div class="hero-shader-stage" id="hero-shader-stage" aria-hidden="true"></div>
+            <div class="shader-cursor-spotlight" aria-hidden="true"></div>
 
-            <!-- VIEW 1: COMPANYOS (UNIFIED ENTERPRISE CORE - DEFAULT) -->
-            <div class="engine-view is-active" id="view-company" role="tabpanel" aria-labelledby="tab-company">
-              <div class="view-header">
-                <div>
-                  <span class="view-kicker">ENTERPRISE FOUNDATION · CONNECTED OPERATING LAYER</span>
-                  <h2 class="view-title">Unified Operating Core &amp; Governance</h2>
+            <!-- GLASS HUD COCKPIT OVERLAY -->
+            <div class="hero-hud-cockpit">
+              <!-- TOP CONTROL TELEMETRY -->
+              <div class="hud-top-bar">
+                <div class="hud-brand-tag">
+                  <span class="hud-live-beacon" aria-hidden="true"></span>
+                  <span class="hud-system-title">ENTERPRISE OPERATIONS ENGINE</span>
+                  <span class="hud-sep" aria-hidden="true">·</span>
+                  <span class="hud-location">BENGALURU SOVEREIGN CLOUD</span>
                 </div>
-                <div class="view-pill status-live">
-                  <span class="pill-dot"></span>
-                  <span>4 Systems In Sync</span>
+                <div class="hud-ping-pill" title="Sub-12ms Tier-IV Bengaluru latency">
+                  <span class="hud-ping-dot"></span>
+                  <span>12ms</span>
+                  <span class="hud-ping-sep">|</span>
+                  <span>99.98% SLA</span>
                 </div>
               </div>
 
-              <div class="connected-matrix">
-                <div class="matrix-tile">
-                  <div class="matrix-head">
-                    <span class="matrix-num">01</span>
-                    <strong>Workforce &amp; Payroll</strong>
-                    <span class="matrix-badge">Compliant</span>
+              <!-- INTERACTIVE SUITE TABS (KEYWORD FILTERING & WORKFLOW SWITCHING) -->
+              <div class="hud-suite-tabs" role="tablist" aria-label="Enterprise operational suites">
+                <button type="button" role="tab" class="hud-tab is-active" id="tab-company" aria-selected="true" aria-controls="view-company" data-engine-tab="company" tabindex="0">
+                  <span class="tab-indicator" aria-hidden="true"></span>
+                  <span>Enterprise ERP</span>
+                </button>
+                <button type="button" role="tab" class="hud-tab" id="tab-legal" aria-selected="false" aria-controls="view-legal" data-engine-tab="legal" tabindex="-1">
+                  <span class="tab-indicator" aria-hidden="true"></span>
+                  <span>Litigation Practice</span>
+                </button>
+                <button type="button" role="tab" class="hud-tab" id="tab-procure" aria-selected="false" aria-controls="view-procure" data-engine-tab="procure" tabindex="-1">
+                  <span class="tab-indicator" aria-hidden="true"></span>
+                  <span>Procure-to-Pay</span>
+                </button>
+              </div>
+
+              <!-- VIEW 1: ENTERPRISE ERP (COMPANYOS) -->
+              <div class="hud-view-panel is-active" id="view-company" role="tabpanel" aria-labelledby="tab-company">
+                <div class="hud-view-kicker">
+                  <span class="kicker-label">MULTI-ENTITY CORE · SOVEREIGN COMPLIANCE LEDGER</span>
+                  <span class="kicker-badge status-live"><span class="kicker-dot"></span> 4 Systems In Active Sync</span>
+                </div>
+                <h2 class="hud-view-title">Unified Multi-Entity Operations &amp; Statutory Core</h2>
+
+                <!-- EYE-CATCHING DESCRIPTIVE KEYWORD BADGES -->
+                <div class="hud-keyword-grid">
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">⚡</span>
+                      <strong>Biometric Payroll &amp; EPF/ESI</strong>
+                      <span class="keyword-pill pill-green">Compliant</span>
+                    </div>
+                    <div class="keyword-desc">240+ active staff · Daily biometric lock · Zero shortfall statutory challans</div>
                   </div>
-                  <p>240 active staff · Daily biometric attendance locked · EPF/ESI statutory challans reconciled with zero shortfall.</p>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">⚖️</span>
+                      <strong>Procure-to-Pay 3-Way Match</strong>
+                      <span class="keyword-pill pill-blue">Reconciled</span>
+                    </div>
+                    <div class="keyword-desc">PO #8492 (₹18.4L) auto-matched to dock GRN and GSTN IRN authentication</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">🧾</span>
+                      <strong>Dual-Ledger GSTN Filing</strong>
+                      <span class="keyword-pill pill-orange">ITC Secured</span>
+                    </div>
+                    <div class="keyword-desc">Automated GSTR-2B match guarantees 100% tax credit eligibility</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">🛡️</span>
+                      <strong>DPDP 2023 Sovereign Vault</strong>
+                      <span class="keyword-pill pill-purple">MeitY Cloud</span>
+                    </div>
+                    <div class="keyword-desc">Tier-IV Bengaluru data residency · Cryptographically signed consent ledgers</div>
+                  </div>
                 </div>
 
-                <div class="matrix-tile">
-                  <div class="matrix-head">
-                    <span class="matrix-num">02</span>
-                    <strong>Procure-to-Pay Audit</strong>
-                    <span class="matrix-badge">3-Way Match</span>
+                <!-- LIVE TELEMETRY STRIP -->
+                <div class="hud-telemetry-bar">
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">240+</span>
+                    <span class="telemetry-label">Staff Synced</span>
                   </div>
-                  <p>PO-2026-8492 (₹18.4L) verified against warehouse dock GRN #312 and GSTN IRN authentication.</p>
+                  <div class="telemetry-divider"></div>
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">₹18.4L</span>
+                    <span class="telemetry-label">PO Matched</span>
+                  </div>
+                  <div class="telemetry-divider"></div>
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">100%</span>
+                    <span class="telemetry-label">ITC Secured</span>
+                  </div>
+                  <div class="telemetry-waveform" aria-hidden="true">
+                    <svg viewBox="0 0 80 20" fill="none" class="pulse-wave">
+                      <path d="M0,10 Q10,2 20,10 T40,10 T60,2 T80,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
                 </div>
 
-                <div class="matrix-tile">
-                  <div class="matrix-head">
-                    <span class="matrix-num">03</span>
-                    <strong>Finance &amp; Statutory Tax</strong>
-                    <span class="matrix-badge">Locked</span>
-                  </div>
-                  <p>GSTR-1 &amp; 3B outward supplies reconciled · Automated TDS computation locked for statutory filing.</p>
-                </div>
-
-                <div class="matrix-tile">
-                  <div class="matrix-head">
-                    <span class="matrix-num">04</span>
-                    <strong>DPDP Act 2023 Sovereignty</strong>
-                    <span class="matrix-badge">MeitY Cloud</span>
-                  </div>
-                  <p>Tier-IV Bengaluru data residency · Granular purpose-specific consent ledgers cryptographically verified.</p>
+                <div class="hud-view-action">
+                  <a href="#platforms" class="hud-action-link">
+                    <span>Explore Enterprise ERP Architecture &amp; Workflows</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
 
-              <div class="view-footer">
-                <a href="#platforms" class="engine-link">
-                  <span>Explore CompanyOS Master Architecture</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- VIEW 2: LEGAL PRACTICE & COURT OPERATIONS -->
-            <div class="engine-view" id="view-legal" role="tabpanel" aria-labelledby="tab-legal" hidden>
-              <div class="view-header">
-                <div>
-                  <span class="view-kicker">HIGH COURT OF KARNATAKA · COMMERCIAL DIVISION</span>
-                  <h2 class="view-title">Arbitration Appeal (Com.) No. 342 of 2026</h2>
+              <!-- VIEW 2: LITIGATION PRACTICE (LEGALOS) -->
+              <div class="hud-view-panel" id="view-legal" role="tabpanel" aria-labelledby="tab-legal" hidden>
+                <div class="hud-view-kicker">
+                  <span class="kicker-label">HIGH COURT OF KARNATAKA · COMMERCIAL DIVISION</span>
+                  <span class="kicker-badge status-urgent"><span class="kicker-dot"></span> Sec. 34: 18 Days Left</span>
                 </div>
-                <div class="view-pill status-urgent">
-                  <span class="pill-dot"></span>
-                  <span>Sec. 34 Limitation: 18 Days Left</span>
-                </div>
-              </div>
+                <h2 class="hud-view-title">Daily Cause List Telemetry &amp; Statutory Limitation Guard</h2>
 
-              <div class="records-stack">
-                <div class="record-item">
-                  <div class="record-icon done" aria-hidden="true">✓</div>
-                  <div class="record-body">
-                    <div class="record-header">
+                <div class="hud-keyword-grid">
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">🏛️</span>
+                      <strong>High Court Cause List Parser</strong>
+                      <span class="keyword-pill pill-blue">Live Roster</span>
+                    </div>
+                    <div class="keyword-desc">Court Hall 04, Item 28 listed before Single Judge · Real-time WhatsApp alert</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">⚖️</span>
+                      <strong>Sec. 34(3) Limitation Guard</strong>
+                      <span class="keyword-pill pill-green">Verified</span>
+                    </div>
+                    <div class="keyword-desc">Arbitral award served 14 July · 90-day statutory bar locked with vacation rules</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">📜</span>
+                      <strong>Class-3 DSC Digital Vakalatnama</strong>
+                      <span class="keyword-pill pill-purple">Executed</span>
+                    </div>
+                    <div class="keyword-desc">Senior Advocate cryptographic signing token verified under IT Act 2000</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">📁</span>
                       <strong>Certified Paperbook &amp; Pleadings Index</strong>
-                      <span class="record-tag">e-Filed</span>
+                      <span class="keyword-pill pill-orange">e-Filed</span>
                     </div>
-                    <p>582 pages indexed with SHA-256 e-filing receipt token #KA-89104 · High Court CIS portal synced.</p>
+                    <div class="keyword-desc">582 pages indexed with SHA-256 e-filing receipt token #KA-89104</div>
                   </div>
                 </div>
 
-                <div class="record-item">
-                  <div class="record-icon done" aria-hidden="true">✓</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>Section 34(3) Statutory Limitation Calculator</strong>
-                      <span class="record-tag">Verified</span>
-                    </div>
-                    <p>Arbitral award served 14 July 2026 · 90-day statutory bar strictly locked to 28 Oct 2026.</p>
+                <div class="hud-telemetry-bar">
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">1,240+</span>
+                    <span class="telemetry-label">Active Matters</span>
+                  </div>
+                  <div class="telemetry-divider"></div>
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">12</span>
+                    <span class="telemetry-label">Benches Live</span>
+                  </div>
+                  <div class="telemetry-divider"></div>
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">0</span>
+                    <span class="telemetry-label">Missed Hearings</span>
+                  </div>
+                  <div class="telemetry-waveform" aria-hidden="true">
+                    <svg viewBox="0 0 80 20" fill="none" class="pulse-wave">
+                      <path d="M0,10 Q10,18 20,10 T40,10 T60,18 T80,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                   </div>
                 </div>
 
-                <div class="record-item">
-                  <div class="record-icon done" aria-hidden="true">✓</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>Digital Vakalatnama &amp; Class-3 Token Sign</strong>
-                      <span class="record-tag">Executed</span>
-                    </div>
-                    <p>Designated Senior Advocate cryptographic signing token verified under IT Act 2000.</p>
-                  </div>
-                </div>
-
-                <div class="record-item">
-                  <div class="record-icon live" aria-hidden="true">●</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>Bengaluru Daily Cause List Parsing</strong>
-                      <span class="record-tag tag-active">Live Roster</span>
-                    </div>
-                    <p>Court Hall 04, Item 28 listed before Hon'ble Single Judge · Case documents queued for briefing.</p>
-                  </div>
+                <div class="hud-view-action">
+                  <a href="legalos.html" class="hud-action-link">
+                    <span>Explore LegalOS Architecture &amp; Court Workflows</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
 
-              <div class="view-footer">
-                <a href="legalos.html" class="engine-link">
-                  <span>Explore LegalOS Architecture &amp; Court Workflows</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- VIEW 3: PROCURE-TO-PAY & GST RECONCILIATION -->
-            <div class="engine-view" id="view-procure" role="tabpanel" aria-labelledby="tab-procure" hidden>
-              <div class="view-header">
-                <div>
-                  <span class="view-kicker">PROCURE-TO-PAY AUDIT · 3-WAY RECONCILIATION</span>
-                  <h2 class="view-title">Purchase Order PO-2026-8492</h2>
+              <!-- VIEW 3: PROCURE-TO-PAY (PROCUREOS) -->
+              <div class="hud-view-panel" id="view-procure" role="tabpanel" aria-labelledby="tab-procure" hidden>
+                <div class="hud-view-kicker">
+                  <span class="kicker-label">SUPPLY CHAIN OPERATIONS · FISCAL GOVERNANCE</span>
+                  <span class="kicker-badge status-live"><span class="kicker-dot"></span> 100% Reconciled · ₹0 Leakage</span>
                 </div>
-                <div class="view-pill status-live">
-                  <span class="pill-dot"></span>
-                  <span>3-Way Match: 100% Reconciled</span>
-                </div>
-              </div>
+                <h2 class="hud-view-title">Live 3-Way Match &amp; GSTN Input Tax Credit Engine</h2>
 
-              <div class="records-stack">
-                <div class="record-item">
-                  <div class="record-icon done" aria-hidden="true">✓</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>PO Authorization: ₹18,40,000 + 18% GST</strong>
-                      <span class="record-tag">Approved</span>
+                <div class="hud-keyword-grid">
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">⚡</span>
+                      <strong>Automated 3-Way Match</strong>
+                      <span class="keyword-pill pill-green">Approved</span>
                     </div>
-                    <p>Line items 01–14 matched with approved vendor price contract · Digital signature applied.</p>
+                    <div class="keyword-desc">PO ₹18,40,000 + 18% GST matched with approved vendor price contract</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">📦</span>
+                      <strong>Warehouse Dock GRN #312</strong>
+                      <span class="keyword-pill pill-blue">Dock Ingested</span>
+                    </div>
+                    <div class="keyword-desc">100% quantity physically barcode scanned into Bengaluru central inventory</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">🧾</span>
+                      <strong>GST e-Invoice &amp; IRN Authentication</strong>
+                      <span class="keyword-pill pill-purple">GSTN Validated</span>
+                    </div>
+                    <div class="keyword-desc">IRN hash verified against GST portal · 0.00% mismatch · Full GSTR-2B claimed</div>
+                  </div>
+
+                  <div class="hud-keyword-card">
+                    <div class="keyword-head">
+                      <span class="keyword-icon">🏦</span>
+                      <strong>Direct Bank API Payment Voucher</strong>
+                      <span class="keyword-pill pill-orange">Batch Queued</span>
+                    </div>
+                    <div class="keyword-desc">Voucher queued for dual-approval disbursement on contractual due date</div>
                   </div>
                 </div>
 
-                <div class="record-item">
-                  <div class="record-icon done" aria-hidden="true">✓</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>Goods Receipt Note (GRN #312) Verification</strong>
-                      <span class="record-tag">Warehouse Dock</span>
-                    </div>
-                    <p>100% quantity physically inspected, barcode scanned, and confirmed into Bengaluru inventory.</p>
+                <div class="hud-telemetry-bar">
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">₹0</span>
+                    <span class="telemetry-label">Fiscal Leakage</span>
+                  </div>
+                  <div class="telemetry-divider"></div>
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">0.00%</span>
+                    <span class="telemetry-label">GST Mismatch</span>
+                  </div>
+                  <div class="telemetry-divider"></div>
+                  <div class="telemetry-item">
+                    <span class="telemetry-value">100%</span>
+                    <span class="telemetry-label">GSTR-2B ITC</span>
+                  </div>
+                  <div class="telemetry-waveform" aria-hidden="true">
+                    <svg viewBox="0 0 80 20" fill="none" class="pulse-wave">
+                      <path d="M0,10 Q10,4 20,10 T40,10 T60,4 T80,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                   </div>
                 </div>
 
-                <div class="record-item">
-                  <div class="record-icon done" aria-hidden="true">✓</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>GST E-Invoice &amp; IRN Authentication</strong>
-                      <span class="record-tag">GSTN Validated</span>
-                    </div>
-                    <p>IRN hash verified against GST portal · 0.00% tax mismatch · Full GSTR-2B Input Tax Credit claimed.</p>
-                  </div>
-                </div>
-
-                <div class="record-item">
-                  <div class="record-icon live" aria-hidden="true">●</div>
-                  <div class="record-body">
-                    <div class="record-header">
-                      <strong>Automated Payment Voucher Release</strong>
-                      <span class="record-tag tag-active">HDFC NetBanking</span>
-                    </div>
-                    <p>Voucher queued for dual-approval disbursement batch on contractual due date.</p>
-                  </div>
+                <div class="hud-view-action">
+                  <a href="procureos.html" class="hud-action-link">
+                    <span>Explore ProcureOS Architecture &amp; Financial Workflows</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
 
-              <div class="view-footer">
-                <a href="procureos.html" class="engine-link">
-                  <span>Explore ProcureOS Architecture &amp; Financial Workflows</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -1270,7 +1334,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.9.1" defer></script>
-  <script type="module" src="assets/vendor/visual-effects.js?v=2.9.1"></script>
+  <script src="app.js?v=3.2.0" defer></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.2.0"></script>
 </body>
 </html>

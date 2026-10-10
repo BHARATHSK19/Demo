@@ -2,7 +2,7 @@
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="format-detection" content="telephone=no" />
   <title>ProcureOS — Enterprise Procure-to-Pay &amp; 3-Way Matching OS | OJIX</title>
@@ -47,10 +47,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2.9.1" />
+  <link rel="stylesheet" href="styles.css?v=3.2.0" />
 
   <!-- APP INTERACTIVITY SCRIPT -->
-  <script src="app.js?v=2.9.1" defer></script>
+  <script src="app.js?v=3.2.0" defer></script>
 
   <!-- STRUCTURED DATA: Multi-Entity JSON-LD Schema Graph -->
   <script type="application/ld+json">
@@ -191,6 +191,7 @@
     <!-- HERO SECTION (Pillar Hero with Integrated Breadcrumbs) -->
     <section class="hero pillar-hero-section">
       <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="hero-cursor-spotlight" aria-hidden="true"></div>
       <div class="shell">
         <div class="pillar-breadcrumb-wrap">
           <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
@@ -204,7 +205,7 @@
 
         <div class="hero-grid">
           <div class="hero-copy reveal">
-            <div class="pillar-badge"><span class="pillar-badge-dot"></span> ENTERPRISE PROCURE-TO-PAY FOUNDATION</div>
+            <div class="pillar-badge"><span class="pillar-badge-dot"></span> ENTERPRISE PROCURE-TO-PAY &amp; GST RECONCILIATION</div>
             <h1>Eliminate procurement leakage<br /><span class="headline-second">with automated <em>3-way matching.</em></span></h1>
             <p class="hero-lede">Reconcile purchase orders, warehouse gate entries, and GST e-invoices in real time. Designed for Indian manufacturing, retail, and enterprise operations that refuse to lose money to manual reconciliation friction.</p>
             <div class="hero-actions">
@@ -215,29 +216,38 @@
           </div>
 
           <div class="hero-visual reveal" aria-label="Interactive ProcureOS reconciliation workspace window">
-            <div class="visual-topline"><span><span class="live-dot"></span> P2P RECONCILIATION ENGINE</span><span class="visual-context">TALLY &amp; SAP SYNC / LIVE</span></div>
+            <div class="visual-topline"><span><span class="live-dot"></span> P2P RECONCILIATION &amp; ITC AUDIT</span><span class="visual-context">TALLY PRIME &amp; SAP ECC / LIVE</span></div>
             <div class="workspace-window" id="workspace-window">
+              <div class="hero-shader-stage" aria-hidden="true"></div>
+              <div class="shader-cursor-spotlight" aria-hidden="true"></div>
               <div class="window-head">
-                <div><span class="window-kicker">SUPPLY CHAIN OPERATIONS</span><h2>Live 3-Way Match Pipeline</h2></div>
+                <div>
+                  <span class="window-kicker">SUPPLY CHAIN FISCAL GOVERNANCE</span>
+                  <h2>Live 3-Way Match &amp; GSTN Input Tax Credit Engine</h2>
+                  <div class="view-pill status-live">
+                    <span class="pill-dot"></span>
+                    <span>Zero Duplicate Payouts Locked</span>
+                  </div>
+                </div>
                 <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="window-avatar" width="38" height="38" />
               </div>
               <div class="workspace-metrics">
                 <div class="metric-card metric-featured">
-                  <span class="metric-label">Reconciliation speed</span>
-                  <div class="metric-value">48h<span class="metric-check" aria-hidden="true">✓</span></div>
-                  <div class="metric-foot"><span class="status-pip"></span> 85% cycle time reduced</div>
+                  <span class="metric-label">PO-to-GRN Match Speed</span>
+                  <div class="metric-value">Sub-sec<span class="metric-check" aria-hidden="true">✓</span></div>
+                  <div class="metric-foot"><span class="status-pip"></span> Zero manual backlog</div>
                   <div class="metric-sparkline"><span style="--h:35%"></span><span style="--h:50%"></span><span style="--h:42%"></span><span style="--h:68%"></span><span style="--h:82%"></span><span style="--h:90%"></span><span style="--h:85%"></span><span style="--h:100%"></span></div>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-label">Matched invoices</span>
-                  <div class="metric-value"><span class="counter" data-target="98">98</span>% <small>auto</small></div>
-                  <div class="mini-progress"><span style="width:98%"></span></div>
-                  <div class="metric-note">₹0 duplicate payouts</div>
+                  <span class="metric-label">Matched Invoices</span>
+                  <div class="metric-value"><span class="counter" data-target="99.8">99.8</span>% <small>auto</small></div>
+                  <div class="mini-progress"><span style="width:99%"></span></div>
+                  <div class="metric-note">100% ITC claimed</div>
                 </div>
                 <div class="metric-card">
-                  <span class="metric-label">GSTR-2B variance</span>
+                  <span class="metric-label">GSTR-2B Tax Variance</span>
                   <div class="metric-value">₹<span class="counter" data-target="0" data-prefix="0">00</span> <small>leakage</small></div>
-                  <div class="attention-row"><span class="attention-dot"></span><span>100% ITC claimed</span></div>
+                  <div class="attention-row"><span class="attention-dot"></span><span>100% ITC Claimed</span></div>
                   <div class="attention-row"><span class="attention-dot subtle"></span><span>IRN QR verified</span></div>
                 </div>
               </div>
@@ -245,12 +255,12 @@
                 <div class="activity-heading"><span>P2P TRANSACTION SIGNAL</span><span>JUST NOW <span class="activity-pulse"></span></span></div>
                 <div class="activity-item">
                   <div class="activity-icon icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></div>
-                  <div class="activity-text"><strong>GRN #8492 Matched against PO #2104</strong><span>Line quantities exact · Voucher pushed to Tally</span></div>
+                  <div class="activity-text"><strong>GRN #8492 Matched against PO #2104</strong><span>Line quantities &amp; tax rates verified · Voucher posted to Tally Prime</span></div>
                   <span class="activity-state">MATCHED</span>
                 </div>
                 <div class="activity-item">
                   <div class="activity-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg></div>
-                  <div class="activity-text"><strong>GST e-Invoice IRN Verified</strong><span>Portal confirmation · GSTR-2B aligned</span></div>
+                  <div class="activity-text"><strong>GST e-Invoice IRN &amp; QR Verified</strong><span>NIC portal confirmation · Full GSTR-2B Input Tax Credit claimed</span></div>
                   <span class="activity-state">VERIFIED</span>
                 </div>
               </div>
@@ -785,6 +795,6 @@
       </div>
     </div>
   </div>
-  <script type="module" src="assets/vendor/visual-effects.js?v=2.9.1"></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.2.0"></script>
 </body>
 </html>

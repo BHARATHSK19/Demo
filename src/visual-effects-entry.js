@@ -1241,12 +1241,284 @@ export function initBlobCursor(containerElement, options = {}) {
 }
 
 // ============================================================================
-// 3. AUTO INITIALIZATION (Theme Adapted for OJIX)
+// 3. REACT BITS PRO: HERO 3 ROUNDED WEBGL GRADIENT SHADER WITH CURSOR INTERACTION
+// Fluid luminous mesh gradient canvas responding dynamically to cursor position
+// ============================================================================
+
+const heroVertexShader = `#version 300 es
+in vec2 position;
+in vec2 uv;
+out vec2 vUv;
+void main() {
+    vUv = uv;
+    gl_Position = vec4(position, 0.0, 1.0);
+}
+`;
+
+const heroFragmentShader = `#version 300 es
+precision highp float;
+precision highp int;
+
+in vec2 vUv;
+out vec4 fragColor;
+
+uniform vec2 uResolution;
+uniform float uTime;
+uniform vec2 uMouse;
+uniform float uHover;
+uniform vec3 uColor1; // Orange #C9662F
+uniform vec3 uColor2; // Amber #F97316
+uniform vec3 uColor3; // Navy #0F1C2E
+uniform vec3 uColor4; // Peach-White #FFF8F3
+uniform vec3 uColor5; // Slate #1E293B
+
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+float snoise(vec2 v) {
+  const vec4 C = vec4(0.211324865405187,
+                      0.366025403784439,
+                     -0.577350269189626,
+                      0.024390243902439);
+  vec2 i  = floor(v + dot(v, C.yy));
+  vec2 x0 = v -   i + dot(i, C.xx);
+  vec2 i1;
+  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod289(i);
+  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0))
+        + i.x + vec3(0.0, i1.x, 1.0));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+  m = m*m;
+  m = m*m;
+  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+void main() {
+    vec2 st = gl_FragCoord.xy / uResolution.xy;
+    float aspect = uResolution.x / max(uResolution.y, 1.0);
+    vec2 p = st * 2.0 - 1.0;
+    p.x *= aspect;
+
+    vec2 m = uMouse * 2.0 - 1.0;
+    m.x *= aspect;
+
+    float mouseDist = length(p - m);
+    float mouseEffect = smoothstep(1.3, 0.0, mouseDist);
+
+    float t = uTime * 0.42;
+
+    vec2 waveCoords = p * 1.25;
+    waveCoords += vec2(
+        sin(p.y * 2.2 + t * 0.85 + mouseEffect * 1.6),
+        cos(p.x * 2.0 - t * 0.70 + mouseEffect * 1.6)
+    ) * (0.26 + 0.18 * mouseEffect);
+
+    float n1 = snoise(waveCoords + vec2(t * 0.22, -t * 0.16));
+    float n2 = snoise(waveCoords * 1.75 - vec2(t * 0.32, t * 0.22) + n1 * 0.7);
+    float n3 = snoise(waveCoords * 0.85 + vec2(-t * 0.12, t * 0.14) + n2 * 0.4);
+
+    float factor1 = clamp(0.5 + 0.5 * n1, 0.0, 1.0);
+    float factor2 = clamp(0.5 + 0.5 * n2, 0.0, 1.0);
+    float factor3 = clamp(0.5 + 0.5 * n3, 0.0, 1.0);
+
+    vec3 col = mix(uColor4, uColor1, factor1);
+    col = mix(col, uColor2, factor2 * (0.55 + 0.35 * mouseEffect));
+    col = mix(col, uColor3, factor3 * 0.35);
+    col = mix(col, uColor5, (1.0 - factor1) * 0.20);
+
+    // Interactive cursor spotlight bloom
+    float spotlight = exp(-mouseDist * 2.5) * (0.42 + 0.38 * uHover);
+    col += uColor2 * spotlight;
+
+    // Radiant amber warmth
+    float glow = exp(-mouseDist * 1.1) * 0.20;
+    col += uColor1 * glow;
+
+    // Soft border vignette
+    float dCorner = length(max(abs(st - 0.5) - 0.36, 0.0));
+    float vignette = smoothstep(0.26, 0.0, dCorner);
+
+    fragColor = vec4(col, clamp(0.92 + 0.08 * vignette, 0.0, 1.0));
+}
+`;
+
+export function initHeroGradientShader(containerElement, options = {}) {
+  const container = typeof containerElement === 'string'
+    ? document.querySelector(containerElement)
+    : containerElement;
+
+  if (!container) return null;
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let renderer;
+  try {
+    renderer = new Renderer({
+      dpr,
+      alpha: true,
+      antialias: true,
+      premultipliedAlpha: false
+    });
+  } catch (err) {
+    console.warn('HeroGradientShader WebGL not supported, falling back to CSS:', err);
+    container.classList.add('shader-fallback');
+    return null;
+  }
+
+  const gl = renderer.gl;
+  gl.canvas.style.position = 'absolute';
+  gl.canvas.style.inset = '0';
+  gl.canvas.style.width = '100%';
+  gl.canvas.style.height = '100%';
+  gl.canvas.style.borderRadius = 'inherit';
+  gl.canvas.style.pointerEvents = 'none';
+  container.prepend(gl.canvas);
+
+  const program = new Program(gl, {
+    vertex: heroVertexShader,
+    fragment: heroFragmentShader,
+    uniforms: {
+      uResolution: { value: [1, 1] },
+      uTime: { value: 0 },
+      uMouse: { value: [0.5, 0.5] },
+      uHover: { value: 0.0 },
+      uColor1: { value: [0.788, 0.400, 0.184] }, // #C9662F
+      uColor2: { value: [0.976, 0.451, 0.090] }, // #F97316
+      uColor3: { value: [0.059, 0.110, 0.180] }, // #0F1C2E
+      uColor4: { value: [1.000, 0.973, 0.953] }, // #FFF8F3
+      uColor5: { value: [0.118, 0.161, 0.231] }  // #1E293B
+    }
+  });
+
+  const triangle = new Triangle(gl);
+  const mesh = new Mesh(gl, { geometry: triangle, program });
+
+  const resize = () => {
+    const w = container.clientWidth || 1;
+    const h = container.clientHeight || 1;
+    renderer.setSize(w, h);
+    program.uniforms.uResolution.value = [gl.drawingBufferWidth, gl.drawingBufferHeight];
+  };
+
+  let ro = null;
+  if ('ResizeObserver' in window) {
+    ro = new ResizeObserver(resize);
+    ro.observe(container);
+  } else {
+    window.addEventListener('resize', resize);
+  }
+  resize();
+
+  const mouseTarget = [0.5, 0.5];
+  const mouseSmooth = [0.5, 0.5];
+  let hoverTarget = 0.0;
+  let hoverSmooth = 0.0;
+
+  const onPointerMove = (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / Math.max(rect.width, 1);
+    const y = 1.0 - ((e.clientY - rect.top) / Math.max(rect.height, 1)); // GL inverted Y
+    mouseTarget[0] = Math.min(Math.max(x, 0), 1);
+    mouseTarget[1] = Math.min(Math.max(y, 0), 1);
+    hoverTarget = 1.0;
+
+    // Update CSS custom property for specular spotlight
+    container.style.setProperty('--card-cursor-x', `${(e.clientX - rect.left).toFixed(1)}px`);
+    container.style.setProperty('--card-cursor-y', `${(e.clientY - rect.top).toFixed(1)}px`);
+  };
+
+  const onPointerLeave = () => {
+    hoverTarget = 0.0;
+  };
+
+  const heroSection = container.closest('.hero') || container;
+  heroSection.addEventListener('pointermove', onPointerMove, { passive: true });
+  heroSection.addEventListener('pointerleave', onPointerLeave, { passive: true });
+
+  let isVisible = true;
+  let io = null;
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver((entries) => {
+      if (entries[0]) isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    io.observe(container);
+  }
+
+  let raf = 0;
+  let last = performance.now();
+  let accumTime = 0;
+  let destroyed = false;
+
+  const update = (now) => {
+    if (destroyed) return;
+    const dt = Math.max(0, now - last) * 0.001;
+    last = now;
+
+    if (!isVisible || document.hidden) {
+      raf = requestAnimationFrame(update);
+      return;
+    }
+
+    accumTime += dt;
+
+    // Smooth cursor follow
+    const tau = 0.08;
+    const alpha = 1 - Math.exp(-dt / tau);
+    mouseSmooth[0] += (mouseTarget[0] - mouseSmooth[0]) * alpha;
+    mouseSmooth[1] += (mouseTarget[1] - mouseSmooth[1]) * alpha;
+    hoverSmooth += (hoverTarget - hoverSmooth) * alpha;
+
+    program.uniforms.uMouse.value = mouseSmooth;
+    program.uniforms.uHover.value = hoverSmooth;
+    program.uniforms.uTime.value = accumTime;
+
+    renderer.render({ scene: mesh });
+    raf = requestAnimationFrame(update);
+  };
+
+  raf = requestAnimationFrame(update);
+
+  return {
+    destroy: () => {
+      destroyed = true;
+      cancelAnimationFrame(raf);
+      heroSection.removeEventListener('pointermove', onPointerMove);
+      heroSection.removeEventListener('pointerleave', onPointerLeave);
+      ro?.disconnect();
+      if (!ro) window.removeEventListener('resize', resize);
+      io?.disconnect();
+      try {
+        if (gl.canvas.parentNode) gl.canvas.parentNode.removeChild(gl.canvas);
+      } catch (e) {}
+    }
+  };
+}
+
+// ============================================================================
+// 4. AUTO INITIALIZATION (Theme Adapted for OJIX)
 // ============================================================================
 
 export function autoInitVisuals() {
   const isFinePointer = window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ?? true;
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  // React Bits Pro Hero 3 WebGL Gradient Shader (Runs on Hero Stages)
+  if (!reducedMotion) {
+    const shaderContainers = document.querySelectorAll('.hero-shader-stage, #hero-shader-stage');
+    shaderContainers.forEach((el) => {
+      initHeroGradientShader(el);
+    });
+  }
 
   if (reducedMotion) return;
 

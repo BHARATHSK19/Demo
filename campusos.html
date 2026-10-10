@@ -2,7 +2,7 @@
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="format-detection" content="telephone=no" />
   <title>CampusOS — Enterprise Higher-Ed &amp; Multi-Campus OS | OJIX</title>
@@ -47,10 +47,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2.9.1" />
+  <link rel="stylesheet" href="styles.css?v=3.2.0" />
 
   <!-- APP INTERACTIVITY SCRIPT -->
-  <script src="app.js?v=2.9.1" defer></script>
+  <script src="app.js?v=3.2.0" defer></script>
 
   <!-- STRUCTURED DATA: Multi-Entity JSON-LD Schema Graph -->
   <script type="application/ld+json">
@@ -191,6 +191,7 @@
     <!-- HERO SECTION WITH INTEGRATED BREADCRUMBS -->
     <section class="hero pillar-hero-section">
       <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="hero-cursor-spotlight" aria-hidden="true"></div>
       <div class="shell">
         <nav class="breadcrumb-nav pillar-breadcrumb-wrap" aria-label="Breadcrumbs">
           <ol class="breadcrumb-list">
@@ -202,7 +203,7 @@
 
         <div class="hero-grid">
           <div class="hero-copy reveal">
-            <div class="pillar-badge"><span class="pillar-badge-dot"></span> INSTITUTIONAL CAMPUS OPERATING SYSTEM</div>
+            <div class="pillar-badge"><span class="pillar-badge-dot"></span> CAMPUS AUTOMATION &amp; ACCREDITATION ENGINE</div>
             <h1>Unify student lifecycle, biometrics &amp;<br /><span class="headline-second">finance across your <em>campuses.</em></span></h1>
             <p class="hero-lede">Connect admissions, attendance hardware, fee reconciliation, examinations, and NAAC accreditation data into one connected operating system. Built for modern Indian universities, colleges, and large institutional networks.</p>
             <div class="hero-actions">
@@ -213,43 +214,53 @@
           </div>
 
           <div class="hero-visual reveal" aria-label="Interactive CampusOS institutional workspace window">
-            <div class="visual-topline"><span><span class="live-dot"></span> INSTITUTIONAL COCKPIT</span><span class="visual-context">BIOMETRIC GATE &amp; SIS / LIVE</span></div>
+            <div class="visual-topline"><span><span class="live-dot"></span> MULTI-CAMPUS ERP &amp; SIS TELEMETRY</span><span class="visual-context">BENGALURU TIER-IV / ACTIVE</span></div>
             <div class="workspace-window" id="workspace-window">
+              <div class="hero-shader-stage" aria-hidden="true"></div>
+              <div class="shader-cursor-spotlight" aria-hidden="true"></div>
               <div class="window-head">
-                <div><span class="window-kicker">CAMPUS ADMINISTRATION</span><h2>Multi-Campus Operations Stream</h2></div>
+                <div>
+                  <span class="window-kicker">CENTRALIZED INSTITUTIONAL GOVERNANCE</span>
+                  <h2>Multi-Campus Student Lifecycle &amp; Accreditation Engine</h2>
+                  <div class="view-pill status-live">
+                    <span class="pill-dot"></span>
+                    <span>14,000+ Students &amp; Faculty Synced</span>
+                  </div>
+                </div>
                 <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="window-avatar" width="38" height="38" />
               </div>
-            <div class="workspace-metrics">
-              <div class="metric-card metric-featured">
-                <span class="metric-label">Biometric sync speed</span>
-                <div class="metric-value">&lt; 1s<span class="metric-check" aria-hidden="true">✓</span></div>
-                <div class="metric-foot"><span class="status-pip"></span> Sub-second gate punches</div>
-                <div class="metric-sparkline"><span style="--h:40%"></span><span style="--h:65%"></span><span style="--h:55%"></span><span style="--h:85%"></span><span style="--h:70%"></span><span style="--h:95%"></span><span style="--h:80%"></span><span style="--h:100%"></span></div>
+              <div class="workspace-metrics">
+                <div class="metric-card metric-featured">
+                  <span class="metric-label">Biometric Turnstile Sync</span>
+                  <div class="metric-value">&lt; 1s<span class="metric-check" aria-hidden="true">✓</span></div>
+                  <div class="metric-foot"><span class="status-pip"></span> Sub-second gate punches</div>
+                  <div class="metric-sparkline"><span style="--h:40%"></span><span style="--h:65%"></span><span style="--h:55%"></span><span style="--h:85%"></span><span style="--h:70%"></span><span style="--h:95%"></span><span style="--h:80%"></span><span style="--h:100%"></span></div>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-label">Fee Reconciliation</span>
+                  <div class="metric-value"><span class="counter" data-target="100">100</span>% <small>match</small></div>
+                  <div class="mini-progress"><span style="width:100%"></span></div>
+                  <div class="metric-note">Real-time Tally ledger sync</div>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-label">NAAC SSR Readiness</span>
+                  <div class="metric-value"><span class="counter" data-target="100">100</span>% <small>ready</small></div>
+                  <div class="attention-row"><span class="attention-dot"></span><span>Criteria 1–7 Synced</span></div>
+                  <div class="attention-row"><span class="attention-dot subtle"></span><span>Faculty papers indexed</span></div>
+                </div>
               </div>
-              <div class="metric-card">
-                <span class="metric-label">Unified members</span>
-                <div class="metric-value"><span class="counter" data-target="14000">14,000</span>+</div>
-                <div class="mini-progress"><span style="width:95%"></span></div>
-                <div class="metric-note">100% fee ledger match</div>
-              </div>
-              <div class="metric-card">
-                <span class="metric-label">NAAC SSR readiness</span>
-                <div class="metric-value"><span class="counter" data-target="100">100</span>% <small>ready</small></div>
-                <div class="attention-row"><span class="attention-dot"></span><span>Criteria 1–7 Synced</span></div>
-                <div class="attention-row"><span class="attention-dot subtle"></span><span>Faculty papers indexed</span></div>
-              </div>
-            </div>
-            <div class="activity-panel">
-              <div class="activity-heading"><span>CAMPUS EVENT SIGNAL</span><span>JUST NOW <span class="activity-pulse"></span></span></div>
-              <div class="activity-item">
-                <div class="activity-icon icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div>
-                <div class="activity-text"><strong>Morning Gate Punch Batch Ingested</strong><span>2,410 check-ins processed · Guardian SMS dispatched</span></div>
-                <span class="activity-state">SYNCED</span>
-              </div>
-              <div class="activity-item">
-                <div class="activity-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
-                <div class="activity-text"><strong>Term Fee Challan Reconciled via UPI</strong><span>Student ID #2026-ENG-491 · Instant receipt issued</span></div>
-                <span class="activity-state">PAID</span>
+              <div class="activity-panel">
+                <div class="activity-heading"><span>CAMPUS EVENT SIGNAL</span><span>JUST NOW <span class="activity-pulse"></span></span></div>
+                <div class="activity-item">
+                  <div class="activity-icon icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div>
+                  <div class="activity-text"><strong>Morning Biometric Gate Batch Ingested</strong><span>3,840 check-ins processed · Guardian SMS &amp; WhatsApp dispatched</span></div>
+                  <span class="activity-state">SYNCED</span>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
+                  <div class="activity-text"><strong>Term Fee Challan Reconciled via UPI</strong><span>Student ID #ENG-2026-882 · Instant digital receipt &amp; ledger posted</span></div>
+                  <span class="activity-state">PAID</span>
+                </div>
               </div>
             </div>
           </div>
@@ -782,6 +793,6 @@
       </div>
     </div>
   </div>
-  <script type="module" src="assets/vendor/visual-effects.js?v=2.9.1"></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.2.0"></script>
 </body>
 </html>
