@@ -304,6 +304,36 @@ if (portfolioFilterPills.length > 0) {
   });
 }
 
+// 4E. REACT BITS PRO FAQ 3: TABBED FAQ BY CATEGORY INTERACTION
+const faqTabBtns = document.querySelectorAll('.faq-tab-btn[data-faq-tab]');
+const faqPanels = document.querySelectorAll('.faq-category-panel');
+
+if (faqTabBtns.length > 0) {
+  faqTabBtns.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const category = tab.dataset.faqTab;
+      const targetPanelId = `faq-panel-${category}`;
+
+      faqTabBtns.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', String(active));
+        t.setAttribute('tabindex', active ? '0' : '-1');
+      });
+
+      faqPanels.forEach((panel) => {
+        if (panel.id === targetPanelId) {
+          panel.classList.add('is-active');
+          panel.hidden = false;
+        } else {
+          panel.classList.remove('is-active');
+          panel.hidden = true;
+        }
+      });
+    });
+  });
+}
+
 // Initialize roving tabindex & arrow key handlers across all role="tablist"
 const initAccessibleTabs = () => {
   document.querySelectorAll('[role="tablist"]').forEach(setupAccessibleTabs);

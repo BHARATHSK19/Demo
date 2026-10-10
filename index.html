@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3.4.0" />
+  <link rel="stylesheet" href="styles.css?v=3.5.0" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -159,10 +159,34 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How does OJIX comply with India’s DPDP Act, 2023 and DPDP Rules, 2025?",
+            "name": "What distinguishes an OJIX Operating System from generic SaaS tools?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "OJIX operates under strict compliance with the Digital Personal Data Protection Act, 2023 and MeitY DPDP Rules, 2025. All personal data is processed under explicit consent with itemized purpose notices, unbundled cookie preferences, compatibility with registered Consent Managers, AES-256/TLS 1.3 encryption in sovereign Indian data centers, and a designated Grievance Officer with a guaranteed 48-hour response SLA."
+              "text": "Generic SaaS tools force businesses to adapt real-world operations to rigid, one-size-fits-all software that produces disconnected silos. OJIX designs and engineers sovereign operating systems tailored around your organization’s actual roles, approval hierarchies, legal regulations, and operational reality—bringing cross-functional visibility, deterministic workflows, and executive clarity into one unified, sovereign environment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can OJIX integrate with or migrate legacy ERPs like SAP, Oracle, or Tally?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. OJIX platforms feature enterprise bi-directional connectors, transactional event streams, and certified API adapters for legacy ERPs (SAP ECC/S4 HANA, Oracle EBS, Microsoft Dynamics), accounting suites (Tally Prime, Zoho Books), Core Banking Systems, and statutory government gateways (GSTN, MCA21, e-Way bill). We can operate as an intelligent orchestration layer on top of existing software or execute staged, zero-downtime database migrations with automated mathematical reconciliation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How modular is the deployment? Can an enterprise start with one department?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every OJIX operating system is engineered around a composable micro-kernel architecture. Organizations frequently start with a single mission-critical capability—such as ProcureOS for automated 3-way invoice matching or LegalOS for contract automation—and progressively activate financial ledgering, inventory, or workforce management modules without code rewrites or platform migrations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does OJIX comply with India’s DPDP Act, 2023 and the DPDP Rules, 2025?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "OJIX operates under strict compliance with the Digital Personal Data Protection Act, 2023 and MeitY DPDP Rules, 2025. All personal data is processed under explicit consent with itemized purpose notices, unbundled cookie preferences, compatibility with registered Consent Managers, AES-256/TLS 1.3 encryption in sovereign Indian data centers, and a designated Grievance Redressal Officer reachable at info@ojix.in with a guaranteed 48-hour response SLA and 72-hour breach reporting protocols."
             }
           },
           {
@@ -170,23 +194,63 @@
             "name": "Where is enterprise data stored and processed in OJIX platforms?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "All enterprise client data resides in sovereign cloud regions situated physically within India (MeitY-empanelled cloud data centers). Data is encrypted at rest using AES-256 and in transit via TLS 1.3. OJIX enforces strict zero cross-border data leakage and zero third-party data monetization."
+              "text": "100% of enterprise client data resides in sovereign MeitY-empanelled Tier-IV data centers physically located within India. We enforce client-isolated VPC tenancies, encryption at rest via AES-256-GCM, and TLS 1.3 in transit. OJIX commercial contracts provide strict statutory guarantees of zero cross-border telemetry leakage and zero third-party data monetization."
             }
           },
           {
             "@type": "Question",
-            "name": "What distinguishes an OJIX Operating System from generic SaaS tools?",
+            "name": "What role-based access controls (RBAC) and audit capabilities are provided?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Generic SaaS tools force businesses to adapt their real-world operations to rigid, fragmented software. OJIX designs and engineers connected operating systems tailored around your organization’s actual roles, approval hierarchies, legal regulations, and operational reality—bringing visibility, repeatable workflows, and executive clarity into one unified environment."
+              "text": "Every user interaction, state change, approval step, data query, and API modification is cryptographically hashed and recorded to an immutable append-only audit trail. Granular RBAC and Attribute-Based Access Control (ABAC) allow security administrators to restrict data visibility by department, geographic jurisdiction, role seniority, or client mandate."
             }
           },
           {
             "@type": "Question",
-            "name": "How does OJIX ensure reliable AI workflow automation without hallucinations or security risks?",
+            "name": "How does OJIX ensure reliable AI workflow automation without hallucinations?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "OJIX builds deterministic, human-in-the-loop AI pipelines. LLMs and machine learning models are used strictly for scoped tasks such as document extraction, classification, and drafting, while business rules, financial computations, and database updates are executed through strict, auditable code with mandatory human approval gates."
+              "text": "OJIX builds deterministic, human-in-the-loop AI pipelines. LLMs and foundation models are strictly confined to scoped sensory tasks: OCR document extraction, natural language classification, drafting, and semantic clause comparison. All mathematical computations, financial ledgers, policy verifications, and ERP database updates are executed through auditable deterministic code with mandatory human approval gates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are our proprietary enterprise data and documents used to train external models?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. OJIX deploys private, dedicated model inference instances within your sovereign VPC or air-gapped on-premise infrastructure. Zero client contracts, operational telemetry, financial transactions, or user prompts are ever transmitted to public AI providers or retained for training."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when an automated AI extraction detects ambiguous data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our confidence scoring engine automatically flags any field falling below a 99.5% statistical confidence threshold for human triage. The interface highlights the exact source document bounding box with side-by-side verification so the operator can inspect and approve the data with a single keystroke before any system write occurs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the typical timeline and delivery roadmap for an OJIX platform?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard enterprise engagement begins with a 2-to-3 week diagnostic architecture sprint, delivering interactive click-through prototypes and verified database schemas. Production MVP deployment typically ships within 6 to 10 weeks, followed by iterative phase rollouts and white-glove team training."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do enterprise clients own the intellectual property and source code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Unlike vendor-locked SaaS providers who lease software indefinitely, OJIX commercial contracts provide full IP transfer and code licensing options for enterprise bespoke systems. Your team receives clean, documented source code, CI/CD pipelines, and infrastructure-as-code scripts with zero proprietary lock-in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What support, maintenance, and uptime SLAs does OJIX commit to?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enterprise production deployments are backed by a contractual 99.95% uptime SLA, 24/7 proactive infrastructure telemetry, dedicated Slack/Teams bridge channels, and guaranteed incident response times: Critical severity within 1 hour, standard inquiries within 4 hours."
             }
           }
         ]
@@ -1154,56 +1218,325 @@
       </div>
     </section>
 
-    <section class="faq-section section-pad" id="faq" aria-labelledby="faq-heading">
-      <div class="shell reveal">
-        <div class="faq-layout">
-          <div class="faq-intro">
-            <div class="eyebrow">FREQUENTLY ASKED QUESTIONS</div>
-            <h2 id="faq-heading">Clear answers for<br /><em>decision makers.</em></h2>
-            <p>Everything you need to know about our technology architecture, sovereign security, engagement model, and enterprise operating systems.</p>
-            <div class="faq-contact-card">
-              <span>Have a technical or compliance question?</span>
-              <strong>Speak directly with our engineering team</strong>
-              <a href="mailto:info@ojix.in" class="btn btn-outline">Email info@ojix.in <span aria-hidden="true">↗</span></a>
-            </div>
+    <section class="faq-section section-pad faq-3-block" id="faq" aria-labelledby="faq-heading">
+      <div class="shell">
+        <div class="faq-header-wrap reveal">
+          <div class="eyebrow">FREQUENTLY ASKED QUESTIONS</div>
+          <h2 id="faq-heading" class="faq-main-title">Clear answers for<br /><em>decision makers.</em></h2>
+          <p class="faq-main-subtitle">Detailed answers on enterprise architecture, statutory DPDP compliance, deterministic AI pipelines, and commercial engagement terms.</p>
+        </div>
+
+        <!-- React Bits Pro FAQ 3 Category Navigation Tabs -->
+        <div class="faq-tabs-nav reveal">
+          <div class="faq-tabs-bar" role="tablist" aria-label="FAQ Categories">
+            <button type="button" class="faq-tab-btn is-active" id="faq-tab-architecture" role="tab" aria-selected="true" aria-controls="faq-panel-architecture" data-faq-tab="architecture">
+              <span class="faq-tab-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </span>
+              <span class="faq-tab-content">
+                <span class="faq-tab-title">Enterprise Architecture</span>
+                <span class="faq-tab-badge">3 Topics</span>
+              </span>
+            </button>
+
+            <button type="button" class="faq-tab-btn" id="faq-tab-security" role="tab" aria-selected="false" aria-controls="faq-panel-security" tabindex="-1" data-faq-tab="security">
+              <span class="faq-tab-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+              <span class="faq-tab-content">
+                <span class="faq-tab-title">Security &amp; DPDP</span>
+                <span class="faq-tab-badge">3 Topics</span>
+              </span>
+            </button>
+
+            <button type="button" class="faq-tab-btn" id="faq-tab-ai" role="tab" aria-selected="false" aria-controls="faq-panel-ai" tabindex="-1" data-faq-tab="ai">
+              <span class="faq-tab-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                </svg>
+              </span>
+              <span class="faq-tab-content">
+                <span class="faq-tab-title">AI &amp; Automation</span>
+                <span class="faq-tab-badge">3 Topics</span>
+              </span>
+            </button>
+
+            <button type="button" class="faq-tab-btn" id="faq-tab-commercial" role="tab" aria-selected="false" aria-controls="faq-panel-commercial" tabindex="-1" data-faq-tab="commercial">
+              <span class="faq-tab-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </span>
+              <span class="faq-tab-content">
+                <span class="faq-tab-title">Commercial &amp; SLAs</span>
+                <span class="faq-tab-badge">3 Topics</span>
+              </span>
+            </button>
           </div>
-          <div class="faq-list" role="region" aria-label="Enterprise FAQ Accordion">
-            <details class="faq-item" open>
-              <summary class="faq-question">
-                <span>How does OJIX comply with India’s DPDP Act, 2023 and the DPDP Rules, 2025?</span>
-                <span class="faq-chevron" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>OJIX embeds privacy by design across all platforms. We implement verifiable consent notices available in English and 8th Schedule constitutional languages, itemized purpose specifications, automated data principal rights management (access, correction, erasure), a designated Grievance Redressal Officer reachable at <a href="mailto:info@ojix.in">info@ojix.in</a> with 48-hour response guarantees, and 72-hour breach reporting protocols under the DPDP Act 2023 &amp; 2025 Rules.</p>
+        </div>
+
+        <div class="faq-main-layout reveal">
+          <!-- Direct Engineering Support Card -->
+          <aside class="faq-contact-column">
+            <div class="faq-contact-card">
+              <div class="faq-contact-status">
+                <span class="status-dot"></span>
+                <span class="status-text">PRINCIPAL ARCHITECTS ON-CALL</span>
               </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-question">
-                <span>Where is enterprise data stored and processed in OJIX platforms?</span>
-                <span class="faq-chevron" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>All enterprise client data resides in sovereign cloud regions situated physically within India (MeitY-empanelled cloud data centers). Data is encrypted at rest using AES-256 and in transit via TLS 1.3. OJIX enforces strict zero cross-border data leakage and zero third-party data monetization.</p>
+              <h3 class="faq-contact-title">Have an architectural or compliance question?</h3>
+              <p class="faq-contact-desc">Speak directly with our system designers. No SDR qualification layers, no sales pitches—just frank technical evaluation.</p>
+              
+              <div class="faq-contact-perks">
+                <div class="perk-item">
+                  <span class="perk-icon" aria-hidden="true">✓</span>
+                  <span><strong>48-Hour SLA</strong> for DPDP &amp; statutory inquiries</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-icon" aria-hidden="true">✓</span>
+                  <span><strong>MeitY Tier-IV</strong> sovereign cloud in India</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-icon" aria-hidden="true">✓</span>
+                  <span><strong>Zero Lock-in</strong> full IP &amp; code ownership</span>
+                </div>
               </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-question">
-                <span>What distinguishes an OJIX Operating System from generic SaaS tools?</span>
-                <span class="faq-chevron" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>Generic SaaS tools force businesses to adapt their real-world operations to rigid, fragmented software. OJIX designs and engineers connected operating systems tailored around your organization’s actual roles, approval hierarchies, legal regulations, and operational reality—bringing visibility, repeatable workflows, and executive clarity into one unified environment.</p>
+
+              <div class="faq-contact-action">
+                <a href="mailto:info@ojix.in" class="btn btn-primary faq-action-btn">
+                  <span>Email info@ojix.in</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <small class="faq-action-note">Direct response within 1 business day</small>
               </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-question">
-                <span>How does OJIX ensure reliable AI workflow automation without hallucinations or security risks?</span>
-                <span class="faq-chevron" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>OJIX builds deterministic, human-in-the-loop AI pipelines. LLMs and machine learning models are used strictly for scoped tasks such as document extraction, classification, and drafting, while business rules, financial computations, and database updates are executed through strict, auditable code with mandatory human approval gates.</p>
+            </div>
+          </aside>
+
+          <!-- Category Panels -->
+          <div class="faq-panels-column">
+            <!-- PANEL 1: Architecture -->
+            <div class="faq-category-panel is-active" id="faq-panel-architecture" role="tabpanel" aria-labelledby="faq-tab-architecture">
+              <div class="faq-panel-header">
+                <span class="faq-category-tag">CATEGORY 01 · ARCHITECTURE &amp; ERP</span>
+                <h3 class="faq-category-heading">Enterprise Architecture &amp; Legacy ERP Integration</h3>
               </div>
-            </details>
+              <div class="faq-accordion-list" role="region" aria-label="Enterprise Architecture FAQ">
+                <details class="faq-item" open>
+                  <summary class="faq-question">
+                    <span>What distinguishes an OJIX Operating System from generic SaaS tools?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Generic SaaS tools force businesses to adapt real-world operations to rigid, one-size-fits-all software that produces disconnected silos. OJIX designs and engineers sovereign operating systems tailored around your organization’s actual roles, approval hierarchies, legal regulations, and operational reality—bringing cross-functional visibility, deterministic workflows, and executive clarity into one unified, sovereign environment.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>Can OJIX integrate with or migrate legacy ERPs like SAP, Oracle, or Tally?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Yes. OJIX platforms feature enterprise bi-directional connectors, transactional event streams, and certified API adapters for legacy ERPs (SAP ECC/S4 HANA, Oracle EBS, Microsoft Dynamics), accounting suites (Tally Prime, Zoho Books), Core Banking Systems, and statutory government gateways (GSTN, MCA21, e-Way bill). We can operate as an intelligent orchestration layer on top of existing software or execute staged, zero-downtime database migrations with automated mathematical reconciliation.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>How modular is the deployment? Can an enterprise start with one department?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Every OJIX operating system is engineered around a composable micro-kernel architecture. Organizations frequently start with a single mission-critical capability—such as ProcureOS for automated 3-way invoice matching or LegalOS for contract automation—and progressively activate financial ledgering, inventory, or workforce management modules without code rewrites or platform migrations.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- PANEL 2: Security & DPDP -->
+            <div class="faq-category-panel" id="faq-panel-security" role="tabpanel" aria-labelledby="faq-tab-security" hidden>
+              <div class="faq-panel-header">
+                <span class="faq-category-tag">CATEGORY 02 · PRIVACY &amp; SECURITY</span>
+                <h3 class="faq-category-heading">Sovereign Security &amp; India DPDP Act Compliance</h3>
+              </div>
+              <div class="faq-accordion-list" role="region" aria-label="Security and DPDP FAQ">
+                <details class="faq-item" open>
+                  <summary class="faq-question">
+                    <span>How does OJIX comply with India’s DPDP Act, 2023 and the DPDP Rules, 2025?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>OJIX operates under strict compliance with the Digital Personal Data Protection Act, 2023 and MeitY DPDP Rules, 2025. All personal data is processed under explicit consent with itemized purpose notices, unbundled cookie preferences, compatibility with registered Consent Managers, AES-256/TLS 1.3 encryption in sovereign Indian data centers, and a designated Grievance Redressal Officer reachable at <a href="mailto:info@ojix.in">info@ojix.in</a> with a guaranteed 48-hour response SLA and 72-hour breach reporting protocols.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>Where is enterprise data stored and processed in OJIX platforms?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>100% of enterprise client data resides in sovereign MeitY-empanelled Tier-IV data centers physically located within India. We enforce client-isolated VPC tenancies, encryption at rest via AES-256-GCM, and TLS 1.3 in transit. OJIX commercial contracts provide strict statutory guarantees of zero cross-border telemetry leakage and zero third-party data monetization.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>What role-based access controls (RBAC) and audit capabilities are provided?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Every user interaction, state change, approval step, data query, and API modification is cryptographically hashed and recorded to an immutable append-only audit trail. Granular RBAC and Attribute-Based Access Control (ABAC) allow security administrators to restrict data visibility by department, geographic jurisdiction, role seniority, or client mandate.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- PANEL 3: AI Automation -->
+            <div class="faq-category-panel" id="faq-panel-ai" role="tabpanel" aria-labelledby="faq-tab-ai" hidden>
+              <div class="faq-panel-header">
+                <span class="faq-category-tag">CATEGORY 03 · AI AUTOMATION</span>
+                <h3 class="faq-category-heading">Deterministic AI &amp; Human-in-the-Loop Pipelines</h3>
+              </div>
+              <div class="faq-accordion-list" role="region" aria-label="AI and Automation FAQ">
+                <details class="faq-item" open>
+                  <summary class="faq-question">
+                    <span>How does OJIX ensure reliable AI workflow automation without hallucinations?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>OJIX builds deterministic, human-in-the-loop AI pipelines. LLMs and foundation models are strictly confined to scoped sensory tasks: OCR document extraction, natural language classification, drafting, and semantic clause comparison. All mathematical computations, financial ledgers, policy verifications, and ERP database updates are executed through auditable deterministic code with mandatory human approval gates.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>Are our proprietary enterprise data and documents used to train external models?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Never. OJIX deploys private, dedicated model inference instances within your sovereign VPC or air-gapped on-premise infrastructure. Zero client contracts, operational telemetry, financial transactions, or user prompts are ever transmitted to public AI providers or retained for training.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>What happens when an automated AI extraction detects ambiguous data?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Our confidence scoring engine automatically flags any field falling below a 99.5% statistical confidence threshold for human triage. The interface highlights the exact source document bounding box with side-by-side verification so the operator can inspect and approve the data with a single keystroke before any system write occurs.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- PANEL 4: Commercial & Delivery -->
+            <div class="faq-category-panel" id="faq-panel-commercial" role="tabpanel" aria-labelledby="faq-tab-commercial" hidden>
+              <div class="faq-panel-header">
+                <span class="faq-category-tag">CATEGORY 04 · ENGAGEMENT &amp; DELIVERY</span>
+                <h3 class="faq-category-heading">Commercial Models, Milestones &amp; Service SLAs</h3>
+              </div>
+              <div class="faq-accordion-list" role="region" aria-label="Commercial and Delivery FAQ">
+                <details class="faq-item" open>
+                  <summary class="faq-question">
+                    <span>What is the typical timeline and delivery roadmap for an OJIX platform?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>A standard enterprise engagement begins with a 2-to-3 week diagnostic architecture sprint, delivering interactive click-through prototypes and verified database schemas. Production MVP deployment typically ships within 6 to 10 weeks, followed by iterative phase rollouts and white-glove team training.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>Do enterprise clients own the intellectual property and source code?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Yes. Unlike vendor-locked SaaS providers who lease software indefinitely, OJIX commercial contracts provide full IP transfer and code licensing options for enterprise bespoke systems. Your team receives clean, documented source code, CI/CD pipelines, and infrastructure-as-code scripts with zero proprietary lock-in.</p>
+                  </div>
+                </details>
+
+                <details class="faq-item">
+                  <summary class="faq-question">
+                    <span>What support, maintenance, and uptime SLAs does OJIX commit to?</span>
+                    <span class="faq-indicator" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19" class="faq-v-line"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>Enterprise production deployments are backed by a contractual 99.95% uptime SLA, 24/7 proactive infrastructure telemetry, dedicated Slack/Teams bridge channels, and guaranteed incident response times: Critical severity within 1 hour, standard inquiries within 4 hours.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1530,7 +1863,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.4.0" defer></script>
-  <script type="module" src="assets/vendor/visual-effects.js?v=3.4.0"></script>
+  <script src="app.js?v=3.5.0" defer></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.5.0"></script>
 </body>
 </html>
