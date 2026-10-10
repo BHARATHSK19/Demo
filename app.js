@@ -188,11 +188,19 @@ finderButtons.forEach((button) => {
 // ============================================================================
 const studioTabs = document.querySelectorAll('.studio-tab[data-studio-tab]');
 const studioPanels = document.querySelectorAll('.studio-panel');
+const studioTitleText = document.querySelector('.studio-window-title span');
+
+const studioTitles = {
+  legal: 'OJIX Studio Pro · LegalOS Commercial Division',
+  procure: 'OJIX Studio Pro · ProcureOS Reconciliation & GST',
+  company: 'OJIX Studio Pro · CompanyOS Enterprise Core'
+};
 
 if (studioTabs.length > 0) {
   studioTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      const targetId = `panel-${tab.dataset.studioTab}`;
+      const mode = tab.dataset.studioTab;
+      const targetId = `panel-${mode}`;
       studioTabs.forEach((t) => {
         const active = t === tab;
         t.classList.toggle('is-active', active);
@@ -208,6 +216,10 @@ if (studioTabs.length > 0) {
           panel.hidden = true;
         }
       });
+
+      if (studioTitleText && studioTitles[mode]) {
+        studioTitleText.textContent = studioTitles[mode];
+      }
     });
   });
 }

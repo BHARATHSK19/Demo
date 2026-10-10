@@ -57,7 +57,16 @@
         ]
       },
       {
-        "source": "assets/**",
+        "source": "assets/vendor/**/*.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "assets/!(vendor)/**",
         "headers": [
           {
             "key": "Cache-Control",
@@ -66,7 +75,7 @@
         ]
       },
       {
-        "source": "*.@(html|webmanifest)",
+        "source": "**/*.@(html|webmanifest|css|js)",
         "headers": [
           {
             "key": "Cache-Control",

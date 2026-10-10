@@ -27,8 +27,61 @@
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+/* ABSOLUTE CURSOR SUPPRESSION ON FINE POINTER (DESKTOP): ONLY 3D FLUID BUBBLE CURSOR ACTIVE */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  *,
+  *::before,
+  *::after,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  label,
+  [role="button"],
+  [role="tab"] {
+    cursor: none !important;
+  }
+}
+
+/* UNIVERSAL CLEAN BUTTON RESET: ELIMINATE BROWSER DEFAULT BEVELS & BORDERS */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  all: unset;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  display: inline-block;
+  text-align: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    cursor: none !important;
+  }
 }
 
 html {
@@ -742,26 +795,33 @@ h1 em, h2 em {
 }
 
 .studio-tab {
+  all: unset;
+  box-sizing: border-box;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px 10px;
-  border: none;
+  padding: 9px 12px;
+  border: 1px solid transparent;
   border-radius: 8px;
   background: transparent;
+  cursor: none !important;
   transition: all 0.25s var(--ease-spring);
   text-align: center;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .studio-tab:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--navy);
 }
 
 .studio-tab.is-active {
   background: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(15, 28, 46, 0.09), 0 1px 2px rgba(15, 28, 46, 0.04);
+  border-color: rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2px 10px rgba(15, 28, 46, 0.08), 0 1px 2px rgba(15, 28, 46, 0.04);
 }
 
 .studio-tab .tab-label {
@@ -1006,23 +1066,40 @@ h1 em, h2 em {
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
-  margin: 32px 0 36px;
+  margin: 36px auto 44px;
+  padding: 6px;
+  background: rgba(241, 245, 249, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  max-width: fit-content;
+  box-shadow: 0 4px 20px rgba(15, 28, 46, 0.04);
 }
 
 .filter-pill {
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  all: unset;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid transparent;
   border-radius: 999px;
-  padding: 8px 18px;
+  padding: 10px 22px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 650;
   color: #475569;
+  letter-spacing: -0.01em;
+  cursor: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.25s var(--ease-spring);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .filter-pill:hover {
-  background: #E2E8F0;
+  background: rgba(255, 255, 255, 0.9);
   color: var(--navy);
   transform: translateY(-1px);
 }
@@ -1032,7 +1109,7 @@ h1 em, h2 em {
   border-color: var(--navy);
   color: #FFFFFF;
   font-weight: 750;
-  box-shadow: 0 4px 14px rgba(15, 28, 46, 0.16);
+  box-shadow: 0 4px 16px rgba(15, 28, 46, 0.18);
 }
 
 .portfolio-tier-group {
@@ -1045,9 +1122,15 @@ h1 em, h2 em {
 }
 
 .portfolio-tier-header {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #E5EAF0;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .tier-kicker {
@@ -1061,8 +1144,8 @@ h1 em, h2 em {
 
 .tier-heading {
   font-family: var(--font-heading);
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 750;
   color: var(--navy);
   letter-spacing: -0.03em;
   margin: 0;
