@@ -184,42 +184,32 @@ finderButtons.forEach((button) => {
 });
 
 // ============================================================================
-// 4B. OJIX HERO STUDIO SHOWCASE INTERACTION
+// 4B. OJIX HERO ARCHITECTURE ENGINE INTERACTION
 // ============================================================================
-const studioTabs = document.querySelectorAll('.studio-tab[data-studio-tab]');
-const studioPanels = document.querySelectorAll('.studio-panel');
-const studioTitleText = document.querySelector('.studio-window-title span');
+const engineTabs = document.querySelectorAll('.engine-tab[data-engine-tab]');
+const engineViews = document.querySelectorAll('.engine-view');
 
-const studioTitles = {
-  legal: 'OJIX Studio Pro · LegalOS Commercial Division',
-  procure: 'OJIX Studio Pro · ProcureOS Reconciliation & GST',
-  company: 'OJIX Studio Pro · CompanyOS Enterprise Core'
-};
-
-if (studioTabs.length > 0) {
-  studioTabs.forEach((tab) => {
+if (engineTabs.length > 0) {
+  engineTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      const mode = tab.dataset.studioTab;
-      const targetId = `panel-${mode}`;
-      studioTabs.forEach((t) => {
+      const mode = tab.dataset.engineTab;
+      const targetId = `view-${mode}`;
+
+      engineTabs.forEach((t) => {
         const active = t === tab;
         t.classList.toggle('is-active', active);
         t.setAttribute('aria-selected', String(active));
       });
 
-      studioPanels.forEach((panel) => {
-        if (panel.id === targetId) {
-          panel.classList.add('is-active');
-          panel.hidden = false;
+      engineViews.forEach((view) => {
+        if (view.id === targetId) {
+          view.classList.add('is-active');
+          view.hidden = false;
         } else {
-          panel.classList.remove('is-active');
-          panel.hidden = true;
+          view.classList.remove('is-active');
+          view.hidden = true;
         }
       });
-
-      if (studioTitleText && studioTitles[mode]) {
-        studioTitleText.textContent = studioTitles[mode];
-      }
     });
   });
 }
@@ -255,15 +245,15 @@ if (portfolioFilterPills.length > 0) {
   });
 }
 
-// Spotlight cursor reflection on studio window
-const heroStudio = document.querySelector('.hero-studio-window');
-if (heroStudio && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  heroStudio.addEventListener('pointermove', (e) => {
-    const rect = heroStudio.getBoundingClientRect();
+// Spotlight cursor reflection on hero engine surface
+const heroEngine = document.querySelector('.hero-engine-surface') || document.querySelector('.workspace-window');
+if (heroEngine && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  heroEngine.addEventListener('pointermove', (e) => {
+    const rect = heroEngine.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    heroStudio.style.setProperty('--mouse-x', `${x}px`);
-    heroStudio.style.setProperty('--mouse-y', `${y}px`);
+    heroEngine.style.setProperty('--mouse-x', `${x}px`);
+    heroEngine.style.setProperty('--mouse-y', `${y}px`);
   });
 }
 
