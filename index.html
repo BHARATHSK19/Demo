@@ -230,237 +230,250 @@
           <div class="hero-proof"><span class="proof-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/></svg></span><span>Built for actual workflows.<br /><strong>Not software for software’s sake.</strong></span></div>
         </div>
 
-        <div class="hero-visual reveal" role="region" aria-label="Interactive OJIX Enterprise Operations Cockpit">
+        <div class="hero-visual reveal" role="region" aria-label="OJIX Enterprise Operating Systems Studio">
           <div class="visual-topline">
-            <span><span class="live-dot-pulse" aria-hidden="true"></span> LIVE KERNEL · v2.6</span>
-            <span class="visual-context">SOVEREIGN CLOUD · BENGALURU NODE · 12ms</span>
+            <span class="apple-status-badge"><span class="apple-status-dot" aria-hidden="true"></span> ENTERPRISE STUDIO PRO</span>
+            <span class="visual-context">SOVEREIGN CLOUD · BENGALURU PRODUCTION HOST</span>
           </div>
 
-          <div class="workspace-window hero-cockpit-window" id="workspace-window">
-            <!-- Cockpit Header / System Bar -->
-            <div class="cockpit-bar">
-              <div class="cockpit-brand-meta">
-                <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="cockpit-brand-avatar" width="34" height="34" />
-                <div>
-                  <span class="cockpit-kicker">ENTERPRISE ENGINE</span>
-                  <h2 class="cockpit-title">Operating Command Center</h2>
-                </div>
+          <div class="workspace-window hero-studio-window" id="workspace-window">
+            <!-- macOS Window Titlebar Chrome -->
+            <div class="studio-window-bar">
+              <div class="studio-window-controls" aria-hidden="true">
+                <span class="win-btn win-btn-close"></span>
+                <span class="win-btn win-btn-min"></span>
+                <span class="win-btn win-btn-max"></span>
               </div>
-              <div class="cockpit-bar-actions">
-                <button type="button" class="btn-cockpit-sim" id="cockpit-sim-btn" aria-label="Simulate operational dispatch">
-                  <span class="sim-pulse-dot" aria-hidden="true"></span>
-                  <span class="sim-label">⚡ Simulate Dispatch</span>
-                </button>
+              <div class="studio-window-title">
+                <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" width="20" height="20" class="studio-title-icon" />
+                <span>OJIX Studio Pro · Operating Environment</span>
+              </div>
+              <div class="studio-window-meta">
+                <span class="meta-tag">v2.6 RELEASE</span>
               </div>
             </div>
 
-            <!-- React Bits Animated Segmented Mode Switcher -->
-            <div class="cockpit-tabs-nav" role="tablist" aria-label="Cockpit operating modes">
-              <button type="button" role="tab" class="cockpit-tab is-active" id="tab-pipeline-btn" aria-selected="true" aria-controls="panel-pipeline" data-cockpit-tab="pipeline">
-                <span class="tab-icon">⚡</span>
-                <span class="tab-text">Live Pipeline</span>
-                <span class="tab-badge">Active</span>
+            <!-- Apple Segmented Platform Controller -->
+            <div class="studio-segmented-tabs" role="tablist" aria-label="Select enterprise operating platform view">
+              <button type="button" role="tab" class="studio-tab is-active" id="tab-legal-btn" aria-selected="true" aria-controls="panel-legal" data-studio-tab="legal">
+                <span class="tab-label">LegalOS</span>
+                <span class="tab-sub">Court &amp; Dockets</span>
               </button>
-              <button type="button" role="tab" class="cockpit-tab" id="tab-gates-btn" aria-selected="false" aria-controls="panel-gates" data-cockpit-tab="gates">
-                <span class="tab-icon">🧠</span>
-                <span class="tab-text">AI Verification</span>
-                <span class="tab-badge">0-Hallucination</span>
+              <button type="button" role="tab" class="studio-tab" id="tab-procure-btn" aria-selected="false" aria-controls="panel-procure" data-studio-tab="procure">
+                <span class="tab-label">ProcureOS</span>
+                <span class="tab-sub">3-Way Match &amp; GST</span>
               </button>
-              <button type="button" role="tab" class="cockpit-tab" id="tab-sovereign-btn" aria-selected="false" aria-controls="panel-sovereign" data-cockpit-tab="sovereign">
-                <span class="tab-icon">🛡️</span>
-                <span class="tab-text">Sovereign Mesh</span>
-                <span class="tab-badge">DPDP 2023</span>
+              <button type="button" role="tab" class="studio-tab" id="tab-company-btn" aria-selected="false" aria-controls="panel-company" data-studio-tab="company">
+                <span class="tab-label">CompanyOS</span>
+                <span class="tab-sub">Enterprise Core</span>
               </button>
             </div>
 
-            <!-- TAB PANEL 1: LIVE PIPELINE -->
-            <div class="cockpit-panel is-active" id="panel-pipeline" role="tabpanel" aria-labelledby="tab-pipeline-btn">
-              <!-- Live Sequential Pipeline Matrix -->
-              <div class="pipeline-flow-wrapper">
-                <div class="pipeline-flow-header">
-                  <span>DISPATCH PIPELINE TOPOLOGY</span>
-                  <span class="pipeline-flow-status" id="pipeline-stream-status">● REAL-TIME DISPATCH</span>
+            <!-- VIEW 1: LEGAL PRACTICE & COURT OPERATIONS -->
+            <div class="studio-panel is-active" id="panel-legal" role="tabpanel" aria-labelledby="tab-legal-btn">
+              <div class="studio-docket-header">
+                <div class="docket-title-wrap">
+                  <span class="docket-kicker">HIGH COURT OF KARNATAKA · COMMERCIAL DIVISION</span>
+                  <h3 class="docket-heading">Arbitration Appeal (Com.) No. 342 of 2026</h3>
                 </div>
-                <div class="pipeline-track" id="pipeline-nodes-track">
-                  <div class="pipeline-node node-active" data-node="ingest" tabindex="0" role="button" aria-label="Ingest Node: 3.8 milliseconds latency">
-                    <div class="node-glow"></div>
-                    <span class="node-step">01</span>
-                    <strong class="node-title">INGEST</strong>
-                    <span class="node-meta">Multi-source</span>
-                    <span class="node-latency">3.8ms</span>
-                  </div>
-                  <div class="pipeline-connector"><span class="connector-beam"></span></div>
-                  <div class="pipeline-node node-active" data-node="rules" tabindex="0" role="button" aria-label="Rules Arbiter: 2.4 milliseconds latency">
-                    <div class="node-glow"></div>
-                    <span class="node-step">02</span>
-                    <strong class="node-title">RULES</strong>
-                    <span class="node-meta">Auth &amp; matrix</span>
-                    <span class="node-latency">2.4ms</span>
-                  </div>
-                  <div class="pipeline-connector"><span class="connector-beam"></span></div>
-                  <div class="pipeline-node node-active" data-node="ai" tabindex="0" role="button" aria-label="AI Verification Gate: 14.2 milliseconds latency">
-                    <div class="node-glow"></div>
-                    <span class="node-step">03</span>
-                    <strong class="node-title">VERIFY</strong>
-                    <span class="node-meta">AI Extraction</span>
-                    <span class="node-latency">14.2ms</span>
-                  </div>
-                  <div class="pipeline-connector"><span class="connector-beam"></span></div>
-                  <div class="pipeline-node node-active" data-node="commit" tabindex="0" role="button" aria-label="Statutory Ledger: 4.1 milliseconds latency">
-                    <div class="node-glow"></div>
-                    <span class="node-step">04</span>
-                    <strong class="node-title">COMMIT</strong>
-                    <span class="node-meta">Audit ledger</span>
-                    <span class="node-latency">4.1ms</span>
-                  </div>
-                </div>
-                <!-- Node Detail Inspector Overlay -->
-                <div class="pipeline-inspector" id="pipeline-inspector">
-                  <span class="inspector-tag" id="inspector-node-tag">ACTIVE NODE: VERIFY</span>
-                  <span class="inspector-detail" id="inspector-node-detail">Deterministic document extraction &amp; schema enforcement against statutory rules.</span>
+                <div class="docket-status-pill status-urgent">
+                  <span class="docket-status-dot"></span>
+                  <span>Sec. 34 Limitation: 18 Days Left</span>
                 </div>
               </div>
 
-              <!-- High-Attraction Key Gauges -->
-              <div class="cockpit-metrics-grid">
-                <div class="cockpit-metric-tile">
-                  <div class="metric-topline"><span class="metric-dot success"></span><span>CORE SLA</span></div>
-                  <div class="metric-hero-num"><span class="counter" data-target="99.99">99.99</span><small>%</small></div>
-                  <div class="metric-micro-desc">Zero dropped hand-offs</div>
+              <div class="studio-records-stack">
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Certified Paperbook &amp; Pleadings Index</strong>
+                      <span class="record-badge">e-Filed</span>
+                    </div>
+                    <p class="record-sub">582 pages indexed with SHA-256 e-filing receipt token #KA-89104 · High Court CIS portal synced.</p>
+                  </div>
                 </div>
-                <div class="cockpit-metric-tile">
-                  <div class="metric-topline"><span class="metric-dot accent"></span><span>MEDIAN LATENCY</span></div>
-                  <div class="metric-hero-num">&lt; <span class="counter" data-target="12">12</span><small>ms</small></div>
-                  <div class="metric-micro-desc">In-region compute</div>
+
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Section 34(3) Statutory Limitation Calculator</strong>
+                      <span class="record-badge">Verified</span>
+                    </div>
+                    <p class="record-sub">Arbitral award served 14 July 2026 · 90-day statutory bar strictly locked to 28 Oct 2026.</p>
+                  </div>
                 </div>
-                <div class="cockpit-metric-tile">
-                  <div class="metric-topline"><span class="metric-dot orange"></span><span>ACCURACY</span></div>
-                  <div class="metric-hero-num"><span class="counter" data-target="100">100</span><small>%</small></div>
-                  <div class="metric-micro-desc">Statutory compliance</div>
+
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Digital Vakalatnama &amp; Class-3 Token Sign</strong>
+                      <span class="record-badge">Executed</span>
+                    </div>
+                    <p class="record-sub">Designated Senior Advocate cryptographic signing token verified under IT Act 2000.</p>
+                  </div>
+                </div>
+
+                <div class="record-row">
+                  <div class="record-indicator active">●</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Bengaluru Daily Cause List Parsing</strong>
+                      <span class="record-badge badge-active">Live Roster</span>
+                    </div>
+                    <p class="record-sub">Court Hall 04, Item 28 listed before Hon'ble Single Judge · Case documents queued for briefing.</p>
+                  </div>
                 </div>
               </div>
 
-              <!-- Real-Time Activity Feed -->
-              <div class="cockpit-event-feed">
-                <div class="feed-header">
-                  <span>LIVE REVERIFIED EVENTS</span>
-                  <span class="feed-pulse" id="feed-live-ticker">UPDATED JUST NOW</span>
-                </div>
-                <div class="feed-items-list" id="cockpit-feed-list">
-                  <div class="feed-item item-flash">
-                    <div class="feed-item-icon icon-law"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4z"/><path d="M4 11v6c0 3 4 5 8 5s8-2 8-5v-6"/></svg></div>
-                    <div class="feed-item-body">
-                      <strong>[LegalOS] High Court limitation check verified</strong>
-                      <span>Dockets parsed · Statutory date locked · 0 exceptions</span>
-                    </div>
-                    <span class="feed-item-badge state-done">VERIFIED</span>
-                  </div>
-                  <div class="feed-item">
-                    <div class="feed-item-icon icon-procure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-                    <div class="feed-item-body">
-                      <strong>[ProcureOS] 3-way match completed: ₹4,82,500</strong>
-                      <span>PO #8492 reconciled against GRN and GST tax invoice</span>
-                    </div>
-                    <span class="feed-item-badge state-done">MATCHED</span>
-                  </div>
-                  <div class="feed-item">
-                    <div class="feed-item-icon icon-audit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <div class="feed-item-body">
-                      <strong>[CompanyOS] Multi-tier statutory approval signed</strong>
-                      <span>Audit trail sealed · Cryptographic hash written to ledger</span>
-                    </div>
-                    <span class="feed-item-badge state-audit">COMMITTED</span>
-                  </div>
-                </div>
+              <div class="studio-footer-action">
+                <a href="legalos.html" class="studio-deep-link">
+                  <span>Explore LegalOS Architecture &amp; Court Workflows</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
 
-            <!-- TAB PANEL 2: AI & STATUTORY GATES -->
-            <div class="cockpit-panel" id="panel-gates" role="tabpanel" aria-labelledby="tab-gates-btn" hidden>
-              <div class="gates-feature-card">
-                <div class="gates-badge">ZERO-HALLUCINATION ENTERPRISE ARCHITECTURE</div>
-                <h3>Human-in-the-Loop Applied AI</h3>
-                <p>We restrict LLMs strictly to structured schema extraction and parsing. Calculations, legal deadlines, and ledger mutations are governed by deterministic compiled logic.</p>
-                
-                <div class="gates-steps-grid">
-                  <div class="gate-step-card">
-                    <span class="step-num">GATE 01</span>
-                    <strong>Scoped Extraction</strong>
-                    <p>Unstructured PDFs, court cause lists, and invoices parsed into strict typed data schemas.</p>
-                  </div>
-                  <div class="gate-step-card">
-                    <span class="step-num">GATE 02</span>
-                    <strong>Rule Arithmetic</strong>
-                    <p>Financial totals and statutory deadlines computed via deterministic code—never LLMs.</p>
-                  </div>
-                  <div class="gate-step-card">
-                    <span class="step-num">GATE 03</span>
-                    <strong>Human Sign-Off</strong>
-                    <p>High-consequence transactions require explicit authorized officer sign-off before commitment.</p>
+            <!-- VIEW 2: PROCURE-TO-PAY & GST RECONCILIATION -->
+            <div class="studio-panel" id="panel-procure" role="tabpanel" aria-labelledby="tab-procure-btn" hidden>
+              <div class="studio-docket-header">
+                <div class="docket-title-wrap">
+                  <span class="docket-kicker">PROCURE-TO-PAY AUDIT · 3-WAY RECONCILIATION</span>
+                  <h3 class="docket-heading">Purchase Order PO-2026-8492</h3>
+                </div>
+                <div class="docket-status-pill status-success">
+                  <span class="docket-status-dot success"></span>
+                  <span>3-Way Match: 100% Reconciled</span>
+                </div>
+              </div>
+
+              <div class="studio-records-stack">
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>PO Authorization: ₹18,40,000 + 18% GST</strong>
+                      <span class="record-badge">Approved</span>
+                    </div>
+                    <p class="record-sub">Line items 01–14 matched with approved vendor price contract · Digital signature applied.</p>
                   </div>
                 </div>
-                <div class="gates-footer-tag">
-                  <span>✓ 100% Audit Traceability</span>
-                  <span>✓ Complete Explainability</span>
-                  <span>✓ Zero Model Leakage</span>
+
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Goods Receipt Note (GRN #312) Verification</strong>
+                      <span class="record-badge">Warehouse Dock</span>
+                    </div>
+                    <p class="record-sub">100% quantity physically inspected, barcode scanned, and confirmed into Bengaluru inventory.</p>
+                  </div>
                 </div>
+
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>GST E-Invoice &amp; IRN Authentication</strong>
+                      <span class="record-badge">GSTN Validated</span>
+                    </div>
+                    <p class="record-sub">IRN hash verified against GST portal · 0.00% tax mismatch · Full GSTR-2B Input Tax Credit claimed.</p>
+                  </div>
+                </div>
+
+                <div class="record-row">
+                  <div class="record-indicator active">●</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Automated Payment Voucher Release</strong>
+                      <span class="record-badge badge-active">HDFC NetBanking</span>
+                    </div>
+                    <p class="record-sub">Voucher queued for dual-approval disbursement batch on contractual due date.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="studio-footer-action">
+                <a href="procureos.html" class="studio-deep-link">
+                  <span>Explore ProcureOS Architecture &amp; Financial Workflows</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
 
-            <!-- TAB PANEL 3: SOVEREIGN MESH -->
-            <div class="cockpit-panel" id="panel-sovereign" role="tabpanel" aria-labelledby="tab-sovereign-btn" hidden>
-              <div class="sovereign-feature-card">
-                <div class="sovereign-badge">REPUBLIC OF INDIA DATA SOVEREIGNTY</div>
-                <h3>DPDP Act 2023 &amp; Sovereign Cloud Mesh</h3>
-                <p>All enterprise customer data resides exclusively on MeitY-empanelled cloud infrastructure in Bengaluru and Mumbai. No cross-border data leakage. Full statutory compliance from day one.</p>
+            <!-- VIEW 3: UNIFIED ENTERPRISE OPERATING CORE -->
+            <div class="studio-panel" id="panel-company" role="tabpanel" aria-labelledby="tab-company-btn" hidden>
+              <div class="studio-docket-header">
+                <div class="docket-title-wrap">
+                  <span class="docket-kicker">ENTERPRISE STATUTORY AUDIT &amp; GOVERNANCE</span>
+                  <h3 class="docket-heading">CompanyOS Unified Operating Core</h3>
+                </div>
+                <div class="docket-status-pill status-success">
+                  <span class="docket-status-dot success"></span>
+                  <span>Statutory Status: Locked &amp; Sealed</span>
+                </div>
+              </div>
 
-                <div class="sovereign-stats-row">
-                  <div class="sovereign-stat-box">
-                    <span class="sov-stat-val">100%</span>
-                    <span class="sov-stat-lbl">Indian Data Residency</span>
-                  </div>
-                  <div class="sovereign-stat-box">
-                    <span class="sov-stat-val">AES-256</span>
-                    <span class="sov-stat-lbl">GCM Encryption at Rest</span>
-                  </div>
-                  <div class="sovereign-stat-box">
-                    <span class="sov-stat-val">&lt; 48h</span>
-                    <span class="sov-stat-lbl">DPDP Grievance SLA</span>
+              <div class="studio-records-stack">
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Workforce Payroll, PF &amp; ESI Remittance</strong>
+                      <span class="record-badge">240 Active Staff</span>
+                    </div>
+                    <p class="record-sub">Monthly attendance locked · EPF/ESI challans generated and reconciled with zero shortfall.</p>
                   </div>
                 </div>
 
-                <div class="sovereign-features-list">
-                  <div class="sov-item">
-                    <span class="sov-bullet">✓</span>
-                    <span><strong>Statutory Consent Ledgers:</strong> Itemized, purpose-specific consent logging under DPDP Act 2023.</span>
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>GSTR-1 &amp; GSTR-3B Tax Filing Ledger</strong>
+                      <span class="record-badge">Statutory Core</span>
+                    </div>
+                    <p class="record-sub">Outward supplies reconciled across state branches · Automated TDS computation locked.</p>
                   </div>
-                  <div class="sov-item">
-                    <span class="sov-bullet">✓</span>
-                    <span><strong>Tenant Cryptographic Isolation:</strong> Dedicated keys per enterprise tenant with zero cross-contamination.</span>
+                </div>
+
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>DPDP Act 2023 Consent &amp; Data Sovereignty</strong>
+                      <span class="record-badge">DPDP Compliant</span>
+                    </div>
+                    <p class="record-sub">MeitY Indian cloud residency · Purpose-specific consent ledgers cryptographically verified.</p>
                   </div>
-                  <div class="sov-item">
-                    <span class="sov-bullet">✓</span>
-                    <span><strong>Zero Model Retraining:</strong> Enterprise client data is never used to train external foundation models.</span>
+                </div>
+
+                <div class="record-row">
+                  <div class="record-indicator done">✓</div>
+                  <div class="record-content">
+                    <div class="record-headline">
+                      <strong>Multi-Tier Executive Authorization Matrix</strong>
+                      <span class="record-badge">Audit Immutable</span>
+                    </div>
+                    <p class="record-sub">Role-based permission matrix enforces dual executive sign-offs on high-value corporate actions.</p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Cockpit Footer -->
-            <div class="cockpit-footer-bar">
-              <div class="cockpit-footer-live">
-                <span class="live-dot-pulse"></span>
-                <span>SYSTEM HEALTH: 100% NOMINAL</span>
-              </div>
-              <div class="cockpit-footer-ticker">
-                <span>0 UNRESOLVED EXCEPTIONS · 1,200+ ACTIVE DOCKETS</span>
+              <div class="studio-footer-action">
+                <a href="#platforms" class="studio-deep-link">
+                  <span>Explore CompanyOS Unified Enterprise Architecture</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </div>
 
           <div class="visual-note">
-            <span>Enterprise software engineered for high-consequence operations.</span>
-            <span class="note-index">01—04</span>
+            <span>Operating systems designed around the real grain of Indian enterprise work.</span>
+            <span class="note-index">01—03</span>
           </div>
           <div class="hero-stamp" aria-hidden="true"><span>ENGINEERED</span><strong>FOR WORK.</strong></div>
         </div>
@@ -555,148 +568,20 @@
           </div>
           <p>Industry-specific platforms for repeatable needs. Custom systems for everything that makes your operation different.</p>
         </div>
-        <div class="platform-grid">
-          <article class="platform-card platform-legal reveal" id="legalos">
-            <div class="card-top"><span class="platform-tag">LEGAL OPERATIONS</span><span class="card-index">01</span></div>
-            <div class="platform-symbol symbol-legal">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Architectural Pediment & Fulcrum Pivot -->
-                <path d="M24 6l6 4H18l6-4z" fill="rgba(201, 102, 47, 0.2)" stroke="#C9662F" stroke-width="1.8" />
-                <circle cx="24" cy="13" r="3" fill="#C9662F" />
-                <path d="M24 16v22" stroke="#0F1C2E" stroke-width="2.2" />
-                <!-- Heavy Foundation Base -->
-                <path d="M14 41h20M17 38h14" stroke="#0F1C2E" stroke-width="2" />
-                <!-- Dynamic Precision Crossbeam -->
-                <path d="M8 17l16-2 16 2" stroke="#0F1C2E" stroke-width="2.2" />
-                <!-- Left Balance Pan -->
-                <path d="M8 17l-4 9h16l-4-9" stroke="#C9662F" stroke-width="1.6" />
-                <path d="M4 26c0 4.5 3.6 7 8 7s8-2.5 8-7H4z" fill="rgba(201, 102, 47, 0.16)" stroke="#C9662F" stroke-width="1.8" />
-                <!-- Right Balance Pan -->
-                <path d="M40 17l-4 9h16l-4-9" stroke="#C9662F" stroke-width="1.6" />
-                <path d="M36 26c0 4.5 3.6 7 8 7s8-2.5 8-7H36z" fill="rgba(201, 102, 47, 0.16)" stroke="#C9662F" stroke-width="1.8" />
-                <!-- Central Equilibrium Diamond -->
-                <polygon points="24,20 26.5,23.5 24,27 21.5,23.5" fill="#C9662F" />
-              </svg>
-            </div>
-            <h3><a href="legalos.html" class="card-title-link">LegalOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
-            <p>A connected workspace for law firms to manage matter lifecycles, tasks, hearing readiness, documents and operational visibility.</p>
-            <div class="feature-pills"><span>Case workflows</span><span>Hearing readiness</span><span>Document integrity</span></div>
-            <a href="legalos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
-            <a href="#contact" class="card-link" data-interest="LegalOS">Discuss LegalOS <span>↗</span></a>
-          </article>
-          <article class="platform-card platform-fitbiz reveal" id="fitbiz">
-            <div class="card-top"><span class="platform-tag">FITNESS &amp; WELLNESS</span><span class="card-index">02</span></div>
-            <div class="platform-symbol symbol-fit">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Concentric Biometric Telemetry Rings -->
-                <circle cx="24" cy="24" r="20" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="3 3" />
-                <path d="M24 4 A20 20 0 0 1 44 24" stroke="#C9662F" stroke-width="2.6" />
-                <circle cx="24" cy="24" r="14" stroke="rgba(15, 28, 46, 0.15)" stroke-width="1.5" />
-                <!-- Dynamic Cardio Vital Waveform -->
-                <path d="M6 24h9l3-9 5 20 4-15 3 4h12" stroke="#0F1C2E" stroke-width="2.2" />
-                <path d="M15 24l3-9 5 20 4-15 3 4" stroke="#C9662F" stroke-width="2.4" />
-                <!-- Glowing Vitality Pulse Node -->
-                <circle cx="34" cy="24" r="3.5" fill="#C9662F" stroke="#FFFFFF" stroke-width="1.5" />
-              </svg>
-            </div>
-            <h3>FitBiz</h3>
-            <p>Gym and studio management for memberships, renewals, attendance, staff workflows and a clearer view of centre performance.</p>
-            <div class="feature-pills"><span>Member lifecycle</span><span>Renewal tracking</span><span>Centre operations</span></div>
-            <a href="#contact" class="card-link" data-interest="FitBiz">Discuss FitBiz <span>↗</span></a>
-          </article>
-          <article class="platform-card platform-campus reveal" id="campusos">
-            <div class="card-top"><span class="platform-tag">EDUCATION</span><span class="card-index">03</span></div>
-            <div class="platform-symbol symbol-campus">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Collegiate Portico Pillars & Foundation -->
-                <path d="M8 42h32M12 38h24" stroke="#0F1C2E" stroke-width="2" />
-                <path d="M16 26v12M32 26v12" stroke="#0F1C2E" stroke-width="2" />
-                <path d="M24 28v10" stroke="rgba(15, 28, 46, 0.3)" stroke-width="1.5" stroke-dasharray="2 2" />
-                <!-- Graduation Mortarboard Diamond Roof -->
-                <path d="M4 18L24 8l20 10-20 10L4 18z" fill="rgba(201, 102, 47, 0.16)" stroke="#C9662F" stroke-width="2.2" />
-                <!-- Graduation Tassel Cord & Seal -->
-                <path d="M42 20v11" stroke="#0F1C2E" stroke-width="1.8" />
-                <circle cx="42" cy="32" r="2.5" fill="#C9662F" />
-                <!-- Radiant Knowledge Beacon Star -->
-                <circle cx="24" cy="8" r="2.5" fill="#C9662F" />
-                <path d="M24 3v3M21.5 4.5h5" stroke="#C9662F" stroke-width="1.5" />
-              </svg>
-            </div>
-            <h3><a href="campusos.html" class="card-title-link">CampusOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
-            <p>Connected school and campus workflows across student records, attendance, examinations, communication and administration.</p>
-            <div class="feature-pills"><span>Student lifecycle</span><span>Exam workflows</span><span>Admin visibility</span></div>
-            <a href="campusos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
-            <a href="#contact" class="card-link" data-interest="CampusOS">Discuss CampusOS <span>↗</span></a>
-          </article>
-          <article class="platform-card platform-builder reveal" id="builderos">
-            <div class="card-top"><span class="platform-tag">CONSTRUCTION</span><span class="card-index">04</span></div>
-            <div class="platform-symbol symbol-builder">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Foundation Ground Line -->
-                <path d="M6 42h36" stroke="#0F1C2E" stroke-width="2" />
-                <!-- Tower Mast with Cross-Girders -->
-                <path d="M13 42V14h14v28" stroke="#0F1C2E" stroke-width="2" />
-                <path d="M13 21h14M13 28h14M13 35h14" stroke="#0F1C2E" stroke-width="1.5" />
-                <path d="M13 21l14 7M27 21l-14 7M13 28l14 7M27 28l-14 7" stroke="rgba(15, 28, 46, 0.4)" stroke-width="1.4" />
-                <!-- Articulated Crane Boom & Counterweight -->
-                <path d="M7 14l6-4v4l28-3-28 3" fill="rgba(201, 102, 47, 0.12)" stroke="#C9662F" stroke-width="2.2" />
-                <path d="M20 10l-7-6" stroke="#C9662F" stroke-width="1.8" />
-                <!-- Suspended Payload Hook -->
-                <line x1="38" y1="11" x2="38" y2="24" stroke="#0F1C2E" stroke-width="1.5" stroke-dasharray="2 2" />
-                <rect x="34" y="24" width="8" height="8" rx="2" fill="#C9662F" stroke="#0F1C2E" stroke-width="1.5" />
-              </svg>
-            </div>
-            <h3>BuilderOS</h3>
-            <p>Project and site operations that bring progress, contractors, procurement, records and handover tasks into view.</p>
-            <div class="feature-pills"><span>Site progress</span><span>Vendor coordination</span><span>Project records</span></div>
-            <a href="#contact" class="card-link" data-interest="BuilderOS">Discuss BuilderOS <span>↗</span></a>
-          </article>
-          <article class="platform-card platform-travel reveal" id="travelos">
-            <div class="card-top"><span class="platform-tag">TRAVEL OPERATIONS</span><span class="card-index">05</span></div>
-            <div class="platform-symbol symbol-travel">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Global Orbital Longitude/Latitude Track -->
-                <ellipse cx="24" cy="24" rx="19" ry="11" transform="rotate(-26 24 24)" stroke="#CBD5E1" stroke-width="1.8" />
-                <!-- Supersonic Flight Trajectory Arc -->
-                <path d="M8 38 C14 26, 26 14, 40 10" stroke="#C9662F" stroke-width="2.5" />
-                <!-- Precision 4-Point Compass Rose -->
-                <path d="M15 15l2-6 2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="rgba(201, 102, 47, 0.18)" stroke="#C9662F" stroke-width="1.4" />
-                <!-- Aerodynamic Delta-Wing Aircraft -->
-                <path d="M40 10l-9 1 3 4 4 1-1 3 5-1 2-8z" fill="#0F1C2E" stroke="#0F1C2E" stroke-width="1.2" />
-                <!-- Waypoint Destination Beacon -->
-                <circle cx="40" cy="10" r="3" fill="#C9662F" stroke="#FFFFFF" stroke-width="1.5" />
-              </svg>
-            </div>
-            <h3>TravelOS</h3>
-            <p>Travel agency operations for enquiries, itineraries, bookings, suppliers and traveller communication in one workflow.</p>
-            <div class="feature-pills"><span>Enquiry to booking</span><span>Itineraries</span><span>Supplier workflows</span></div>
-            <a href="#contact" class="card-link" data-interest="TravelOS">Discuss TravelOS <span>↗</span></a>
-          </article>
-          <article class="platform-card platform-procure reveal" id="procureos">
-            <div class="card-top"><span class="platform-tag">PROCUREMENT &amp; ERP</span><span class="card-index">06</span></div>
-            <div class="platform-symbol symbol-procure">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Interlocking Isometric Supply Chain Matrix Cubes -->
-                <!-- Top PO Cube -->
-                <path d="M24 5l13 7.5-13 7.5-13-7.5L24 5z" fill="rgba(201, 102, 47, 0.18)" stroke="#C9662F" stroke-width="2" />
-                <!-- Bottom-Left GRN Facet -->
-                <path d="M11 20v14l13 7.5V27.5L11 20z" fill="rgba(15, 28, 46, 0.06)" stroke="#0F1C2E" stroke-width="2" />
-                <!-- Bottom-Right Invoice Facet -->
-                <path d="M24 27.5V41.5l13-7.5V20L24 27.5z" stroke="#0F1C2E" stroke-width="2" />
-                <!-- Central 3-Way Match Verification Token -->
-                <circle cx="24" cy="24" r="8" fill="#FFFFFF" stroke="#C9662F" stroke-width="2" />
-                <path d="M20.5 24l2.5 2.5 5-5" stroke="#C9662F" stroke-width="2.2" />
-              </svg>
-            </div>
-            <h3><a href="procureos.html" class="card-title-link">ProcureOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
-            <p>A procure-to-pay foundation for purchasing, inventory, vendor and contract management, GST invoicing and logistics visibility.</p>
-            <div class="feature-pills"><span>Inventory signals</span><span>Vendor lifecycle</span><span>Procure to pay</span></div>
-            <a href="procureos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
-            <a href="#contact" class="card-link" data-interest="ProcureOS">Discuss ProcureOS <span>↗</span></a>
-          </article>
-          <article class="platform-card platform-enterprise reveal" id="companyos">
+
+        <!-- Apple Segmented Platform Filter Bar -->
+        <div class="apple-portfolio-filters reveal" role="tablist" aria-label="Portfolio platform category filters">
+          <button type="button" class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">All Platforms (7)</button>
+          <button type="button" class="filter-pill" data-filter="flagship" role="tab" aria-selected="false">Enterprise Flagship</button>
+          <button type="button" class="filter-pill" data-filter="pillars" role="tab" aria-selected="false">Core Industry Pillars</button>
+          <button type="button" class="filter-pill" data-filter="specialized" role="tab" aria-selected="false">Specialized Operations</button>
+        </div>
+
+        <!-- TIER 1: THE ENTERPRISE FLAGSHIP HERO BENTO (CompanyOS) -->
+        <div class="portfolio-tier-group" data-tier-group="flagship">
+          <article class="platform-card platform-enterprise reveal" id="companyos" data-category="flagship">
             <div class="enterprise-content">
-              <div class="card-top"><span class="platform-tag">FLAGSHIP ENTERPRISE SYSTEM</span><span class="card-index">07</span></div>
+              <div class="card-top"><span class="platform-tag">FLAGSHIP ENTERPRISE SYSTEM</span><span class="card-index">01</span></div>
               <div class="enterprise-copy">
                 <div class="platform-symbol symbol-companyos">
                   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -734,18 +619,181 @@
               </div>
             </div>
           </article>
+
+          <details class="module-index" data-category="flagship">
+            <summary><span>COMPANYOS / MODULE MAP</span><strong>Explore all operating domains <span aria-hidden="true">＋</span></strong></summary>
+            <div class="module-index-grid">
+              <div><b>People &amp; workforce</b><span>HRIS · recruitment · onboarding · attendance · leave · payroll · benefits · performance</span></div>
+              <div><b>Finance &amp; compliance</b><span>Accounting · AP/AR · bank reconciliation · expenses · GST/TDS · statutory calendar · audit evidence</span></div>
+              <div><b>Sales &amp; delivery</b><span>CRM · proposals · contracts · billing · collections · projects · resourcing · timesheets · margin</span></div>
+              <div><b>Procurement &amp; operations</b><span>Vendors · purchase requests · purchase orders · receipts · bills · three-way match · IT assets · service desk</span></div>
+              <div><b>Knowledge &amp; control</b><span>Documents · policies · role and entity permissions · approvals · workflow rules · notifications · audit trail</span></div>
+              <div><b>Executive intelligence</b><span>Management dashboards · finance and delivery KPIs · forecasting · AI-assisted classification and exception review</span></div>
+            </div>
+          </details>
         </div>
-        <details class="module-index">
-          <summary><span>COMPANYOS / MODULE MAP</span><strong>Explore all operating domains <span aria-hidden="true">＋</span></strong></summary>
-          <div class="module-index-grid">
-            <div><b>People &amp; workforce</b><span>HRIS · recruitment · onboarding · attendance · leave · payroll · benefits · performance</span></div>
-            <div><b>Finance &amp; compliance</b><span>Accounting · AP/AR · bank reconciliation · expenses · GST/TDS · statutory calendar · audit evidence</span></div>
-            <div><b>Sales &amp; delivery</b><span>CRM · proposals · contracts · billing · collections · projects · resourcing · timesheets · margin</span></div>
-            <div><b>Procurement &amp; operations</b><span>Vendors · purchase requests · purchase orders · receipts · bills · three-way match · IT assets · service desk</span></div>
-            <div><b>Knowledge &amp; control</b><span>Documents · policies · role and entity permissions · approvals · workflow rules · notifications · audit trail</span></div>
-            <div><b>Executive intelligence</b><span>Management dashboards · finance and delivery KPIs · forecasting · AI-assisted classification and exception review</span></div>
+
+        <!-- TIER 2: CORE INDUSTRY PILLARS (TRIAD) -->
+        <div class="portfolio-tier-group" data-tier-group="pillars">
+          <div class="portfolio-tier-header reveal">
+            <div class="tier-kicker">CORE INDUSTRY PILLARS</div>
+            <h3 class="tier-heading">Platforms with dedicated enterprise architecture &amp; deep documentation.</h3>
           </div>
-        </details>
+
+          <div class="platform-grid platform-grid-pillars">
+            <article class="platform-card platform-legal reveal" id="legalos" data-category="pillars">
+              <div class="card-top"><span class="platform-tag">LEGAL OPERATIONS</span><span class="card-index">02</span></div>
+              <div class="platform-symbol symbol-legal">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Architectural Pediment & Fulcrum Pivot -->
+                  <path d="M24 6l6 4H18l6-4z" fill="rgba(201, 102, 47, 0.2)" stroke="#C9662F" stroke-width="1.8" />
+                  <circle cx="24" cy="13" r="3" fill="#C9662F" />
+                  <path d="M24 16v22" stroke="#0F1C2E" stroke-width="2.2" />
+                  <!-- Heavy Foundation Base -->
+                  <path d="M14 41h20M17 38h14" stroke="#0F1C2E" stroke-width="2" />
+                  <!-- Dynamic Precision Crossbeam -->
+                  <path d="M8 17l16-2 16 2" stroke="#0F1C2E" stroke-width="2.2" />
+                  <!-- Left Balance Pan -->
+                  <path d="M8 17l-4 9h16l-4-9" stroke="#C9662F" stroke-width="1.6" />
+                  <path d="M4 26c0 4.5 3.6 7 8 7s8-2.5 8-7H4z" fill="rgba(201, 102, 47, 0.16)" stroke="#C9662F" stroke-width="1.8" />
+                  <!-- Right Balance Pan -->
+                  <path d="M40 17l-4 9h16l-4-9" stroke="#C9662F" stroke-width="1.6" />
+                  <path d="M36 26c0 4.5 3.6 7 8 7s8-2.5 8-7H36z" fill="rgba(201, 102, 47, 0.16)" stroke="#C9662F" stroke-width="1.8" />
+                  <!-- Central Equilibrium Diamond -->
+                  <polygon points="24,20 26.5,23.5 24,27 21.5,23.5" fill="#C9662F" />
+                </svg>
+              </div>
+              <h3><a href="legalos.html" class="card-title-link">LegalOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
+              <p>A connected workspace for law firms to manage matter lifecycles, tasks, hearing readiness, documents and operational visibility.</p>
+              <div class="feature-pills"><span>Case workflows</span><span>Hearing readiness</span><span>Document integrity</span></div>
+              <a href="legalos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
+              <a href="#contact" class="card-link" data-interest="LegalOS">Discuss LegalOS <span>↗</span></a>
+            </article>
+
+            <article class="platform-card platform-procure reveal" id="procureos" data-category="pillars">
+              <div class="card-top"><span class="platform-tag">PROCUREMENT &amp; ERP</span><span class="card-index">03</span></div>
+              <div class="platform-symbol symbol-procure">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Interlocking Isometric Supply Chain Matrix Cubes -->
+                  <path d="M24 5l13 7.5-13 7.5-13-7.5L24 5z" fill="rgba(201, 102, 47, 0.18)" stroke="#C9662F" stroke-width="2" />
+                  <path d="M11 20v14l13 7.5V27.5L11 20z" fill="rgba(15, 28, 46, 0.06)" stroke="#0F1C2E" stroke-width="2" />
+                  <path d="M24 27.5V41.5l13-7.5V20L24 27.5z" stroke="#0F1C2E" stroke-width="2" />
+                  <!-- Central 3-Way Match Verification Token -->
+                  <circle cx="24" cy="24" r="8" fill="#FFFFFF" stroke="#C9662F" stroke-width="2" />
+                  <path d="M20.5 24l2.5 2.5 5-5" stroke="#C9662F" stroke-width="2.2" />
+                </svg>
+              </div>
+              <h3><a href="procureos.html" class="card-title-link">ProcureOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
+              <p>A procure-to-pay foundation for purchasing, inventory, vendor and contract management, GST invoicing and logistics visibility.</p>
+              <div class="feature-pills"><span>Inventory signals</span><span>Vendor lifecycle</span><span>Procure to pay</span></div>
+              <a href="procureos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
+              <a href="#contact" class="card-link" data-interest="ProcureOS">Discuss ProcureOS <span>↗</span></a>
+            </article>
+
+            <article class="platform-card platform-campus reveal" id="campusos" data-category="pillars">
+              <div class="card-top"><span class="platform-tag">EDUCATION</span><span class="card-index">04</span></div>
+              <div class="platform-symbol symbol-campus">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Collegiate Portico Pillars & Foundation -->
+                  <path d="M8 42h32M12 38h24" stroke="#0F1C2E" stroke-width="2" />
+                  <path d="M16 26v12M32 26v12" stroke="#0F1C2E" stroke-width="2" />
+                  <path d="M24 28v10" stroke="rgba(15, 28, 46, 0.3)" stroke-width="1.5" stroke-dasharray="2 2" />
+                  <!-- Graduation Mortarboard Diamond Roof -->
+                  <path d="M4 18L24 8l20 10-20 10L4 18z" fill="rgba(201, 102, 47, 0.16)" stroke="#C9662F" stroke-width="2.2" />
+                  <!-- Graduation Tassel Cord & Seal -->
+                  <path d="M42 20v11" stroke="#0F1C2E" stroke-width="1.8" />
+                  <circle cx="42" cy="32" r="2.5" fill="#C9662F" />
+                  <!-- Radiant Knowledge Beacon Star -->
+                  <circle cx="24" cy="8" r="2.5" fill="#C9662F" />
+                  <path d="M24 3v3M21.5 4.5h5" stroke="#C9662F" stroke-width="1.5" />
+                </svg>
+              </div>
+              <h3><a href="campusos.html" class="card-title-link">CampusOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
+              <p>Connected school and campus workflows across student records, attendance, examinations, communication and administration.</p>
+              <div class="feature-pills"><span>Student lifecycle</span><span>Exam workflows</span><span>Admin visibility</span></div>
+              <a href="campusos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
+              <a href="#contact" class="card-link" data-interest="CampusOS">Discuss CampusOS <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+
+        <!-- TIER 3: SPECIALIZED INDUSTRY OPERATIONS -->
+        <div class="portfolio-tier-group" data-tier-group="specialized">
+          <div class="portfolio-tier-header reveal">
+            <div class="tier-kicker">SPECIALIZED OPERATIONS</div>
+            <h3 class="tier-heading">Purpose-built platforms for domain-specific operational workflows.</h3>
+          </div>
+
+          <div class="platform-grid platform-grid-specialized">
+            <article class="platform-card platform-builder reveal" id="builderos" data-category="specialized">
+              <div class="card-top"><span class="platform-tag">CONSTRUCTION</span><span class="card-index">05</span></div>
+              <div class="platform-symbol symbol-builder">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Foundation Ground Line -->
+                  <path d="M6 42h36" stroke="#0F1C2E" stroke-width="2" />
+                  <!-- Tower Mast with Cross-Girders -->
+                  <path d="M13 42V14h14v28" stroke="#0F1C2E" stroke-width="2" />
+                  <path d="M13 21h14M13 28h14M13 35h14" stroke="#0F1C2E" stroke-width="1.5" />
+                  <path d="M13 21l14 7M27 21l-14 7M13 28l14 7M27 28l-14 7" stroke="rgba(15, 28, 46, 0.4)" stroke-width="1.4" />
+                  <!-- Articulated Crane Boom & Counterweight -->
+                  <path d="M7 14l6-4v4l28-3-28 3" fill="rgba(201, 102, 47, 0.12)" stroke="#C9662F" stroke-width="2.2" />
+                  <path d="M20 10l-7-6" stroke="#C9662F" stroke-width="1.8" />
+                  <!-- Suspended Payload Hook -->
+                  <line x1="38" y1="11" x2="38" y2="24" stroke="#0F1C2E" stroke-width="1.5" stroke-dasharray="2 2" />
+                  <rect x="34" y="24" width="8" height="8" rx="2" fill="#C9662F" stroke="#0F1C2E" stroke-width="1.5" />
+                </svg>
+              </div>
+              <h3>BuilderOS</h3>
+              <p>Project and site operations that bring progress, contractors, procurement, records and handover tasks into view.</p>
+              <div class="feature-pills"><span>Site progress</span><span>Vendor coordination</span><span>Project records</span></div>
+              <a href="#contact" class="card-link" data-interest="BuilderOS">Discuss BuilderOS <span>↗</span></a>
+            </article>
+
+            <article class="platform-card platform-travel reveal" id="travelos" data-category="specialized">
+              <div class="card-top"><span class="platform-tag">TRAVEL OPERATIONS</span><span class="card-index">06</span></div>
+              <div class="platform-symbol symbol-travel">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Global Orbital Longitude/Latitude Track -->
+                  <ellipse cx="24" cy="24" rx="19" ry="11" transform="rotate(-26 24 24)" stroke="#CBD5E1" stroke-width="1.8" />
+                  <!-- Supersonic Flight Trajectory Arc -->
+                  <path d="M8 38 C14 26, 26 14, 40 10" stroke="#C9662F" stroke-width="2.5" />
+                  <!-- Precision 4-Point Compass Rose -->
+                  <path d="M15 15l2-6 2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="rgba(201, 102, 47, 0.18)" stroke="#C9662F" stroke-width="1.4" />
+                  <!-- Aerodynamic Delta-Wing Aircraft -->
+                  <path d="M40 10l-9 1 3 4 4 1-1 3 5-1 2-8z" fill="#0F1C2E" stroke="#0F1C2E" stroke-width="1.2" />
+                  <!-- Waypoint Destination Beacon -->
+                  <circle cx="40" cy="10" r="3" fill="#C9662F" stroke="#FFFFFF" stroke-width="1.5" />
+                </svg>
+              </div>
+              <h3>TravelOS</h3>
+              <p>Travel agency operations for enquiries, itineraries, bookings, suppliers and traveller communication in one workflow.</p>
+              <div class="feature-pills"><span>Enquiry to booking</span><span>Itineraries</span><span>Supplier workflows</span></div>
+              <a href="#contact" class="card-link" data-interest="TravelOS">Discuss TravelOS <span>↗</span></a>
+            </article>
+
+            <article class="platform-card platform-fitbiz reveal" id="fitbiz" data-category="specialized">
+              <div class="card-top"><span class="platform-tag">FITNESS &amp; WELLNESS</span><span class="card-index">07</span></div>
+              <div class="platform-symbol symbol-fit">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Concentric Biometric Telemetry Rings -->
+                  <circle cx="24" cy="24" r="20" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="3 3" />
+                  <path d="M24 4 A20 20 0 0 1 44 24" stroke="#C9662F" stroke-width="2.6" />
+                  <circle cx="24" cy="24" r="14" stroke="rgba(15, 28, 46, 0.15)" stroke-width="1.5" />
+                  <!-- Dynamic Cardio Vital Waveform -->
+                  <path d="M6 24h9l3-9 5 20 4-15 3 4h12" stroke="#0F1C2E" stroke-width="2.2" />
+                  <path d="M15 24l3-9 5 20 4-15 3 4" stroke="#C9662F" stroke-width="2.4" />
+                  <!-- Glowing Vitality Pulse Node -->
+                  <circle cx="34" cy="24" r="3.5" fill="#C9662F" stroke="#FFFFFF" stroke-width="1.5" />
+                </svg>
+              </div>
+              <h3>FitBiz</h3>
+              <p>Gym and studio management for memberships, renewals, attendance, staff workflows and a clearer view of centre performance.</p>
+              <div class="feature-pills"><span>Member lifecycle</span><span>Renewal tracking</span><span>Centre operations</span></div>
+              <a href="#contact" class="card-link" data-interest="FitBiz">Discuss FitBiz <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+
         <p class="portfolio-note"><span class="note-mark">i</span> Product scope and availability are confirmed during discovery. Each engagement is tailored to the requirements, integrations and controls your operation needs.</p>
       </div>
     </section>

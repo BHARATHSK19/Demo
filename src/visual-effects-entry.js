@@ -1253,6 +1253,10 @@ export function autoInitVisuals() {
   // BlobCursor (Fluid Chrome Metallic Cursor with Orange Accents)
   const cursorRoot = document.getElementById('site-blob-cursor');
   if (cursorRoot && isFinePointer) {
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.add('has-blob-cursor');
+      document.body?.classList.add('has-blob-cursor');
+    }
     initBlobCursor(cursorRoot, {
       material: 'chrome',
       color: '#C9662F',

@@ -1,4 +1,7 @@
 document.documentElement.classList.add("js-enabled");
+if (typeof window !== 'undefined' && window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) {
+  document.documentElement.classList.add("has-blob-cursor");
+}
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -181,31 +184,22 @@ finderButtons.forEach((button) => {
 });
 
 // ============================================================================
-// 4B. OJIX HERO COCKPIT & OPERATIONS CONSOLE ENGINE
+// 4B. OJIX HERO STUDIO SHOWCASE INTERACTION
 // ============================================================================
-const cockpitTabs = document.querySelectorAll('.cockpit-tab[data-cockpit-tab]');
-const cockpitPanels = document.querySelectorAll('.cockpit-panel');
-const cockpitSimBtn = document.getElementById('cockpit-sim-btn');
-const pipelineNodes = document.querySelectorAll('.pipeline-node');
-const pipelineInspector = document.getElementById('pipeline-inspector');
-const inspectorNodeTag = document.getElementById('inspector-node-tag');
-const inspectorNodeDetail = document.getElementById('inspector-node-detail');
-const cockpitFeedList = document.getElementById('cockpit-feed-list');
-const feedLiveTicker = document.getElementById('feed-live-ticker');
-const pipelineStreamStatus = document.getElementById('pipeline-stream-status');
+const studioTabs = document.querySelectorAll('.studio-tab[data-studio-tab]');
+const studioPanels = document.querySelectorAll('.studio-panel');
 
-// 1. Cockpit Tabs Switching
-if (cockpitTabs.length > 0) {
-  cockpitTabs.forEach((tab) => {
+if (studioTabs.length > 0) {
+  studioTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      const targetId = `panel-${tab.dataset.cockpitTab}`;
-      cockpitTabs.forEach((t) => {
+      const targetId = `panel-${tab.dataset.studioTab}`;
+      studioTabs.forEach((t) => {
         const active = t === tab;
         t.classList.toggle('is-active', active);
         t.setAttribute('aria-selected', String(active));
       });
 
-      cockpitPanels.forEach((panel) => {
+      studioPanels.forEach((panel) => {
         if (panel.id === targetId) {
           panel.classList.add('is-active');
           panel.hidden = false;
@@ -218,133 +212,46 @@ if (cockpitTabs.length > 0) {
   });
 }
 
-// 2. Interactive Pipeline Topology Inspector
-const nodeDetails = {
-  ingest: {
-    tag: 'NODE 01: INGESTION PIPELINE',
-    detail: 'Inbound matter & document streams accepted across encrypted TLS 1.3 endpoints. Latency: 3.8ms.'
-  },
-  rules: {
-    tag: 'NODE 02: RULES & PERMISSIONS ARBITER',
-    detail: 'Compiled authorization matrices enforce multi-tenant role privileges before processing. Latency: 2.4ms.'
-  },
-  ai: {
-    tag: 'NODE 03: DETERMINISTIC AI EXTRACTION',
-    detail: 'Human-in-the-loop schema parsing with strict validation against statutory law. Latency: 14.2ms.'
-  },
-  commit: {
-    tag: 'NODE 04: STATUTORY AUDIT COMMIT',
-    detail: 'Cryptographic SHA-256 seal written to immutable sovereign ledger with zero cross-border leakage. Latency: 4.1ms.'
-  }
-};
+// ============================================================================
+// 4C. APPLE-INSPIRED PRODUCT PORTFOLIO CATEGORY FILTERING
+// ============================================================================
+const portfolioFilterPills = document.querySelectorAll('.apple-portfolio-filters .filter-pill[data-filter]');
+const portfolioTierGroups = document.querySelectorAll('#platforms .portfolio-tier-group[data-tier-group]');
 
-pipelineNodes.forEach((node) => {
-  const nodeKey = node.dataset.node;
-  const updateInspector = () => {
-    pipelineNodes.forEach((n) => n.classList.remove('is-inspected'));
-    node.classList.add('is-inspected');
-    if (nodeDetails[nodeKey] && inspectorNodeTag && inspectorNodeDetail) {
-      inspectorNodeTag.textContent = nodeDetails[nodeKey].tag;
-      inspectorNodeDetail.textContent = nodeDetails[nodeKey].detail;
-    }
-  };
+if (portfolioFilterPills.length > 0) {
+  portfolioFilterPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const filter = pill.dataset.filter;
 
-  node.addEventListener('mouseenter', updateInspector);
-  node.addEventListener('click', updateInspector);
-  node.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      updateInspector();
-    }
-  });
-});
+      portfolioFilterPills.forEach((p) => {
+        const active = p === pill;
+        p.classList.toggle('is-active', active);
+        p.setAttribute('aria-selected', String(active));
+      });
 
-// 3. Simulated Live Dispatch Trigger
-const simulatedEvents = [
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4z"/><path d="M4 11v6c0 3 4 5 8 5s8-2 8-5v-6"/></svg>',
-    title: '[LegalOS] Commercial Division cause list parsed',
-    desc: 'Limitation cutoff locked for 32 pending hearings · 0 discrepancies',
-    badge: 'VERIFIED',
-    badgeClass: 'state-done'
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
-    title: '[ProcureOS] 3-way reconciliation matched: ₹12,40,000',
-    desc: 'Itemized GRN matched against PO & verified GST tax invoice',
-    badge: 'MATCHED',
-    badgeClass: 'state-done'
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-    title: '[CompanyOS] Executive multi-tier sign-off committed',
-    desc: 'Dual-authorized digital signature recorded to audit stream',
-    badge: 'COMMITTED',
-    badgeClass: 'state-audit'
-  }
-];
-
-let simIndex = 0;
-if (cockpitSimBtn && pipelineNodes.length > 0) {
-  cockpitSimBtn.addEventListener('click', () => {
-    cockpitSimBtn.classList.add('is-pulsing');
-    if (pipelineStreamStatus) {
-      pipelineStreamStatus.textContent = '● DISPATCH IN FLIGHT';
-      pipelineStreamStatus.style.background = '#FEF3C7';
-      pipelineStreamStatus.style.color = '#B45309';
-    }
-
-    // Cascade light beam through nodes
-    pipelineNodes.forEach((node, i) => {
-      setTimeout(() => {
-        node.classList.add('node-pulsing');
-        setTimeout(() => node.classList.remove('node-pulsing'), 600);
-      }, i * 150);
+      if (filter === 'all') {
+        portfolioTierGroups.forEach((group) => {
+          group.classList.remove('is-filtered-out');
+        });
+      } else {
+        portfolioTierGroups.forEach((group) => {
+          const match = group.dataset.tierGroup === filter;
+          group.classList.toggle('is-filtered-out', !match);
+        });
+      }
     });
-
-    // After cascade, log event
-    setTimeout(() => {
-      cockpitSimBtn.classList.remove('is-pulsing');
-      if (pipelineStreamStatus) {
-        pipelineStreamStatus.textContent = '● REAL-TIME DISPATCH';
-        pipelineStreamStatus.style.background = '#DCFCE7';
-        pipelineStreamStatus.style.color = '#15803D';
-      }
-      if (feedLiveTicker) {
-        feedLiveTicker.textContent = 'DISPATCH RECORDED JUST NOW';
-      }
-
-      if (cockpitFeedList) {
-        const ev = simulatedEvents[simIndex % simulatedEvents.length];
-        simIndex++;
-        const item = document.createElement('div');
-        item.className = 'feed-item item-flash';
-        item.innerHTML = `
-          <div class="feed-item-icon icon-law">${ev.icon}</div>
-          <div class="feed-item-body">
-            <strong>${ev.title}</strong>
-            <span>${ev.desc}</span>
-          </div>
-          <span class="feed-item-badge ${ev.badgeClass}">${ev.badge}</span>
-        `;
-        cockpitFeedList.insertBefore(item, cockpitFeedList.firstChild);
-        if (cockpitFeedList.children.length > 4) {
-          cockpitFeedList.removeChild(cockpitFeedList.lastChild);
-        }
-      }
-    }, pipelineNodes.length * 150 + 200);
   });
 }
 
-// 4. SPOTLIGHT TRACKING ON HERO COCKPIT & WINDOW
-const heroCockpit = document.querySelector('.hero-cockpit-window');
-if (heroCockpit && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  heroCockpit.addEventListener('pointermove', (e) => {
-    const rect = heroCockpit.getBoundingClientRect();
+// Spotlight cursor reflection on studio window
+const heroStudio = document.querySelector('.hero-studio-window');
+if (heroStudio && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  heroStudio.addEventListener('pointermove', (e) => {
+    const rect = heroStudio.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    heroCockpit.style.setProperty('--mouse-x', `${x}px`);
-    heroCockpit.style.setProperty('--mouse-y', `${y}px`);
+    heroStudio.style.setProperty('--mouse-x', `${x}px`);
+    heroStudio.style.setProperty('--mouse-y', `${y}px`);
   });
 }
 
