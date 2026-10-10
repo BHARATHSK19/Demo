@@ -1764,6 +1764,9 @@ export function initHeroAuroraShader(containerElement, options = {}) {
   };
 }
 
+import { initScrollStack } from './components/scroll-stack.js';
+export { initScrollStack };
+
 // ============================================================================
 // 5. AUTO INITIALIZATION (Theme Adapted for OJIX)
 // ============================================================================
@@ -1771,6 +1774,12 @@ export function initHeroAuroraShader(containerElement, options = {}) {
 export function autoInitVisuals() {
   const isFinePointer = window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ?? true;
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  // React Bits Pro: Scroll Stack for Portfolio Showcase
+  const scrollStackContainers = document.querySelectorAll('.scroll-stack-container, #portfolio-scroll-stack');
+  scrollStackContainers.forEach((el) => {
+    initScrollStack(el);
+  });
 
   // React Bits Pro Hero 21: Theme-Aware GLSL Aurora
   if (!reducedMotion) {
@@ -1817,3 +1826,4 @@ if (typeof document !== 'undefined') {
     autoInitVisuals();
   }
 }
+

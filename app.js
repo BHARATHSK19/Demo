@@ -297,6 +297,9 @@ if (portfolioFilterPills.length > 0) {
           card.classList.add('is-filtered-out');
         }
       });
+
+      // Notify React Bits Scroll Stack to recalculate visible stack indices
+      window.dispatchEvent(new CustomEvent('scrollstack:refresh'));
     });
   });
 }

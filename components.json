@@ -14,6 +14,12 @@
     "utils": "@/lib/utils"
   },
   "registries": {
+    "@reactbits-starter": {
+      "url": "https://pro.reactbits.dev/r",
+      "headers": {
+        "Authorization": "Bearer ${REACTBITS_LICENSE_KEY}"
+      }
+    },
     "@reactbits-pro": {
       "url": "https://pro.reactbits.dev/r",
       "headers": {
