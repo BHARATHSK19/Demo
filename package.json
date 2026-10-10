@@ -1,0 +1,30 @@
+{
+  "name": "ojix-premium-site",
+  "version": "1.0.0",
+  "description": "A responsive, light-first website for OJIX Engineering & Technology LLP. It uses the provided OJIX brand kit, with navy `#0F1C2E`, orange `#C9662F`, white and muted neutral surfaces. The layout and UI are original; Apple and Grok were treated as quality/clarity references rather than copied layouts.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:effects": "esbuild src/visual-effects-entry.js --bundle --minify --format=esm --outfile=assets/vendor/visual-effects.js",
+    "deploy:firebase": "firebase deploy --only hosting",
+    "serve:firebase": "firebase emulators:start --only hosting",
+    "test": "node --check app.js && node --check server.js && node --check db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "ogl": "^1.0.11",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
