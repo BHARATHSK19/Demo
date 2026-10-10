@@ -1,7 +1,4 @@
 document.documentElement.classList.add("js-enabled");
-if (typeof window !== 'undefined' && window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) {
-  document.documentElement.classList.add("has-blob-cursor");
-}
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -184,8 +181,67 @@ finderButtons.forEach((button) => {
 });
 
 // ============================================================================
-// 4B. OJIX HERO ARCHITECTURE ENGINE INTERACTION
+// 4B. ACCESSIBLE TABLIST NAVIGATION (ROVING TABINDEX & ARROW KEYS - WCAG 2.1.1 / APG)
 // ============================================================================
+function setupAccessibleTabs(tablist) {
+  if (!tablist) return;
+  const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+  if (tabs.length === 0) return;
+
+  const selectedIndex = tabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true' || tab.classList.contains('is-active'));
+  const activeIndex = selectedIndex >= 0 ? selectedIndex : 0;
+
+  tabs.forEach((tab, index) => {
+    tab.setAttribute('tabindex', index === activeIndex ? '0' : '-1');
+
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        t.setAttribute('tabindex', t === tab ? '0' : '-1');
+      });
+    });
+
+    tab.addEventListener('keydown', (e) => {
+      let targetIndex = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        let next = (index + 1) % tabs.length;
+        while (tabs[next].hasAttribute('disabled') || tabs[next].getAttribute('aria-disabled') === 'true') {
+          if (next === index) break;
+          next = (next + 1) % tabs.length;
+        }
+        targetIndex = next;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        let prev = (index - 1 + tabs.length) % tabs.length;
+        while (tabs[prev].hasAttribute('disabled') || tabs[prev].getAttribute('aria-disabled') === 'true') {
+          if (prev === index) break;
+          prev = (prev - 1 + tabs.length) % tabs.length;
+        }
+        targetIndex = prev;
+      } else if (e.key === 'Home') {
+        let first = 0;
+        while (tabs[first].hasAttribute('disabled') || tabs[first].getAttribute('aria-disabled') === 'true') {
+          first++;
+          if (first >= tabs.length) break;
+        }
+        targetIndex = first < tabs.length ? first : 0;
+      } else if (e.key === 'End') {
+        let last = tabs.length - 1;
+        while (tabs[last].hasAttribute('disabled') || tabs[last].getAttribute('aria-disabled') === 'true') {
+          last--;
+          if (last < 0) break;
+        }
+        targetIndex = last >= 0 ? last : tabs.length - 1;
+      }
+
+      if (targetIndex !== null) {
+        e.preventDefault();
+        tabs[targetIndex].focus();
+        tabs[targetIndex].click();
+      }
+    });
+  });
+}
+
+// 4C. OJIX HERO ARCHITECTURE ENGINE INTERACTION
 const engineTabs = document.querySelectorAll('.engine-tab[data-engine-tab]');
 const engineViews = document.querySelectorAll('.engine-view');
 
@@ -199,6 +255,7 @@ if (engineTabs.length > 0) {
         const active = t === tab;
         t.classList.toggle('is-active', active);
         t.setAttribute('aria-selected', String(active));
+        t.setAttribute('tabindex', active ? '0' : '-1');
       });
 
       engineViews.forEach((view) => {
@@ -214,9 +271,7 @@ if (engineTabs.length > 0) {
   });
 }
 
-// ============================================================================
-// 4C. APPLE-INSPIRED PRODUCT PORTFOLIO CATEGORY FILTERING
-// ============================================================================
+// 4D. APPLE-INSPIRED PRODUCT PORTFOLIO CATEGORY FILTERING
 const portfolioFilterPills = document.querySelectorAll('.apple-portfolio-filters .filter-pill[data-filter]');
 const filterableCards = document.querySelectorAll('#platforms .platform-card[data-category]');
 
@@ -229,6 +284,7 @@ if (portfolioFilterPills.length > 0) {
         const active = p === pill;
         p.classList.toggle('is-active', active);
         p.setAttribute('aria-selected', String(active));
+        p.setAttribute('tabindex', active ? '0' : '-1');
       });
 
       filterableCards.forEach((card) => {
@@ -240,6 +296,16 @@ if (portfolioFilterPills.length > 0) {
       });
     });
   });
+}
+
+// Initialize roving tabindex & arrow key handlers across all role="tablist"
+const initAccessibleTabs = () => {
+  document.querySelectorAll('[role="tablist"]').forEach(setupAccessibleTabs);
+};
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAccessibleTabs);
+} else {
+  initAccessibleTabs();
 }
 
 // Spotlight cursor reflection on hero engine surface
@@ -548,6 +614,9 @@ function openModal(modalId) {
   const closeBtn = modal.querySelector('.modal-close');
   if (closeBtn) {
     closeBtn.focus();
+  } else {
+    const focusable = getFocusableElements(modal);
+    if (focusable.length > 0) focusable[0].focus();
   }
 }
 
@@ -630,7 +699,7 @@ const cookieAcceptBtn = document.getElementById('cookie-accept');
 const cookieRejectBtn = document.getElementById('cookie-reject');
 const cookiePreferencesBtn = document.getElementById('cookie-preferences');
 const saveCookiePrefsBtn = document.getElementById('save-cookie-preferences') || document.getElementById('cookie-save-prefs');
-const toggleAnalytics = document.getElementById('toggle-analytics');
+const toggleAnalytics = document.getElementById('toggle-analytics') || document.getElementById('cookie-functional');
 
 const CONSENT_STORAGE_KEY = 'ojix_dpdp_cookie_consent';
 

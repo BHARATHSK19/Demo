@@ -241,9 +241,9 @@
                 <span class="engine-location">BENGALURU SOVEREIGN HOST</span>
               </div>
               <div class="engine-tabs" role="tablist" aria-label="Enterprise platform architectures">
-                <button type="button" role="tab" class="engine-tab is-active" id="tab-company" aria-selected="true" aria-controls="view-company" data-engine-tab="company">CompanyOS</button>
-                <button type="button" role="tab" class="engine-tab" id="tab-legal" aria-selected="false" aria-controls="view-legal" data-engine-tab="legal">LegalOS</button>
-                <button type="button" role="tab" class="engine-tab" id="tab-procure" aria-selected="false" aria-controls="view-procure" data-engine-tab="procure">ProcureOS</button>
+                <button type="button" role="tab" class="engine-tab is-active" id="tab-company" aria-selected="true" aria-controls="view-company" data-engine-tab="company" tabindex="0">CompanyOS</button>
+                <button type="button" role="tab" class="engine-tab" id="tab-legal" aria-selected="false" aria-controls="view-legal" data-engine-tab="legal" tabindex="-1">LegalOS</button>
+                <button type="button" role="tab" class="engine-tab" id="tab-procure" aria-selected="false" aria-controls="view-procure" data-engine-tab="procure" tabindex="-1">ProcureOS</button>
               </div>
             </div>
 
@@ -252,7 +252,7 @@
               <div class="view-header">
                 <div>
                   <span class="view-kicker">ENTERPRISE FOUNDATION · CONNECTED OPERATING LAYER</span>
-                  <h3 class="view-title">Unified Operating Core &amp; Governance</h3>
+                  <h2 class="view-title">Unified Operating Core &amp; Governance</h2>
                 </div>
                 <div class="view-pill status-live">
                   <span class="pill-dot"></span>
@@ -311,7 +311,7 @@
               <div class="view-header">
                 <div>
                   <span class="view-kicker">HIGH COURT OF KARNATAKA · COMMERCIAL DIVISION</span>
-                  <h3 class="view-title">Arbitration Appeal (Com.) No. 342 of 2026</h3>
+                  <h2 class="view-title">Arbitration Appeal (Com.) No. 342 of 2026</h2>
                 </div>
                 <div class="view-pill status-urgent">
                   <span class="pill-dot"></span>
@@ -321,7 +321,7 @@
 
               <div class="records-stack">
                 <div class="record-item">
-                  <div class="record-icon done">✓</div>
+                  <div class="record-icon done" aria-hidden="true">✓</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>Certified Paperbook &amp; Pleadings Index</strong>
@@ -332,7 +332,7 @@
                 </div>
 
                 <div class="record-item">
-                  <div class="record-icon done">✓</div>
+                  <div class="record-icon done" aria-hidden="true">✓</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>Section 34(3) Statutory Limitation Calculator</strong>
@@ -343,7 +343,7 @@
                 </div>
 
                 <div class="record-item">
-                  <div class="record-icon done">✓</div>
+                  <div class="record-icon done" aria-hidden="true">✓</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>Digital Vakalatnama &amp; Class-3 Token Sign</strong>
@@ -354,7 +354,7 @@
                 </div>
 
                 <div class="record-item">
-                  <div class="record-icon live">●</div>
+                  <div class="record-icon live" aria-hidden="true">●</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>Bengaluru Daily Cause List Parsing</strong>
@@ -378,7 +378,7 @@
               <div class="view-header">
                 <div>
                   <span class="view-kicker">PROCURE-TO-PAY AUDIT · 3-WAY RECONCILIATION</span>
-                  <h3 class="view-title">Purchase Order PO-2026-8492</h3>
+                  <h2 class="view-title">Purchase Order PO-2026-8492</h2>
                 </div>
                 <div class="view-pill status-live">
                   <span class="pill-dot"></span>
@@ -388,7 +388,7 @@
 
               <div class="records-stack">
                 <div class="record-item">
-                  <div class="record-icon done">✓</div>
+                  <div class="record-icon done" aria-hidden="true">✓</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>PO Authorization: ₹18,40,000 + 18% GST</strong>
@@ -399,7 +399,7 @@
                 </div>
 
                 <div class="record-item">
-                  <div class="record-icon done">✓</div>
+                  <div class="record-icon done" aria-hidden="true">✓</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>Goods Receipt Note (GRN #312) Verification</strong>
@@ -410,7 +410,7 @@
                 </div>
 
                 <div class="record-item">
-                  <div class="record-icon done">✓</div>
+                  <div class="record-icon done" aria-hidden="true">✓</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>GST E-Invoice &amp; IRN Authentication</strong>
@@ -421,7 +421,7 @@
                 </div>
 
                 <div class="record-item">
-                  <div class="record-icon live">●</div>
+                  <div class="record-icon live" aria-hidden="true">●</div>
                   <div class="record-body">
                     <div class="record-header">
                       <strong>Automated Payment Voucher Release</strong>
@@ -504,11 +504,11 @@
           <div class="finder-label"><span>YOUR CURRENT CHALLENGE</span><span>01 / 05</span></div>
           <div class="finder-options" role="group" aria-label="Choose your business challenge">
             <div class="finder-indicator" id="finder-indicator" aria-hidden="true"></div>
-            <button class="finder-option is-selected" data-choice="legal" aria-pressed="true"><span class="option-number">01</span><span>Run a law firm with less chaos</span><span class="option-arrow">↗</span></button>
-            <button class="finder-option" data-choice="operations" aria-pressed="false"><span class="option-number">02</span><span>Connect disconnected business processes</span><span class="option-arrow">↗</span></button>
-            <button class="finder-option" data-choice="education" aria-pressed="false"><span class="option-number">03</span><span>Manage a school or learning institution</span><span class="option-arrow">↗</span></button>
-            <button class="finder-option" data-choice="automation" aria-pressed="false"><span class="option-number">04</span><span>Automate repetitive, human-dependent work</span><span class="option-arrow">↗</span></button>
-            <button class="finder-option" data-choice="custom" aria-pressed="false"><span class="option-number">05</span><span>Build a system shaped around our business</span><span class="option-arrow">↗</span></button>
+            <button class="finder-option is-selected" data-choice="legal" aria-pressed="true"><span class="option-number">01</span><span>Run a law firm with less chaos</span><span class="option-arrow" aria-hidden="true">↗</span></button>
+            <button class="finder-option" data-choice="operations" aria-pressed="false"><span class="option-number">02</span><span>Connect disconnected business processes</span><span class="option-arrow" aria-hidden="true">↗</span></button>
+            <button class="finder-option" data-choice="education" aria-pressed="false"><span class="option-number">03</span><span>Manage a school or learning institution</span><span class="option-arrow" aria-hidden="true">↗</span></button>
+            <button class="finder-option" data-choice="automation" aria-pressed="false"><span class="option-number">04</span><span>Automate repetitive, human-dependent work</span><span class="option-arrow" aria-hidden="true">↗</span></button>
+            <button class="finder-option" data-choice="custom" aria-pressed="false"><span class="option-number">05</span><span>Build a system shaped around our business</span><span class="option-arrow" aria-hidden="true">↗</span></button>
           </div>
           <div class="finder-result" id="finder-result" aria-live="polite">
             <div class="result-icon" id="result-icon"><img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" width="56" height="56" /></div>
@@ -535,9 +535,9 @@
 
         <!-- Apple-Inspired Segmented Platform Filter Bar -->
         <div class="apple-portfolio-filters reveal" role="tablist" aria-label="Portfolio platform category filters">
-          <button type="button" class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">All Platforms (7)</button>
-          <button type="button" class="filter-pill" data-filter="core" role="tab" aria-selected="false">Core Systems (4)</button>
-          <button type="button" class="filter-pill" data-filter="specialized" role="tab" aria-selected="false">Specialized Operations (3)</button>
+          <button type="button" class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true" tabindex="0">All Platforms (7)</button>
+          <button type="button" class="filter-pill" data-filter="core" role="tab" aria-selected="false" tabindex="-1">Core Systems (4)</button>
+          <button type="button" class="filter-pill" data-filter="specialized" role="tab" aria-selected="false" tabindex="-1">Specialized Operations (3)</button>
         </div>
 
         <!-- UNIFIED PLATFORM GRID: ALL 7 PRODUCTS HAVE EQUAL, CONSISTENT SHOWCASING -->
@@ -558,7 +558,7 @@
             <h3>CompanyOS <span class="pillar-avail-badge">Core ERP</span></h3>
             <p>Unified enterprise software connecting people, payroll, accounting, tax filing, project operations, and multi-tier approval workflows.</p>
             <div class="feature-pills"><span>Staff &amp; payroll</span><span>Finance &amp; tax</span><span>Approval workflows</span></div>
-            <a href="#contact" class="card-link" data-interest="CompanyOS">Discuss CompanyOS <span>↗</span></a>
+            <a href="#contact" class="card-link" data-interest="CompanyOS">Discuss CompanyOS <span aria-hidden="true">↗</span></a>
           </article>
 
           <!-- 02: LegalOS -->
@@ -577,8 +577,8 @@
             <h3><a href="legalos.html" class="card-title-link">LegalOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
             <p>Connected law firm management for matter lifecycles, court hearing schedules, legal documents, and billing operations.</p>
             <div class="feature-pills"><span>Case management</span><span>Court calendars</span><span>Document integrity</span></div>
-            <a href="legalos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
-            <a href="#contact" class="card-link" data-interest="LegalOS">Discuss LegalOS <span>↗</span></a>
+            <a href="legalos.html" class="pillar-page-link">Explore Architecture &amp; Modules <span aria-hidden="true">→</span></a>
+            <a href="#contact" class="card-link" data-interest="LegalOS">Discuss LegalOS <span aria-hidden="true">↗</span></a>
           </article>
 
           <!-- 03: ProcureOS -->
@@ -595,8 +595,8 @@
             <h3><a href="procureos.html" class="card-title-link">ProcureOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
             <p>Procure-to-pay system for purchasing, inventory tracking, vendor contracts, 3-way invoice matching, and GST verification.</p>
             <div class="feature-pills"><span>Purchase orders</span><span>Vendor management</span><span>3-Way match</span></div>
-            <a href="procureos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
-            <a href="#contact" class="card-link" data-interest="ProcureOS">Discuss ProcureOS <span>↗</span></a>
+            <a href="procureos.html" class="pillar-page-link">Explore Architecture &amp; Modules <span aria-hidden="true">→</span></a>
+            <a href="#contact" class="card-link" data-interest="ProcureOS">Discuss ProcureOS <span aria-hidden="true">↗</span></a>
           </article>
 
           <!-- 04: CampusOS -->
@@ -612,8 +612,8 @@
             <h3><a href="campusos.html" class="card-title-link">CampusOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
             <p>Higher education management connecting admissions, biometric attendance, examinations, fee collection, and administration.</p>
             <div class="feature-pills"><span>Student records</span><span>Attendance &amp; fees</span><span>Exam workflows</span></div>
-            <a href="campusos.html" class="pillar-page-link">Explore Architecture &amp; Modules →</a>
-            <a href="#contact" class="card-link" data-interest="CampusOS">Discuss CampusOS <span>↗</span></a>
+            <a href="campusos.html" class="pillar-page-link">Explore Architecture &amp; Modules <span aria-hidden="true">→</span></a>
+            <a href="#contact" class="card-link" data-interest="CampusOS">Discuss CampusOS <span aria-hidden="true">↗</span></a>
           </article>
 
           <!-- 05: BuilderOS -->
@@ -631,7 +631,7 @@
             <h3>BuilderOS</h3>
             <p>Construction site software bringing project milestones, contractor logs, material deliveries, and handover records into clear view.</p>
             <div class="feature-pills"><span>Site progress</span><span>Contractor logs</span><span>Material tracking</span></div>
-            <a href="#contact" class="card-link" data-interest="BuilderOS">Discuss BuilderOS <span>↗</span></a>
+            <a href="#contact" class="card-link" data-interest="BuilderOS">Discuss BuilderOS <span aria-hidden="true">↗</span></a>
           </article>
 
           <!-- 06: TravelOS -->
@@ -649,7 +649,7 @@
             <h3>TravelOS</h3>
             <p>Travel agency software for customer inquiries, custom tour itineraries, flight bookings, supplier coordination, and traveler updates.</p>
             <div class="feature-pills"><span>Inquiry to booking</span><span>Itineraries</span><span>Supplier sync</span></div>
-            <a href="#contact" class="card-link" data-interest="TravelOS">Discuss TravelOS <span>↗</span></a>
+            <a href="#contact" class="card-link" data-interest="TravelOS">Discuss TravelOS <span aria-hidden="true">↗</span></a>
           </article>
 
           <!-- 07: FitBiz -->
@@ -666,11 +666,11 @@
             <h3>FitBiz</h3>
             <p>Gym and studio management for member subscriptions, renewals, daily check-ins, personal training schedules, and revenue.</p>
             <div class="feature-pills"><span>Memberships</span><span>Renewals</span><span>Studio operations</span></div>
-            <a href="#contact" class="card-link" data-interest="FitBiz">Discuss FitBiz <span>↗</span></a>
+            <a href="#contact" class="card-link" data-interest="FitBiz">Discuss FitBiz <span aria-hidden="true">↗</span></a>
           </article>
         </div>
 
-        <p class="portfolio-note"><span class="note-mark">i</span> Product scope and availability are confirmed during discovery. Each engagement is tailored to the requirements, integrations and controls your operation needs.</p>
+        <p class="portfolio-note"><span class="note-mark" aria-hidden="true">i</span> Product scope and availability are confirmed during discovery. Each engagement is tailored to the requirements, integrations and controls your operation needs.</p>
       </div>
     </section>
 
@@ -787,12 +787,12 @@
           <p>We start with the operational context, then shape the software around the rules, people and decisions that matter in that domain.</p>
         </div>
         <div class="sector-list reveal">
-          <a href="legalos.html"><span class="sector-no">01</span><span class="sector-name">Legal &amp; professional services</span><span class="sector-desc">Matters, evidence, tasks, compliance</span><span class="sector-go">↗</span></a>
-          <a href="#fitbiz"><span class="sector-no">02</span><span class="sector-name">Fitness &amp; wellness</span><span class="sector-desc">Members, renewals, centre operations</span><span class="sector-go">↗</span></a>
-          <a href="campusos.html"><span class="sector-no">03</span><span class="sector-name">Education</span><span class="sector-desc">Student lifecycle, assessments, admin</span><span class="sector-go">↗</span></a>
-          <a href="#builderos"><span class="sector-no">04</span><span class="sector-name">Construction &amp; property</span><span class="sector-desc">Projects, site workflows, vendors</span><span class="sector-go">↗</span></a>
-          <a href="#travelos"><span class="sector-no">05</span><span class="sector-name">Travel &amp; services</span><span class="sector-desc">Enquiries, bookings, supplier operations</span><span class="sector-go">↗</span></a>
-          <a href="procureos.html"><span class="sector-no">06</span><span class="sector-name">Procurement &amp; operations</span><span class="sector-desc">Inventory, purchasing, contracts, logistics</span><span class="sector-go">↗</span></a>
+          <a href="legalos.html"><span class="sector-no">01</span><span class="sector-name">Legal &amp; professional services</span><span class="sector-desc">Matters, evidence, tasks, compliance</span><span class="sector-go" aria-hidden="true">↗</span></a>
+          <a href="#fitbiz"><span class="sector-no">02</span><span class="sector-name">Fitness &amp; wellness</span><span class="sector-desc">Members, renewals, centre operations</span><span class="sector-go" aria-hidden="true">↗</span></a>
+          <a href="campusos.html"><span class="sector-no">03</span><span class="sector-name">Education</span><span class="sector-desc">Student lifecycle, assessments, admin</span><span class="sector-go" aria-hidden="true">↗</span></a>
+          <a href="#builderos"><span class="sector-no">04</span><span class="sector-name">Construction &amp; property</span><span class="sector-desc">Projects, site workflows, vendors</span><span class="sector-go" aria-hidden="true">↗</span></a>
+          <a href="#travelos"><span class="sector-no">05</span><span class="sector-name">Travel &amp; services</span><span class="sector-desc">Enquiries, bookings, supplier operations</span><span class="sector-go" aria-hidden="true">↗</span></a>
+          <a href="procureos.html"><span class="sector-no">06</span><span class="sector-name">Procurement &amp; operations</span><span class="sector-desc">Inventory, purchasing, contracts, logistics</span><span class="sector-go" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -984,10 +984,13 @@
           </div>
           <div class="form-row"><label for="message">What would you like to improve?</label><textarea id="message" name="message" rows="4" maxlength="2000" placeholder="Briefly describe the operational problem or what you want to connect..."></textarea></div>
           <div class="form-row form-consent-row">
-            <label class="consent-checkbox-label">
+            <div class="consent-checkbox-group">
               <input type="checkbox" id="dpdp-consent" name="dpdp-consent" required />
-              <span>I agree that OJIX may use my contact details to evaluate and respond to this enquiry. See the <button type="button" class="legal-inline-link" data-open-modal="privacy-modal">Privacy Notice &amp; Policy</button> for details.</span>
-            </label>
+              <div class="consent-text">
+                <label for="dpdp-consent" class="consent-checkbox-label">I agree that OJIX may use my contact details to evaluate and respond to this enquiry.</label>
+                <span class="consent-inline-action">See the <button type="button" class="legal-inline-link" data-open-modal="privacy-modal">Privacy Notice &amp; Policy</button> for details.</span>
+              </div>
+            </div>
           </div>
           <button class="btn btn-orange form-submit" type="submit">Submit confidential enquiry <span aria-hidden="true">↗</span></button>
           <p class="form-hint" id="form-hint" role="status" aria-live="polite">Under Section 6 of the DPDP Act 2023, your details are strictly processed to respond to your inquiry. We enforce zero data sharing with third parties.</p>
@@ -1025,19 +1028,19 @@
         <a href="dpdp-compliance.html" data-open-modal="privacy-modal">Privacy Policy (DPDP 2025)</a>
         <a href="dpdp-compliance.html#cookies" data-open-modal="cookie-policy-modal">Cookie Policy</a>
         <button type="button" class="footer-link-btn" data-open-modal="cookie-modal">Consent &amp; Preferences</button>
-        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) ↗</a>
+        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-address">
         <span class="footer-label">FIND US</span>
         <p>50/1, 5th Cross, Kalidasa Layout,<br />Srinagar, Bengaluru — 560050</p>
-        <a href="mailto:info@ojix.in">info@ojix.in ↗</a>
+        <a href="mailto:info@ojix.in">info@ojix.in <span aria-hidden="true">↗</span></a>
         <small>GSTIN: 29AAKF03656Q1ZB</small>
       </div>
     </div>
     <div class="shell footer-bottom">
       <span>© <span id="year"></span> OJIX Engineering &amp; Technology LLP · Bengaluru, Karnataka, India</span>
       <span>DPDP ACT (2023) &amp; DPDP RULES (2025) COMPLIANT · DATA PRINCIPAL RIGHTS ENFORCED</span>
-      <a href="#top">Back to top ↑</a>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 
@@ -1047,7 +1050,7 @@
       <div class="cookie-content">
         <div class="cookie-header">
           <span class="cookie-badge">DPDP RULES 2025 · CONSENT ARCHITECTURE</span>
-          <h3 id="cookie-title">Your privacy and data choices</h3>
+          <h2 id="cookie-title">Your privacy and data choices</h2>
         </div>
         <p id="cookie-desc">OJIX operates under India’s <strong>Digital Personal Data Protection Act, 2023</strong> and the <strong>DPDP Rules, 2025</strong>. We deploy strictly necessary cookies for core operations and, subject to your affirmative consent, privacy-safe analytics without cross-site tracking or profiling. You may manage or withdraw consent anytime.</p>
       </div>
@@ -1085,9 +1088,10 @@
             <strong>Performance &amp; Diagnostics Cookies</strong>
             <p>Aggregated, anonymized telemetry to gauge system responsiveness and uptime without collecting direct personal identifiers or user profiles.</p>
           </div>
-          <label class="toggle-switch">
-            <input type="checkbox" id="toggle-analytics" />
-            <span class="toggle-slider"></span>
+          <label class="toggle-switch" for="toggle-analytics">
+            <span class="sr-only">Performance &amp; Diagnostics Cookies</span>
+            <input type="checkbox" id="toggle-analytics" aria-label="Performance &amp; Diagnostics Cookies" />
+            <span class="toggle-slider" aria-hidden="true"></span>
           </label>
         </div>
       </div>
@@ -1226,7 +1230,7 @@
 
         <div class="dpbi-card">
           <strong>Escalation to Data Protection Board of India (DPBI)</strong>
-          If you are unsatisfied with our Grievance Officer's resolution or have not received a response within the statutory timeline, you possess the right under Section 13(3) and Section 18 of the DPDP Act 2023 to appeal directly to the <strong>Data Protection Board of India (DPBI)</strong> via its electronic portal at <a href="https://dpbi.gov.in" target="_blank" rel="noopener">dpbi.gov.in ↗</a>.
+          If you are unsatisfied with our Grievance Officer's resolution or have not received a response within the statutory timeline, you possess the right under Section 13(3) and Section 18 of the DPDP Act 2023 to appeal directly to the <strong>Data Protection Board of India (DPBI)</strong> via its electronic portal at <a href="https://dpbi.gov.in" target="_blank" rel="noopener">dpbi.gov.in <span aria-hidden="true">↗</span></a>.
         </div>
       </div>
       <div class="modal-foot">

@@ -33,24 +33,18 @@
   box-sizing: border-box;
 }
 
-/* ABSOLUTE CURSOR SUPPRESSION ON FINE POINTER (DESKTOP): ONLY 3D FLUID BUBBLE CURSOR ACTIVE */
-@media (hover: hover) and (pointer: fine) {
-  html,
-  body,
-  *,
-  *::before,
-  *::after,
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  summary,
-  label,
-  [role="button"],
-  [role="tab"] {
-    cursor: none !important;
-  }
+/* SCREEN READER ONLY UTILITY (WCAG 1.3.1 / 4.1.2) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* UNIVERSAL CLEAN BUTTON RESET: ELIMINATE BROWSER DEFAULT BEVELS & BORDERS */
@@ -73,15 +67,6 @@ input[type="reset"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  button,
-  input[type="button"],
-  input[type="submit"],
-  input[type="reset"] {
-    cursor: none !important;
-  }
 }
 
 html {
@@ -137,9 +122,15 @@ button, a, input, select, textarea {
   -webkit-tap-highlight-color: transparent;
 }
 
-button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 3px solid rgba(201, 102, 47, 0.45);
-  outline-offset: 2px;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2.5px solid #C9662F;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 4px rgba(201, 102, 47, 0.35);
 }
 
 .shell {
@@ -314,7 +305,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   font-size: 13px;
   line-height: 1.4;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--orange-deep);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -569,7 +560,7 @@ h1 em, h2 em {
 }
 
 .proof-ribbon-index {
-  color: var(--orange);
+  color: var(--orange-deep);
   font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.105em;
@@ -784,7 +775,7 @@ h1 em, h2 em {
   border-radius: 999px;
   border: 1px solid transparent;
   background: transparent;
-  cursor: none !important;
+  cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
   line-height: 1.2;
@@ -1065,7 +1056,7 @@ h1 em, h2 em {
   font-weight: 750;
   color: var(--orange-deep);
   text-decoration: none;
-  cursor: none !important;
+  cursor: pointer;
   transition: all 0.2s var(--ease-spring);
 }
 
@@ -1116,7 +1107,7 @@ h1 em, h2 em {
   font-weight: 650;
   color: #475569;
   letter-spacing: -0.01em;
-  cursor: none !important;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1608,7 +1599,7 @@ h1 em, h2 em {
 }
 
 .rb-prompt-input::placeholder {
-  color: #94A3B8;
+  color: #64748B;
   font-weight: 450;
 }
 
@@ -1618,7 +1609,7 @@ h1 em, h2 em {
   border-radius: 8px;
   border: none;
   background: #F1F5F9;
-  color: #94A3B8;
+  color: #475569;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1776,7 +1767,7 @@ h1 em, h2 em {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  color: #94A3B8;
+  color: #475569;
   background: #FFFFFF;
   border: 1px solid #CBD5E1;
   width: 20px;
@@ -1832,7 +1823,7 @@ h1 em, h2 em {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: var(--orange);
+  color: var(--orange-deep);
   background: var(--orange-subtle);
   padding: 4px 9px;
   border-radius: 4px;
@@ -1892,7 +1883,7 @@ h1 em, h2 em {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--orange-deep);
   letter-spacing: 0.05em;
   flex-shrink: 0;
 }
@@ -2156,7 +2147,7 @@ h1 em, h2 em {
 }
 
 .finder-label span + span {
-  color: var(--orange);
+  color: var(--orange-deep);
 }
 
 .finder-options {
@@ -2221,11 +2212,11 @@ h1 em, h2 em {
 }
 
 .finder-option.is-selected .option-number {
-  color: var(--orange);
+  color: var(--orange-deep);
 }
 
 .option-arrow {
-  color: #94A3B8;
+  color: #475569;
   justify-self: end;
   font-size: 16px;
   transition: transform 0.25s var(--ease-spring), color 0.2s;
@@ -2273,7 +2264,7 @@ h1 em, h2 em {
 .result-kicker {
   font-size: 13px;
   letter-spacing: 0.12em;
-  color: #9A7766;
+  color: var(--orange-deep);
   font-weight: 700;
 }
 
@@ -2295,7 +2286,7 @@ h1 em, h2 em {
 
 .result-link {
   font-size: 14px;
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 700;
   display: inline-flex;
   gap: 8px;
@@ -2304,7 +2295,7 @@ h1 em, h2 em {
 
 .result-link:hover {
   transform: translateX(3px);
-  color: var(--orange-deep);
+  color: #9A3E1B;
 }
 
 /* PLATFORMS */
@@ -2700,7 +2691,7 @@ h1 em, h2 em {
 
 .platform-card .platform-tag,
 .platform-card .card-index {
-  color: #718096;
+  color: #475569;
   font-family: var(--font-body);
   font-size: 10.5px;
   font-weight: 750;
@@ -2709,7 +2700,7 @@ h1 em, h2 em {
 }
 
 .platform-card .card-index {
-  color: #9AA7B8;
+  color: #475569;
   letter-spacing: 0.06em;
 }
 
@@ -2863,13 +2854,13 @@ h1 em, h2 em {
 }
 
 .platform-enterprise .platform-tag {
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 750;
   letter-spacing: 0.115em;
 }
 
 .platform-enterprise .card-index {
-  color: #94A3B8;
+  color: #475569;
   letter-spacing: 0.06em;
 }
 
@@ -2909,7 +2900,7 @@ h1 em, h2 em {
 }
 
 .platform-enterprise:hover .card-link {
-  color: var(--orange);
+  color: var(--orange-deep);
   border-color: rgba(201, 102, 47, 0.3);
 }
 
@@ -2996,7 +2987,7 @@ h1 em, h2 em {
 }
 
 .enterprise-node small {
-  color: var(--orange);
+  color: var(--orange-deep);
   font: 700 9px/1 "DM Sans", sans-serif;
   letter-spacing: 0.1em;
 }
@@ -3136,15 +3127,16 @@ h1 em, h2 em {
 }
 
 .capability-row:focus-visible {
-  outline: none;
+  outline: 2.5px solid #C9662F;
+  outline-offset: 2px;
   background: #FFFDFB;
-  box-shadow: 0 0 0 2px var(--orange);
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 4px rgba(201, 102, 47, 0.35);
   padding-left: 20px;
 }
 
 .cap-number {
   font-size: 15px;
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 700;
   letter-spacing: 0.1em;
   align-self: start;
@@ -3184,7 +3176,7 @@ h1 em, h2 em {
 
 .cap-arrow {
   font-size: 18px;
-  color: #94A3B8;
+  color: #475569;
   transition: color 0.2s, transform 0.25s var(--ease-spring);
 }
 
@@ -3338,7 +3330,7 @@ h1 em, h2 em {
 
 .step-count {
   font-family: var(--font-heading); font-size: 18px; font-weight: 800;
-  color: var(--orange);
+  color: var(--orange-deep);
   display: block;
   margin-bottom: 12px;
 }
@@ -3406,7 +3398,7 @@ h1 em, h2 em {
 
 .sector-no {
   font-size: 13px;
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 700;
 }
 
@@ -3422,7 +3414,7 @@ h1 em, h2 em {
 
 .sector-go {
   font-size: 18px;
-  color: #94A3B8;
+  color: #475569;
   text-align: right;
   transition: color 0.2s, transform 0.2s;
 }
@@ -3501,7 +3493,7 @@ h1 em, h2 em {
 
 .about-values strong {
   font-size: 14px;
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 800;
 }
 
@@ -3609,7 +3601,7 @@ h1 em, h2 em {
   font-weight: 800;
   font-size: 13px;
   letter-spacing: 0.12em;
-  color: var(--orange);
+  color: var(--orange-deep);
   margin-bottom: 10px;
 }
 
@@ -3804,13 +3796,13 @@ h1 em, h2 em {
 }
 
 .faq-answer a {
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 600;
   text-decoration: underline;
 }
 
 .faq-answer a:hover {
-  color: var(--orange-deep);
+  color: #9A3E1B;
 }
 
 /* CONTACT */
@@ -3886,7 +3878,7 @@ h1 em, h2 em {
 }
 
 .form-heading span:last-child {
-  color: var(--orange);
+  color: var(--orange-deep);
 }
 
 .form-row {
@@ -3898,7 +3890,7 @@ h1 em, h2 em {
 }
 
 .form-row:focus-within {
-  border-bottom-color: var(--orange);
+  border-bottom-color: var(--orange-deep);
 }
 
 .form-row label {
@@ -3908,13 +3900,12 @@ h1 em, h2 em {
 }
 
 .form-row:focus-within label {
-  color: var(--orange);
+  color: var(--orange-deep);
 }
 
 .form-row input, .form-row select, .form-row textarea {
   width: 100%;
   border: 0;
-  outline: none !important;
   background: transparent;
   color: var(--navy);
   font-size: 15px;
@@ -3922,8 +3913,18 @@ h1 em, h2 em {
   resize: vertical;
 }
 
+.form-row input:focus-visible,
+.form-row select:focus-visible,
+.form-row textarea:focus-visible,
+.rb-prompt-input:focus-visible {
+  outline: 2.5px solid #C9662F;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 4px rgba(201, 102, 47, 0.35);
+  border-radius: 2px;
+}
+
 .form-row input::placeholder, .form-row textarea::placeholder {
-  color: #94A3B8;
+  color: #64748B;
 }
 
 .form-row select option {
@@ -3933,6 +3934,39 @@ h1 em, h2 em {
 .form-consent-row {
   border-bottom: 0;
   padding: 16px 0 8px;
+}
+
+.consent-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.consent-checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--orange);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.consent-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.consent-text .consent-checkbox-label {
+  display: inline;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.consent-inline-action {
+  display: inline;
 }
 
 .consent-checkbox-label {
@@ -3961,7 +3995,7 @@ h1 em, h2 em {
   background: none;
   border: 0;
   padding: 0;
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 700;
   cursor: pointer;
   text-decoration: underline;
@@ -3969,7 +4003,7 @@ h1 em, h2 em {
 }
 
 .legal-inline-link:hover {
-  color: var(--orange-deep);
+  color: #9A3E1B;
 }
 
 .form-submit {
@@ -4293,13 +4327,15 @@ h1 em, h2 em {
   z-index: 900;
   transform: translateY(120%);
   opacity: 0;
-  transition: transform 0.4s var(--ease-spring), opacity 0.3s ease;
+  visibility: hidden;
+  transition: transform 0.4s var(--ease-spring), opacity 0.3s ease, visibility 0.3s;
   pointer-events: none;
 }
 
 .cookie-banner.is-visible {
   transform: translateY(0);
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -4313,10 +4349,11 @@ h1 em, h2 em {
 .cookie-badge {
   font-size: 12.5px;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--orange-deep);
   letter-spacing: 0.12em;
 }
 
+.cookie-header h2,
 .cookie-header h3 {
   font-family: var(--font-heading); font-size: 18px; font-weight: 700;
   color: var(--navy);
@@ -4402,7 +4439,7 @@ body.modal-open {
   font-size: 12.5px;
   letter-spacing: 0.12em;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--orange-deep);
 }
 
 .modal-head h2 {
@@ -4500,14 +4537,19 @@ body.modal-open {
 }
 
 .legal-contact-card a {
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.legal-contact-card a:hover {
+  color: #9A3E1B;
 }
 
 .legal-inline-btn {
   background: none;
   border: 0;
-  color: var(--orange);
+  color: var(--orange-deep);
   font-weight: 700;
   cursor: pointer;
   padding: 0;
@@ -4711,6 +4753,17 @@ body.modal-open {
 
 .toggle-switch input:checked + .toggle-slider:before {
   transform: translateX(22px);
+}
+
+.toggle-switch input:focus-visible + .toggle-slider {
+  outline: 2.5px solid #C9662F;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 4px rgba(201, 102, 47, 0.35);
+}
+
+.toggle-switch input:disabled + .toggle-slider {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* RESPONSIVE BREAKPOINTS */
@@ -5173,6 +5226,7 @@ body.modal-open {
   background: var(--orange);
   box-shadow: 0 0 8px rgba(201, 102, 47, 0.9);
 }
+.flow-node h3,
 .flow-node h4 {
   margin: 0 0 12px;
   font-family: var(--font-heading);
@@ -5408,12 +5462,12 @@ body.modal-open {
   gap: 6px;
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--orange-deep);
   margin-top: 12px;
   transition: gap 0.2s ease, color 0.2s ease;
 }
 .pillar-page-link:hover {
-  color: var(--orange-deep);
+  color: #9A3E1B;
   gap: 10px;
 }
 
@@ -5549,23 +5603,7 @@ body.modal-open {
   pointer-events: none;
 }
 
-/* ABSOLUTE NATIVE CURSOR SUPPRESSION: ONLY 3D FLUID BUBBLE CURSOR ACTIVE ON DESKTOP */
-html,
-body,
-*,
-*::before,
-*::after,
-a,
-button,
-input,
-textarea,
-select,
-summary,
-label,
-[role="button"],
-[role="tab"] {
-  cursor: none !important;
-}
+/* NATIVE CURSOR SUPPRESSION: ONLY WHEN 3D FLUID BUBBLE CURSOR ACTIVE */
 
 html.has-blob-cursor,
 html.has-blob-cursor body,

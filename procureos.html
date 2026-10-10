@@ -218,13 +218,13 @@
             <div class="visual-topline"><span><span class="live-dot"></span> P2P RECONCILIATION ENGINE</span><span class="visual-context">TALLY &amp; SAP SYNC / LIVE</span></div>
             <div class="workspace-window" id="workspace-window">
               <div class="window-head">
-                <div><span class="window-kicker">SUPPLY CHAIN OPERATIONS</span><h3>Live 3-Way Match Pipeline</h3></div>
+                <div><span class="window-kicker">SUPPLY CHAIN OPERATIONS</span><h2>Live 3-Way Match Pipeline</h2></div>
                 <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="window-avatar" width="38" height="38" />
               </div>
               <div class="workspace-metrics">
                 <div class="metric-card metric-featured">
                   <span class="metric-label">Reconciliation speed</span>
-                  <div class="metric-value">48h<span class="metric-check">✓</span></div>
+                  <div class="metric-value">48h<span class="metric-check" aria-hidden="true">✓</span></div>
                   <div class="metric-foot"><span class="status-pip"></span> 85% cycle time reduced</div>
                   <div class="metric-sparkline"><span style="--h:35%"></span><span style="--h:50%"></span><span style="--h:42%"></span><span style="--h:68%"></span><span style="--h:82%"></span><span style="--h:90%"></span><span style="--h:85%"></span><span style="--h:100%"></span></div>
                 </div>
@@ -303,19 +303,19 @@
             <h3>Slow, Opaque &amp; Vulnerable to Fraud</h3>
             <ul class="comparison-list">
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Manual GRN Paper Logs:</strong> Warehouse staff hand-write delivery notes. Pricing discrepancies and short-shipments remain undiscovered until vendor payment time.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Mismatched GSTR-2B Filings:</strong> Invoices are paid before verifying whether the supplier filed their GSTR-1, leading to costly GST input tax credit (ITC) losses.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Duplicate &amp; Inflated Invoices:</strong> Vendor bills sent via email slip through without automated cross-checks against original purchase order milestones.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Blind Spot Reordering:</strong> Purchasing managers place duplicate purchase orders because inventory levels across satellite warehouses are updated days late.</div>
               </li>
             </ul>
@@ -326,19 +326,19 @@
             <h3>Automated, Precise &amp; Tamper-Evident</h3>
             <ul class="comparison-list">
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Algorithmic 3-Way Matching:</strong> System matches PO lines, physical unloading counts (GRN), and vendor tax invoices automatically within configured tolerances.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Real-Time GST Verification:</strong> Validates IRN, QR code, and supplier GSTR-2B compliance before releasing payment vouchers, protecting enterprise cash flow.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Self-Service Vendor Portal:</strong> Vendors submit e-invoices, track delivery milestones, and upload statutory certifications without emailing your accounts team.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Dynamic Multi-Warehouse Signals:</strong> Live stock alerts, lead-time tracking, and automated reorder points prevent both costly stock-outs and excess working capital lockup.</div>
               </li>
             </ul>
@@ -362,22 +362,22 @@
           <div class="architecture-flow">
             <div class="flow-node">
               <span class="flow-step-num">STAGE 01</span>
-              <h4>Requisition &amp; Budget Check</h4>
+              <h3>Requisition &amp; Budget Check</h3>
               <p>Departmental purchase requests validate against live cost-center budgets. Multi-tier approval routing based on company Delegation of Authority (DoA).</p>
             </div>
             <div class="flow-node">
               <span class="flow-step-num">STAGE 02</span>
-              <h4>PO &amp; Vendor Notification</h4>
+              <h3>PO &amp; Vendor Notification</h3>
               <p>System generates structured digital PO with locked pricing and delivery milestones. Transmitted automatically to vendor portal with acceptance acknowledgment.</p>
             </div>
             <div class="flow-node">
               <span class="flow-step-num">STAGE 03</span>
-              <h4>Gate Inward &amp; Digital GRN</h4>
+              <h3>Gate Inward &amp; Digital GRN</h3>
               <p>Security and stores staff scan incoming shipments, record physical quantities, inspect serial/batch quality, and generate immutable Goods Receipt Notes.</p>
             </div>
             <div class="flow-node">
               <span class="flow-step-num">STAGE 04</span>
-              <h4>3-Way Match &amp; Settlement</h4>
+              <h3>3-Way Match &amp; Settlement</h3>
               <p>Automatic verification of PO vs GRN vs Tax Invoice. Validation of vendor GSTR-2B compliance. Approved payment voucher pushed to accounting ledger.</p>
             </div>
           </div>
@@ -647,10 +647,13 @@
           </div>
           <div class="form-row"><label for="message">Current Stack / Monthly Invoice Volume</label><textarea id="message" name="message" rows="4" placeholder="Briefly describe your current ERP (Tally, SAP, Zoho), monthly PO/invoice volume, and procurement reconciliation challenges..."></textarea></div>
           <div class="form-row form-consent-row">
-            <label class="consent-checkbox-label">
-              <input type="checkbox" id="dpdp-consent" name="dpdp-consent" required checked />
-              <span>I provide free and informed consent to OJIX processing my contact details under the <strong>DPDP Act, 2023 &amp; Rules, 2025</strong>. Notice in our <button type="button" class="legal-inline-link" data-open-modal="privacy-modal">Privacy Notice</button>.</span>
-            </label>
+            <div class="consent-checkbox-group">
+              <input type="checkbox" id="dpdp-consent" name="dpdp-consent" required />
+              <div class="consent-text">
+                <label for="dpdp-consent" class="consent-checkbox-label">I provide free and informed consent to OJIX processing my contact details under the <strong>DPDP Act, 2023 &amp; Rules, 2025</strong>.</label>
+                <span class="consent-inline-action">Notice in our <button type="button" class="legal-inline-link" data-open-modal="privacy-modal">Privacy Notice</button>.</span>
+              </div>
+            </div>
           </div>
           <button class="btn btn-orange form-submit" type="submit">Request Procurement Architecture Review <span aria-hidden="true">↗</span></button>
           <p class="form-hint" id="form-hint" role="status" aria-live="polite">Under Section 6 of the DPDP Act 2023, your details are strictly processed to respond to your inquiry. We enforce zero data sharing with third parties.</p>
@@ -689,19 +692,19 @@
         <a href="dpdp-compliance.html" data-open-modal="privacy-modal">Privacy Policy (DPDP 2025)</a>
         <a href="dpdp-compliance.html#cookies" data-open-modal="cookie-policy-modal">Cookie Policy</a>
         <button type="button" class="footer-link-btn" data-open-modal="cookie-modal">Consent &amp; Preferences</button>
-        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) ↗</a>
+        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-address">
         <span class="footer-label">FIND US</span>
         <p>50/1, 5th Cross, Kalidasa Layout,<br />Srinagar, Bengaluru — 560050</p>
-        <a href="mailto:info@ojix.in">info@ojix.in ↗</a>
+        <a href="mailto:info@ojix.in">info@ojix.in <span aria-hidden="true">↗</span></a>
         <small>GSTIN: 29AAKF03656Q1ZB</small>
       </div>
     </div>
     <div class="shell footer-bottom">
       <span>© <span id="year"></span> OJIX Engineering &amp; Technology LLP · Bengaluru, Karnataka, India</span>
       <span>DPDP ACT (2023) &amp; DPDP RULES (2025) COMPLIANT · DATA PRINCIPAL RIGHTS ENFORCED</span>
-      <a href="#top">Back to top ↑</a>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 
@@ -711,7 +714,7 @@
       <div class="cookie-content">
         <div class="cookie-header">
           <span class="cookie-badge">DPDP RULES 2025 · CONSENT ARCHITECTURE</span>
-          <h3 id="cookie-title">Your Privacy &amp; Data Rights</h3>
+          <h2 id="cookie-title">Your Privacy &amp; Data Rights</h2>
         </div>
         <p id="cookie-desc">We process data under India’s <strong>Digital Personal Data Protection Act, 2023</strong> and the <strong>DPDP Rules, 2025</strong>. Notice in English and 22 Eighth Schedule languages is available. We never monetize or sell personal data.</p>
       </div>
@@ -742,8 +745,8 @@
             <span class="category-badge">Mandatory · Zero Tracking</span>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="cookie-essential" checked disabled />
-            <label for="cookie-essential" class="toggle-slider"></label>
+            <input type="checkbox" id="cookie-essential" checked disabled aria-label="Strictly Necessary Cookies (Essential)" />
+            <label for="cookie-essential" class="toggle-slider"><span class="sr-only">Strictly Necessary Cookies (Essential)</span></label>
           </div>
         </div>
         <div class="cookie-category">
@@ -752,8 +755,8 @@
             <p>Enables remembered language choices and preference states.</p>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="cookie-functional" checked />
-            <label for="cookie-functional" class="toggle-slider"></label>
+            <input type="checkbox" id="cookie-functional" checked aria-label="Functional &amp; Preference Cookies" />
+            <label for="cookie-functional" class="toggle-slider"><span class="sr-only">Functional &amp; Preference Cookies</span></label>
           </div>
         </div>
       </div>

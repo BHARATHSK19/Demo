@@ -216,13 +216,13 @@
             <div class="visual-topline"><span><span class="live-dot"></span> INSTITUTIONAL COCKPIT</span><span class="visual-context">BIOMETRIC GATE &amp; SIS / LIVE</span></div>
             <div class="workspace-window" id="workspace-window">
               <div class="window-head">
-                <div><span class="window-kicker">CAMPUS ADMINISTRATION</span><h3>Multi-Campus Operations Stream</h3></div>
+                <div><span class="window-kicker">CAMPUS ADMINISTRATION</span><h2>Multi-Campus Operations Stream</h2></div>
                 <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="window-avatar" width="38" height="38" />
               </div>
             <div class="workspace-metrics">
               <div class="metric-card metric-featured">
                 <span class="metric-label">Biometric sync speed</span>
-                <div class="metric-value">&lt; 1s<span class="metric-check">✓</span></div>
+                <div class="metric-value">&lt; 1s<span class="metric-check" aria-hidden="true">✓</span></div>
                 <div class="metric-foot"><span class="status-pip"></span> Sub-second gate punches</div>
                 <div class="metric-sparkline"><span style="--h:40%"></span><span style="--h:65%"></span><span style="--h:55%"></span><span style="--h:85%"></span><span style="--h:70%"></span><span style="--h:95%"></span><span style="--h:80%"></span><span style="--h:100%"></span></div>
               </div>
@@ -300,19 +300,19 @@
             <h3>Siloed, Labor-Intensive &amp; Audit-Vulnerable</h3>
             <ul class="comparison-list">
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Stand-Alone Biometric Machines:</strong> Attendance data sits isolated in physical thumbprint machines. Faculty manually cross-check paper registers for detention lists.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Manual Fee Bank Reconciliations:</strong> Accounts staff spend weeks matching bank challans and counter cash against student ledger entries, creating accounting discrepancies.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Accreditation Panic:</strong> Gathering faculty citations, student progression, and infrastructure data for NAAC or NIRF reviews requires months of frantic manual compilation.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✕</span>
+                <span class="comparison-list-icon" aria-hidden="true">✕</span>
                 <div><strong>Scattered Student Records:</strong> Academic transcripts, migration certificates, and conduct records stored in physical filing cabinets with risk of misplacement.</div>
               </li>
             </ul>
@@ -323,19 +323,19 @@
             <h3>Unified, Real-Time &amp; Future-Ready</h3>
             <ul class="comparison-list">
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Real-Time Hardware Attendance:</strong> Biometric turnstiles and RFID cards immediately update student dashboards and trigger automatic SMS alerts to parents.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Digital Fee Ledger with Split Gateways:</strong> Direct integration with UPI and net banking automatically reconciles payments into college bank accounts with zero counter queues.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Continuous Compliance Depository:</strong> Every seminar, research grant, and grade sheet is indexed continuously for instant NAAC Criteria 1–7 data exports.</div>
               </li>
               <li>
-                <span class="comparison-list-icon">✓</span>
+                <span class="comparison-list-icon" aria-hidden="true">✓</span>
                 <div><strong>Unified Sovereign Student Vault:</strong> One permanent digital ID per student containing all marks cards, fees, and attendance records, hosted on sovereign Indian cloud.</div>
               </li>
             </ul>
@@ -359,22 +359,22 @@
           <div class="architecture-flow">
             <div class="flow-node">
               <span class="flow-step-num">PHASE 01</span>
-              <h4>Admissions &amp; Scrutiny</h4>
+              <h3>Admissions &amp; Scrutiny</h3>
               <p>Digital merit lists, document verification, quota allocations, and instant provisional admission fee processing.</p>
             </div>
             <div class="flow-node">
               <span class="flow-step-num">PHASE 02</span>
-              <h4>Campus Attendance &amp; SIS</h4>
+              <h3>Campus Attendance &amp; SIS</h3>
               <p>Hardware biometric gate sync, timetable scheduling, faculty assignment, and real-time attendance registers.</p>
             </div>
             <div class="flow-node">
               <span class="flow-step-num">PHASE 03</span>
-              <h4>Exams, Grades &amp; Hall Tickets</h4>
+              <h3>Exams, Grades &amp; Hall Tickets</h3>
               <p>Automated detention threshold enforcement, hall ticket generation, multi-tier gradebook evaluation, and transcript printing.</p>
             </div>
             <div class="flow-node">
               <span class="flow-step-num">PHASE 04</span>
-              <h4>Accreditation &amp; Placement</h4>
+              <h3>Accreditation &amp; Placement</h3>
               <p>Automated data aggregation for NAAC SSR, NIRF rankings, campus placement records, and lifetime alumni connection.</p>
             </div>
           </div>
@@ -644,10 +644,13 @@
           </div>
           <div class="form-row"><label for="message">Current Setup &amp; Student Strength</label><textarea id="message" name="message" rows="4" placeholder="Briefly describe your institution's approximate student headcount, current biometric or ERP setup, and operational pain points..."></textarea></div>
           <div class="form-row form-consent-row">
-            <label class="consent-checkbox-label">
-              <input type="checkbox" id="dpdp-consent" name="dpdp-consent" required checked />
-              <span>I provide free and informed consent to OJIX processing my contact details under the <strong>DPDP Act, 2023 &amp; Rules, 2025</strong>. Notice in our <button type="button" class="legal-inline-link" data-open-modal="privacy-modal">Privacy Notice</button>.</span>
-            </label>
+            <div class="consent-checkbox-group">
+              <input type="checkbox" id="dpdp-consent" name="dpdp-consent" required />
+              <div class="consent-text">
+                <label for="dpdp-consent" class="consent-checkbox-label">I provide free and informed consent to OJIX processing my contact details under the <strong>DPDP Act, 2023 &amp; Rules, 2025</strong>.</label>
+                <span class="consent-inline-action">Notice in our <button type="button" class="legal-inline-link" data-open-modal="privacy-modal">Privacy Notice</button>.</span>
+              </div>
+            </div>
           </div>
           <button class="btn btn-orange form-submit" type="submit">Schedule Institutional Demo <span aria-hidden="true">↗</span></button>
           <p class="form-hint" id="form-hint" role="status" aria-live="polite">Under Section 6 of the DPDP Act 2023, your details are strictly processed to respond to your inquiry. We enforce zero data sharing with third parties.</p>
@@ -686,19 +689,19 @@
         <a href="dpdp-compliance.html" data-open-modal="privacy-modal">Privacy Policy (DPDP 2025)</a>
         <a href="dpdp-compliance.html#cookies" data-open-modal="cookie-policy-modal">Cookie Policy</a>
         <button type="button" class="footer-link-btn" data-open-modal="cookie-modal">Consent &amp; Preferences</button>
-        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) ↗</a>
+        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-address">
         <span class="footer-label">FIND US</span>
         <p>50/1, 5th Cross, Kalidasa Layout,<br />Srinagar, Bengaluru — 560050</p>
-        <a href="mailto:info@ojix.in">info@ojix.in ↗</a>
+        <a href="mailto:info@ojix.in">info@ojix.in <span aria-hidden="true">↗</span></a>
         <small>GSTIN: 29AAKF03656Q1ZB</small>
       </div>
     </div>
     <div class="shell footer-bottom">
       <span>© <span id="year"></span> OJIX Engineering &amp; Technology LLP · Bengaluru, Karnataka, India</span>
       <span>DPDP ACT (2023) &amp; DPDP RULES (2025) COMPLIANT · DATA PRINCIPAL RIGHTS ENFORCED</span>
-      <a href="#top">Back to top ↑</a>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 
@@ -708,7 +711,7 @@
       <div class="cookie-content">
         <div class="cookie-header">
           <span class="cookie-badge">DPDP RULES 2025 · CONSENT ARCHITECTURE</span>
-          <h3 id="cookie-title">Your Privacy &amp; Data Rights</h3>
+          <h2 id="cookie-title">Your Privacy &amp; Data Rights</h2>
         </div>
         <p id="cookie-desc">We process data under India’s <strong>Digital Personal Data Protection Act, 2023</strong> and the <strong>DPDP Rules, 2025</strong>. Notice in English and 22 Eighth Schedule languages is available. We never monetize or sell personal data.</p>
       </div>
@@ -739,8 +742,8 @@
             <span class="category-badge">Mandatory · Zero Tracking</span>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="cookie-essential" checked disabled />
-            <label for="cookie-essential" class="toggle-slider"></label>
+            <input type="checkbox" id="cookie-essential" checked disabled aria-label="Strictly Necessary Cookies (Essential)" />
+            <label for="cookie-essential" class="toggle-slider"><span class="sr-only">Strictly Necessary Cookies (Essential)</span></label>
           </div>
         </div>
         <div class="cookie-category">
@@ -749,8 +752,8 @@
             <p>Enables remembered language choices and preference states.</p>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="cookie-functional" checked />
-            <label for="cookie-functional" class="toggle-slider"></label>
+            <input type="checkbox" id="cookie-functional" checked aria-label="Functional &amp; Preference Cookies" />
+            <label for="cookie-functional" class="toggle-slider"><span class="sr-only">Functional &amp; Preference Cookies</span></label>
           </div>
         </div>
       </div>

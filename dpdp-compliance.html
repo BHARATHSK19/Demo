@@ -186,13 +186,13 @@
             <div class="visual-topline"><span><span class="live-dot"></span> DATA FIDUCIARY COCKPIT</span><span class="visual-context">DPBI AUDIT LOG / SYNCHRONIZED</span></div>
             <div class="workspace-window" id="workspace-window">
               <div class="window-head">
-                <div><span class="window-kicker">DATA PROTECTION BOARD READY</span><h3>Sovereign Consent &amp; Audit Engine</h3></div>
+                <div><span class="window-kicker">DATA PROTECTION BOARD READY</span><h2>Sovereign Consent &amp; Audit Engine</h2></div>
                 <img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" class="window-avatar" width="38" height="38" />
               </div>
               <div class="workspace-metrics">
                 <div class="metric-card metric-featured">
                   <span class="metric-label">Statutory audit state</span>
-                  <div class="metric-value">100%<span class="metric-check">✓</span></div>
+                  <div class="metric-value">100%<span class="metric-check" aria-hidden="true">✓</span></div>
                   <div class="metric-foot"><span class="status-pip"></span> Zero Unconsented Rows</div>
                   <div class="metric-sparkline"><span style="--h:35%"></span><span style="--h:50%"></span><span style="--h:65%"></span><span style="--h:60%"></span><span style="--h:82%"></span><span style="--h:90%"></span><span style="--h:88%"></span><span style="--h:100%"></span></div>
                 </div>
@@ -351,11 +351,11 @@
             <span class="comparison-badge badge-legacy">LEGACY CHECKBOX APPROACH</span>
             <h3>Fragmented Compliance</h3>
             <ul class="comparison-list">
-              <li><span class="comparison-list-icon icon-cross">✕</span><span>Bundled, pre-checked checkboxes buried in 40-page terms of service.</span></li>
-              <li><span class="comparison-list-icon icon-cross">✕</span><span>Indefinite database retention with no automated row-level expiration triggers.</span></li>
-              <li><span class="comparison-list-icon icon-cross">✕</span><span>Payloads replicated across overseas SaaS servers with uncertain foreign jurisdictions.</span></li>
-              <li><span class="comparison-list-icon icon-cross">✕</span><span>Unmonitored shared inboxes where compliance and privacy notices sit unread for weeks.</span></li>
-              <li><span class="comparison-list-icon icon-cross">✕</span><span>Breach discovery delayed by months, exposing leadership to Section 33 penalties up to ₹250 Cr.</span></li>
+              <li><span class="comparison-list-icon icon-cross" aria-hidden="true">✕</span><span>Bundled, pre-checked checkboxes buried in 40-page terms of service.</span></li>
+              <li><span class="comparison-list-icon icon-cross" aria-hidden="true">✕</span><span>Indefinite database retention with no automated row-level expiration triggers.</span></li>
+              <li><span class="comparison-list-icon icon-cross" aria-hidden="true">✕</span><span>Payloads replicated across overseas SaaS servers with uncertain foreign jurisdictions.</span></li>
+              <li><span class="comparison-list-icon icon-cross" aria-hidden="true">✕</span><span>Unmonitored shared inboxes where compliance and privacy notices sit unread for weeks.</span></li>
+              <li><span class="comparison-list-icon icon-cross" aria-hidden="true">✕</span><span>Breach discovery delayed by months, exposing leadership to Section 33 penalties up to ₹250 Cr.</span></li>
             </ul>
           </div>
 
@@ -363,11 +363,11 @@
             <span class="comparison-badge badge-ojix">OJIX NATIVE ARCHITECTURE</span>
             <h3>Cryptographic Sovereignty</h3>
             <ul class="comparison-list">
-              <li><span class="comparison-list-icon icon-check">✓</span><span>Granular, itemized consent with SHA-256 tokens and multi-lingual notices in 22 languages.</span></li>
-              <li><span class="comparison-list-icon icon-check">✓</span><span>Automated TTL row-level expiration and cryptographic shredding upon purpose completion.</span></li>
-              <li><span class="comparison-list-icon icon-check">✓</span><span>100% Indian sovereign cloud residency in MeitY-empanelled Tier-IV data centers.</span></li>
-              <li><span class="comparison-list-icon icon-check">✓</span><span>Statutory Grievance Redressal ticketing portal with guaranteed 48-hour SLA timers.</span></li>
-              <li><span class="comparison-list-icon icon-check">✓</span><span>Automated SIEM intrusion telemetry with instant 72-hour DPBI reporting templates.</span></li>
+              <li><span class="comparison-list-icon icon-check" aria-hidden="true">✓</span><span>Granular, itemized consent with SHA-256 tokens and multi-lingual notices in 22 languages.</span></li>
+              <li><span class="comparison-list-icon icon-check" aria-hidden="true">✓</span><span>Automated TTL row-level expiration and cryptographic shredding upon purpose completion.</span></li>
+              <li><span class="comparison-list-icon icon-check" aria-hidden="true">✓</span><span>100% Indian sovereign cloud residency in MeitY-empanelled Tier-IV data centers.</span></li>
+              <li><span class="comparison-list-icon icon-check" aria-hidden="true">✓</span><span>Statutory Grievance Redressal ticketing portal with guaranteed 48-hour SLA timers.</span></li>
+              <li><span class="comparison-list-icon icon-check" aria-hidden="true">✓</span><span>Automated SIEM intrusion telemetry with instant 72-hour DPBI reporting templates.</span></li>
             </ul>
           </div>
         </div>
@@ -497,9 +497,9 @@
           <input type="hidden" name="interest" value="DPDP Technical Architecture Audit" />
           <input type="hidden" name="message" value="Requesting technical architecture audit and readiness review under DPDP Act 2023 &amp; Rules 2025." />
           <div class="form-heading"><span>COMPLIANCE INQUIRY</span><span>STAGE 01</span></div>
-          <div class="form-row"><label for="org-name">Enterprise / Organization Name</label><input id="org-name" name="organization" required placeholder="Full Legal Entity Name" /></div>
-          <div class="form-row"><label for="officer-name">Data Protection Officer / CTO / Legal Head</label><input id="officer-name" name="name" required placeholder="Full Name" /></div>
-          <div class="form-row"><label for="corp-email">Official Corporate Email</label><input id="corp-email" name="email" type="email" required placeholder="dpo@company.in" /></div>
+          <div class="form-row"><label for="org-name">Enterprise / Organization Name</label><input id="org-name" name="organization" autocomplete="organization" required placeholder="Full Legal Entity Name" /></div>
+          <div class="form-row"><label for="officer-name">Data Protection Officer / CTO / Legal Head</label><input id="officer-name" name="name" autocomplete="name" required placeholder="Full Name" /></div>
+          <div class="form-row"><label for="corp-email">Official Corporate Email</label><input id="corp-email" name="email" type="email" autocomplete="email" required placeholder="dpo@company.in" /></div>
           <div class="form-row"><label for="fiduciary-class">Data Processing Volume</label>
             <select id="fiduciary-class" name="fiduciary-class">
               <option>Under 100,000 Data Principals</option>
@@ -542,19 +542,19 @@
         <a href="dpdp-compliance.html">DPDP 2025 Architecture Guide</a>
         <a href="#" data-open-modal="privacy-modal">Privacy Notice</a>
         <a href="#" data-open-modal="cookie-modal">Cookie Preferences</a>
-        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) ↗</a>
+        <a href="mailto:info@ojix.in">Grievance Redressal (48h SLA) <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-address">
         <span class="footer-label">FIND US</span>
         <p>50/1, 5th Cross, Kalidasa Layout,<br />Srinagar, Bengaluru — 560050</p>
-        <a href="mailto:info@ojix.in">info@ojix.in ↗</a>
+        <a href="mailto:info@ojix.in">info@ojix.in <span aria-hidden="true">↗</span></a>
         <small>GSTIN: 29AAKF03656Q1ZB</small>
       </div>
     </div>
     <div class="shell footer-bottom">
       <span>© <span id="year"></span> OJIX Engineering &amp; Technology LLP · Bengaluru, Karnataka, India</span>
       <span>DPDP ACT (2023) &amp; DPDP RULES (2025) COMPLIANT · DATA PRINCIPAL RIGHTS ENFORCED</span>
-      <a href="#top">Back to top ↑</a>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 
@@ -564,7 +564,7 @@
       <div class="cookie-content">
         <div class="cookie-header">
           <span class="cookie-badge">DPDP RULES 2025 · CONSENT ARCHITECTURE</span>
-          <h3 id="cookie-title">Your Privacy &amp; Data Rights</h3>
+          <h2 id="cookie-title">Your Privacy &amp; Data Rights</h2>
         </div>
         <p id="cookie-desc">We process data under India’s <strong>Digital Personal Data Protection Act, 2023</strong> and the <strong>DPDP Rules, 2025</strong>. Notice in English and 22 Eighth Schedule languages is available. We never monetize or sell personal data.</p>
       </div>
@@ -595,8 +595,8 @@
             <span class="category-badge">Mandatory · Zero Tracking</span>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="cookie-essential" checked disabled />
-            <label for="cookie-essential" class="toggle-slider"></label>
+            <input type="checkbox" id="cookie-essential" checked disabled aria-label="Strictly Necessary Cookies (Essential)" />
+            <label for="cookie-essential" class="toggle-slider"><span class="sr-only">Strictly Necessary Cookies (Essential)</span></label>
           </div>
         </div>
         <div class="cookie-category">
@@ -605,8 +605,8 @@
             <p>Enables remembered language choices and preference states.</p>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="cookie-functional" checked />
-            <label for="cookie-functional" class="toggle-slider"></label>
+            <input type="checkbox" id="cookie-functional" checked aria-label="Functional &amp; Preference Cookies" />
+            <label for="cookie-functional" class="toggle-slider"><span class="sr-only">Functional &amp; Preference Cookies</span></label>
           </div>
         </div>
       </div>
@@ -629,11 +629,11 @@
       <div class="modal-body legal-document">
         <div class="legal-effective">Effective Date: March 2025 | Version 3.0 (DPDP Act 2023 &amp; Rules 2025 Aligned)</div>
         <p>This statutory notice is issued by <strong>OJIX Engineering &amp; Technology LLP</strong> (GSTIN: 29AAKF03656Q1ZB). For any privacy grievance, contact our designated Grievance Officer at <a href="mailto:info@ojix.in">info@ojix.in</a> with guaranteed 48-hour statutory response.</p>
-        <h4>1. Lawful Basis &amp; Purpose Specification</h4>
+        <h3>1. Lawful Basis &amp; Purpose Specification</h3>
         <p>Under Section 4 and Section 6 of the DPDP Act 2023, personal data is processed solely for specified, lawful business purposes with affirmative consent.</p>
-        <h4>2. Data Principal Rights</h4>
+        <h3>2. Data Principal Rights</h3>
         <p>You have the right to access, rectify, erase, and withdraw consent at any time without penalty.</p>
-        <h4>3. Grievance Redressal SLA</h4>
+        <h3>3. Grievance Redressal SLA</h3>
         <p>Email our Grievance Officer at <a href="mailto:info@ojix.in">info@ojix.in</a>. All statutory inquiries are resolved within 48 business hours.</p>
       </div>
       <div class="modal-foot">
