@@ -218,7 +218,7 @@ if (engineTabs.length > 0) {
 // 4C. APPLE-INSPIRED PRODUCT PORTFOLIO CATEGORY FILTERING
 // ============================================================================
 const portfolioFilterPills = document.querySelectorAll('.apple-portfolio-filters .filter-pill[data-filter]');
-const portfolioTierGroups = document.querySelectorAll('#platforms .portfolio-tier-group[data-tier-group]');
+const filterableCards = document.querySelectorAll('#platforms .platform-card[data-category]');
 
 if (portfolioFilterPills.length > 0) {
   portfolioFilterPills.forEach((pill) => {
@@ -231,16 +231,13 @@ if (portfolioFilterPills.length > 0) {
         p.setAttribute('aria-selected', String(active));
       });
 
-      if (filter === 'all') {
-        portfolioTierGroups.forEach((group) => {
-          group.classList.remove('is-filtered-out');
-        });
-      } else {
-        portfolioTierGroups.forEach((group) => {
-          const match = group.dataset.tierGroup === filter;
-          group.classList.toggle('is-filtered-out', !match);
-        });
-      }
+      filterableCards.forEach((card) => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('is-filtered-out');
+        } else {
+          card.classList.add('is-filtered-out');
+        }
+      });
     });
   });
 }

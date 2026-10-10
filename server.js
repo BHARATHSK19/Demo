@@ -314,7 +314,7 @@ app.post('/api/dpdp/erasure', submissionLimiter, (req, res) => {
     console.error('[API ERROR] Erasure request failed:', err);
     return res.status(500).json({
       success: false,
-      error: 'Erasure execution error. Contact grievance@ojix.in directly.'
+      error: 'Erasure execution error. Contact info@ojix.in directly.'
     });
   }
 });

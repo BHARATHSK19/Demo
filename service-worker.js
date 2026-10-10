@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ojix-site-v8';
+const CACHE_NAME = 'ojix-site-v9';
 const CORE_ASSETS = [
   './', './index.html', './styles.css', './app.js', './assets/vendor/visual-effects.js', './manifest.webmanifest',
   './assets/ojix-primary-transparent-onlight.svg',
@@ -32,11 +32,16 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(caches.match(event.request).then((cached) => {
     const network = fetch(event.request).then((response) => {
       const cacheControl = response.headers.get('Cache-Control') || '';
-      if (response.ok && response.type === 'basic' && !cacheControl.includes('no-store')) {
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, response.clone()));
+      if (response && response.ok && response.type === 'basic' && !cacheControl.includes('no-store')) {
+        try {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache)).catch(() => {});
+        } catch (e) {
+          // Ignore clone errors if already streamed
+        }
       }
       return response;
-    });
+    }).catch(() => cached);
     return cached || network;
   }));
 });

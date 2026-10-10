@@ -333,7 +333,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .sectors-copy h2,
 .about-copy h2,
 .client-intro h2,
-.contact-copy h2 {
+.contact-copy h2,
+.faq-intro h2 {
   font-family: var(--font-heading);
   letter-spacing: -0.05em;
   font-weight: 700;
@@ -1138,51 +1139,8 @@ h1 em, h2 em {
   box-shadow: 0 4px 16px rgba(15, 28, 46, 0.18);
 }
 
-.portfolio-tier-group {
-  margin-bottom: 40px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.portfolio-tier-group.is-filtered-out {
+.platform-card.is-filtered-out {
   display: none !important;
-}
-
-.portfolio-tier-header {
-  margin-top: 48px;
-  margin-bottom: 24px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.tier-kicker {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--orange-deep);
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-
-.tier-heading {
-  font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 750;
-  color: var(--navy);
-  letter-spacing: -0.03em;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.platform-grid-pillars,
-.platform-grid-specialized {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
 }
 
 
@@ -2156,7 +2114,8 @@ h1 em, h2 em {
 .capabilities-heading h2,
 .method-head h2,
 .sectors-copy h2,
-.client-intro h2 {
+.client-intro h2,
+.faq-intro h2 {
   font-size: clamp(38px, 4vw, 56px);
   color: var(--navy);
   margin: 0 0 20px;
@@ -2770,8 +2729,8 @@ h1 em, h2 em {
 }
 
 .platform-card .platform-symbol svg {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: block;
   flex-shrink: 0;
   transition: transform 0.4s var(--ease-spring);
@@ -3728,6 +3687,21 @@ h1 em, h2 em {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+}
+
+.faq-intro h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.06;
+  margin: 0 0 20px;
+  color: var(--navy);
+}
+
+.faq-intro h2 em {
+  font-style: normal;
+  color: var(--orange);
 }
 
 .faq-intro p {
