@@ -3423,31 +3423,96 @@ h1 em, h2 em {
    Reference: https://pro.reactbits.dev/docs/components/scroll-stack
    ========================================================================== */
 
-.scroll-stack-container {
+.scroll-stack {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
   width: 100%;
-  max-width: 1080px;
+}
+
+.scroll-stack--window {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1060px;
   margin: 36px auto 0;
-  padding-bottom: 90px;
+  padding-bottom: 20px;
+}
+
+.scroll-stack__slot {
+  position: sticky;
+  top: calc(var(--stack-top, 11%) + var(--slot-offset, 0px));
+  will-change: transform;
+  width: 100%;
+}
+
+.scroll-stack__spacer {
+  width: 100%;
+  pointer-events: none;
+}
+
+.scroll-stack__end {
+  width: 100%;
+  pointer-events: none;
 }
 
 .scroll-stack-card {
-  position: sticky;
-  top: calc(var(--stack-top, 96px) + var(--stack-index, 0) * var(--stack-peek, 26px));
+  position: relative;
+  box-sizing: border-box;
   width: 100%;
-  transform-origin: top center;
-  will-change: transform, opacity, filter;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease;
-  transform: translateY(var(--stack-y, 0px)) scale(var(--stack-scale, 1));
-  opacity: var(--stack-opacity, 1);
-  filter: blur(var(--stack-blur, 0px));
-  z-index: var(--stack-z, 1);
+  border-radius: 28px;
+  transform-origin: 50% 0;
+  will-change: transform, filter;
+  box-shadow:
+    0 0 0 1px rgba(15, 28, 46, 0.08),
+    0 -8px 24px -10px rgba(15, 28, 46, 0.06),
+    0 20px 48px -16px rgba(15, 28, 46, 0.12),
+    0 36px 72px -24px rgba(201, 102, 47, 0.12);
+  background: #FFFFFF;
+  transition: box-shadow 0.25s ease;
+}
+
+.scroll-stack-card:hover {
+  box-shadow:
+    0 0 0 1.5px rgba(201, 102, 47, 0.45),
+    0 -8px 24px -10px rgba(15, 28, 46, 0.06),
+    0 24px 56px -16px rgba(15, 28, 46, 0.18),
+    0 40px 80px -20px rgba(201, 102, 47, 0.22);
+}
+
+.scroll-stack-card.platform-card {
+  min-height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  isolation: auto;
+  overflow: visible;
+  transition: box-shadow 0.25s ease;
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.scroll-stack-card.platform-card::before,
+.scroll-stack-card.platform-card::after {
+  display: none !important;
+}
+
+.scroll-stack-card.platform-card:hover {
+  transform: none;
+  border: none;
+}
+
+.scroll-stack-card__shade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #0B1320;
+  opacity: var(--scroll-stack-dim, 0);
+  pointer-events: none;
+  transition: opacity 0.15s ease-out;
+  z-index: 10;
 }
 
 .scroll-stack-card.is-filtered-out {
@@ -3456,23 +3521,20 @@ h1 em, h2 em {
 
 .scroll-stack-card-inner {
   background: #FFFFFF;
-  border: 1px solid rgba(15, 28, 46, 0.09);
-  border-radius: 20px;
-  padding: 32px 36px 30px;
+  border: 1px solid rgba(15, 28, 46, 0.08);
+  border-radius: 28px;
+  padding: 28px 32px 26px;
   box-shadow: 
-    0 10px 30px -5px rgba(15, 28, 46, 0.05),
-    0 20px 45px -10px rgba(15, 28, 46, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    0 10px 30px -5px rgba(15, 28, 46, 0.04),
+    0 20px 45px -10px rgba(15, 28, 46, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
 .scroll-stack-card:hover .scroll-stack-card-inner {
   border-color: rgba(201, 102, 47, 0.35);
-  box-shadow: 
-    0 16px 36px -6px rgba(15, 28, 46, 0.08),
-    0 28px 65px -12px rgba(201, 102, 47, 0.12);
 }
 
 /* Ambient Top Accent Highlight Line */
@@ -3484,7 +3546,7 @@ h1 em, h2 em {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, transparent 0%, var(--orange, #C9662F) 30%, #F97316 70%, transparent 100%);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 /* Header Bar */
@@ -4091,7 +4153,7 @@ h1 em, h2 em {
 /* PLATFORM SUITE — ONE VISUAL LANGUAGE */
 .platform-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background:
     radial-gradient(circle at 90% 15%, rgba(201, 102, 47, 0.075), transparent 25%),
     var(--soft);
