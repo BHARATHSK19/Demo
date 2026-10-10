@@ -181,254 +181,193 @@ finderButtons.forEach((button) => {
 });
 
 // ============================================================================
-// 4B. OJIX ENGINEERING DISCOVERY INSTRUMENT (React Bits Prompt Bar Architecture)
+// 4B. OJIX HERO COCKPIT & OPERATIONS CONSOLE ENGINE
 // ============================================================================
-const discoveryInstrument = document.getElementById('discovery-instrument');
-const promptForm = document.getElementById('discovery-prompt-form');
-const promptInput = document.getElementById('discovery-prompt-input');
-const promptSubmit = document.getElementById('discovery-prompt-submit');
-const discoveryChips = document.querySelectorAll('.discovery-chip');
+const cockpitTabs = document.querySelectorAll('.cockpit-tab[data-cockpit-tab]');
+const cockpitPanels = document.querySelectorAll('.cockpit-panel');
+const cockpitSimBtn = document.getElementById('cockpit-sim-btn');
+const pipelineNodes = document.querySelectorAll('.pipeline-node');
+const pipelineInspector = document.getElementById('pipeline-inspector');
+const inspectorNodeTag = document.getElementById('inspector-node-tag');
+const inspectorNodeDetail = document.getElementById('inspector-node-detail');
+const cockpitFeedList = document.getElementById('cockpit-feed-list');
+const feedLiveTicker = document.getElementById('feed-live-ticker');
+const pipelineStreamStatus = document.getElementById('pipeline-stream-status');
 
-const discoveryInputState = document.getElementById('discovery-input-state');
-const discoveryResultState = document.getElementById('discovery-result-state');
+// 1. Cockpit Tabs Switching
+if (cockpitTabs.length > 0) {
+  cockpitTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetId = `panel-${tab.dataset.cockpitTab}`;
+      cockpitTabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', String(active));
+      });
 
-const resultSubmittedText = document.getElementById('result-submitted-text');
-const discoveryResultTitle = document.getElementById('discovery-result-title');
-const discoveryResultDesc = document.getElementById('discovery-result-desc');
-const discoveryResultTags = document.getElementById('discovery-result-tags');
-const discoveryDiscussBtn = document.getElementById('discovery-discuss-btn');
-const discoveryExploreBtn = document.getElementById('discovery-explore-btn');
-const discoveryResetBtn = document.getElementById('discovery-reset-btn');
+      cockpitPanels.forEach((panel) => {
+        if (panel.id === targetId) {
+          panel.classList.add('is-active');
+          panel.hidden = false;
+        } else {
+          panel.classList.remove('is-active');
+          panel.hidden = true;
+        }
+      });
+    });
+  });
+}
 
-const workflowLineProgress = document.getElementById('workflow-line-progress');
-const workflowTracer = document.getElementById('workflow-tracer');
-const workflowNodes = document.querySelectorAll('.discovery-workflow .workflow-node');
+// 2. Interactive Pipeline Topology Inspector
+const nodeDetails = {
+  ingest: {
+    tag: 'NODE 01: INGESTION PIPELINE',
+    detail: 'Inbound matter & document streams accepted across encrypted TLS 1.3 endpoints. Latency: 3.8ms.'
+  },
+  rules: {
+    tag: 'NODE 02: RULES & PERMISSIONS ARBITER',
+    detail: 'Compiled authorization matrices enforce multi-tenant role privileges before processing. Latency: 2.4ms.'
+  },
+  ai: {
+    tag: 'NODE 03: DETERMINISTIC AI EXTRACTION',
+    detail: 'Human-in-the-loop schema parsing with strict validation against statutory law. Latency: 14.2ms.'
+  },
+  commit: {
+    tag: 'NODE 04: STATUTORY AUDIT COMMIT',
+    detail: 'Cryptographic SHA-256 seal written to immutable sovereign ledger with zero cross-border leakage. Latency: 4.1ms.'
+  }
+};
 
-// Deterministic capability matrix mapping real capabilities & routes
-const discoveryCatalog = [
+pipelineNodes.forEach((node) => {
+  const nodeKey = node.dataset.node;
+  const updateInspector = () => {
+    pipelineNodes.forEach((n) => n.classList.remove('is-inspected'));
+    node.classList.add('is-inspected');
+    if (nodeDetails[nodeKey] && inspectorNodeTag && inspectorNodeDetail) {
+      inspectorNodeTag.textContent = nodeDetails[nodeKey].tag;
+      inspectorNodeDetail.textContent = nodeDetails[nodeKey].detail;
+    }
+  };
+
+  node.addEventListener('mouseenter', updateInspector);
+  node.addEventListener('click', updateInspector);
+  node.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      updateInspector();
+    }
+  });
+});
+
+// 3. Simulated Live Dispatch Trigger
+const simulatedEvents = [
   {
-    match: ['spreadsheet', 'excel', 'sheet', 'manual ledger', 'stock', 'inventory', 'purchase', 'procure', 'po', 'grn', '3-way', 'reconciliation'],
-    title: 'Custom ERP & ProcureOS Operational Platform',
-    category: 'Inventory & Procurement Reconciliation',
-    description: 'Transition out of spreadsheet dependency into an SLA-backed operating platform with real-time stock controls, multi-tier purchase authorizations, and automated 3-way reconciliation.',
-    tags: ['Custom ERP Platforms', 'Inventory Controls', '3-Way Reconciliation', 'Sovereign Deployment'],
-    interest: 'ProcureOS / ERP',
-    exploreUrl: 'procureos.html',
-    prefillMessage: 'We are looking to replace spreadsheet-driven operations with a custom ERP and unified inventory/procurement platform.'
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4z"/><path d="M4 11v6c0 3 4 5 8 5s8-2 8-5v-6"/></svg>',
+    title: '[LegalOS] Commercial Division cause list parsed',
+    desc: 'Limitation cutoff locked for 32 pending hearings · 0 discrepancies',
+    badge: 'VERIFIED',
+    badgeClass: 'state-done'
   },
   {
-    match: ['connect', 'disconnected', 'systems', 'integration', 'silo', 'tools', 'sync', 'api', 'pipeline', 'data workflow'],
-    title: 'System Integration & Unified Enterprise Workflows',
-    category: 'Inter-System Connectivity & Data Pipelines',
-    description: 'Connect siloed business systems, financial ledgers, and operational tools into a single source of truth with bidirectional sync, event streaming, and complete audit logging.',
-    tags: ['API Integrations', 'Event Streaming', 'Data Pipelines', 'Audit Trails'],
-    interest: 'Cloud / integrations',
-    exploreUrl: '#capabilities',
-    prefillMessage: 'We need to connect disconnected business systems and establish bidirectional sync between our operating tools and core ledgers.'
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+    title: '[ProcureOS] 3-way reconciliation matched: ₹12,40,000',
+    desc: 'Itemized GRN matched against PO & verified GST tax invoice',
+    badge: 'MATCHED',
+    badgeClass: 'state-done'
   },
   {
-    match: ['automate', 'repetitive', 'workflow', 'approvals', 'ai', 'manual process', 'bottleneck', 'document', 'extraction', 'exception'],
-    title: 'Workflow Engineering & Applied AI Automation',
-    category: 'Process Automation & Human-in-the-Loop AI',
-    description: 'Eliminate repetitive manual bottlenecks with deterministic approval flows, intelligent document extraction, exception handling, and explicit human verification gates.',
-    tags: ['Workflow Automation', 'Document Extraction', 'Human Approval Gates', 'Exception Handling'],
-    interest: 'AI workflow automation',
-    exploreUrl: '#capabilities',
-    prefillMessage: 'We want to automate repetitive workflows and eliminate manual processing bottlenecks with verified human approval gates.'
-  },
-  {
-    match: ['custom', 'enterprise platform', 'platform', 'operating system', 'suite', 'os', 'custom software', 'erp foundations'],
-    title: 'Purpose-Built Custom Enterprise Platform (OS)',
-    category: 'Tailored Enterprise Architecture',
-    description: 'Architect an end-to-end proprietary operating system designed specifically around your institutional governance, entity structures, approval matrices, and scale.',
-    tags: ['Custom Enterprise OS', 'Proprietary Architecture', 'Modular Services', 'High Availability'],
-    interest: 'Custom Enterprise OS',
-    exploreUrl: '#platforms',
-    prefillMessage: 'We would like to build a custom enterprise platform purpose-built around our operational rules and workflows.'
-  },
-  {
-    match: ['website', 'web app', 'web application', 'portal', 'frontend', 'ui', 'ux', 'customer portal', 'responsive', 'corporate website'],
-    title: 'Custom Web Applications & Enterprise Websites',
-    category: 'High-Performance Web Platforms & Portals',
-    description: 'High-performance enterprise web applications and corporate websites engineered for responsive speed, secure customer portals, and search visibility across mobile and desktop.',
-    tags: ['Enterprise Websites', 'Customer Portals', 'Progressive Web Apps', 'Performance & SEO'],
-    interest: 'Web Applications & Websites',
-    exploreUrl: '#capabilities',
-    prefillMessage: 'We would like to engineer a high-performance custom web application or enterprise website for our organization.'
-  },
-  {
-    match: ['legal', 'law', 'litigation', 'court', 'cause list', 'advocate', 'chamber', 'case', 'limitation', 'ecourts'],
-    title: 'LegalOS — Connected Litigation Operations',
-    category: 'High Court & Chamber Operations',
-    description: 'Unified practice operating system for law firms and chambers. Integrates High Court cause lists, limitation calculators, privileged document vaults, and Bar Council GST billing.',
-    tags: ['e-Courts Sync', 'Limitation Engine', 'Sovereign Vault', 'SAC 9982 Invoicing'],
-    interest: 'LegalOS',
-    exploreUrl: 'legalos.html',
-    prefillMessage: 'We are interested in evaluating LegalOS for our litigation practice and chamber operations.'
-  },
-  {
-    match: ['campus', 'education', 'school', 'university', 'college', 'student', 'attendance', 'exam', 'fees', 'academic'],
-    title: 'CampusOS — Institutional Operating Platform',
-    category: 'Higher Education & School Administration',
-    description: 'Comprehensive education management system connecting student lifecycles, attendance telemetry, automated fee collections, and examination workflows.',
-    tags: ['Student Lifecycle', 'Fee Reconciliation', 'Biometric Attendance', 'Campus Telemetry'],
-    interest: 'CampusOS',
-    exploreUrl: 'campusos.html',
-    prefillMessage: 'We would like to evaluate CampusOS for institutional administration and student lifecycle management.'
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: '[CompanyOS] Executive multi-tier sign-off committed',
+    desc: 'Dual-authorized digital signature recorded to audit stream',
+    badge: 'COMMITTED',
+    badgeClass: 'state-audit'
   }
 ];
 
-const defaultDiscoveryRecommendation = {
-  title: 'Guided Operational Systems Discovery',
-  category: 'Enterprise Architectural Evaluation',
-  description: 'Every enterprise workflow has unique operational constraints. Our senior engineering leads will evaluate your architecture and map out the exact integrations, data models, and software required.',
-  tags: ['Product Discovery', 'Systems Architecture', 'Security Auditing', 'Technical Roadmap'],
-  interest: 'Custom Enterprise OS',
-  exploreUrl: '#capabilities',
-  prefillMessage: 'We would like to discuss engineering a solution for our operational challenge.'
-};
-
-function matchDiscoveryChallenge(inputQuery) {
-  const q = (inputQuery || '').trim().toLowerCase();
-  if (!q) return defaultDiscoveryRecommendation;
-  for (const item of discoveryCatalog) {
-    if (item.match.some(keyword => q.includes(keyword))) {
-      return item;
-    }
-  }
-  return defaultDiscoveryRecommendation;
-}
-
-function updateWorkflowProgress(stepIndex) {
-  // stepIndex: 0 = understand, 1 = engineer, 2 = integrate, 3 = operate
-  const percentages = ['0%', '33.3%', '66.6%', '100%'];
-  if (workflowLineProgress) {
-    workflowLineProgress.style.width = percentages[stepIndex] || '0%';
-  }
-  if (workflowTracer) {
-    workflowTracer.style.left = percentages[stepIndex] || '0%';
-  }
-  workflowNodes.forEach((node, idx) => {
-    node.classList.toggle('is-active', idx <= stepIndex);
-  });
-}
-
-function transitionToResultState(userChallenge, recommendation) {
-  if (!discoveryResultState) return;
-
-  // Animate through workflow nodes progressively
-  if (!prefersReducedMotion) {
-    updateWorkflowProgress(1);
-    setTimeout(() => updateWorkflowProgress(2), 160);
-    setTimeout(() => updateWorkflowProgress(3), 320);
-  } else {
-    updateWorkflowProgress(3);
-  }
-
-  const renderTimeout = prefersReducedMotion ? 0 : 380;
-  setTimeout(() => {
-    if (resultSubmittedText) resultSubmittedText.textContent = userChallenge;
-    if (discoveryResultTitle) discoveryResultTitle.textContent = recommendation.title;
-    if (discoveryResultDesc) discoveryResultDesc.textContent = recommendation.description;
-
-    if (discoveryResultTags) {
-      discoveryResultTags.innerHTML = recommendation.tags
-        .map(tag => `<span class="res-tag">${tag}</span>`)
-        .join('');
+let simIndex = 0;
+if (cockpitSimBtn && pipelineNodes.length > 0) {
+  cockpitSimBtn.addEventListener('click', () => {
+    cockpitSimBtn.classList.add('is-pulsing');
+    if (pipelineStreamStatus) {
+      pipelineStreamStatus.textContent = '● DISPATCH IN FLIGHT';
+      pipelineStreamStatus.style.background = '#FEF3C7';
+      pipelineStreamStatus.style.color = '#B45309';
     }
 
-    if (discoveryExploreBtn) {
-      discoveryExploreBtn.href = recommendation.exploreUrl;
-    }
-
-    // Bind tailored Discuss CTA
-    if (discoveryDiscussBtn) {
-      discoveryDiscussBtn.onclick = (e) => {
-        e.preventDefault();
-        const contactSection = document.getElementById('contact');
-        const select = document.getElementById('interest');
-        const msg = document.getElementById('message');
-        const nameField = document.getElementById('name');
-
-        if (select) {
-          const matchOpt = [...select.options].find(opt =>
-            opt.value === recommendation.interest ||
-            opt.textContent.trim().startsWith(recommendation.interest)
-          );
-          if (matchOpt) select.value = matchOpt.value;
-        }
-
-        if (msg) {
-          msg.value = `${recommendation.prefillMessage}\n\nSubmitted Challenge: ${userChallenge}`;
-        }
-
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-        }
-        if (nameField) {
-          setTimeout(() => nameField.focus(), prefersReducedMotion ? 50 : 450);
-        }
-      };
-    }
-
-    if (discoveryInputState) {
-      discoveryInputState.classList.add('is-fade-out');
+    // Cascade light beam through nodes
+    pipelineNodes.forEach((node, i) => {
       setTimeout(() => {
-        discoveryInputState.hidden = true;
-        discoveryInputState.classList.remove('is-fade-out');
-        discoveryResultState.hidden = false;
-        discoveryResultState.classList.add('is-fade-in');
-        setTimeout(() => discoveryResultState.classList.remove('is-fade-in'), 300);
-      }, prefersReducedMotion ? 0 : 150);
-    }
-  }, renderTimeout);
-}
+        node.classList.add('node-pulsing');
+        setTimeout(() => node.classList.remove('node-pulsing'), 600);
+      }, i * 150);
+    });
 
-function resetDiscoveryInstrument() {
-  if (!discoveryInputState || !discoveryResultState) return;
-  discoveryResultState.hidden = true;
-  discoveryInputState.hidden = false;
-  updateWorkflowProgress(0);
+    // After cascade, log event
+    setTimeout(() => {
+      cockpitSimBtn.classList.remove('is-pulsing');
+      if (pipelineStreamStatus) {
+        pipelineStreamStatus.textContent = '● REAL-TIME DISPATCH';
+        pipelineStreamStatus.style.background = '#DCFCE7';
+        pipelineStreamStatus.style.color = '#15803D';
+      }
+      if (feedLiveTicker) {
+        feedLiveTicker.textContent = 'DISPATCH RECORDED JUST NOW';
+      }
 
-  if (promptInput) {
-    promptInput.value = '';
-    promptForm?.classList.remove('has-content');
-    promptInput.focus();
-  }
-}
-
-if (discoveryResetBtn) {
-  discoveryResetBtn.addEventListener('click', resetDiscoveryInstrument);
-}
-
-// React Bits Prompt Bar interaction logic
-if (promptInput && promptForm) {
-  promptInput.addEventListener('input', () => {
-    const hasText = promptInput.value.trim().length > 0;
-    promptForm.classList.toggle('has-content', hasText);
-  });
-
-  promptForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const query = promptInput.value.trim();
-    if (!query) return;
-    const rec = matchDiscoveryChallenge(query);
-    transitionToResultState(query, rec);
+      if (cockpitFeedList) {
+        const ev = simulatedEvents[simIndex % simulatedEvents.length];
+        simIndex++;
+        const item = document.createElement('div');
+        item.className = 'feed-item item-flash';
+        item.innerHTML = `
+          <div class="feed-item-icon icon-law">${ev.icon}</div>
+          <div class="feed-item-body">
+            <strong>${ev.title}</strong>
+            <span>${ev.desc}</span>
+          </div>
+          <span class="feed-item-badge ${ev.badgeClass}">${ev.badge}</span>
+        `;
+        cockpitFeedList.insertBefore(item, cockpitFeedList.firstChild);
+        if (cockpitFeedList.children.length > 4) {
+          cockpitFeedList.removeChild(cockpitFeedList.lastChild);
+        }
+      }
+    }, pipelineNodes.length * 150 + 200);
   });
 }
 
-// Clickable suggestion chips
-discoveryChips.forEach((chip) => {
-  chip.addEventListener('click', () => {
-    const challenge = chip.getAttribute('data-challenge') || chip.textContent.trim();
-    if (promptInput) {
-      promptInput.value = challenge;
-      promptForm?.classList.add('has-content');
-    }
-    const rec = matchDiscoveryChallenge(challenge);
-    transitionToResultState(challenge, rec);
+// 4. SPOTLIGHT TRACKING ON HERO COCKPIT & WINDOW
+const heroCockpit = document.querySelector('.hero-cockpit-window');
+if (heroCockpit && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  heroCockpit.addEventListener('pointermove', (e) => {
+    const rect = heroCockpit.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    heroCockpit.style.setProperty('--mouse-x', `${x}px`);
+    heroCockpit.style.setProperty('--mouse-y', `${y}px`);
   });
-});
+}
+
+// 5. NAVIGATION SCROLLSPY
+const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+const trackedSections = document.querySelectorAll('section[id], header[id]');
+
+if (navLinks.length > 0 && trackedSections.length > 0 && 'IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href');
+          const isMatch = href === `#${id}`;
+          link.classList.toggle('is-active', isMatch);
+        });
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '-60px 0px -40% 0px' });
+
+  trackedSections.forEach((sec) => sectionObserver.observe(sec));
+}
 
 // 5. PLATFORM CARDS SPOTLIGHT HOVER EFFECT
 const platformCards = document.querySelectorAll('.platform-card');
