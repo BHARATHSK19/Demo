@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ojix-site-v9';
+const CACHE_NAME = 'ojix-site-v15';
 const CORE_ASSETS = [
   './', './index.html', './styles.css', './app.js', './assets/vendor/visual-effects.js', './manifest.webmanifest',
   './assets/ojix-primary-transparent-onlight.svg',
@@ -17,31 +17,49 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 self.addEventListener('activate', (event) => {
-  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))));
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
+    )
+  );
   self.clients.claim();
 });
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
 
-  // Documents are always fetched first, so visitors receive critical updates promptly.
-  if (event.request.mode === 'navigate') {
-    event.respondWith(fetch(event.request).catch(() => caches.match('./index.html')));
+  // Network-first for HTML documents, stylesheets, and scripts to guarantee instant visual updates
+  const isCodeAsset = event.request.mode === 'navigate' ||
+                      event.request.destination === 'style' ||
+                      event.request.destination === 'script' ||
+                      event.request.url.includes('.css') ||
+                      event.request.url.includes('.js');
+
+  if (isCodeAsset) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.ok && response.type === 'basic') {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache)).catch(() => {});
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request).then((cached) => cached || (event.request.mode === 'navigate' ? caches.match('./index.html') : null)))
+    );
     return;
   }
 
-  event.respondWith(caches.match(event.request).then((cached) => {
-    const network = fetch(event.request).then((response) => {
-      const cacheControl = response.headers.get('Cache-Control') || '';
-      if (response && response.ok && response.type === 'basic' && !cacheControl.includes('no-store')) {
-        try {
+  // Cache-first with background revalidation for static media (images, fonts, icons)
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      const network = fetch(event.request).then((response) => {
+        if (response && response.ok && response.type === 'basic') {
           const responseToCache = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache)).catch(() => {});
-        } catch (e) {
-          // Ignore clone errors if already streamed
         }
-      }
-      return response;
-    }).catch(() => cached);
-    return cached || network;
-  }));
+        return response;
+      }).catch(() => cached);
+      return cached || network;
+    })
+  );
 });

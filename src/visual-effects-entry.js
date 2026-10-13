@@ -1802,28 +1802,6 @@ export function autoInitVisuals() {
   }
 
   if (reducedMotion) return;
-
-  // BlobCursor (Fluid Chrome Metallic Cursor with Orange Accents)
-  const cursorRoot = document.getElementById('site-blob-cursor');
-  if (cursorRoot && isFinePointer) {
-    if (typeof document !== 'undefined') {
-      document.documentElement.classList.add('has-blob-cursor');
-      document.body?.classList.add('has-blob-cursor');
-    }
-    initBlobCursor(cursorRoot, {
-      material: 'chrome',
-      color: '#C9662F',
-      size: 32,
-      splash: true,
-      splashCount: 6,
-      splashSpeed: 0.5,
-      splashSize: 0.5,
-      lag: 0.35,
-      stretch: 0.6,
-      wobble: 1,
-      hideCursor: true
-    });
-  }
 }
 
 if (typeof document !== 'undefined') {

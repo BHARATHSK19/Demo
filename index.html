@@ -35,8 +35,106 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3.7.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5.0.2" />
+  <style id="critical-platform-styles">
+    /* Critical platform card layout: Clean light 2-column enterprise architecture */
+    .stack-card-content {
+      display: grid !important;
+      grid-template-columns: 1.12fr 0.88fr !important;
+      gap: 32px !important;
+      align-items: stretch !important;
+    }
+    @media (max-width: 992px) {
+      .stack-card-content {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
+    .stack-col-primary { display: flex; flex-direction: column; }
+    .platform-pillars { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 20px; }
+    .platform-pillar-item {
+      display: flex; align-items: flex-start; gap: 11px; padding: 10px 12px;
+      background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;
+    }
+    .pillar-icon-box {
+      width: 26px; height: 26px; border-radius: 6px; background: rgba(201,102,47,0.08);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1.5px;
+    }
+    .pillar-icon-box svg { width: 14px; height: 14px; stroke: #C9662F; }
+    .pillar-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .pillar-title { font-size: 13px; font-weight: 700; color: #0F1C2E; }
+    .pillar-desc { font-size: 12px; line-height: 1.48; color: #475569; }
+    .stack-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .stack-feature-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px;
+      padding: 6px 11px; font-size: 12.5px; font-weight: 600; color: #1E293B;
+    }
+    .stack-feature-chip svg { width: 14px; height: 14px; stroke: #C9662F; flex-shrink: 0; }
+    .stack-col-specs { display: flex; flex-direction: column; min-width: 0; }
+    .platform-spec-matrix {
+      background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 18px;
+      padding: 20px; display: flex; flex-direction: column; gap: 15px; height: 100%;
+      box-shadow: 0 4px 16px -4px rgba(15,28,46,0.04);
+    }
+    .matrix-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding-bottom: 12px; border-bottom: 1px solid #E2E8F0;
+    }
+    .matrix-domain-tag {
+      font-family: monospace; font-size: 10px; font-weight: 750; letter-spacing: 0.05em;
+      color: #475569; text-transform: uppercase; display: flex; align-items: center; gap: 6px;
+    }
+    .matrix-domain-tag::before {
+      content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10B981;
+    }
+    .matrix-compliance-badge {
+      font-family: monospace; font-size: 9.5px; font-weight: 700; color: #C9662F;
+      background: rgba(201,102,47,0.09); border: 1px solid rgba(201,102,47,0.22);
+      padding: 3px 8px; border-radius: 4px; white-space: nowrap;
+    }
+    .matrix-kpis-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .matrix-kpi-card {
+      background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px;
+      padding: 10px 12px; display: flex; flex-direction: column;
+    }
+    .matrix-kpi-label { font-size: 10px; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+    .matrix-kpi-val { font-family: monospace; font-size: 16px; font-weight: 750; color: #0F1C2E; display: flex; align-items: baseline; gap: 6px; }
+    .matrix-kpi-sub { font-size: 9.5px; font-weight: 650; color: #15803D; }
+    .matrix-specs-section { display: flex; flex-direction: column; gap: 8px; }
+    .matrix-section-title { font-size: 10.5px; font-weight: 750; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+    .matrix-spec-item {
+      background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px;
+      padding: 8px 11px; display: flex; align-items: flex-start; gap: 9px;
+    }
+    .matrix-spec-item svg { width: 14px; height: 14px; stroke: #10B981; flex-shrink: 0; margin-top: 1.5px; }
+    .matrix-spec-text { display: flex; flex-direction: column; gap: 1px; }
+    .matrix-spec-name { font-size: 12px; font-weight: 700; color: #1E293B; }
+    .matrix-spec-detail { font-size: 11px; line-height: 1.4; color: #64748B; }
+    .matrix-footer { border-top: 1px solid #E2E8F0; padding-top: 11px; display: flex; flex-direction: column; gap: 6px; }
+    .matrix-footer-label { font-size: 9.5px; font-weight: 750; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.05em; }
+    .matrix-chip-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .matrix-chip {
+      font-family: monospace; font-size: 9.5px; font-weight: 650; color: #334155;
+      background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 4px; padding: 2.5px 7px;
+    }
+    .matrix-tab-bar { display: flex; align-items: center; gap: 4px; background: #E2E8F0; padding: 3px; border-radius: 9px; margin-bottom: 2px; }
+    .matrix-tab-btn {
+      all: unset; box-sizing: border-box; flex: 1; text-align: center; padding: 6px 8px;
+      font-size: 11px; font-weight: 650; color: #475569; border-radius: 7px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+    .matrix-tab-btn.is-active { background: #FFFFFF; color: #0F1C2E; font-weight: 750; box-shadow: 0 2px 5px rgba(15,28,46,0.08); }
+    .matrix-tab-panel { display: flex; flex-direction: column; gap: 12px; }
+    .matrix-tab-panel[hidden] { display: none !important; }
+    .workflow-ui-wrap { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; }
+    .workflow-ui-header { background: #F8FAFC; border-bottom: 1px solid #E2E8F0; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; }
+    .workflow-table-responsive { width: 100%; overflow-x: auto; }
+    .workflow-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .workflow-table th { background: #F1F5F9; padding: 6px 10px; font-family: monospace; font-size: 9px; font-weight: 750; color: #64748B; text-align: left; }
+    .workflow-table td { padding: 7px 10px; border-bottom: 1px solid #F1F5F9; font-size: 11px; }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -260,112 +358,566 @@
   </script>
 </head>
 <body>
-  <div id="site-blob-cursor" class="blob-cursor" aria-hidden="true"></div>
-  <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
   <div class="topline"><span class="topline-dot"></span> OJIX ENGINEERING &amp; TECHNOLOGY LLP <span class="topline-sep">·</span> BENGALURU, INDIA</div>
-  <header class="site-header" id="top">
+  <header class="site-header eleks-header" id="top">
     <div class="nav-wrap shell">
       <a href="#top" class="brand" aria-label="OJIX home"><img src="assets/ojix-primary-transparent-onlight.svg" alt="OJIX" width="124" height="60" /></a>
       <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-        <a href="#platforms">Platforms</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#approach">How we work</a>
-        <a href="#security-trust">Security</a>
-        <a href="#faq">FAQ</a>
-        <a href="#about">About OJIX</a>
-        <a class="nav-cta" href="#contact">Discuss a project <span aria-hidden="true">↗</span></a>
+      <nav class="main-nav eleks-nav" id="main-nav" aria-label="Main navigation">
+        <!-- MEGA-MENU 1: PLATFORMS (Eleks Industries-style 2-column dark subtabs + right light preview) -->
+        <div class="nav-item-has-mega" data-mega="platforms">
+          <a href="#platforms" class="nav-top-link" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-link-text">Products</span>
+            <span class="nav-dot-indicator" aria-hidden="true"></span>
+          </a>
+          <div class="eleks-mega-dropdown" role="region" aria-label="Products subtabs">
+            <div class="eleks-mega-inner">
+              <div class="eleks-mega-left" role="tablist" aria-label="Select product">
+                <a href="#companyos" class="eleks-subtab is-active" role="tab" aria-selected="true"
+                   data-preview-title="Company Management System"
+                   data-preview-desc="Run your daily office work in one place—staff attendance, monthly salaries, accounting, GST billing, and team approvals."
+                   data-preview-badge="ALL-IN-ONE OFFICE &amp; ERP"
+                   data-preview-img="assets/generated/ui-company-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z"/><path d="M12 12L20 7.5M12 12V21M12 12L4 7.5"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Company Management</span>
+                </a>
+                <a href="legalos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Legal Practice System"
+                   data-preview-desc="Help your law firm track court hearing dates, case files, client updates, and legal billing without missing a single deadline."
+                   data-preview-badge="LAW FIRMS &amp; ADVOCATES"
+                   data-preview-img="assets/generated/ui-legal-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Legal Practice System</span>
+                </a>
+                <a href="procureos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Purchase &amp; Inventory System"
+                   data-preview-desc="Manage supplier quotes, purchase orders, warehouse stock, and incoming GST bills so you only pay for what was actually delivered."
+                   data-preview-badge="PURCHASING &amp; WAREHOUSE"
+                   data-preview-img="assets/generated/ui-purchase-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Purchase &amp; Inventory</span>
+                </a>
+                <a href="campusos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="School &amp; College System"
+                   data-preview-desc="Manage student admissions, daily attendance, fee payments, timetables, and exam report cards in one easy dashboard."
+                   data-preview-badge="SCHOOLS &amp; COLLEGES"
+                   data-preview-img="assets/generated/ui-campus-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">School &amp; College System</span>
+                </a>
+                <a href="#builderos" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Construction Management System"
+                   data-preview-desc="Track daily work at construction sites, monitor cement and steel usage, verify contractor bills, and keep project budgets on track."
+                   data-preview-badge="BUILDERS &amp; CONTRACTORS"
+                   data-preview-img="assets/generated/ui-construction-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Construction System</span>
+                </a>
+                <a href="#travelos" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Travel &amp; Booking System"
+                   data-preview-desc="Handle customer trip enquiries, tour packages, hotel and flight bookings, and driver schedules from one clean screen."
+                   data-preview-badge="TRAVEL AGENCIES &amp; TOURS"
+                   data-preview-img="assets/generated/ui-travel-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Travel &amp; Booking</span>
+                </a>
+                <a href="#fitos" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Gym &amp; Fitness System"
+                   data-preview-desc="Manage member check-ins, biometric entry gates, trainer schedules, and automatic membership renewal reminders effortlessly."
+                   data-preview-badge="GYMS &amp; FITNESS STUDIOS"
+                   data-preview-img="assets/generated/ui-gym-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Gym &amp; Fitness System</span>
+                </a>
+                <a href="dpdp-compliance.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Data Privacy &amp; Document Vault"
+                   data-preview-desc="Store important company and customer files safely with clear access permissions and built-in Indian data privacy compliance."
+                   data-preview-badge="SECURE FILE &amp; PRIVACY VAULT"
+                   data-preview-img="assets/generated/ui-privacy-vault.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Data Privacy Vault</span>
+                </a>
+              </div>
+              <div class="eleks-mega-right" aria-live="polite">
+                <div class="eleks-mega-preview-head">
+                  <span class="eleks-preview-kicker">ALL-IN-ONE OFFICE &amp; ERP</span>
+                  <h3 class="eleks-preview-title">Company Management System</h3>
+                  <p class="eleks-preview-desc">Run your daily office work in one place—staff attendance, monthly salaries, accounting, GST billing, and team approvals.</p>
+                </div>
+                <div class="eleks-mega-preview-media">
+                  <img src="assets/generated/ui-company-system.jpg" alt="Company Management System dashboard preview" class="eleks-preview-img" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEGA-MENU 2: CAPABILITIES -->
+        <div class="nav-item-has-mega" data-mega="capabilities">
+          <a href="#capabilities" class="nav-top-link" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-link-text">Services</span>
+            <span class="nav-dot-indicator" aria-hidden="true"></span>
+          </a>
+          <div class="eleks-mega-dropdown" role="region" aria-label="Services subtabs">
+            <div class="eleks-mega-inner">
+              <div class="eleks-mega-left" role="tablist" aria-label="Select service">
+                <a href="#capabilities" class="eleks-subtab is-active" role="tab" aria-selected="true"
+                   data-preview-title="Custom Business Software"
+                   data-preview-desc="We build simple, reliable web and mobile software tailored to how your team actually works every day."
+                   data-preview-badge="CUSTOM SOFTWARE DEVELOPMENT"
+                   data-preview-img="assets/generated/ui-company-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Custom Business Software</span>
+                </a>
+                <a href="#capabilities" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Smart AI &amp; Document Automation"
+                   data-preview-desc="Automatically read scanned bills, forms, and PDFs so your staff doesn’t have to type the same details by hand."
+                   data-preview-badge="PRACTICAL AI AUTOMATION"
+                   data-preview-img="assets/generated/ui-purchase-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Smart AI Automation</span>
+                </a>
+                <a href="#capabilities" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Connect Your Existing Tools"
+                   data-preview-desc="Link your software with Tally, Zoho, banking portals, GST billing, WhatsApp alerts, and biometric machines."
+                   data-preview-badge="SOFTWARE INTEGRATIONS"
+                   data-preview-img="assets/generated/ui-travel-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Tool Integrations</span>
+                </a>
+                <a href="#capabilities" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Secure Cloud Hosting in India"
+                   data-preview-desc="Fast, dependable hosting on Indian servers with automatic daily backups and 24/7 monitoring."
+                   data-preview-badge="RELIABLE INDIAN CLOUD"
+                   data-preview-img="assets/generated/ui-privacy-vault.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Secure Cloud Hosting</span>
+                </a>
+                <a href="#solution-finder" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Product Planning &amp; Screen Design"
+                   data-preview-desc="See clickable screen designs of your new software in 2–3 weeks before we write a single line of code."
+                   data-preview-badge="2–3 WEEK PLANNING SPRINT"
+                   data-preview-img="assets/generated/ui-campus-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Planning &amp; UI Design</span>
+                </a>
+                <a href="#security-trust" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Data Privacy &amp; Staff Permissions"
+                   data-preview-desc="Control exactly who can view, edit, or approve records with full activity history and Indian privacy compliance."
+                   data-preview-badge="SECURITY &amp; ACCESS CONTROL"
+                   data-preview-img="assets/generated/ui-legal-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Privacy &amp; Security</span>
+                </a>
+              </div>
+              <div class="eleks-mega-right" aria-live="polite">
+                <div class="eleks-mega-preview-head">
+                  <span class="eleks-preview-kicker">CUSTOM SOFTWARE DEVELOPMENT</span>
+                  <h3 class="eleks-preview-title">Custom Business Software</h3>
+                  <p class="eleks-preview-desc">We build simple, reliable web and mobile software tailored to how your team actually works every day.</p>
+                </div>
+                <div class="eleks-mega-preview-media">
+                  <img src="assets/generated/ui-company-system.jpg" alt="Custom Business Software preview" class="eleks-preview-img" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#process" class="nav-top-link"><span class="nav-link-text">How we work</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="#security-trust" class="nav-top-link"><span class="nav-link-text">Security</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="#faq" class="nav-top-link"><span class="nav-link-text">FAQ</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="#about" class="nav-top-link"><span class="nav-link-text">About OJIX</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a class="nav-cta eleks-nav-cta" href="#contact">Discuss a project <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
+    <div class="eleks-header-backdrop" id="eleks-header-backdrop" aria-hidden="true"></div>
   </header>
 
   <main id="main">
-    <!-- REACT BITS PRO: HERO 21 - AURORA HERO WITH A GLOWING ORB MARK -->
-    <section class="hero hero-21 section-pad" aria-label="OJIX Sovereign Operations Suite">
+    <!-- ELEKS-STYLE HORIZONTAL EXPANDING ACCORDION HERO WITH VERTICAL SUBTABS -->
+    <section class="hero hero-21 eleks-hero-section section-pad" aria-label="OJIX Sovereign Operations Suite">
       <!-- GLSL AURORA CANVAS BACKGROUND -->
       <div class="hero-aurora-canvas" id="hero-aurora-canvas" aria-hidden="true"></div>
       <div class="hero-aurora-overlay" aria-hidden="true"></div>
 
-      <div class="shell hero-21-content reveal">
-        <!-- GLOWING ORB MARK & SOVEREIGN STATUS PILL -->
-        <div class="hero-21-header">
-          <div class="hero-glowing-orb" aria-hidden="true">
-            <div class="orb-halo-outer"></div>
-            <div class="orb-halo-inner"></div>
-            <div class="orb-sphere">
-              <div class="orb-specular"></div>
-              <div class="orb-core-pulse"></div>
+      <div class="shell eleks-hero-shell reveal">
+        <div class="eleks-hero-cards" id="eleks-hero-cards" role="region" aria-label="Interactive Enterprise Hero Subtabs">
+          
+          <!-- SLIDE 1 (DEFAULT ACTIVE): OJIX OVERVIEW -->
+          <article class="eleks-hero-card is-active" data-hero-slide="0" tabindex="0" role="tab" aria-selected="true" aria-label="OJIX overview">
+            <img class="eleks-card-bg" src="assets/generated/hero-overview-office.jpg" alt="" aria-hidden="true" />
+            <div class="eleks-card-mask" aria-hidden="true"></div>
+
+            <!-- Morphing Tab Name (Top-Right when active, Rotated Vertical when collapsed) -->
+            <div class="eleks-card-name">
+              <span>OJIX overview</span>
+              <span class="eleks-card-dot" aria-hidden="true"></span>
             </div>
-            <div class="orb-beam"></div>
+
+            <!-- Collapsed + Button -->
+            <button type="button" class="eleks-card-plus" aria-label="Expand OJIX overview" tabindex="-1">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+                <circle class="plus-circle" cx="23" cy="23" r="22.25" stroke="currentColor" stroke-width="1.2"/>
+                <path class="plus-cross" d="M23 15V31M15 23H31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <!-- Active Slide Body -->
+            <div class="eleks-card-body">
+              <div class="eleks-card-content">
+                <div class="hero-eyebrow-pill eleks-hero-pill">
+                  <span class="pill-beacon" aria-hidden="true"></span>
+                  <span class="pill-label">BUSINESS MANAGEMENT SOFTWARE</span>
+                  <span class="pill-sep" aria-hidden="true">·</span>
+                  <span class="pill-loc">BENGALURU, INDIA</span>
+                </div>
+
+                <h1 class="hero-21-title eleks-slide-title">
+                  Make complex work<br />
+                  <span class="eleks-title-accent">feel effortless.</span>
+                </h1>
+
+                <p class="hero-21-lede eleks-slide-desc">
+                  We build easy-to-use business software, company management systems, and smart automation tools that help your team work faster without messy spreadsheets.
+                </p>
+
+                <div class="hero-21-actions eleks-slide-actions">
+                  <a class="btn btn-primary hero-btn-glow eleks-btn-primary" href="#solution-finder">
+                    <span>Find your solution</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="btn btn-ghost hero-btn-ambient eleks-btn-ghost" href="#platforms">
+                    <span>See our products</span>
+                    <span class="btn-arrow" aria-hidden="true">↓</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Bottom Progress & Assurance Badges -->
+              <div class="eleks-card-footer">
+                <div class="eleks-card-info">
+                  <div class="eleks-progress-track" aria-hidden="true">
+                    <span class="eleks-progress-bar"></span>
+                  </div>
+                  <div class="eleks-info-label">Built for Indian Businesses</div>
+                  <div class="eleks-badges-row">
+                    <div class="eleks-award-badge">
+                      <strong>100% INDIA</strong>
+                      <span>Hosted on Indian Cloud</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>PRIVACY SAFE</strong>
+                      <span>DPDP Law Ready</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>EASY TO USE</strong>
+                      <span>Clean Dashboards</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 2 (SUBTAB STRIP 1): COMPANY & PURCHASE -->
+          <article class="eleks-hero-card" data-hero-slide="1" tabindex="0" role="tab" aria-selected="false" aria-label="Company & Purchase">
+            <img class="eleks-card-bg" src="assets/generated/hero-erp-dashboard.jpg" alt="" aria-hidden="true" />
+            <div class="eleks-card-mask" aria-hidden="true"></div>
+
+            <div class="eleks-card-name">
+              <span>Company &amp; Purchase</span>
+              <span class="eleks-card-dot" aria-hidden="true"></span>
+            </div>
+
+            <button type="button" class="eleks-card-plus" aria-label="Expand Company & Purchase" tabindex="-1">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+                <circle class="plus-circle" cx="23" cy="23" r="22.25" stroke="currentColor" stroke-width="1.2"/>
+                <path class="plus-cross" d="M23 15V31M15 23H31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <div class="eleks-card-body">
+              <div class="eleks-card-content">
+                <div class="hero-eyebrow-pill eleks-hero-pill">
+                  <span class="pill-beacon" aria-hidden="true"></span>
+                  <span class="pill-label">COMPANY &amp; PURCHASE SYSTEMS</span>
+                  <span class="pill-sep" aria-hidden="true">·</span>
+                  <span class="pill-loc">ACCOUNTS, HR &amp; STOCK</span>
+                </div>
+
+                <h2 class="hero-21-title eleks-slide-title">
+                  Run your office, staff &amp;<br />
+                  <span class="eleks-title-accent">purchases in one place.</span>
+                </h2>
+
+                <p class="hero-21-lede eleks-slide-desc">
+                  Manage staff attendance, salary payouts, GST billing, purchase orders, and warehouse stock from one simple dashboard—so nothing slips through the cracks.
+                </p>
+
+                <div class="hero-21-actions eleks-slide-actions">
+                  <a class="btn btn-primary hero-btn-glow eleks-btn-primary" href="procureos.html">
+                    <span>Explore Purchase System</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="btn btn-ghost hero-btn-ambient eleks-btn-ghost" href="#companyos">
+                    <span>View Company System</span>
+                    <span class="btn-arrow" aria-hidden="true">↓</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="eleks-card-footer">
+                <div class="eleks-card-info">
+                  <div class="eleks-progress-track" aria-hidden="true">
+                    <span class="eleks-progress-bar"></span>
+                  </div>
+                  <div class="eleks-info-label">Connected Finance &amp; Inventory</div>
+                  <div class="eleks-badges-row">
+                    <div class="eleks-award-badge">
+                      <strong>AUTO GST</strong>
+                      <span>Easy Bill Matching</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>3-STEP CHECK</strong>
+                      <span>Order · Delivery · Bill</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>FAST PAYOUTS</strong>
+                      <span>Salary &amp; Vendor Payments</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 3 (SUBTAB STRIP 2): LEGAL SYSTEM -->
+          <article class="eleks-hero-card" data-hero-slide="2" tabindex="0" role="tab" aria-selected="false" aria-label="Legal System">
+            <img class="eleks-card-bg" src="assets/generated/hero-legal-chamber.jpg" alt="" aria-hidden="true" />
+            <div class="eleks-card-mask" aria-hidden="true"></div>
+
+            <div class="eleks-card-name">
+              <span>Legal System</span>
+              <span class="eleks-card-dot" aria-hidden="true"></span>
+            </div>
+
+            <button type="button" class="eleks-card-plus" aria-label="Expand Legal System" tabindex="-1">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+                <circle class="plus-circle" cx="23" cy="23" r="22.25" stroke="currentColor" stroke-width="1.2"/>
+                <path class="plus-cross" d="M23 15V31M15 23H31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <div class="eleks-card-body">
+              <div class="eleks-card-content">
+                <div class="hero-eyebrow-pill eleks-hero-pill">
+                  <span class="pill-beacon" aria-hidden="true"></span>
+                  <span class="pill-label">LAW FIRMS &amp; LEGAL TEAMS</span>
+                  <span class="pill-sep" aria-hidden="true">·</span>
+                  <span class="pill-loc">COURT DATE TRACKING</span>
+                </div>
+
+                <h2 class="hero-21-title eleks-slide-title">
+                  Track every case, court date &amp;<br />
+                  <span class="eleks-title-accent">client file with ease.</span>
+                </h2>
+
+                <p class="hero-21-lede eleks-slide-desc">
+                  Automatically get daily court hearing updates, organize case documents safely, set filing reminders, and send clear bills to your clients.
+                </p>
+
+                <div class="hero-21-actions eleks-slide-actions">
+                  <a class="btn btn-primary hero-btn-glow eleks-btn-primary" href="legalos.html">
+                    <span>Explore Legal System</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="btn btn-ghost hero-btn-ambient eleks-btn-ghost" href="#legalos">
+                    <span>See App Preview</span>
+                    <span class="btn-arrow" aria-hidden="true">↓</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="eleks-card-footer">
+                <div class="eleks-card-info">
+                  <div class="eleks-progress-track" aria-hidden="true">
+                    <span class="eleks-progress-bar"></span>
+                  </div>
+                  <div class="eleks-info-label">Built for Advocates &amp; Chambers</div>
+                  <div class="eleks-badges-row">
+                    <div class="eleks-award-badge">
+                      <strong>100%</strong>
+                      <span>Daily Hearing Alerts</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>SECURE VAULT</strong>
+                      <span>Safe Case Documents</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>3,400+</strong>
+                      <span>Indian Courts Covered</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 4 (SUBTAB STRIP 3): SCHOOL & AI -->
+          <article class="eleks-hero-card" data-hero-slide="3" tabindex="0" role="tab" aria-selected="false" aria-label="School & AI">
+            <img class="eleks-card-bg" src="assets/generated/hero-campus-ai.jpg" alt="" aria-hidden="true" />
+            <div class="eleks-card-mask" aria-hidden="true"></div>
+
+            <div class="eleks-card-name">
+              <span>School &amp; AI</span>
+              <span class="eleks-card-dot" aria-hidden="true"></span>
+            </div>
+
+            <button type="button" class="eleks-card-plus" aria-label="Expand School & AI" tabindex="-1">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+                <circle class="plus-circle" cx="23" cy="23" r="22.25" stroke="currentColor" stroke-width="1.2"/>
+                <path class="plus-cross" d="M23 15V31M15 23H31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <div class="eleks-card-body">
+              <div class="eleks-card-content">
+                <div class="hero-eyebrow-pill eleks-hero-pill">
+                  <span class="pill-beacon" aria-hidden="true"></span>
+                  <span class="pill-label">SCHOOL &amp; COLLEGE MANAGEMENT</span>
+                  <span class="pill-sep" aria-hidden="true">·</span>
+                  <span class="pill-loc">SMART AI TOOLS</span>
+                </div>
+
+                <h2 class="hero-21-title eleks-slide-title">
+                  Simple campus management &amp;<br />
+                  <span class="eleks-title-accent">smart document tools.</span>
+                </h2>
+
+                <p class="hero-21-lede eleks-slide-desc">
+                  Manage admissions, student attendance, online fee collection, exams, and digital certificates—backed by AI tools that read scanned forms automatically.
+                </p>
+
+                <div class="hero-21-actions eleks-slide-actions">
+                  <a class="btn btn-primary hero-btn-glow eleks-btn-primary" href="campusos.html">
+                    <span>Explore School System</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="btn btn-ghost hero-btn-ambient eleks-btn-ghost" href="dpdp-compliance.html">
+                    <span>Data Privacy Vault</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="eleks-card-footer">
+                <div class="eleks-card-info">
+                  <div class="eleks-progress-track" aria-hidden="true">
+                    <span class="eleks-progress-bar"></span>
+                  </div>
+                  <div class="eleks-info-label">Trusted by Schools &amp; Institutions</div>
+                  <div class="eleks-badges-row">
+                    <div class="eleks-award-badge">
+                      <strong>14,000+</strong>
+                      <span>Students Managed</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>ONLINE FEES</strong>
+                      <span>Instant Receipts</span>
+                    </div>
+                    <div class="eleks-award-badge">
+                      <strong>SMART OCR</strong>
+                      <span>Auto Form Reading</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Shared Prev/Next Navigation Arrows inside the active card bottom-right (like Eleks) -->
+          <div class="eleks-hero-arrows" aria-label="Hero slide navigation">
+            <button type="button" class="eleks-arrow-btn" id="eleks-hero-prev" aria-label="Previous hero slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+              </svg>
+            </button>
+            <button type="button" class="eleks-arrow-btn" id="eleks-hero-next" aria-label="Next hero slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
           </div>
-          <div class="hero-eyebrow-pill">
-            <span class="pill-beacon" aria-hidden="true"></span>
-            <span class="pill-label">SOVEREIGN ENTERPRISE OPERATING SYSTEMS</span>
-            <span class="pill-sep" aria-hidden="true">·</span>
-            <span class="pill-loc">BENGALURU TIER-IV</span>
+        </div>
+
+        <!-- TRUST PROOF & OPERATIONAL SUITE PILLS -->
+        <div class="eleks-hero-subbar">
+          <div class="hero-21-proof">
+            <span class="proof-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+              </svg>
+            </span>
+            <span>Built for real daily work. <strong>Simple for your whole team to use.</strong></span>
           </div>
-        </div>
 
-        <!-- HERO HEADLINE -->
-        <h1 class="hero-21-title">
-          Make complex work<br />
-          <span class="aurora-gradient-text">feel <em><span class="vapor-type" data-vapor-words='["effortless", "sovereign", "deterministic", "connected"]' data-vapor-preset="bloom">effortless</span>.</em></span>
-        </h1>
-
-        <!-- HERO LEDE -->
-        <p class="hero-21-lede">
-          OJIX is an enterprise software company in Bengaluru. We build custom ERP, mission-critical operating platforms, and carefully applied AI that turn fragmented work into connected operations.
-        </p>
-
-        <!-- AMBIENT ACTION LABELS & CTAS -->
-        <div class="hero-21-actions">
-          <a class="btn btn-primary hero-btn-glow" href="#solution-finder">
-            <span>Find your solution</span>
-            <span class="btn-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="btn btn-ghost hero-btn-ambient" href="#platforms">
-            <span>Explore our platforms</span>
-            <span class="btn-arrow" aria-hidden="true">↓</span>
-          </a>
-        </div>
-
-        <!-- TRUST PROOF CITATION -->
-        <div class="hero-21-proof">
-          <span class="proof-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
-            </svg>
-          </span>
-          <span>Built for actual workflows. <strong>Not software for software’s sake.</strong></span>
-        </div>
-
-        <!-- OPERATIONAL SUITE PILLS (NO SILLY METRICS, ZERO OVERFLOW) -->
-        <div class="hero-21-platform-strip" role="region" aria-label="Core enterprise operating platforms">
-          <a href="#platforms" class="hero-suite-pill" data-platform="company">
-            <span class="suite-pill-icon">🏢</span>
-            <span class="suite-pill-name">CompanyOS</span>
-            <span class="suite-pill-tag">Enterprise ERP</span>
-          </a>
-          <a href="legalos.html" class="hero-suite-pill" data-platform="legal">
-            <span class="suite-pill-icon">⚖️</span>
-            <span class="suite-pill-name">LegalOS</span>
-            <span class="suite-pill-tag">Litigation Practice</span>
-          </a>
-          <a href="procureos.html" class="hero-suite-pill" data-platform="procure">
-            <span class="suite-pill-icon">📦</span>
-            <span class="suite-pill-name">ProcureOS</span>
-            <span class="suite-pill-tag">Procure-to-Pay</span>
-          </a>
-          <a href="campusos.html" class="hero-suite-pill" data-platform="campus">
-            <span class="suite-pill-icon">🎓</span>
-            <span class="suite-pill-name">CampusOS</span>
-            <span class="suite-pill-tag">Higher Education</span>
-          </a>
-          <a href="dpdp-compliance.html" class="hero-suite-pill" data-platform="dpdp">
-            <span class="suite-pill-icon">🛡️</span>
-            <span class="suite-pill-name">DPDP Vault</span>
-            <span class="suite-pill-tag">Sovereign Fiduciary</span>
-          </a>
+          <div class="hero-21-platform-strip" role="region" aria-label="Core business management systems">
+            <a href="#companyos" class="hero-suite-pill" data-platform="company">
+              <span class="suite-pill-icon">🏢</span>
+              <span class="suite-pill-name">Company System</span>
+              <span class="suite-pill-tag">Office, HR &amp; Accounts</span>
+            </a>
+            <a href="legalos.html" class="hero-suite-pill" data-platform="legal">
+              <span class="suite-pill-icon">⚖️</span>
+              <span class="suite-pill-name">Legal System</span>
+              <span class="suite-pill-tag">Cases &amp; Court Dates</span>
+            </a>
+            <a href="procureos.html" class="hero-suite-pill" data-platform="procure">
+              <span class="suite-pill-icon">📦</span>
+              <span class="suite-pill-name">Purchase System</span>
+              <span class="suite-pill-tag">Orders &amp; Stock</span>
+            </a>
+            <a href="campusos.html" class="hero-suite-pill" data-platform="campus">
+              <span class="suite-pill-icon">🎓</span>
+              <span class="suite-pill-name">School System</span>
+              <span class="suite-pill-tag">Admissions &amp; Fees</span>
+            </a>
+            <a href="dpdp-compliance.html" class="hero-suite-pill" data-platform="dpdp">
+              <span class="suite-pill-icon">🛡️</span>
+              <span class="suite-pill-name">Privacy Vault</span>
+              <span class="suite-pill-tag">Safe Document Storage</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -382,7 +934,7 @@
       <div class="shell proof-ribbon-grid">
         <div class="proof-ribbon-intro reveal">
           <span class="eyebrow">THE OJIX DIFFERENCE</span>
-          <h2 id="proof-ribbon-heading">Designed for the work<br />that cannot <em><span class="vapor-type" data-vapor-words='["drop", "fail", "stall", "compromise"]' data-vapor-preset="mist">drop</span>.</em></h2>
+          <h2 id="proof-ribbon-heading">Designed for the work<br />that cannot <em>drop</em>.</h2>
           <p>Every system starts with the moments where a missed hand-off, unclear decision or disconnected record becomes expensive.</p>
         </div>
         <div class="proof-ribbon-list">
@@ -409,13 +961,13 @@
       <div class="shell pathways-grid">
         <p class="pathways-intro"><span>BUILT FOR CRITICAL WORK</span>Start with your daily business challenge. Leave with software your team can genuinely rely on.</p>
         <a class="pathway-card" href="legalos.html">
-          <span class="pathway-num">01</span><span><strong>Legal operations</strong><small>LegalOS for matters, hearings and documents</small></span><b aria-hidden="true">↗</b>
+          <span class="pathway-num">01</span><span><strong>Law firm management</strong><small>Track cases, court dates &amp; client files</small></span><b aria-hidden="true">↗</b>
         </a>
         <a class="pathway-card" href="campusos.html">
-          <span class="pathway-num">02</span><span><strong>Campus operations</strong><small>CampusOS for the student lifecycle</small></span><b aria-hidden="true">↗</b>
+          <span class="pathway-num">02</span><span><strong>School &amp; college management</strong><small>Admissions, attendance, fees &amp; exams</small></span><b aria-hidden="true">↗</b>
         </a>
         <a class="pathway-card" href="procureos.html">
-          <span class="pathway-num">03</span><span><strong>Procurement control</strong><small>ProcureOS for purchase-to-pay workflows</small></span><b aria-hidden="true">↗</b>
+          <span class="pathway-num">03</span><span><strong>Purchase &amp; stock control</strong><small>Supplier orders, warehouse stock &amp; GST bills</small></span><b aria-hidden="true">↗</b>
         </a>
       </div>
     </section>
@@ -441,9 +993,9 @@
             <div class="result-icon" id="result-icon"><img src="assets/ojix-appicon-navy-rounded.svg" alt="OJIX" width="56" height="56" /></div>
             <div class="result-copy">
               <span class="result-kicker">A GOOD PLACE TO START</span>
-              <h3 id="result-title">LegalOS</h3>
-              <p id="result-description">Bring cases, tasks, hearing schedules, documents and legal operations into one clear working environment.</p>
-              <a href="legalos.html" id="result-link" class="result-link">Explore LegalOS Deep Dive <span aria-hidden="true">↗</span></a>
+              <h3 id="result-title">Legal Practice Management System</h3>
+              <p id="result-description">Track all your cases, court hearing dates, client files, and legal bills in one simple dashboard.</p>
+              <a href="legalos.html" id="result-link" class="result-link">Explore Legal Practice System <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </div>
@@ -455,612 +1007,321 @@
         <div class="section-heading reveal">
           <div>
             <div class="eyebrow">THE OJIX PORTFOLIO</div>
-            <h2>Purpose-built for the<br /><em><span class="vapor-type" data-vapor-words='["way work actually works", "reality of complex business", "demands of modern scale", "flow of enterprise operations"]' data-vapor-preset="copper">way work actually works</span>.</em></h2>
+            <h2>Purpose-built for the<br /><em>reality of complex business</em>.</h2>
           </div>
           <p>Industry-specific platforms for repeatable needs. Custom systems for everything that makes your operation different.</p>
         </div>
 
-        <!-- Apple-Inspired Segmented Platform Filter Bar -->
-        <div class="apple-portfolio-filters reveal" role="tablist" aria-label="Portfolio platform category filters">
-          <button type="button" class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true" tabindex="0">All Platforms (7)</button>
-          <button type="button" class="filter-pill" data-filter="core" role="tab" aria-selected="false" tabindex="-1">Core Systems (4)</button>
-          <button type="button" class="filter-pill" data-filter="specialized" role="tab" aria-selected="false" tabindex="-1">Specialized Operations (3)</button>
+        <!-- Enterprise Architecture Hub in plain, clear English -->
+        <div class="portfolio-architecture-hub reveal" aria-label="OJIX Connected Business Foundation">
+          <div class="arch-hub-header">
+            <div class="arch-hub-title-wrap">
+              <span class="arch-hub-badge"><span class="arch-hub-pulse"></span> ONE CONNECTED FOUNDATION</span>
+              <h3 class="arch-hub-title">Built to keep your business organized and secure</h3>
+              <p class="arch-hub-subtitle">Instead of juggling five different apps that don’t talk to each other, all our systems run on one safe, reliable foundation—giving your business its own private database, clear activity records, and direct links to Indian banking and GST portals.</p>
+            </div>
+            <div class="arch-hub-stat">
+              <span class="arch-stat-num">100%</span>
+              <span class="arch-stat-text">Hosted Safely in India (DPDP Privacy Ready)</span>
+            </div>
+          </div>
+          <div class="arch-pillars-grid">
+            <div class="arch-pillar-box">
+              <div class="arch-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="arch-pillar-info">
+                <strong>Private Database for Your Company</strong>
+                <span>Your company’s data stays in its own dedicated Indian cloud space—never mixed with other businesses.</span>
+              </div>
+            </div>
+            <div class="arch-pillar-box">
+              <div class="arch-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <div class="arch-pillar-info">
+                <strong>Complete Activity History</strong>
+                <span>Every bill, approval, and edit is recorded with the date, time, and staff name so your accounts are always audit-ready.</span>
+              </div>
+            </div>
+            <div class="arch-pillar-box">
+              <div class="arch-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+              </div>
+              <div class="arch-pillar-info">
+                <strong>Ready for Indian Portals</strong>
+                <span>Connects directly with GST e-Invoicing, e-Way Bills, DigiLocker, e-Courts, RERA, and UPI AutoPay.</span>
+              </div>
+            </div>
+            <div class="arch-pillar-box">
+              <div class="arch-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              </div>
+              <div class="arch-pillar-info">
+                <strong>Direct Bank &amp; Tally Sync</strong>
+                <span>Works smoothly with major Indian banks and accounting tools for fast salary and vendor payments.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- REACT BITS PRO: SCROLL STACK COMPONENT (Cards that stack and fade away as you scroll) -->
-        <div class="scroll-stack scroll-stack--window" id="portfolio-scroll-stack" data-item-distance="120" data-item-stack-distance="28" data-stack-position="11%" data-item-scale="0.045" data-base-scale="0.82" data-dim-amount="0.22" data-tilt-amount="12" data-blur-amount="0.8" data-hold-distance="240" role="region" aria-label="OJIX Platform Portfolio Stack">
-          <div class="scroll-stack__inner">
-            
-            <!-- 01: CompanyOS (Core ERP) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 0px); margin-bottom: 168px; z-index: 1;">
-              <article class="scroll-stack-card platform-card platform-company" id="companyos" data-category="core">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> ENTERPRISE ERP &amp; OPERATIONS</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Core System</span>
-                      <span class="stack-index-pill">01 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CompanyOS Logo">
-                            <defs>
-                              <linearGradient id="cos-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFF7ED"/>
-                              </linearGradient>
-                              <linearGradient id="cos-top" x1="16" y1="14" x2="48" y2="30" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFEDD5"/>
-                                <stop offset="100%" stop-color="#FED7AA"/>
-                              </linearGradient>
-                              <linearGradient id="cos-left" x1="16" y1="22" x2="32" y2="48" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#F97316"/>
-                                <stop offset="100%" stop-color="#C9662F"/>
-                              </linearGradient>
-                              <linearGradient id="cos-right" x1="32" y1="22" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#1E293B"/>
-                                <stop offset="100%" stop-color="#0F1C2E"/>
-                              </linearGradient>
-                              <filter id="cos-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#C9662F" flood-opacity="0.32"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#cos-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <polygon points="32,13 49,22 32,31 15,22" fill="url(#cos-top)" stroke="#F97316" stroke-width="1.2"/>
-                            <polygon points="15,22 32,31 32,49 15,40" fill="url(#cos-left)" filter="url(#cos-glow)"/>
-                            <polygon points="32,31 49,22 49,40 32,49" fill="url(#cos-right)"/>
-                            <circle cx="32" cy="31" r="3.5" fill="#FFFFFF"/>
-                            <circle cx="32" cy="31" r="1.8" fill="#C9662F"/>
-                            <circle cx="15" cy="22" r="3" fill="#FAF7F2" stroke="#F97316" stroke-width="1.5"/>
-                            <circle cx="49" cy="22" r="3" fill="#FAF7F2" stroke="#0F1C2E" stroke-width="1.5"/>
-                            <circle cx="32" cy="49" r="3" fill="#FAF7F2" stroke="#C9662F" stroke-width="1.5"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3>CompanyOS <span class="pillar-avail-badge">Core ERP</span></h3>
-                        </div>
-                      </div>
-                      <p>Unified sovereign enterprise operating system connecting human capital, payroll, statutory Indian accounting, multi-entity tax filing, and multi-tier executive approval workflows into one resilient operational core.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">👥</span> Multi-Entity Payroll</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📊</span> Tax &amp; Double-Entry</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">⚡</span> Approval Workflows</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🛡️</span> Role-Based Controls</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="#contact" class="btn btn-primary stack-action-btn" data-interest="CompanyOS">Discuss CompanyOS <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> ENTERPRISE TELEMETRY</span>
-                        <span class="telemetry-target">TALLY &amp; SAP ECC READY</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Automated Indian payroll with PF, ESI, TDS, and statutory payslip generation.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Multi-branch financial consolidation with double-entry balance sheet verification.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Configurable multi-tier cryptographic sign-offs for operational expenditures.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>MeitY Tier-IV Sovereign Cloud</span>
-                        <span class="telemetry-proof-stat">Zero Ledger Bleed</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
+        <!-- Product Portfolio Category Filters -->
+        <div class="apple-portfolio-filters reveal" role="tablist" aria-label="Portfolio product category filters">
+          <button type="button" class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true" tabindex="0">All Management Systems (8)</button>
+          <button type="button" class="filter-pill" data-filter="governance" role="tab" aria-selected="false" tabindex="-1">Office, Legal &amp; Purchase (4)</button>
+          <button type="button" class="filter-pill" data-filter="institutional" role="tab" aria-selected="false" tabindex="-1">Education &amp; Construction (2)</button>
+          <button type="button" class="filter-pill" data-filter="operations" role="tab" aria-selected="false" tabindex="-1">Travel &amp; Fitness (2)</button>
+        </div>
+
+        <!-- OJIX.VERCEL.APP PRODUCT SECTION EXPANDING CARD GRAPHICS + REAL DASHBOARD UI SCREENS + SIMPLE ENGLISH -->
+        <div class="ojix-products-grid" id="portfolio-products-grid" role="region" aria-label="OJIX Business Management Systems Grid">
+          <!-- 01: Company Management System -->
+          <a class="product-card product-card-expand platform-card platform-company reveal" id="companyos" data-category="governance" href="#contact" data-interest="Company Management System">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Company Management System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-company-system.jpg" />
+              <div class="product-expand-scrim"></div>
             </div>
-
-            <!-- Spacer 1 -->
-            <div class="scroll-stack__spacer" aria-hidden="true"></div>
-
-            <!-- 02: LegalOS (Legal Operations & Appellate Practice) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 28px); margin-bottom: 140px; z-index: 2;">
-              <article class="scroll-stack-card platform-card platform-legal" id="legalos" data-category="core">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> LEGAL OPERATIONS &amp; APPELLATE PRACTICE</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Core System</span>
-                      <span class="stack-index-pill">02 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="LegalOS Logo">
-                            <defs>
-                              <linearGradient id="leg-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFFBF5"/>
-                              </linearGradient>
-                              <linearGradient id="leg-gold" x1="14" y1="18" x2="50" y2="34" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FDBA74"/>
-                                <stop offset="50%" stop-color="#F59E0B"/>
-                                <stop offset="100%" stop-color="#C9662F"/>
-                              </linearGradient>
-                              <linearGradient id="leg-navy" x1="28" y1="20" x2="36" y2="52" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#334155"/>
-                                <stop offset="100%" stop-color="#0F1C2E"/>
-                              </linearGradient>
-                              <filter id="leg-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#C9662F" flood-opacity="0.3"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#leg-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <path d="M26 51h12M32 51V20M24 53h16" stroke="url(#leg-navy)" stroke-width="2.6" stroke-linecap="round"/>
-                            <path d="M14 23c6-4 28-4 36 0" stroke="url(#leg-gold)" stroke-width="3" stroke-linecap="round" filter="url(#leg-glow)"/>
-                            <circle cx="32" cy="18" r="3.5" fill="url(#leg-gold)"/>
-                            <circle cx="32" cy="18" r="1.5" fill="#FFFFFF"/>
-                            <line x1="16" y1="23" x2="11" y2="34" stroke="#64748B" stroke-width="1.3"/>
-                            <line x1="16" y1="23" x2="21" y2="34" stroke="#64748B" stroke-width="1.3"/>
-                            <path d="M9 34c0 4.5 14 4.5 14 0Z" fill="url(#leg-gold)" stroke="#9A3E1B" stroke-width="1.2"/>
-                            <line x1="48" y1="23" x2="43" y2="34" stroke="#64748B" stroke-width="1.3"/>
-                            <line x1="48" y1="23" x2="53" y2="34" stroke="#64748B" stroke-width="1.3"/>
-                            <path d="M41 34c0 4.5 14 4.5 14 0Z" fill="url(#leg-gold)" stroke="#9A3E1B" stroke-width="1.2"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3><a href="legalos.html">LegalOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
-                        </div>
-                      </div>
-                      <p>Purpose-built litigation CRM and chamber practice operating system engineered around e-Courts cause lists, statutory Limitation Act deadlines, AES-256 privileged client vaults, and SAC 9982 GST legal invoicing.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">⚖️</span> e-Courts Sync</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">⏱️</span> Limitation Guard</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🔒</span> Privileged Vault</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🧾</span> SAC 9982 Billing</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="legalos.html" class="btn btn-primary stack-action-btn">Explore LegalOS Deep Dive <span aria-hidden="true">→</span></a>
-                        <a href="#contact" class="btn btn-ghost" data-interest="LegalOS">Schedule Chamber Demo <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> JUDICIAL SIGNAL STREAM</span>
-                        <span class="telemetry-target">HIGH COURTS &amp; TRIBUNALS</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Daily 6:00 AM automated cause list ingestion across High Courts, District Courts, and NCLT.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Statutory limitation calculator accounting for court vacations and gazetted holidays.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Tenant-isolated AES-256 privileged pleadings vault with SHA-256 e-filing token verify.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>Validated by BNN Law &amp; GVS Chambers</span>
-                        <span class="telemetry-proof-stat">1,200+ Cases Live</span>
-                      </div>
-                    </div>
-                  </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>OFFICE, HR &amp; ACCOUNTING</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M208,136H48a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A16,16,0,0,0,208,136Zm0,64H48V152H208v48Zm0-160H48A16,16,0,0,0,32,56v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V56A16,16,0,0,0,208,40Zm0,64H48V56H208v48ZM192,80a12,12,0,1,1-12-12A12,12,0,0,1,192,80Zm0,96a12,12,0,1,1-12-12A12,12,0,0,1,192,176Z"></path></svg>
                 </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
-            </div>
-
-            <!-- Spacer 2 -->
-            <div class="scroll-stack__spacer" aria-hidden="true"></div>
-
-            <!-- 03: ProcureOS (Procure-to-Pay & Supply Chain) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 56px); margin-bottom: 112px; z-index: 3;">
-              <article class="scroll-stack-card platform-card platform-procure" id="procureos" data-category="core">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> PROCUREMENT &amp; FISCAL GOVERNANCE</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Core System</span>
-                      <span class="stack-index-pill">03 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ProcureOS Logo">
-                            <defs>
-                              <linearGradient id="pro-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFF7ED"/>
-                              </linearGradient>
-                              <linearGradient id="pro-shield" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFF7ED"/>
-                              </linearGradient>
-                              <linearGradient id="pro-core" x1="22" y1="22" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#F97316"/>
-                                <stop offset="100%" stop-color="#C9662F"/>
-                              </linearGradient>
-                              <filter id="pro-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#C9662F" flood-opacity="0.35"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#pro-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <path d="M32 11l18 8v15c0 11-8 19-18 22-10-3-18-11-18-22V19l18-8z" fill="url(#pro-shield)" stroke="#0F1C2E" stroke-width="2.2"/>
-                            <path d="M32 13v19M16 41l16-9M48 41l-16-9" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 3"/>
-                            <circle cx="32" cy="32" r="12" fill="url(#pro-core)" filter="url(#pro-glow)"/>
-                            <path d="M26.5 32l4 4 8-8" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="32" cy="13" r="2.8" fill="#C9662F"/>
-                            <circle cx="16" cy="41" r="2.8" fill="#0F1C2E"/>
-                            <circle cx="48" cy="41" r="2.8" fill="#F97316"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3><a href="procureos.html">ProcureOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
-                        </div>
-                      </div>
-                      <p>Procure-to-pay operating system reconciling purchase orders, warehouse gate entries, and GST e-invoices in real time. Eliminates manual verification cycles and prevents GSTR-2B Input Tax Credit leakage.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">📦</span> 3-Way Auto Match</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🔍</span> GSTR-2B ITC Audit</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">⚡</span> NIC IRN &amp; QR Verify</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📊</span> ERP Direct Posting</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="procureos.html" class="btn btn-primary stack-action-btn">Explore ProcureOS Deep Dive <span aria-hidden="true">→</span></a>
-                        <a href="#contact" class="btn btn-ghost" data-interest="ProcureOS">Schedule Procurement Audit <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> P2P RECONCILIATION COCKPIT</span>
-                        <span class="telemetry-target">NIC E-INVOICE &amp; GSTN</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Sub-second fuzzy line-item matching across POs, physical GRNs, and vendor invoices.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Direct NIC portal cryptographic QR and IRN token validation preventing tax mismatches.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Zero duplicate payout guard with real-time voucher posting to Tally Prime &amp; SAP ECC.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>14-Day Cycle Time Reduction</span>
-                        <span class="telemetry-proof-stat">100% ITC Claimed</span>
-                      </div>
-                    </div>
-                  </div>
+                <h3 class="product-title">Company Management System <span class="platform-badge">Core ERP</span></h3>
+              </div>
+              <p class="product-desc">Run your entire company from one simple dashboard. Track employee attendance, process monthly salaries, manage accounts and GST bills, and approve team expenses without messy spreadsheets.</p>
+              <div class="product-pills">
+                <span class="product-pill">Staff &amp; Payroll</span>
+                <span class="product-pill">Accounts &amp; GST Billing</span>
+                <span class="product-pill">Expense Approvals</span>
+                <span class="product-pill">Multi-Branch Ready</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Company System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
                 </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
+              </div>
             </div>
+          </a>
 
-            <!-- Spacer 3 -->
-            <div class="scroll-stack__spacer" aria-hidden="true"></div>
-
-            <!-- 04: CampusOS (Higher Education & Biometrics) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 84px); margin-bottom: 84px; z-index: 4;">
-              <article class="scroll-stack-card platform-card platform-campus" id="campusos" data-category="core">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> HIGHER EDUCATION &amp; CAMPUS TELEMETRY</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Core System</span>
-                      <span class="stack-index-pill">04 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CampusOS Logo">
-                            <defs>
-                              <linearGradient id="cam-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFF9F5"/>
-                              </linearGradient>
-                              <linearGradient id="cam-cap" x1="12" y1="14" x2="52" y2="34" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#1E293B"/>
-                                <stop offset="100%" stop-color="#0F1C2E"/>
-                              </linearGradient>
-                              <linearGradient id="cam-gold" x1="14" y1="24" x2="50" y2="52" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FED7AA"/>
-                                <stop offset="50%" stop-color="#F97316"/>
-                                <stop offset="100%" stop-color="#C9662F"/>
-                              </linearGradient>
-                              <filter id="cam-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#C9662F" flood-opacity="0.32"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#cam-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <polygon points="32,14 52,24 32,34 12,24" fill="url(#cam-cap)" stroke="#0F1C2E" stroke-width="1.2"/>
-                            <path d="M20 28v8c0 6 5.5 10 12 10s12-4 12-10v-8" fill="none" stroke="url(#cam-cap)" stroke-width="2.6"/>
-                            <circle cx="32" cy="24" r="2.8" fill="url(#cam-gold)"/>
-                            <path d="M32 24c6 0 10.5 5 11.5 12" stroke="url(#cam-gold)" stroke-width="2.2" stroke-linecap="round"/>
-                            <circle cx="43.5" cy="36" r="2.2" fill="url(#cam-gold)"/>
-                            <path d="M15 43c4.5 6 10.5 9 17 9s12.5-3 17-9" stroke="url(#cam-gold)" stroke-width="2.6" stroke-linecap="round" filter="url(#cam-glow)"/>
-                            <path d="M12 37l3 6-4 2M52 37l-3 6 4 2" stroke="url(#cam-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3><a href="campusos.html">CampusOS</a> <span class="pillar-avail-badge">Pillar</span></h3>
-                        </div>
-                      </div>
-                      <p>Unified campus ERP connecting student admissions, sub-second biometric IoT turnstiles, automated fee reconciliation, examination lifecycles, and NAAC/NIRF Criteria 1–7 accreditation reporting.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">🎓</span> Student Lifecycle</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">⏱️</span> Biometric Turnstiles</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">💳</span> UPI Fee Engine</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📋</span> NAAC Criteria 1–7</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="campusos.html" class="btn btn-primary stack-action-btn">Explore CampusOS Deep Dive <span aria-hidden="true">→</span></a>
-                        <a href="#contact" class="btn btn-ghost" data-interest="CampusOS">Schedule Institutional Demo <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> MULTI-CAMPUS SIS ENGINE</span>
-                        <span class="telemetry-target">NAAC &amp; NIRF AUDIT READY</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Sub-second biometric attendance sync with automated guardian WhatsApp &amp; SMS alerts.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Direct UPI and bank payment gateway fee reconciliation with zero manual voucher backlog.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Automated SSR data compilation with indexed faculty research papers and course telemetry.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>BSG Karnataka &amp; Jain Anveshana</span>
-                        <span class="telemetry-proof-stat">14,000+ Synced Users</span>
-                      </div>
-                    </div>
-                  </div>
+          <!-- 02: Legal Practice System -->
+          <a class="product-card product-card-expand platform-card platform-legal reveal" id="legalos" data-category="governance" href="legalos.html">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Legal Practice Management System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-legal-system.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>LAW FIRMS &amp; LEGAL TEAMS</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"></path></svg>
                 </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
-            </div>
-
-            <!-- Spacer 4 -->
-            <div class="scroll-stack__spacer" aria-hidden="true"></div>
-
-            <!-- 05: BuilderOS (Construction & Capital Projects) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 112px); margin-bottom: 56px; z-index: 5;">
-              <article class="scroll-stack-card platform-card platform-builder" id="builderos" data-category="specialized">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> CONSTRUCTION &amp; CAPITAL PROJECTS</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Specialized</span>
-                      <span class="stack-index-pill">05 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BuilderOS Logo">
-                            <defs>
-                              <linearGradient id="bld-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFF8F0"/>
-                              </linearGradient>
-                              <linearGradient id="bld-crane" x1="20" y1="12" x2="52" y2="34" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#F97316"/>
-                                <stop offset="60%" stop-color="#C9662F"/>
-                                <stop offset="100%" stop-color="#9A3E1B"/>
-                              </linearGradient>
-                              <linearGradient id="bld-frame" x1="12" y1="20" x2="48" y2="52" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#334155"/>
-                                <stop offset="100%" stop-color="#0F1C2E"/>
-                              </linearGradient>
-                              <filter id="bld-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#C9662F" flood-opacity="0.32"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#bld-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <path d="M12 51h40M18 51V32h8v19M38 51V20h8v31" stroke="url(#bld-frame)" stroke-width="2.4" stroke-linecap="round"/>
-                            <path d="M26 14h26M30 14V32" stroke="url(#bld-crane)" stroke-width="3" stroke-linecap="round" filter="url(#bld-glow)"/>
-                            <polygon points="30,14 36,8 38,14" fill="url(#bld-crane)"/>
-                            <line x1="36" y1="8" x2="48" y2="14" stroke="#C9662F" stroke-width="1.6"/>
-                            <line x1="36" y1="8" x2="26" y2="14" stroke="#C9662F" stroke-width="1.6"/>
-                            <line x1="46" y1="14" x2="46" y2="25" stroke="#64748B" stroke-width="1.4" stroke-dasharray="2 2"/>
-                            <rect x="40" y="25" width="12" height="4.5" rx="2" fill="url(#bld-crane)"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3>BuilderOS</h3>
-                        </div>
-                      </div>
-                      <p>Construction project software connecting physical job-site logs, contractor billing milestones, concrete/steel delivery dispatches, and quality handover records into one transparent executive overview.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">🏗️</span> Milestone Logs</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📋</span> Measurement Books</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🚚</span> Material Dispatch</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📑</span> Handover Records</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="#contact" class="btn btn-primary stack-action-btn" data-interest="BuilderOS">Discuss BuilderOS <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> SITE PROGRESS TELEMETRY</span>
-                        <span class="telemetry-target">CONTRACTOR MB &amp; BOQ</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Daily site labour logs and equipment utilisation tracked via mobile check-ins.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Automated contractor measurement book (MB) verification against BOQ schedules.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Defect punch-list tracking with geotagged photo proofs and sign-off workflows.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>Zero Ghost Deliveries</span>
-                        <span class="telemetry-proof-stat">Strict BOQ Adherence</span>
-                      </div>
-                    </div>
-                  </div>
+                <h3 class="product-title">Legal Practice System <span class="platform-badge">Law Firms</span></h3>
+              </div>
+              <p class="product-desc">Keep every legal case, court hearing date, client file, and fee invoice organized in one place. Automatically updates daily court cause lists and sends reminders so your team never misses a hearing.</p>
+              <div class="product-pills">
+                <span class="product-pill">Court Date Alerts</span>
+                <span class="product-pill">Case &amp; Task Tracking</span>
+                <span class="product-pill">Safe Document Vault</span>
+                <span class="product-pill">Client Billing</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Legal System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
                 </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
+              </div>
             </div>
+          </a>
 
-            <!-- Spacer 5 -->
-            <div class="scroll-stack__spacer" aria-hidden="true"></div>
-
-            <!-- 06: TravelOS (Travel Operations & DMC Logistics) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 140px); margin-bottom: 28px; z-index: 6;">
-              <article class="scroll-stack-card platform-card platform-travel" id="travelos" data-category="specialized">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> TRAVEL OPERATIONS &amp; DMC LOGISTICS</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Specialized</span>
-                      <span class="stack-index-pill">06 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TravelOS Logo">
-                            <defs>
-                              <linearGradient id="trv-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#F8FAFC"/>
-                              </linearGradient>
-                              <linearGradient id="trv-jet" x1="12" y1="16" x2="52" y2="40" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FED7AA"/>
-                                <stop offset="50%" stop-color="#F97316"/>
-                                <stop offset="100%" stop-color="#C9662F"/>
-                              </linearGradient>
-                              <linearGradient id="trv-globe" x1="16" y1="18" x2="48" y2="50" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#CBD5E1"/>
-                                <stop offset="100%" stop-color="#94A3B8"/>
-                              </linearGradient>
-                              <filter id="trv-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#C9662F" flood-opacity="0.32"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#trv-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <circle cx="32" cy="34" r="16" stroke="url(#trv-globe)" stroke-width="1.8"/>
-                            <ellipse cx="32" cy="34" rx="7.5" ry="16" stroke="url(#trv-globe)" stroke-width="1.5"/>
-                            <line x1="16" y1="34" x2="48" y2="34" stroke="url(#trv-globe)" stroke-width="1.5"/>
-                            <path d="M12 42C14 23 35 12 50 20" stroke="url(#trv-jet)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3"/>
-                            <g transform="translate(42, 14) rotate(42)" filter="url(#trv-glow)">
-                              <path d="M12 2l2 8 8 3-8 2-2 7-3-5-4 1 2-4-2-4 5 1z" fill="url(#trv-jet)"/>
-                            </g>
-                            <circle cx="32" cy="18" r="2.2" fill="#0F1C2E"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3>TravelOS</h3>
-                        </div>
-                      </div>
-                      <p>Comprehensive travel management platform handling complex multi-destination itineraries, live flight &amp; hotel supplier API synchronisation, client payment installments, and automated passenger WhatsApp updates.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">✈️</span> Itinerary Builder</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🌐</span> Supplier API Sync</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">💳</span> Installments</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📲</span> WhatsApp Updates</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="#contact" class="btn btn-primary stack-action-btn" data-interest="TravelOS">Discuss TravelOS <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> RESERVATIONS TELEMETRY</span>
-                        <span class="telemetry-target">GDS &amp; HOTEL API DIRECT</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Instant custom multi-city itinerary generation with interactive margin calculations.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Automated supplier confirmation vouchers and driver dispatch coordination.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Automated multi-currency billing and GST-compliant travel invoice generation.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>Zero Booking Slippage</span>
-                        <span class="telemetry-proof-stat">Automated Vouchers</span>
-                      </div>
-                    </div>
-                  </div>
+          <!-- 03: Purchase & Inventory System -->
+          <a class="product-card product-card-expand platform-card platform-procure reveal" id="procureos" data-category="governance" href="procureos.html">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Purchase &amp; Inventory System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-purchase-system.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>PURCHASING &amp; WAREHOUSE STOCK</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"></path></svg>
                 </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
-            </div>
-
-            <!-- Spacer 6 -->
-            <div class="scroll-stack__spacer" aria-hidden="true"></div>
-
-            <!-- 07: FitBiz (Fitness, Studio & Wellness Telemetry) -->
-            <div data-stack-slot="" class="scroll-stack__slot" style="top: calc(11% + 168px); margin-bottom: 0px; z-index: 7;">
-              <article class="scroll-stack-card platform-card platform-fitbiz" id="fitbiz" data-category="specialized">
-                <div class="scroll-stack-card-inner">
-                  <div class="stack-card-header">
-                    <span class="stack-tag-badge"><span class="stack-tag-dot" aria-hidden="true"></span> WELLNESS &amp; FITNESS CLUB OPERATIONS</span>
-                    <div class="stack-meta-right">
-                      <span class="stack-type-pill">Specialized</span>
-                      <span class="stack-index-pill">07 / 07</span>
-                    </div>
-                  </div>
-                  <div class="stack-card-grid">
-                    <div class="stack-col-info">
-                      <div class="stack-brand-wrap">
-                        <div class="platform-logo-box">
-                          <svg class="platform-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="FitBiz Logo">
-                            <defs>
-                              <linearGradient id="fit-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#FFFFFF"/>
-                                <stop offset="100%" stop-color="#FFF8F0"/>
-                              </linearGradient>
-                              <linearGradient id="fit-power" x1="12" y1="20" x2="52" y2="44" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#F97316"/>
-                                <stop offset="60%" stop-color="#C9662F"/>
-                                <stop offset="100%" stop-color="#9A3E1B"/>
-                              </linearGradient>
-                              <linearGradient id="fit-dark" x1="12" y1="22" x2="52" y2="42" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#334155"/>
-                                <stop offset="100%" stop-color="#0F1C2E"/>
-                              </linearGradient>
-                              <filter id="fit-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#C9662F" flood-opacity="0.32"/>
-                              </filter>
-                            </defs>
-                            <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#fit-bg)" stroke="#E2E8F0" stroke-width="1.5"/>
-                            <rect x="12" y="21" width="6.5" height="22" rx="3" fill="url(#fit-dark)"/>
-                            <rect x="18.5" y="24" width="4.5" height="16" rx="2" fill="url(#fit-power)"/>
-                            <rect x="45.5" y="21" width="6.5" height="22" rx="3" fill="url(#fit-dark)"/>
-                            <rect x="41" y="24" width="4.5" height="16" rx="2" fill="url(#fit-power)"/>
-                            <rect x="23" y="30.5" width="18" height="3" rx="1.5" fill="#64748B"/>
-                            <path d="M14 32h10l2-6 4 12 3-8 3 4h14" stroke="url(#fit-power)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#fit-glow)"/>
-                            <circle cx="32" cy="32" r="3.2" fill="#FFFFFF" stroke="url(#fit-power)" stroke-width="2"/>
-                          </svg>
-                        </div>
-                        <div class="stack-title-wrap">
-                          <h3>FitBiz</h3>
-                        </div>
-                      </div>
-                      <p>Gym, studio, and health club operating platform managing multi-center member lifecycles, automated recurring subscription renewals, biometric turnstile access control, and trainer session rosters.</p>
-                      <div class="stack-features">
-                        <span class="stack-feature-chip"><span class="chip-icon">🏋️</span> Member CRM</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">🔄</span> UPI Mandates</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">⏱️</span> Turnstile Access</span>
-                        <span class="stack-feature-chip"><span class="chip-icon">📊</span> Multi-Studio Revenue</span>
-                      </div>
-                      <div class="stack-actions">
-                        <a href="#contact" class="btn btn-primary stack-action-btn" data-interest="FitBiz">Discuss FitBiz <span aria-hidden="true">↗</span></a>
-                      </div>
-                    </div>
-                    <div class="stack-col-telemetry">
-                      <div class="telemetry-head">
-                        <span class="telemetry-status"><span class="telemetry-status-dot"></span> STUDIO TELEMETRY STREAM</span>
-                        <span class="telemetry-target">BIOMETRICS &amp; AUTO-PAY</span>
-                      </div>
-                      <div class="telemetry-specs">
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Seamless turnstile and door-lock hardware integration with instant check-ins.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Automated e-mandate and UPI auto-debit renewal collection with dunning handling.</span></div>
-                        <div class="spec-item"><span class="spec-check">✓</span><span>Personal trainer roster scheduling, client session bookings, and payroll splits.</span></div>
-                      </div>
-                      <div class="telemetry-foot-badge">
-                        <span>98.5% Renewal Rate</span>
-                        <span class="telemetry-proof-stat">Sub-Second Punch</span>
-                      </div>
-                    </div>
-                  </div>
+                <h3 class="product-title">Purchase &amp; Inventory System <span class="platform-badge">Supply Chain</span></h3>
+              </div>
+              <p class="product-desc">Control your company’s buying and stock from start to finish. Compare supplier quotes, send purchase orders, check goods received at the gate, and match vendor GST bills before making payment.</p>
+              <div class="product-pills">
+                <span class="product-pill">Vendor Quotes &amp; POs</span>
+                <span class="product-pill">Live Stock Levels</span>
+                <span class="product-pill">Delivery Gate Check</span>
+                <span class="product-pill">GST Bill Matching</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Purchase System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
                 </div>
-                <span class="scroll-stack-card__shade" aria-hidden="true"></span>
-              </article>
+              </div>
             </div>
+          </a>
 
-            <div class="scroll-stack__end" aria-hidden="true"></div>
-          </div>
+          <!-- 04: School & College Management System -->
+          <a class="product-card product-card-expand platform-card platform-campus reveal" id="campusos" data-category="institutional" href="campusos.html">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="School &amp; College Management System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-campus-system.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>SCHOOLS, COLLEGES &amp; UNIVERSITIES</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12ZM128,200c-43.27,0-68.72-21.14-80-33.71V126.4l76.24,40.66a8,8,0,0,0,7.52,0L176,143.47v46.34C163.4,195.69,147.52,200,128,200Zm80-33.75a97.83,97.83,0,0,1-16,14.25V134.93l16-8.53ZM188,118.94l-.22-.13-56-29.87a8,8,0,0,0-7.56,14.12L171,128l-43,22.93L25,96,128,41.07,231,96Z"></path></svg>
+                </div>
+                <h3 class="product-title">School &amp; College System <span class="platform-badge">Education</span></h3>
+              </div>
+              <p class="product-desc">Manage your entire campus from student admissions to graduation. Track daily attendance, collect fees online with instant receipts, run exams and report cards, and keep parents updated easily.</p>
+              <div class="product-pills">
+                <span class="product-pill">Admissions &amp; ID Cards</span>
+                <span class="product-pill">Attendance &amp; Timetable</span>
+                <span class="product-pill">Online Fee Collection</span>
+                <span class="product-pill">Exams &amp; Report Cards</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View School System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 05: Construction Management System -->
+          <a class="product-card product-card-expand platform-card platform-builder reveal" id="builderos" data-category="institutional" href="#contact" data-interest="Construction Management System">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Construction Management System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-construction-system.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>BUILDERS, REAL ESTATE &amp; CONTRACTORS</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm0,48v16a8,8,0,0,1-16,0V160a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V160a8,8,0,0,1,16,0Z"></path></svg>
+                </div>
+                <h3 class="product-title">Construction Management System</h3>
+              </div>
+              <p class="product-desc">See real-time progress across all your construction sites. Track daily cement, steel, and material usage, verify contractor work bills from mobile photos, and keep project budgets under control.</p>
+              <div class="product-pills">
+                <span class="product-pill">Daily Site Progress</span>
+                <span class="product-pill">Material Stock Log</span>
+                <span class="product-pill">Contractor Billing</span>
+                <span class="product-pill">RERA Project Accounts</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Construction System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 06: Travel & Booking System -->
+          <a class="product-card product-card-expand platform-card platform-travel reveal" id="travelos" data-category="operations" href="#contact" data-interest="Travel & Booking System">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Travel &amp; Booking System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-travel-system.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>TRAVEL AGENCIES &amp; TOUR OPERATORS</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm87.63,96H175.8c-1.41-28.46-10.27-55.49-25.12-77A88.2,88.2,0,0,1,215.63,120ZM128,215.89c-18.73-20.27-30.09-49-31.77-79.89h63.54C158.09,166.87,146.73,195.62,128,215.89ZM96.23,120C97.91,89.13,109.27,60.38,128,40.11c18.73,20.27,30.09,49,31.77,79.89Zm9.09-77C90.47,64.51,81.61,91.54,80.2,120H40.37A88.2,88.2,0,0,1,105.32,43ZM40.37,136H80.2c1.41,28.46,10.27,55.49,25.12,77A88.2,88.2,0,0,1,40.37,136Zm110.31,77c14.85-21.51,23.71-48.54,25.12-77h39.83A88.2,88.2,0,0,1,150.68,213Z"></path></svg>
+                </div>
+                <h3 class="product-title">Travel &amp; Booking System</h3>
+              </div>
+              <p class="product-desc">Manage customer enquiries, custom tour packages, hotel and flight bookings, and cab driver schedules in one place. Send instant trip vouchers and WhatsApp updates to travellers automatically.</p>
+              <div class="product-pills">
+                <span class="product-pill">Tour Package Builder</span>
+                <span class="product-pill">Hotel &amp; Cab Bookings</span>
+                <span class="product-pill">WhatsApp Trip Alerts</span>
+                <span class="product-pill">Agent &amp; GST Invoicing</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Travel System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 07: Gym & Fitness System -->
+          <a class="product-card product-card-expand platform-card platform-fit reveal" id="fitos" data-category="operations" href="#contact" data-interest="Gym & Fitness System">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Gym &amp; Fitness Center System Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-gym-system.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>GYMS, FITNESS &amp; WELLNESS CENTERS</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M240,120H224V88a16,16,0,0,0-16-16H192V56a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v64H112V56A16,16,0,0,0,96,40H80A16,16,0,0,0,64,56V72H48A16,16,0,0,0,32,88v32H16a8,8,0,0,0,0,16H32v32a16,16,0,0,0,16,16H64v16a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V136h32v64a16,16,0,0,0,16,16h16a16,16,0,0,0,16-16V184h16a16,16,0,0,0,16-16V136h16a8,8,0,0,0,0-16ZM48,168V88H64v80Zm48,32H80V56H96Zm80,0H160V56h16Zm32-32H192V88h16Z"></path></svg>
+                </div>
+                <h3 class="product-title">Gym &amp; Fitness System</h3>
+              </div>
+              <p class="product-desc">Everything you need to run a single gym or a multi-branch fitness chain. Connect face-scan entry gates, track active memberships, schedule personal trainers, and send automatic UPI renewal links.</p>
+              <div class="product-pills">
+                <span class="product-pill">Face &amp; Biometric Entry</span>
+                <span class="product-pill">UPI Auto-Renewals</span>
+                <span class="product-pill">Trainer Schedules</span>
+                <span class="product-pill">Multi-Branch Access</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Gym System</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- 08: Data Privacy & Document Vault -->
+          <a class="product-card product-card-expand platform-card platform-dpdp reveal" id="dpdp-vault" data-category="governance" href="dpdp-compliance.html">
+            <div class="product-expand-bg" aria-hidden="true">
+              <img alt="Data Privacy &amp; Document Vault Dashboard UI" loading="lazy" decoding="async" class="product-expand-img" src="assets/generated/ui-privacy-vault.jpg" />
+              <div class="product-expand-scrim"></div>
+            </div>
+            <div class="product-card-inner">
+              <div class="discipline-tag"><span class="discipline-tag-circle"></span><span>SECURE DOCUMENTS &amp; PRIVACY</span></div>
+              <div class="product-head-row">
+                <div class="product-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></svg>
+                </div>
+                <h3 class="product-title">Data Privacy &amp; Document Vault <span class="platform-badge">Security</span></h3>
+              </div>
+              <p class="product-desc">Keep your company’s confidential files and customer data locked and organized. Manage staff folder permissions, track who viewed or downloaded each file, and stay compliant with Indian data privacy laws.</p>
+              <div class="product-pills">
+                <span class="product-pill">Encrypted File Storage</span>
+                <span class="product-pill">Staff Access Control</span>
+                <span class="product-pill">Customer Consent Log</span>
+                <span class="product-pill">DPDP Law Ready</span>
+              </div>
+              <div class="product-thumbnail-spacer"></div>
+              <div class="product-footer">
+                <span>View Privacy Vault</span>
+                <div class="product-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
 
         <p class="portfolio-note"><span class="note-mark" aria-hidden="true">i</span> Product scope and availability are confirmed during discovery. Each engagement is tailored to the requirements, integrations and controls your operation needs.</p>
@@ -1072,7 +1333,7 @@
         <div class="section-heading capabilities-heading reveal">
           <div>
             <div class="eyebrow">ENGINEERING CAPABILITIES</div>
-            <h2>From the first workflow<br />to the <em><span class="vapor-type" data-vapor-words='["whole system", "connected core", "unified stack", "entire operation"]' data-vapor-preset="steam">whole system</span>.</em></h2>
+            <h2>From the first workflow<br />to the <em>whole system</em>.</h2>
           </div>
           <p>We take responsibility across product thinking, engineering, integration and operational readiness—without adding complexity for its own sake.</p>
         </div>
@@ -1134,40 +1395,39 @@
       </div>
     </section>
 
-    <section class="method-section section-pad">
+    <section class="process-section section-pad" id="process" aria-labelledby="process-heading">
       <div class="shell">
-        <div class="method-head reveal">
-          <div>
-            <div class="eyebrow">FROM AMBIGUITY TO OPERATION</div>
-            <h2>A better way to<br /><em><span class="vapor-type" data-vapor-words='["build the right thing", "ship without friction", "govern with clarity", "scale with confidence"]' data-vapor-preset="bloom">build the right thing</span>.</em></h2>
-          </div>
-          <p>Structured delivery. Visible trade-offs. A system your team can understand and operate.</p>
+        <div class="process-head reveal">
+          <div class="eyebrow">HOW WE WORK</div>
+          <h2 id="process-heading">Clear steps. <em>No surprises.</em></h2>
+          <p>You see real, working software at every step—not just slides and promises.</p>
         </div>
-        <div class="method-steps">
-          <article class="method-step reveal">
-            <span class="step-count">01</span>
-            <h3>Understand</h3>
-            <p>Map the real workflow, users, constraints, exceptions and business outcome before choosing technology.</p>
-            <span class="step-output">OUTPUT / PROBLEM FRAME</span>
-          </article>
-          <article class="method-step reveal">
-            <span class="step-count">02</span>
-            <h3>Model</h3>
-            <p>Define roles, data, states, integrations and a smallest useful release with explicit success criteria.</p>
-            <span class="step-output">OUTPUT / SYSTEM DESIGN</span>
-          </article>
-          <article class="method-step reveal">
-            <span class="step-count">03</span>
-            <h3>Engineer</h3>
-            <p>Build in increments, verify critical flows and make meaningful progress visible to stakeholders.</p>
-            <span class="step-output">OUTPUT / WORKING SOFTWARE</span>
-          </article>
-          <article class="method-step reveal">
-            <span class="step-count">04</span>
-            <h3>Operate</h3>
-            <p>Prepare monitoring, support paths, backups, training and a measured improvement backlog.</p>
-            <span class="step-output">OUTPUT / OPERATIONAL READINESS</span>
-          </article>
+        <div class="process-wave" id="process-wave">
+          <svg class="process-wave-svg" id="process-wave-svg" aria-hidden="true">
+            <defs><filter id="wave-orange-glow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#C84B15" flood-opacity="0.55"/></filter></defs>
+          </svg>
+          <div class="process-steps">
+            <button type="button" class="process-step is-active" data-step="0" aria-label="Step 1: Understand your work">
+              <div class="process-slot top"></div>
+              <div class="process-node-wrap"><div class="process-node"><svg viewBox="0 0 256 256" width="36" height="36" fill="currentColor" aria-hidden="true"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"/></svg></div></div>
+              <div class="process-slot bottom"><div class="process-text"><h3>Understand your work</h3><p>We sit with your team, see how work happens today, and find what slows you down.</p></div></div>
+            </button>
+            <button type="button" class="process-step" data-step="1" aria-label="Step 2: Plan the system">
+              <div class="process-slot top"><div class="process-text"><h3>Plan the system</h3><p>We design the screens, the data and who can see what—before writing any code.</p></div></div>
+              <div class="process-node-wrap"><div class="process-node"><svg viewBox="0 0 256 256" width="36" height="36" fill="currentColor" aria-hidden="true"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg></div></div>
+              <div class="process-slot bottom"></div>
+            </button>
+            <button type="button" class="process-step" data-step="2" aria-label="Step 3: Build &amp; show progress">
+              <div class="process-slot top"></div>
+              <div class="process-node-wrap"><div class="process-node"><svg viewBox="0 0 256 256" width="36" height="36" fill="currentColor" aria-hidden="true"><path d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V64a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8Zm-48,48a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,224Zm-3.56-110.66-48-32A8,8,0,0,0,104,88v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,137.05V103l25.58,17Z"/></svg></div></div>
+              <div class="process-slot bottom"><div class="process-text"><h3>Build &amp; show progress</h3><p>Every two weeks you see and test working software, and tell us what to change.</p></div></div>
+            </button>
+            <button type="button" class="process-step" data-step="3" aria-label="Step 4: Launch &amp; hand over">
+              <div class="process-slot top"><div class="process-text"><h3>Launch &amp; hand over</h3><p>We go live, train your team, and give you the full code, logins and documents.</p></div></div>
+              <div class="process-node-wrap"><div class="process-node"><svg viewBox="0 0 256 256" width="36" height="36" fill="currentColor" aria-hidden="true"><path d="M223.85,47.12a16,16,0,0,0-15-15c-12.58-.75-44.73.4-71.41,27.07L132.69,64H74.36A15.91,15.91,0,0,0,63,68.68L28.7,103a16,16,0,0,0,9.07,27.16l38.47,5.37,44.21,44.21,5.37,38.49a15.94,15.94,0,0,0,10.78,12.92,16.11,16.11,0,0,0,5.1.83A15.91,15.91,0,0,0,153,227.3L187.32,193A15.91,15.91,0,0,0,192,181.64V123.31l4.77-4.77C223.45,91.86,224.6,59.71,223.85,47.12ZM74.36,80h42.33L77.16,119.52,40,114.34Zm74.41-9.45a76.65,76.65,0,0,1,59.11-22.47,76.460,76.460,0,0,1-22.42,59.16L128,164.68,91.32,128ZM176,181.64,141.670,216l-5.19-37.17L176,139.31Z"/></svg></div></div>
+              <div class="process-slot bottom"></div>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -1181,7 +1441,7 @@
         </div>
         <div class="sector-list reveal">
           <a href="legalos.html"><span class="sector-no">01</span><span class="sector-name">Legal &amp; professional services</span><span class="sector-desc">Matters, evidence, tasks, compliance</span><span class="sector-go" aria-hidden="true">↗</span></a>
-          <a href="#fitbiz"><span class="sector-no">02</span><span class="sector-name">Fitness &amp; wellness</span><span class="sector-desc">Members, renewals, centre operations</span><span class="sector-go" aria-hidden="true">↗</span></a>
+          <a href="#fitos"><span class="sector-no">02</span><span class="sector-name">Fitness &amp; wellness</span><span class="sector-desc">Members, renewals, centre operations</span><span class="sector-go" aria-hidden="true">↗</span></a>
           <a href="campusos.html"><span class="sector-no">03</span><span class="sector-name">Education</span><span class="sector-desc">Student lifecycle, assessments, admin</span><span class="sector-go" aria-hidden="true">↗</span></a>
           <a href="#builderos"><span class="sector-no">04</span><span class="sector-name">Construction &amp; property</span><span class="sector-desc">Projects, site workflows, vendors</span><span class="sector-go" aria-hidden="true">↗</span></a>
           <a href="#travelos"><span class="sector-no">05</span><span class="sector-name">Travel &amp; services</span><span class="sector-desc">Enquiries, bookings, supplier operations</span><span class="sector-go" aria-hidden="true">↗</span></a>
@@ -1209,34 +1469,101 @@
 
     <section class="client-section section-pad" aria-labelledby="client-heading">
       <div class="shell client-shell reveal">
-        <div class="client-intro">
-          <div class="eyebrow">RELATIONSHIPS &amp; ENGAGEMENTS</div>
-          <h2 id="client-heading">Built alongside<br /><em>real teams.</em></h2>
+        <div class="section-heading client-heading-row">
+          <div>
+            <div class="eyebrow">OUR CLIENTS</div>
+            <h2 id="client-heading">Built alongside <em>real teams</em>.</h2>
+          </div>
+          <p>Law firms, schools, community groups and growing companies use our systems every day to run their work.</p>
         </div>
-        <div class="client-names">
-          <span>Jain Anveshana</span>
-          <span>BSG Karnataka</span>
-          <span>BNN Law Firm</span>
-          <span>GVS Law Chambers</span>
-          <span>Worexa</span>
-          <span>Nele</span>
+
+        <!-- OJIX.VERCEL.APP CLIENT SECTION ANIMATION (LogoLoop Infinite Marquee) -->
+        <div class="client-logoloop-wrap">
+          <div class="logoloop logoloop--fade" role="region" aria-label="Partner clients marquee">
+            <div class="logoloop__track">
+              <ul class="logoloop__list" role="list">
+                <!-- Set 1 (10 Clients) -->
+                <li class="logoloop__item">
+                  <img alt="Jain Anveshana" loading="lazy" width="260" height="72" decoding="async" class="client-logo-img client-logo-anveshana" src="assets/clients/anveshana-logo-big.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="The Bharat Scouts &amp; Guides Karnataka" loading="lazy" width="260" height="60" decoding="async" class="client-logo-img client-logo-bsg" src="assets/clients/bharath-scouts-light.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="BN Nagraj Law" loading="lazy" width="180" height="72" decoding="async" class="client-logo-img client-logo-bnn" src="assets/clients/bn-nagraj-law.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="GVS Law Chambers" loading="lazy" width="190" height="60" decoding="async" class="client-logo-img client-logo-gvs" src="assets/clients/gvs-law.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="Samyog Law" loading="lazy" width="190" height="65" decoding="async" class="client-logo-img client-logo-samyog" src="assets/clients/samyog-law-light.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="Worexa" loading="lazy" width="200" height="70" decoding="async" class="client-logo-img client-logo-worexa" src="assets/clients/worexa-light.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="Work Benches Tech" loading="lazy" width="180" height="72" decoding="async" class="client-logo-img client-logo-workbenches" src="assets/clients/work-benches-tech.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="Navadhi Cognitech" loading="lazy" width="160" height="72" decoding="async" class="client-logo-img client-logo-navadhi" src="assets/clients/navadhi-light.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="Arundhathi Gurukulam" loading="lazy" width="160" height="72" decoding="async" class="client-logo-img client-logo-arundhathi" src="assets/clients/arundhathi-clean.png" />
+                </li>
+                <li class="logoloop__item">
+                  <img alt="Nele" loading="lazy" width="150" height="65" decoding="async" class="client-logo-img client-logo-nele" src="assets/clients/nele.png" />
+                </li>
+                <!-- Set 2 (Duplicate for seamless -50% infinite loop) -->
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="260" height="72" decoding="async" class="client-logo-img client-logo-anveshana" src="assets/clients/anveshana-logo-big.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="260" height="60" decoding="async" class="client-logo-img client-logo-bsg" src="assets/clients/bharath-scouts-light.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="180" height="72" decoding="async" class="client-logo-img client-logo-bnn" src="assets/clients/bn-nagraj-law.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="190" height="60" decoding="async" class="client-logo-img client-logo-gvs" src="assets/clients/gvs-law.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="190" height="65" decoding="async" class="client-logo-img client-logo-samyog" src="assets/clients/samyog-law-light.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="200" height="70" decoding="async" class="client-logo-img client-logo-worexa" src="assets/clients/worexa-light.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="180" height="72" decoding="async" class="client-logo-img client-logo-workbenches" src="assets/clients/work-benches-tech.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="160" height="72" decoding="async" class="client-logo-img client-logo-navadhi" src="assets/clients/navadhi-light.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="160" height="72" decoding="async" class="client-logo-img client-logo-arundhathi" src="assets/clients/arundhathi-clean.png" />
+                </li>
+                <li class="logoloop__item" aria-hidden="true">
+                  <img alt="" loading="lazy" width="150" height="65" decoding="async" class="client-logo-img client-logo-nele" src="assets/clients/nele.png" />
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <p class="client-note">Names shown for portfolio context. Confirm the scope of each relationship and permission for public reference before launch.</p>
+
         <div class="client-impact-row">
           <div class="client-impact-card">
             <span class="impact-stat">100%</span>
-            <span class="impact-title">Statutory Timeliness</span>
-            <p class="impact-desc">Zero missed court hearing dates and automated limitation period tracking across 1,200+ litigation cases for legal partner firms.</p>
+            <span class="impact-title">Zero Missed Court Dates</span>
+            <p class="impact-desc">Automatic court date reminders and case tracking across 1,200+ active matters for our law firm partners.</p>
           </div>
           <div class="client-impact-card">
             <span class="impact-stat">14,000+</span>
-            <span class="impact-title">Unified Stakeholders</span>
-            <p class="impact-desc">Integrated fee collections, digital student lifecycle records, and biometric verification across institutional education campuses.</p>
+            <span class="impact-title">Students &amp; Staff Connected</span>
+            <p class="impact-desc">Smooth online fee collection, attendance tracking, and digital student records across partner schools and campuses.</p>
           </div>
           <div class="client-impact-card">
             <span class="impact-stat">85%</span>
-            <span class="impact-title">Cycle Time Reduction</span>
-            <p class="impact-desc">Automated 3-way purchase order, GRN, and GST e-invoice matching in manufacturing supply chains, eliminating manual ledger reconciliations.</p>
+            <span class="impact-title">Faster Bill Verification</span>
+            <p class="impact-desc">Faster purchase order, delivery, and GST bill matching for supply chain teams—cutting out hours of manual checking.</p>
           </div>
         </div>
       </div>
@@ -1246,7 +1573,7 @@
       <div class="shell reveal">
         <div class="section-intro">
           <div class="eyebrow">ENTERPRISE ASSURANCE &amp; SECURITY</div>
-          <h2 id="trust-heading">Engineered for security,<br /><em><span class="vapor-type" data-vapor-words='["rooted in sovereignty", "audited at every layer", "guaranteed in India", "built for zero trust"]' data-vapor-preset="mist">rooted in sovereignty</span>.</em></h2>
+          <h2 id="trust-heading">Engineered for security,<br /><em>rooted in sovereignty</em>.</h2>
           <p class="intro-lede">Enterprise software must safeguard commercial confidentiality and regulatory compliance by design. OJIX implements strict cryptographic, organizational, and sovereign architectural guarantees.</p>
         </div>
         <div class="trust-grid">
@@ -1291,7 +1618,7 @@
       <div class="shell">
         <div class="faq-header-wrap reveal">
           <div class="eyebrow">FREQUENTLY ASKED QUESTIONS</div>
-          <h2 id="faq-heading" class="faq-main-title">Clear answers for<br /><em><span class="vapor-type" data-vapor-words='["decision makers", "enterprise leaders", "security officers", "operations chiefs"]' data-vapor-preset="copper">decision makers</span>.</em></h2>
+          <h2 id="faq-heading" class="faq-main-title">Clear answers for<br /><em>decision makers</em>.</h2>
           <p class="faq-main-subtitle">Detailed answers on enterprise architecture, statutory DPDP compliance, deterministic AI pipelines, and commercial engagement terms.</p>
         </div>
 
@@ -1615,7 +1942,7 @@
       <div class="shell contact-layout">
         <div class="contact-copy reveal">
           <div class="eyebrow eyebrow-light">LET’S MAKE THE WORK WORK BETTER</div>
-          <h2>Bring us the<br /><em><span class="vapor-type" data-vapor-words='["hard part", "complex flow", "legacy maze", "busiest system"]' data-vapor-preset="bloom">hard part</span>.</em></h2>
+          <h2>Bring us the<br /><em>hard part</em>.</h2>
           <p>Tell us what slows your team down, what needs to connect, or what you wish existed. We’ll start with the problem—not a preselected stack.</p>
           <div class="contact-direct">
             <span class="contact-dot"></span>
@@ -1629,14 +1956,15 @@
           <div class="form-row"><label for="interest">What are you looking to build?</label>
             <select id="interest" name="interest" required>
               <option value="" disabled selected>Select a starting point</option>
-              <option>CompanyOS</option>
-              <option>LegalOS</option>
-              <option>FitBiz</option>
-              <option>CampusOS</option>
-              <option>BuilderOS</option>
-              <option>TravelOS</option>
-              <option>ProcureOS / ERP</option>
-              <option>Custom Enterprise OS</option>
+              <option>Company Management System</option>
+              <option>Legal Practice System</option>
+              <option>Purchase &amp; Inventory System</option>
+              <option>School &amp; College System</option>
+              <option>Construction Management System</option>
+              <option>Travel &amp; Booking System</option>
+              <option>Gym &amp; Fitness System</option>
+              <option>Data Privacy &amp; Document Vault</option>
+              <option>Custom Business Software</option>
               <option>Web Applications &amp; Enterprise Websites</option>
               <option>AI workflow automation</option>
               <option>Cloud / integrations</option>
@@ -1671,7 +1999,7 @@
         <span class="footer-label">EXPLORE</span>
         <a href="#platforms">Platforms</a>
         <a href="#capabilities">Capabilities</a>
-        <a href="#approach">How we work</a>
+        <a href="#process">How we work</a>
         <a href="#security-trust">Security &amp; Sovereignty</a>
         <a href="dpdp-compliance.html">DPDP 2025 Guide</a>
         <a href="#faq">Enterprise FAQ</a>
@@ -1679,11 +2007,11 @@
       </div>
       <div class="footer-col">
         <span class="footer-label">PLATFORMS</span>
-        <a href="#companyos">CompanyOS</a>
-        <a href="legalos.html">LegalOS (Deep Dive)</a>
-        <a href="procureos.html">ProcureOS (Deep Dive)</a>
-        <a href="campusos.html">CampusOS (Deep Dive)</a>
-        <a href="#fitbiz">FitBiz</a>
+        <a href="#companyos">Company Management System</a>
+        <a href="legalos.html">Legal Practice System</a>
+        <a href="procureos.html">Purchase &amp; Inventory System</a>
+        <a href="campusos.html">School &amp; College System</a>
+        <a href="#fitos">Gym &amp; Fitness System</a>
       </div>
       <div class="footer-col">
         <span class="footer-label">LEGAL &amp; PRIVACY</span>
@@ -1932,7 +2260,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.7.0" defer></script>
-  <script type="module" src="assets/vendor/visual-effects.js?v=3.7.0"></script>
+  <script src="app.js?v=5.0.0" defer></script>
+  <script type="module" src="assets/vendor/visual-effects.js?v=3.8.0"></script>
 </body>
 </html>

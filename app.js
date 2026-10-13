@@ -122,11 +122,11 @@ if (counterElements.length > 0 && 'IntersectionObserver' in window) {
 
 // 4. SOLUTION FINDER WITH SLIDING INDICATOR & CROSS-FADE
 const recommendations = {
-  legal: { title: 'LegalOS', description: 'Bring cases, tasks, hearing schedules, documents and legal operations into one clear working environment.', link: 'Explore LegalOS Deep Dive', target: 'legalos.html' },
-  operations: { title: 'CompanyOS + ProcureOS', description: 'Connect people, payroll, finance, compliance, projects and company-wide approvals. For purchasing-heavy workflows, ProcureOS adds vendor, inventory and procure-to-pay control.', link: 'Explore ProcureOS Deep Dive', target: 'procureos.html' },
-  education: { title: 'CampusOS', description: 'Connect student lifecycle, attendance, examinations, communications and school administration.', link: 'Explore CampusOS Deep Dive', target: 'campusos.html' },
-  automation: { title: 'AI workflow automation', description: 'Identify high-friction tasks, then apply extraction, classification, drafting or routing with clear human approval points.', link: 'Explore engineering capabilities', target: '#capabilities' },
-  custom: { title: 'Custom Enterprise OS', description: 'Design a purpose-built system around your roles, records, rules and workflows instead of forcing your team into generic software.', link: 'Discuss a custom system', target: '#contact' }
+  legal: { title: 'Legal Practice Management System', description: 'Track all your cases, court hearing dates, client files, and legal bills in one simple dashboard.', link: 'Explore Legal Practice System', target: 'legalos.html' },
+  operations: { title: 'Company & Purchase Management System', description: 'Manage staff attendance, salary payouts, accounting, vendor orders, and stock levels in one connected system.', link: 'Explore Purchase & Inventory System', target: 'procureos.html' },
+  education: { title: 'School & College Management System', description: 'Handle admissions, daily student attendance, fee collection, exams, and parent updates without paperwork.', link: 'Explore School & College System', target: 'campusos.html' },
+  automation: { title: 'Smart Workflow & Document Automation', description: 'Read scanned bills and forms automatically, sort incoming requests, and let your team approve them with one click.', link: 'Explore automation capabilities', target: '#capabilities' },
+  custom: { title: 'Custom Business Management System', description: 'Get software built specifically around how your team works instead of forcing your staff into complicated tools.', link: 'Discuss a custom system', target: '#contact' }
 };
 
 const finderButtons = [...document.querySelectorAll('.finder-option')];
@@ -291,10 +291,16 @@ if (portfolioFilterPills.length > 0) {
       });
 
       filterableCards.forEach((card) => {
+        const slot = card.closest('.scroll-stack__slot');
+        const spacer = slot ? slot.previousElementSibling : null;
         if (filter === 'all' || card.dataset.category === filter) {
           card.classList.remove('is-filtered-out');
+          if (slot) slot.classList.remove('is-filtered-out');
+          if (spacer && spacer.classList.contains('scroll-stack__spacer')) spacer.classList.remove('is-filtered-out');
         } else {
           card.classList.add('is-filtered-out');
+          if (slot) slot.classList.add('is-filtered-out');
+          if (spacer && spacer.classList.contains('scroll-stack__spacer')) spacer.classList.add('is-filtered-out');
         }
       });
 
@@ -303,6 +309,31 @@ if (portfolioFilterPills.length > 0) {
     });
   });
 }
+
+// 4D-2. STRIPE & PALANTIR STYLE MATRIX TABS INTERACTION
+document.addEventListener('click', (e) => {
+  const tabBtn = e.target.closest('.matrix-tab-btn[data-matrix-tab]');
+  if (!tabBtn) return;
+  const card = tabBtn.closest('.platform-card');
+  if (!card) return;
+  const targetTab = tabBtn.dataset.matrixTab;
+
+  card.querySelectorAll('.matrix-tab-btn').forEach((btn) => {
+    const active = btn === tabBtn;
+    btn.classList.toggle('is-active', active);
+    btn.setAttribute('aria-selected', String(active));
+  });
+
+  card.querySelectorAll('.matrix-tab-panel').forEach((panel) => {
+    const active = panel.dataset.matrixPanel === targetTab;
+    panel.classList.toggle('is-active', active);
+    if (active) {
+      panel.removeAttribute('hidden');
+    } else {
+      panel.setAttribute('hidden', '');
+    }
+  });
+});
 
 // 4E. REACT BITS PRO FAQ 3: TABBED FAQ BY CATEGORY INTERACTION
 const faqTabBtns = document.querySelectorAll('.faq-tab-btn[data-faq-tab]');
@@ -930,3 +961,276 @@ if (saveCookiePrefsBtn) {
     if (cookieModal) closeModal(cookieModal);
   });
 }
+
+// ============================================================================
+// 13. ELEKS-STYLE HEADER MEGA-MENU SUBTABS INTERACTION
+// ============================================================================
+const megaContainers = document.querySelectorAll('.nav-item-has-mega');
+const eleksHeader = document.querySelector('.eleks-header');
+
+megaContainers.forEach((container) => {
+  const topLink = container.querySelector('.nav-top-link');
+  const subtabs = container.querySelectorAll('.eleks-subtab');
+  const rightPanel = container.querySelector('.eleks-mega-right');
+  const previewKicker = container.querySelector('.eleks-preview-kicker');
+  const previewTitle = container.querySelector('.eleks-preview-title');
+  const previewDesc = container.querySelector('.eleks-preview-desc');
+  const previewImg = container.querySelector('.eleks-preview-img');
+
+  const activateSubtab = (subtab) => {
+    if (!subtab) return;
+    subtabs.forEach((tab) => {
+      const active = tab === subtab;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+
+    if (rightPanel && previewTitle && previewDesc) {
+      const newTitle = subtab.getAttribute('data-preview-title') || '';
+      const newDesc = subtab.getAttribute('data-preview-desc') || '';
+      const newBadge = subtab.getAttribute('data-preview-badge') || '';
+      const newImg = subtab.getAttribute('data-preview-img') || '';
+
+      if (previewTitle.textContent !== newTitle) {
+        rightPanel.classList.add('is-switching');
+        if (previewKicker && newBadge) previewKicker.textContent = newBadge;
+        previewTitle.textContent = newTitle;
+        previewDesc.textContent = newDesc;
+        if (previewImg && newImg) {
+          previewImg.src = newImg;
+          previewImg.alt = `${newTitle} preview`;
+        }
+        setTimeout(() => rightPanel.classList.remove('is-switching'), 160);
+      }
+    }
+  };
+
+  subtabs.forEach((subtab) => {
+    subtab.addEventListener('pointerenter', () => activateSubtab(subtab));
+    subtab.addEventListener('focus', () => activateSubtab(subtab));
+    subtab.addEventListener('click', () => {
+      container.classList.remove('is-mega-open');
+      if (eleksHeader) eleksHeader.classList.remove('has-mega-open');
+      if (topLink) topLink.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  if (topLink) {
+    topLink.addEventListener('mouseenter', () => {
+      topLink.setAttribute('aria-expanded', 'true');
+    });
+    container.addEventListener('mouseleave', () => {
+      topLink.setAttribute('aria-expanded', 'false');
+      container.classList.remove('is-mega-open');
+      if (eleksHeader) eleksHeader.classList.remove('has-mega-open');
+    });
+  }
+});
+
+// ============================================================================
+// 14. ELEKS-STYLE HERO HORIZONTAL EXPANDING ACCORDION SUBTABS
+// ============================================================================
+const heroCardsContainer = document.getElementById('eleks-hero-cards');
+const heroCards = heroCardsContainer ? Array.from(heroCardsContainer.querySelectorAll('.eleks-hero-card')) : [];
+const heroArrows = heroCardsContainer ? heroCardsContainer.querySelector('.eleks-hero-arrows') : null;
+const heroPrevBtn = document.getElementById('eleks-hero-prev');
+const heroNextBtn = document.getElementById('eleks-hero-next');
+
+if (heroCards.length > 0) {
+  let activeHeroIndex = 0;
+  let heroAutoTimer = null;
+  const HERO_AUTOPLAY_MS = 10000;
+
+  const syncHeroArrowsPlacement = (activeCard) => {
+    if (!heroArrows || !activeCard) return;
+    if (heroArrows.parentElement !== activeCard) {
+      activeCard.appendChild(heroArrows);
+    }
+  };
+
+  const restartProgressBar = (card) => {
+    const bar = card ? card.querySelector('.eleks-progress-bar') : null;
+    if (!bar) return;
+    bar.style.animation = 'none';
+    // Force reflow so keyframe animation restarts cleanly
+    void bar.offsetWidth;
+    bar.style.animation = '';
+  };
+
+  const setActiveHeroSlide = (index) => {
+    const normalized = ((index % heroCards.length) + heroCards.length) % heroCards.length;
+    activeHeroIndex = normalized;
+
+    heroCards.forEach((card, idx) => {
+      const isActive = idx === normalized;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-selected', String(isActive));
+      if (isActive) {
+        syncHeroArrowsPlacement(card);
+        restartProgressBar(card);
+      }
+    });
+  };
+
+  const resetHeroAutoplay = () => {
+    if (heroAutoTimer) clearInterval(heroAutoTimer);
+    if (!prefersReducedMotion) {
+      heroAutoTimer = setInterval(() => {
+        setActiveHeroSlide(activeHeroIndex + 1);
+      }, HERO_AUTOPLAY_MS);
+    }
+  };
+
+  // Initial placement of arrows inside the active card
+  syncHeroArrowsPlacement(heroCards[0]);
+  resetHeroAutoplay();
+
+  heroCards.forEach((card, idx) => {
+    card.addEventListener('click', (e) => {
+      // Do not intercept clicks on links or arrow buttons inside the active card
+      if (e.target.closest('a, .eleks-hero-arrows')) return;
+      if (idx !== activeHeroIndex) {
+        setActiveHeroSlide(idx);
+        resetHeroAutoplay();
+      }
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.target !== card) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setActiveHeroSlide(idx);
+        resetHeroAutoplay();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        const nextIdx = (idx + 1) % heroCards.length;
+        setActiveHeroSlide(nextIdx);
+        heroCards[nextIdx].focus();
+        resetHeroAutoplay();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prevIdx = (idx - 1 + heroCards.length) % heroCards.length;
+        setActiveHeroSlide(prevIdx);
+        heroCards[prevIdx].focus();
+        resetHeroAutoplay();
+      }
+    });
+  });
+
+  if (heroPrevBtn) {
+    heroPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setActiveHeroSlide(activeHeroIndex - 1);
+      resetHeroAutoplay();
+    });
+  }
+
+  if (heroNextBtn) {
+    heroNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setActiveHeroSlide(activeHeroIndex + 1);
+      resetHeroAutoplay();
+    });
+  }
+}
+
+
+// HOW WE WORK — wave timeline (ojix.vercel.app #process style)
+(function initProcessWave() {
+  const wave = document.getElementById('process-wave');
+  const svg = document.getElementById('process-wave-svg');
+  if (!wave || !svg) return;
+  const steps = [...wave.querySelectorAll('.process-step')];
+  const NS = 'http://www.w3.org/2000/svg';
+  const ORANGE = '#C84B15';
+  const NAVY = '#0f1c2f';
+  const R = 66;
+  const HALF = 59.8; // half chord where arc meets the connector
+  const DY = Math.sqrt(R * R - HALF * HALF);
+  let active = 0;
+  let timer = null;
+
+  function centers() {
+    const box = wave.getBoundingClientRect();
+    return steps.map((s) => {
+      const n = s.querySelector('.process-node').getBoundingClientRect();
+      return { x: n.left - box.left + n.width / 2, y: n.top - box.top + n.height / 2 };
+    });
+  }
+
+  function draw() {
+    if (window.matchMedia('(max-width: 900px)').matches) return;
+    [...svg.querySelectorAll('path, circle')].forEach((el) => el.remove());
+    const c = centers();
+    const ends = c.map((p, i) => {
+      const down = i % 2 === 0; // even steps: arc below; odd: arc above
+      const y = down ? p.y + DY : p.y - DY;
+      return { l: { x: p.x - HALF, y }, r: { x: p.x + HALF, y }, down };
+    });
+    const mk = (d, color, width, glow) => {
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('stroke', color);
+      path.setAttribute('stroke-width', width);
+      path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('fill', 'none');
+      if (width === 3) path.setAttribute('stroke-dasharray', '6 6');
+      if (glow) path.setAttribute('filter', 'url(#wave-orange-glow)');
+      svg.appendChild(path);
+      return path;
+    };
+    for (let i = 0; i < c.length - 1; i++) {
+      const d = `M ${ends[i].r.x} ${ends[i].r.y} L ${ends[i + 1].l.x} ${ends[i + 1].l.y}`;
+      const lit = i < active + 1 && i <= active;
+      mk(d, lit ? ORANGE : NAVY, 3, lit);
+      if (i === active) {
+        const dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('r', '4');
+        dot.setAttribute('fill', ORANGE);
+        dot.setAttribute('filter', `drop-shadow(0 0 5px ${ORANGE})`);
+        const anim = document.createElementNS(NS, 'animateMotion');
+        anim.setAttribute('path', d);
+        anim.setAttribute('dur', '1.6s');
+        anim.setAttribute('repeatCount', 'indefinite');
+        dot.appendChild(anim);
+        svg.appendChild(dot);
+      }
+    }
+    ends.forEach((e, i) => {
+      const sweep = e.down ? 0 : 1;
+      const lit = i <= active;
+      mk(`M ${e.l.x} ${e.l.y} A ${R} ${R} 0 0 ${sweep} ${e.r.x} ${e.r.y}`, lit ? ORANGE : NAVY, 11, i === active);
+    });
+  }
+
+  function setActive(i) {
+    active = i;
+    steps.forEach((s, k) => {
+      s.classList.toggle('is-active', k === i);
+      s.classList.toggle('is-done', k < i);
+    });
+    draw();
+  }
+
+  function start() {
+    if (prefersReducedMotion) return;
+    stop();
+    timer = setInterval(() => setActive((active + 1) % steps.length), 3200);
+  }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+
+  steps.forEach((s, i) => {
+    s.addEventListener('mouseenter', () => { stop(); setActive(i); });
+    s.addEventListener('focus', () => { stop(); setActive(i); });
+    s.addEventListener('click', () => { stop(); setActive(i); });
+  });
+  wave.addEventListener('mouseleave', start);
+
+  window.addEventListener('resize', draw, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  setActive(0);
+  setTimeout(draw, 400);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((en) => en.forEach((x) => (x.isIntersecting ? (draw(), start()) : stop())), { threshold: 0.25 }).observe(wave);
+  } else start();
+})();
