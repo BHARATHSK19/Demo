@@ -9601,11 +9601,13 @@ body.modal-open {
   -webkit-user-select: none;
   user-select: none;
   width: max-content;
-  animation: 45s linear infinite logoLoop;
   display: flex;
+  -webkit-animation: logoLoop 32s linear infinite;
+  animation: logoLoop 32s linear infinite;
 }
 
 .logoloop__track:hover {
+  -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
 
@@ -9648,19 +9650,32 @@ body.modal-open {
   }
 }
 
-@keyframes logoLoop {
+@-webkit-keyframes logoLoop {
   0% {
-    transform: translate(0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate(-50%, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes logoLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .logoloop__track {
-    animation: none !important;
-    transform: none !important;
+    -webkit-animation-duration: 60s;
+    animation-duration: 60s;
   }
 }
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ojix-site-v15';
+const CACHE_NAME = 'ojix-site-v16';
 const CORE_ASSETS = [
   './', './index.html', './styles.css', './app.js', './assets/vendor/visual-effects.js', './manifest.webmanifest',
   './assets/ojix-primary-transparent-onlight.svg',
