@@ -46,8 +46,88 @@
   <!-- FONTS & STYLES -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5.0.0" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+
+  <style>
+    /* System Fixed Style: 100% Left-Aligned Product Hero */
+    .pillar-hero-21 .hero-21-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      max-width: var(--shell) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .pillar-hero-21 .hero-21-header {
+      align-self: flex-start !important;
+      align-items: flex-start !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      text-align: left !important;
+      width: auto !important;
+    }
+    .pillar-hero-21 .hero-eyebrow-pill {
+      align-self: flex-start !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      text-align: left !important;
+    }
+    .pillar-hero-21 .hero-21-title {
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      max-width: 18ch !important;
+      width: 100% !important;
+    }
+    .pillar-hero-21 .hero-21-title span,
+    .pillar-hero-21 .hero-21-title em,
+    .pillar-hero-21 .hero-gradient-text {
+      color: #C9662F !important;
+      background: none !important;
+      -webkit-text-fill-color: #C9662F !important;
+    }
+    .pillar-hero-21 .hero-21-lede {
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      max-width: 64ch !important;
+      width: 100% !important;
+    }
+    .pillar-hero-21 .hero-21-actions {
+      justify-content: flex-start !important;
+      align-items: center !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+    .pillar-hero-21 .hero-21-proof {
+      justify-content: flex-start !important;
+      align-items: center !important;
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      max-width: 64ch !important;
+    }
+    .pillar-hero-21 .hero-21-platform-strip {
+      justify-content: flex-start !important;
+      align-items: center !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+    .pillar-hero-21 .hero-engine-surface,
+    .pillar-hero-21 .hero-gradient-card {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      text-align: left !important;
+    }
+  </style>
 
   <!-- APP INTERACTIVITY SCRIPT -->
   <script src="app.js?v=5.0.0" defer></script>
@@ -160,7 +240,7 @@
   }
   </script>
 </head>
-<body>
+<body id="top">
     <!-- SCROLL PROGRESS BAR -->
   <div class="scroll-progress" id="scroll-progress"></div>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -169,21 +249,215 @@
   <div class="topline"><span class="topline-dot"></span> OJIX ENGINEERING &amp; TECHNOLOGY LLP <span class="topline-sep">·</span> BENGALURU, INDIA</div>
 
   <!-- SITE HEADER -->
-  <header class="site-header" id="top">
+  <header class="site-header eleks-header">
     <div class="nav-wrap shell">
       <a href="index.html" class="brand" aria-label="OJIX home"><img src="assets/ojix-primary-transparent-onlight.svg" alt="OJIX" width="124" height="60" /></a>
       <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-        <a href="index.html#platforms">All Platforms</a>
-        <a href="legalos.html" class="nav-active">LegalOS</a>
-        <a href="procureos.html">ProcureOS</a>
-        <a href="campusos.html">CampusOS</a>
-        <a href="dpdp-compliance.html">DPDP 2025 Guide</a>
-        <a href="index.html#security-trust">Security</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="#contact" class="nav-cta">Discuss a project <span aria-hidden="true">↗</span></a>
+      <nav class="main-nav eleks-nav" id="main-nav" aria-label="Main navigation">
+        <!-- MEGA-MENU 1: PRODUCTS -->
+        <div class="nav-item-has-mega" data-mega="platforms">
+          <a href="index.html#platforms" class="nav-top-link is-active" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-link-text">Products</span>
+            <span class="nav-dot-indicator" aria-hidden="true"></span>
+          </a>
+          <div class="eleks-mega-dropdown" role="region" aria-label="Products subtabs">
+            <div class="eleks-mega-inner">
+              <div class="eleks-mega-left" role="tablist" aria-label="Select product">
+                <a href="companyos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Company Management System"
+                   data-preview-desc="Run your daily office work in one place—staff attendance, monthly salaries, accounting, GST billing, and team approvals."
+                   data-preview-badge="ALL-IN-ONE OFFICE &amp; ERP"
+                   data-preview-img="assets/generated/ui-company-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z"/><path d="M12 12L20 7.5M12 12V21M12 12L4 7.5"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Company Management</span>
+                </a>
+                <a href="legalos.html" class="eleks-subtab is-active" role="tab" aria-selected="true"
+                   data-preview-title="Legal Practice System"
+                   data-preview-desc="Help your law firm track court hearing dates, case files, client updates, and legal billing without missing a single deadline."
+                   data-preview-badge="LAW FIRMS &amp; ADVOCATES"
+                   data-preview-img="assets/generated/ui-legal-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Legal Practice System</span>
+                </a>
+                <a href="procureos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Purchase &amp; Inventory System"
+                   data-preview-desc="Manage supplier quotes, purchase orders, warehouse stock, and incoming GST bills so you only pay for what was actually delivered."
+                   data-preview-badge="PURCHASING &amp; WAREHOUSE"
+                   data-preview-img="assets/generated/ui-purchase-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Purchase &amp; Inventory</span>
+                </a>
+                <a href="campusos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="School &amp; College System"
+                   data-preview-desc="Manage student admissions, daily attendance, fee payments, timetables, and exam report cards in one easy dashboard."
+                   data-preview-badge="SCHOOLS &amp; COLLEGES"
+                   data-preview-img="assets/generated/ui-campus-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">School &amp; College System</span>
+                </a>
+                <a href="buildos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Construction Management System"
+                   data-preview-desc="Track daily work at construction sites, monitor cement and steel usage, verify contractor bills, and keep project budgets on track."
+                   data-preview-badge="BUILDERS &amp; CONTRACTORS"
+                   data-preview-img="assets/generated/ui-construction-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Construction System</span>
+                </a>
+                <a href="travelos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Travel &amp; Booking System"
+                   data-preview-desc="Handle customer trip enquiries, tour packages, hotel and flight bookings, and driver schedules from one clean screen."
+                   data-preview-badge="TRAVEL AGENCIES &amp; TOURS"
+                   data-preview-img="assets/generated/ui-travel-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Travel &amp; Booking</span>
+                </a>
+                <a href="fitos.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Gym &amp; Fitness System"
+                   data-preview-desc="Manage member check-ins, biometric entry gates, trainer schedules, and automatic membership renewal reminders effortlessly."
+                   data-preview-badge="GYMS &amp; FITNESS STUDIOS"
+                   data-preview-img="assets/generated/ui-gym-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Gym &amp; Fitness System</span>
+                </a>
+                <a href="dpdp-compliance.html" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Data Privacy &amp; Document Vault"
+                   data-preview-desc="Store important company and customer files safely with clear access permissions and built-in Indian data privacy compliance."
+                   data-preview-badge="SECURE FILE &amp; PRIVACY VAULT"
+                   data-preview-img="assets/generated/ui-privacy-vault.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Data Privacy Vault</span>
+                </a>
+              </div>
+              <div class="eleks-mega-right" aria-live="polite">
+                <div class="eleks-mega-preview-head">
+                  <span class="eleks-preview-kicker">LAW FIRMS &amp; ADVOCATES</span>
+                  <h3 class="eleks-preview-title">Legal Practice System</h3>
+                  <p class="eleks-preview-desc">Help your law firm track court hearing dates, case files, client updates, and legal billing without missing a single deadline.</p>
+                  <a href="legalos.html" class="eleks-preview-cta"><span>Explore Platform</span> <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <a href="legalos.html" class="eleks-mega-preview-media" aria-label="Explore Legal Practice System">
+                  <img src="assets/generated/ui-legal-system.jpg" alt="Legal Practice System dashboard preview" class="eleks-preview-img" loading="lazy" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEGA-MENU 2: SERVICES -->
+        <div class="nav-item-has-mega" data-mega="capabilities">
+          <a href="index.html#capabilities" class="nav-top-link" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-link-text">Services</span>
+            <span class="nav-dot-indicator" aria-hidden="true"></span>
+          </a>
+          <div class="eleks-mega-dropdown" role="region" aria-label="Services subtabs">
+            <div class="eleks-mega-inner">
+              <div class="eleks-mega-left" role="tablist" aria-label="Select service">
+                <a href="index.html#capabilities" class="eleks-subtab is-active" role="tab" aria-selected="true"
+                   data-preview-title="Custom Business Software"
+                   data-preview-desc="We build simple, reliable web and mobile software tailored to how your team actually works every day."
+                   data-preview-badge="CUSTOM SOFTWARE DEVELOPMENT"
+                   data-preview-img="assets/generated/ui-company-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Custom Business Software</span>
+                </a>
+                <a href="index.html#capabilities" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Smart AI &amp; Document Automation"
+                   data-preview-desc="Automatically read scanned bills, forms, and PDFs so your staff doesn’t have to type the same details by hand."
+                   data-preview-badge="PRACTICAL AI AUTOMATION"
+                   data-preview-img="assets/generated/ui-purchase-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Smart AI Automation</span>
+                </a>
+                <a href="index.html#capabilities" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Connect Your Existing Tools"
+                   data-preview-desc="Link your software with Tally, Zoho, banking portals, GST billing, WhatsApp alerts, and biometric machines."
+                   data-preview-badge="SOFTWARE INTEGRATIONS"
+                   data-preview-img="assets/generated/ui-travel-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Tool Integrations</span>
+                </a>
+                <a href="index.html#capabilities" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Secure Cloud Hosting in India"
+                   data-preview-desc="Fast, dependable hosting on Indian servers with automatic daily backups and 24/7 monitoring."
+                   data-preview-badge="RELIABLE INDIAN CLOUD"
+                   data-preview-img="assets/generated/ui-privacy-vault.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Secure Cloud Hosting</span>
+                </a>
+                <a href="index.html#solution-finder" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Product Planning &amp; Screen Design"
+                   data-preview-desc="See clickable screen designs of your new software in 2–3 weeks before we write a single line of code."
+                   data-preview-badge="2–3 WEEK PLANNING SPRINT"
+                   data-preview-img="assets/generated/ui-campus-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Planning &amp; UI Design</span>
+                </a>
+                <a href="index.html#security-trust" class="eleks-subtab" role="tab" aria-selected="false"
+                   data-preview-title="Data Privacy &amp; Staff Permissions"
+                   data-preview-desc="Control exactly who can view, edit, or approve records with full activity history and Indian privacy compliance."
+                   data-preview-badge="SECURITY &amp; ACCESS CONTROL"
+                   data-preview-img="assets/generated/ui-legal-system.jpg">
+                  <span class="eleks-subtab-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </span>
+                  <span class="eleks-subtab-label">Privacy &amp; Security</span>
+                </a>
+              </div>
+              <div class="eleks-mega-right" aria-live="polite">
+                <div class="eleks-mega-preview-head">
+                  <span class="eleks-preview-kicker">CUSTOM SOFTWARE DEVELOPMENT</span>
+                  <h3 class="eleks-preview-title">Custom Business Software</h3>
+                  <p class="eleks-preview-desc">We build simple, reliable web and mobile software tailored to how your team actually works every day.</p>
+                  <a href="index.html#capabilities" class="eleks-preview-cta"><span>Explore Service</span> <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <a href="index.html#capabilities" class="eleks-mega-preview-media" aria-label="Explore Custom Business Software">
+                  <img src="assets/generated/ui-company-system.jpg" alt="Custom Business Software preview" class="eleks-preview-img" loading="lazy" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="index.html#process" class="nav-top-link"><span class="nav-link-text">How we work</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="index.html#security-trust" class="nav-top-link"><span class="nav-link-text">Security</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="index.html#faq" class="nav-top-link"><span class="nav-link-text">FAQ</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="index.html#about" class="nav-top-link"><span class="nav-link-text">About OJIX</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
+        <a href="https://wa.me/919008877883" class="ojix-wa-nav-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with OJIX on WhatsApp" title="Chat on WhatsApp">
+          <span class="ojix-wa-pulse" aria-hidden="true"></span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.461 3.484 1.336 5.008L2 22l5.156-1.352a9.932 9.932 0 0 0 4.875 1.289h.004c5.516 0 9.965-4.453 9.965-9.969 0-2.664-1.039-5.168-2.922-7.051C17.199 3.039 14.695 2 12.031 2zm5.824 14.27c-.242.684-1.414 1.309-1.957 1.387-.504.074-1.141.105-1.844-.117-.426-.137-.973-.316-1.676-.621-2.953-1.273-4.883-4.25-5.031-4.449-.148-.195-1.203-1.602-1.203-3.055 0-1.453.762-2.168 1.031-2.465.27-.293.59-.367.785-.367.195 0 .395.004.566.012.184.008.426-.07.668.508.246.59.836 2.039.91 2.188.074.148.121.32.023.516-.098.199-.148.32-.293.492-.148.172-.312.383-.445.516-.148.148-.301.309-.129.605.172.293.766 1.262 1.645 2.047 1.129 1.008 2.082 1.32 2.379 1.469.293.148.465.125.641-.074.172-.199.738-.863.934-1.156.195-.297.395-.246.664-.148.27.098 1.723.813 2.016.961.297.148.492.223.566.344.074.125.074.715-.168 1.398z"/>
+          </svg>
+        </a>
+        <a class="nav-cta eleks-nav-cta" href="#contact">Discuss a project <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
+    <div class="eleks-header-backdrop" id="eleks-header-backdrop" aria-hidden="true"></div>
   </header>
 
   <main id="main">
@@ -194,16 +468,6 @@
       <div class="hero-aurora-overlay" aria-hidden="true"></div>
 
       <div class="shell hero-21-content reveal">
-        <!-- BREADCRUMBS -->
-        <div class="pillar-breadcrumb-wrap">
-          <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
-            <ol class="breadcrumb-list">
-              <li><a href="index.html">Home</a><span class="breadcrumb-sep" aria-hidden="true">/</span></li>
-              <li><a href="index.html#platforms">Platforms</a><span class="breadcrumb-sep" aria-hidden="true">/</span></li>
-              <li aria-current="page">LegalOS (Litigation)</li>
-            </ol>
-          </nav>
-        </div>
 
         <!-- GLOWING ORB MARK & SOVEREIGN STATUS PILL -->
         <div class="hero-21-header">
@@ -478,88 +742,113 @@
       </div>
     </section>
 
-    <!-- TECHNICAL SPECIFICATIONS TABLE -->
+    <!-- ENGINEERING SPECIFICATIONS: 3-CARD BENTO GRID -->
     <section class="section-pad" style="background: var(--soft);">
       <div class="shell reveal">
         <div class="section-heading">
           <div>
             <div class="eyebrow">ENGINEERING SPECIFICATIONS</div>
-            <h2>Technical &amp; security architecture<br /><em>built for sovereign compliance.</em></h2>
+            <h2>Technology, integrations &amp; sovereignty<br /><em>built for sovereign legal compliance.</em></h2>
           </div>
-          <p>Legal data demands uncompromising security. Here is how LegalOS protects your chamber’s most sensitive commercial and litigious assets.</p>
+          <p>Legal data demands uncompromising procedural security. Here is how LegalOS protects your chamber’s most sensitive commercial and litigious assets.</p>
         </div>
 
-        <div class="table-responsive">
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>Operational Dimension</th>
-                <th>LegalOS Architecture</th>
-                <th>Commercial / Regulatory Benefit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Data Residency</strong></td>
-                <td><span class="spec-highlight">100% Indian Sovereign Territory</span> (MeitY Empanelled Tier-IV)</td>
-                <td>Conforms to DPDP Act 2023 &amp; 2025 Rules. Zero cross-border data leakage.</td>
-              </tr>
-              <tr>
-                <td><strong>Encryption Standard</strong></td>
-                <td>AES-256 for all stored files; TLS 1.3 with strict HSTS for all network traffic</td>
-                <td>Prevents unauthorized intercept of privileged attorney-client correspondence.</td>
-              </tr>
-              <tr>
-                <td><strong>Deployment Model</strong></td>
-                <td>Dedicated single-tenant VPC or managed sovereign multi-tier instance</td>
-                <td>No multi-tenant database co-mingling. Complete database isolation.</td>
-              </tr>
-              <tr>
-                <td><strong>Judicial Integrations</strong></td>
-                <td>e-Courts Services, High Court Web Portals, NCLT, Supreme Court of India</td>
-                <td>Automates manual cause list verification and order PDF downloads.</td>
-              </tr>
-              <tr>
-                <td><strong>Grievance &amp; Audit</strong></td>
-                <td>Cryptographic immutable audit logs with designated Grievance Officer (48h SLA)</td>
-                <td>Strict compliance with Section 13 of the Digital Personal Data Protection Act.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="spec-bento-grid" role="region" aria-label="Technology, Integrations &amp; Sovereignty Specifications">
+          <!-- Card 1: Judicial Sync & Limitation Tracking Core -->
+          <article class="spec-bento-card">
+            <div class="spec-bento-badge">
+              <span class="spec-badge-dot"></span>
+              <span>JUDICIAL CORE</span>
+            </div>
+            <div class="spec-bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                <path d="M7 21h10"/>
+              </svg>
+            </div>
+            <h3 class="spec-bento-title">Judicial Sync &amp; Limitation Engine</h3>
+            <p class="spec-bento-desc">Automated appellate docketing engine connected directly with Indian e-Courts and statutory limitation rules.</p>
+            <ul class="spec-bento-list">
+              <li>
+                <strong>Automated Cause List Scraping:</strong>
+                <span>Direct ingestion from District Courts, High Courts, NCLT, and the Supreme Court of India with board shift alerts.</span>
+              </li>
+              <li>
+                <strong>Statutory Limitation Act Engine:</strong>
+                <span>Calculates precise filing windows, counts court vacations and gazetted holidays, preventing missed procedural dates.</span>
+              </li>
+              <li>
+                <strong>Real-Time Conflict-of-Interest Screening:</strong>
+                <span>Algorithmic conflict screening across historical matter files, counter-parties, and senior counsel briefs.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card 2: Legal Practice & Invoicing Fabric -->
+          <article class="spec-bento-card spec-bento-featured">
+            <div class="spec-bento-badge">
+              <span class="spec-badge-dot"></span>
+              <span>PRACTICE FABRIC</span>
+            </div>
+            <div class="spec-bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="spec-bento-title">SAC 9982 Billing &amp; Client Portal</h3>
+            <p class="spec-bento-desc">Pre-configured for Indian GST legal services rules, appearance fee schedules, and gated client transparency.</p>
+            <ul class="spec-bento-list">
+              <li>
+                <strong>SAC 9982 Indian GST Legal Invoicing:</strong>
+                <span>Automated retainer schedules, court appearance fees, conference hours, and e-invoices with RCM tax support.</span>
+              </li>
+              <li>
+                <strong>Privileged Institutional Client Portal:</strong>
+                <span>General Counsels access interim orders, certified copy archives, and next hearing briefs without manual email exchanges.</span>
+              </li>
+              <li>
+                <strong>Dedicated Single-Tenant VPC Deployment:</strong>
+                <span>Zero multi-tenant database co-mingling. Deployed within dedicated institutional VPCs under partner custody.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card 3: Sovereign Vault & DPDP 2025 Security -->
+          <article class="spec-bento-card">
+            <div class="spec-bento-badge">
+              <span class="spec-badge-dot"></span>
+              <span>DATA SOVEREIGNTY</span>
+            </div>
+            <div class="spec-bento-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="spec-bento-title">Sovereign Vault &amp; DPDP 2025 Security</h3>
+            <p class="spec-bento-desc">MeitY-empanelled Tier-IV infrastructure upholding strict Bar Council professional confidentiality standards.</p>
+            <ul class="spec-bento-list">
+              <li>
+                <strong>100% Indian Sovereign Territory:</strong>
+                <span>Hosted exclusively in Bengaluru and Mumbai data centers. Zero cross-border mirroring or external data harvesting.</span>
+              </li>
+              <li>
+                <strong>AES-256 Privileged File Encryption:</strong>
+                <span>Tenant-isolated cryptographic keys, TLS 1.3 with strict HSTS, and ethical wall access barriers across practice areas.</span>
+              </li>
+              <li>
+                <strong>DPDP Act 2023 &amp; 2025 Rules Defensibility:</strong>
+                <span>Cryptographic audit logs, designated Grievance Officer workflow (48h SLA), and complete statutory data defensibility.</span>
+              </li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- REAL-WORLD FIELD VALIDATION -->
-    <section class="section-pad">
-      <div class="shell reveal">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">FIELD VALIDATION</div>
-            <h2>Trusted by leading litigation chambers<br /><em>across Southern India.</em></h2>
-          </div>
-          <p>Real outcomes from partner law firms who transitioned their daily practices to the LegalOS operating model.</p>
-        </div>
-
-        <div class="client-impact-row" style="margin-top: 32px;">
-          <div class="client-impact-card">
-            <span class="impact-stat">1,200+</span>
-            <span class="impact-title">Active Matters Managed</span>
-            <p class="impact-desc">BNN Law Firm streamlined multi-court commercial litigation across High Courts and City Civil Courts without a single unassigned date.</p>
-          </div>
-          <div class="client-impact-card">
-            <span class="impact-stat">0</span>
-            <span class="impact-title">Missed Limitation Cutoffs</span>
-            <p class="impact-desc">GVS Law Chambers deployed our automated Limitation Act calculation engine, eliminating manual diary risks in civil appeals.</p>
-          </div>
-          <div class="client-impact-card">
-            <span class="impact-stat">3.5x</span>
-            <span class="impact-title">Faster Client Reporting</span>
-            <p class="impact-desc">General Counsels of institutional clients access automated post-hearing briefs directly through the privileged client portal.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- FREQUENTLY ASKED QUESTIONS (Standardized Accordion) -->
     <section class="faq-section section-pad" id="faq" style="border-top: 1px solid var(--line);">
@@ -716,7 +1005,7 @@
     <div class="shell footer-bottom">
       <span>© <span id="year"></span> OJIX Engineering &amp; Technology LLP · Bengaluru, Karnataka, India</span>
       <span>DPDP ACT (2023) &amp; DPDP RULES (2025) COMPLIANT · DATA PRINCIPAL RIGHTS ENFORCED</span>
-      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      <a href="#top" class="back-to-top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 

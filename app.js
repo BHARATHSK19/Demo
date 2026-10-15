@@ -27,6 +27,42 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll, { passive: true });
 handleScroll();
 
+// 1B. BACK TO TOP SMOOTH SCROLL HANDLER
+function handleScrollToTop(e) {
+  if (e) e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Clear or avoid leaving a dead #top hash if smooth-scroll handlers intercept a[href^="#"]
+  if (window.location.hash === '#top' || window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+}
+
+function initBackToTop() {
+  document.querySelectorAll('a[href="#top"], .back-to-top').forEach((el) => {
+    el.addEventListener('click', handleScrollToTop);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented) return;
+    const trigger = e.target.closest('a[href="#top"], .back-to-top');
+    if (trigger) {
+      handleScrollToTop(e);
+    }
+  });
+
+  // Clear or avoid leaving a dead #top hash on page load if present
+  if (window.location.hash === '#top') {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBackToTop);
+} else {
+  initBackToTop();
+}
+
 const heroVisual = document.querySelector('.hero-visual');
 const workspaceWindow = document.getElementById('workspace-window') || document.getElementById('discovery-instrument');
 
@@ -619,6 +655,10 @@ function prefillEnquiryForm(desiredInterest, customMessage) {
 
 document.querySelectorAll('[data-interest]').forEach((element) => {
   const handler = (e) => {
+    const href = element.getAttribute('href');
+    if (href && !href.startsWith('#')) {
+      return; // Allow standard page navigation to .html pages
+    }
     e.preventDefault();
     const desired = element.dataset.interest;
     const msg = element.dataset.message || '';
@@ -990,6 +1030,7 @@ megaContainers.forEach((container) => {
       const newDesc = subtab.getAttribute('data-preview-desc') || '';
       const newBadge = subtab.getAttribute('data-preview-badge') || '';
       const newImg = subtab.getAttribute('data-preview-img') || '';
+      const newHref = subtab.getAttribute('href') || '#';
 
       if (previewTitle.textContent !== newTitle) {
         rightPanel.classList.add('is-switching');
@@ -1000,6 +1041,8 @@ megaContainers.forEach((container) => {
           previewImg.src = newImg;
           previewImg.alt = `${newTitle} preview`;
         }
+        const rightLinks = rightPanel.querySelectorAll('a');
+        rightLinks.forEach((link) => link.setAttribute('href', newHref));
         setTimeout(() => rightPanel.classList.remove('is-switching'), 160);
       }
     }
@@ -1018,6 +1061,13 @@ megaContainers.forEach((container) => {
   if (topLink) {
     topLink.addEventListener('mouseenter', () => {
       topLink.setAttribute('aria-expanded', 'true');
+    });
+    topLink.addEventListener('click', (e) => {
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        const isOpen = container.classList.toggle('is-mega-open');
+        topLink.setAttribute('aria-expanded', String(isOpen));
+      }
     });
     container.addEventListener('mouseleave', () => {
       topLink.setAttribute('aria-expanded', 'false');
