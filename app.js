@@ -1284,3 +1284,82 @@ if (heroCards.length > 0) {
     new IntersectionObserver((en) => en.forEach((x) => (x.isIntersecting ? (draw(), start()) : stop())), { threshold: 0.25 }).observe(wave);
   } else start();
 })();
+
+// ============================================================================
+// 16. OJIX DUAL-DEVICE SHOWCASE AUTO-CROSSFADE CAROUSEL (OPTION B MOCKUPS)
+// ============================================================================
+(function initDeviceShowcaseCarousel() {
+  const showcases = document.querySelectorAll('.ojix-device-showcase');
+  if (!showcases.length) return;
+
+  showcases.forEach((showcase) => {
+    const desktopSlides = showcase.querySelectorAll('.ds-slide');
+    const phoneSlides = showcase.querySelectorAll('.phone-slide');
+    const dots = showcase.querySelectorAll('.ds-dot');
+    const capsuleText = showcase.querySelector('.ds-capsule-badge .capsule-text');
+    const totalSlides = desktopSlides.length;
+    if (totalSlides === 0) return;
+
+    let currentIndex = 0;
+    let timer = null;
+    const INTERVAL_MS = 4000;
+
+    function goToSlide(index) {
+      currentIndex = (index + totalSlides) % totalSlides;
+
+      // Update Desktop Slides
+      desktopSlides.forEach((slide, idx) => {
+        slide.classList.toggle('is-active', idx === currentIndex);
+      });
+
+      // Update Phone Slides
+      phoneSlides.forEach((slide, idx) => {
+        slide.classList.toggle('is-active', idx === currentIndex);
+      });
+
+      // Update Dots
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('is-active', idx === currentIndex);
+      });
+
+      // Update Floating Capsule Badge Text
+      if (capsuleText && desktopSlides[currentIndex]) {
+        const badgeLabel = desktopSlides[currentIndex].getAttribute('data-badge-text');
+        if (badgeLabel) {
+          capsuleText.textContent = badgeLabel;
+        }
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, INTERVAL_MS);
+    }
+
+    function stopTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    // Dot click listeners
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(idx);
+        startTimer();
+      });
+    });
+
+    // Pause on hover
+    showcase.addEventListener('mouseenter', stopTimer);
+    showcase.addEventListener('mouseleave', startTimer);
+
+    // Initial slide
+    goToSlide(0);
+    startTimer();
+  });
+})();
