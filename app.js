@@ -524,23 +524,62 @@ if (document.readyState === 'loading') {
 
 // 5. NAVIGATION SCROLLSPY
 const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+const homeLink = document.querySelector('.main-nav a[href="index.html"]');
 const trackedSections = document.querySelectorAll('section[id], header[id]');
 
 if (navLinks.length > 0 && trackedSections.length > 0 && 'IntersectionObserver' in window) {
+  const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
+        let sectionMatched = false;
         navLinks.forEach((link) => {
           const href = link.getAttribute('href');
           const isMatch = href === `#${id}`;
           link.classList.toggle('is-active', isMatch);
+          if (isMatch) sectionMatched = true;
         });
+        if (isHomePage && homeLink) {
+          if (sectionMatched && id !== 'top') {
+            homeLink.classList.remove('is-active');
+          }
+        }
       }
     });
   }, { threshold: 0.25, rootMargin: '-60px 0px -40% 0px' });
 
   trackedSections.forEach((sec) => sectionObserver.observe(sec));
+
+  if (isHomePage && homeLink) {
+    window.addEventListener('scroll', () => {
+      if ((window.scrollY || document.documentElement.scrollTop) < 120 && !window.location.hash) {
+        navLinks.forEach((l) => l.classList.remove('is-active'));
+        homeLink.classList.add('is-active');
+      }
+    }, { passive: true });
+  }
+}
+
+// Instant active feedback on nav link click & initial hash load
+if (navLinks.length > 0) {
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.forEach((l) => l.classList.remove('is-active'));
+      if (homeLink) homeLink.classList.remove('is-active');
+      link.classList.add('is-active');
+    });
+  });
+
+  if (window.location.hash) {
+    const activeByHash = document.querySelector(`.main-nav a[href="${window.location.hash}"]`);
+    if (activeByHash) {
+      navLinks.forEach((l) => l.classList.remove('is-active'));
+      if (homeLink) homeLink.classList.remove('is-active');
+      activeByHash.classList.add('is-active');
+    }
+  }
 }
 
 // 5. PLATFORM CARDS SPOTLIGHT HOVER EFFECT

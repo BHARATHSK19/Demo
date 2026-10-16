@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="format-detection" content="telephone=no" />
-  <title>TravelOS — Fleet, Dispatch &amp; Corporate Booking System | OJIX</title>
-  <meta name="description" content="TravelOS is the connected mobility operating system for bus operators, fleet aggregators, and corporate travel desks. Multi-channel inventory sync, AIS-140 GPS telemetry, and automated GST billing." />
+  <title>Travel OS — AI-Powered Travel Management System | OJIX</title>
+  <meta name="description" content="Travel OS by RAKTIX &amp; Eagle's Eye Destination: The AI-Powered Travel Management System Built for Modern Travel Businesses. Unify enquiries, quotations, bookings, travellers, suppliers, payments, and fleet operations." />
   <meta name="keywords" content="bus reservation software India, fleet management system, travel agency ERP, AIS 140 GPS tracking software, corporate travel desk software, OTA inventory sync, OJIX TravelOS" />
   <meta name="author" content="OJIX Engineering &amp; Technology LLP" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -130,6 +130,50 @@
       max-width: 100% !important;
       text-align: left !important;
     }
+
+    /* Module Card Expansion Details */
+    .module-expand-details {
+      margin-top: 10px;
+      margin-bottom: 16px;
+      border-top: 1px dashed #E2E8F0;
+      padding-top: 12px;
+    }
+    .module-expand-trigger {
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      list-style: none;
+    }
+    .module-expand-trigger::-webkit-details-marker {
+      display: none;
+    }
+    .module-expand-trigger:hover {
+      color: #9A3E1B;
+    }
+    .module-expand-details[open] .expand-arrow {
+      transform: rotate(180deg);
+    }
+    .expand-arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 12px;
+    }
+    .module-expand-content {
+      padding-top: 10px;
+    }
+    .module-expand-content p {
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      color: #475569 !important;
+      margin: 0 !important;
+      flex-grow: 0 !important;
+    }
   </style>
 
   <!-- APP INTERACTIVITY SCRIPT -->
@@ -146,7 +190,7 @@
         "name": "TravelOS",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Cloud / Web / Mobile Edge",
-        "description": "Enterprise fleet dispatch and multi-channel travel reservation operating system connecting bus operators, corporate travel desks, and distribution APIs in real time.",
+        "description": "Enterprise AI-powered travel management system built for travel agencies, DMCs, and tour operators. Unifying enquiries, quotations, bookings, travellers, suppliers, payments, and fleet operations.",
         "creator": {
           "@type": "Organization",
           "@id": "https://ojix.in/#organization",
@@ -174,42 +218,42 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How does TravelOS prevent seat inventory double-booking across multiple OTAs?",
+            "name": "What is Travel OS and who is it built for?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "TravelOS implements distributed Redis in-memory locks. When an agent or customer initiates a booking on RedBus, AbhiBus, MakeMyTrip, or your direct counter, the seat is locked instantaneously across all channels with millisecond timeout controls."
+              "text": "Travel OS by RAKTIX and Eagle's Eye Destination is an all-in-one AI travel management system built for modern travel agencies, tour operators, DMCs, MICE planners, and corporate travel desks. It unifies enquiries, smart quotes, itineraries, visas, suppliers, fleet dispatch, and invoicing on a single platform."
             }
           },
           {
             "@type": "Question",
-            "name": "Does TravelOS support mandatory government AIS-140 GPS tracking?",
+            "name": "How does the Smart Quote Engine calculate transport and tour fares?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. TravelOS has native telematics listeners supporting AIS-140, Teltonika, and Concox protocols. Location, SOS alerts, speed violations, and unauthorized route detours stream directly to your centralized operations cockpit with sub-5-second latency."
+              "text": "The Smart Quote Engine automatically calculates point-to-point distance and travel duration, applies contracted vehicle rates, and adds a customizable 10 km, 15 km, or percentage-based buffer to generate an accurate, ready-to-send quote in under 60 seconds."
             }
           },
           {
             "@type": "Question",
-            "name": "How does the system streamline corporate duty slip approvals and billing?",
+            "name": "Can Travel OS handle both international holiday packages and domestic fleet dispatch?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Drivers close duty slips on the mobile driver app. The system records start/end GPS odometer readings, automated FASTag toll deductions, and passenger OTP confirmation, instantly generating SAC 9964 GST e-invoices with zero manual billing disputes."
+              "text": "Yes. Travel OS supports international multi-day itineraries for destinations like Dubai, Bali, Thailand, Singapore, and Europe, alongside domestic outstation cab quoting, live GPS vehicle tracking, and automated driver assignments."
             }
           },
           {
             "@type": "Question",
-            "name": "Can TravelOS handle dynamic tariff rules during festive rush periods?",
+            "name": "How much time and revenue can a travel agency save with Travel OS?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Our automated yield management engine adjusts fares in real time based on departure proximity, remaining seat inventory, historical festive demand spikes, and competitor scraping rules to maximize bus operator revenue."
+              "text": "Businesses using Travel OS report up to 70% less manual administrative work, a 3X faster quote-to-booking turnaround time, and up to 40% higher profitability through automated margin protection, leakage prevention, and single-layer billing reconciliation."
             }
           },
           {
             "@type": "Question",
-            "name": "How are customer phone numbers protected from unauthorized driver harvesting?",
+            "name": "Does Travel OS include a self-service portal for travellers and corporate clients?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Under India's DPDP Act 2023, TravelOS integrates virtual number masking. Drivers and dispatchers connect with passengers via masked VoIP proxy bridges, ensuring passenger phone numbers remain strictly concealed and protected from data harvesting."
+              "text": "Yes. Every booking includes access to a Customer Travel Portal where travellers and corporate managers can view itineraries, upload passport and visa documents, download vouchers, and pay invoices online."
             }
           }
         ]
@@ -232,6 +276,7 @@
       <a href="index.html" class="brand" aria-label="OJIX home"><img src="assets/ojix-primary-transparent-onlight.svg" alt="OJIX" width="124" height="60" /></a>
       <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
       <nav class="main-nav eleks-nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-top-link"><span class="nav-link-text">Home</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
         <!-- MEGA-MENU 1: PRODUCTS -->
         <div class="nav-item-has-mega" data-mega="platforms">
           <a href="index.html#platforms" class="nav-top-link is-active" aria-haspopup="true" aria-expanded="false">
@@ -386,7 +431,7 @@
                   </span>
                   <span class="eleks-subtab-label">Secure Cloud Hosting</span>
                 </a>
-                <a href="index.html#solution-finder" class="eleks-subtab" role="tab" aria-selected="false"
+                <a href="index.html#contact" class="eleks-subtab" role="tab" aria-selected="false"
                    data-preview-title="Product Planning &amp; Screen Design"
                    data-preview-desc="See clickable screen designs of your new software in 2–3 weeks before we write a single line of code."
                    data-preview-badge="2–3 WEEK PLANNING SPRINT"
@@ -424,7 +469,6 @@
 
         <a href="index.html#process" class="nav-top-link"><span class="nav-link-text">How we work</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
         <a href="index.html#security-trust" class="nav-top-link"><span class="nav-link-text">Security</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
-        <a href="index.html#faq" class="nav-top-link"><span class="nav-link-text">FAQ</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
         <a href="index.html#about" class="nav-top-link"><span class="nav-link-text">About OJIX</span><span class="nav-dot-indicator" aria-hidden="true"></span></a>
         <a href="https://wa.me/919008877883" class="ojix-wa-nav-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with OJIX on WhatsApp" title="Chat on WhatsApp">
           <span class="ojix-wa-pulse" aria-hidden="true"></span>
@@ -451,31 +495,32 @@
             <div class="hero-21-header">
               <div class="hero-eyebrow-pill">
                 <span class="pill-beacon" aria-hidden="true"></span>
-                <span class="pill-label">PURPOSE-BUILT MOBILITY TECH</span>
-                <span class="pill-sep" aria-hidden="true">·</span>
-                <span class="pill-loc">LIVE DISPATCH &amp; RECON</span>
+                <span class="pill-label">EAGLE'S EYE DESTINATION</span>
+                <span class="pill-sep" aria-hidden="true">|</span>
+                <span class="pill-loc">POWERED BY RAKTIX TRAVEL OS</span>
               </div>
             </div>
 
             <!-- HERO HEADLINE -->
             <h1 class="hero-21-title">
-              Connected booking operations<br />
-              <span class="hero-gradient-text">for modern travel.</span>
+              STOP MANAGING TRAVEL MANUALLY.<br />
+              <span class="hero-gradient-text">START GROWING YOUR BUSINESS.</span>
             </h1>
 
             <!-- HERO LEDE -->
             <p class="hero-21-lede">
-              Engineered around multi-channel itinerary reservations, live fleet dispatch, dynamic tariff engines, corporate travel approvals, and automated GST invoicing. Replace fragmented spreadsheets and dispatch phone calls with connected mobility command.
+              <strong>The AI-Powered Travel Management System Built for Modern Travel Businesses</strong><br />
+              Unify enquiries, quotations, bookings, travellers, suppliers, payments, and fleet operations in one intelligent platform. Purpose-built for travel agencies, DMCs, and corporate tour operators to automate manual processes, delight customers, and scale revenue effortlessly.
             </p>
 
             <!-- AMBIENT ACTION LABELS & CTAS -->
             <div class="hero-21-actions">
               <a class="btn btn-primary hero-btn-glow" href="#contact">
-                <span>Schedule Fleet Demo</span>
+                <span>Book a 15-Minute Live Demo</span>
                 <span class="btn-arrow" aria-hidden="true">↗</span>
               </a>
               <a class="btn btn-ghost hero-btn-ambient" href="#modules">
-                <span>Explore Core Engines</span>
+                <span>Explore Core Modules</span>
                 <span class="btn-arrow" aria-hidden="true">↓</span>
               </a>
             </div>
@@ -485,30 +530,30 @@
               <span class="proof-mark">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
               </span>
-              <span>Powering bus operators, cab aggregators, and corporate mobility providers managing <strong>1.4M+ annual bookings</strong> across Indian highways.</span>
+              <span>Powering travel agencies, DMCs, and corporate tour operators managing <strong>652+ Confirmed Monthly Bookings</strong> (+22.7% growth).</span>
             </div>
 
             <!-- 4 PILLAR CAPABILITY PILLS -->
             <div class="hero-21-platform-strip" role="region" aria-label="TravelOS core capabilities">
               <span class="hero-suite-pill">
-                <span class="suite-pill-icon">🚌</span>
-                <span class="suite-pill-name">OTA &amp; GDS Sync</span>
-                <span class="suite-pill-tag">Zero Double-Booking</span>
+                <span class="suite-pill-icon">⚡</span>
+                <span class="suite-pill-name">Smart Quote Engine</span>
+                <span class="suite-pill-tag">Delhi–Manali ₹18,950</span>
               </span>
               <span class="hero-suite-pill">
-                <span class="suite-pill-icon">🛰️</span>
-                <span class="suite-pill-name">AIS-140 GPS Telemetry</span>
-                <span class="suite-pill-tag">Sub-5s Tracking</span>
+                <span class="suite-pill-icon">🌍</span>
+                <span class="suite-pill-name">Trending Destinations</span>
+                <span class="suite-pill-tag">Dubai, Bali, Europe</span>
               </span>
               <span class="hero-suite-pill">
-                <span class="suite-pill-icon">🧾</span>
-                <span class="suite-pill-name">SAC 9964 Invoicing</span>
-                <span class="suite-pill-tag">GST B2B &amp; Duty Slips</span>
+                <span class="suite-pill-icon">📈</span>
+                <span class="suite-pill-name">Monthly Bookings</span>
+                <span class="suite-pill-tag">652 Confirmed (+22.7%)</span>
               </span>
               <span class="hero-suite-pill">
-                <span class="suite-pill-icon">💼</span>
-                <span class="suite-pill-name">Corporate Travel Desk</span>
-                <span class="suite-pill-tag">Policy Auto-Enforce</span>
+                <span class="suite-pill-icon">🚐</span>
+                <span class="suite-pill-name">Fleet &amp; Dispatch</span>
+                <span class="suite-pill-tag">Innova Crysta &amp; Coaches</span>
               </span>
             </div>
           </div>
@@ -526,63 +571,63 @@
                   </div>
                   <div class="ojix-browser-url">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" class="url-lock-icon" aria-hidden="true"><rect width="14" height="10" x="5" y="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-                    <span class="url-text">travelos.ojix.in/dispatch</span>
+                    <span class="url-text">travelos.ojix.in/command</span>
                   </div>
                   <div class="ojix-browser-actions" aria-hidden="true">
-                    <span class="bar-chip"><span class="chip-dot"></span> LIVE 99.98%</span>
+                    <span class="bar-chip"><span class="chip-dot"></span> 652 CONFIRMED</span>
                   </div>
                 </div>
 
                 <div class="ojix-browser-viewport">
                   <!-- Slide 1: Core Dashboard -->
-                  <div class="ds-slide is-active" data-slide="1" data-badge-text="Real-Time Fleet Dispatch">
+                  <div class="ds-slide is-active" data-slide="1" data-badge-text="Monthly Bookings &amp; Quotes">
                     <div class="ds-ui-top">
-                      <span class="ds-ui-crumb"><span>🚌</span> Mobility Command &amp; Live Dispatch</span>
-                      <span class="ds-ui-badge">142 LIVE CABS</span>
+                      <span class="ds-ui-crumb"><span>✈️</span> Travel OS Operations · 652 Confirmed</span>
+                      <span class="ds-ui-badge">+22.7% GROWTH</span>
                     </div>
                     <div class="ds-ui-kpis">
                       <div class="ds-kpi-card">
-                        <span class="ds-kpi-label">Active Cabs</span>
-                        <span class="ds-kpi-val">142</span>
-                        <span class="ds-kpi-trend">↑ AIS-140 GPS</span>
+                        <span class="ds-kpi-label">Monthly Bookings</span>
+                        <span class="ds-kpi-val">652</span>
+                        <span class="ds-kpi-trend">↑ +22.7% YoY</span>
                       </div>
                       <div class="ds-kpi-card">
-                        <span class="ds-kpi-label">Pickup SLA</span>
-                        <span class="ds-kpi-val">8.2m</span>
-                        <span class="ds-kpi-trend">Sub-10 Mins</span>
+                        <span class="ds-kpi-label">Quick Quote</span>
+                        <span class="ds-kpi-val">320 KM</span>
+                        <span class="ds-kpi-trend">Delhi to Manali</span>
                       </div>
                       <div class="ds-kpi-card">
-                        <span class="ds-kpi-label">Daily Billing</span>
-                        <span class="ds-kpi-val">₹18.6 L</span>
-                        <span class="ds-kpi-trend">SAC 9964 OK</span>
+                        <span class="ds-kpi-label">Innova Crysta</span>
+                        <span class="ds-kpi-val">₹18,950</span>
+                        <span class="ds-kpi-trend">10% Buffer Incl.</span>
                       </div>
                     </div>
                     <div class="ds-ui-table">
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Airport Transfer #882 · Cab #12 En Route</span>
-                        <span class="ds-row-tag">DISPATCHED</span>
+                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Quick Quote: Delhi to Manali · 320 KM · Innova Crysta</span>
+                        <span class="ds-row-tag">₹18,950</span>
                       </div>
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Corporate B2B Shift · 28 Cabs Deployed</span>
-                        <span class="ds-row-tag">ON TRIP</span>
+                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Sample Itinerary · Day 1: Arrival in Dubai &amp; Hotel Check-in</span>
+                        <span class="ds-row-tag">SCHEDULED</span>
                       </div>
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot blue"></span> Fastag Toll Reconciliation · Auto-Debited</span>
-                        <span class="ds-row-tag blue">RECONCILED</span>
+                        <span class="ds-row-main"><span class="ds-row-dot blue"></span> Sample Itinerary · Day 2: Burj Khalifa Tour &amp; Desert Safari</span>
+                        <span class="ds-row-tag blue">CONFIRMED</span>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slide 2: Workflows & Analytics -->
-                  <div class="ds-slide" data-slide="2" data-badge-text="Fastag &amp; Fuel Reconciliation">
+                  <div class="ds-slide" data-slide="2" data-badge-text="Trending Destinations &amp; Growth">
                     <div class="ds-ui-top">
-                      <span class="ds-ui-crumb"><span>📊</span> Fuel &amp; Fleet Velocity</span>
-                      <span class="ds-ui-badge green">1.4M+ BOOKINGS</span>
+                      <span class="ds-ui-crumb"><span>🌍</span> Trending Holiday Destinations</span>
+                      <span class="ds-ui-badge green">+22.7% YOY</span>
                     </div>
                     <div class="ds-ui-chart-box">
                       <div class="ds-chart-meta">
-                        <span>Fleet Seat Utilization &amp; Highway Velocity</span>
-                        <span style="color:#10B981;font-weight:600;">+18.4% YoY</span>
+                        <span>Trending Destinations: Dubai, Bali, Thailand, Singapore, Europe</span>
+                        <span style="color:#10B981;font-weight:600;">+22.7% YoY</span>
                       </div>
                       <svg class="ds-svg-chart" viewBox="0 0 300 70" fill="none">
                         <defs>
@@ -599,39 +644,39 @@
                     </div>
                     <div class="ds-ui-table">
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Fastag Auto-Recon Engine · 0% Leakage</span>
-                        <span class="ds-row-tag">ONLINE</span>
+                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Dubai &amp; Abu Dhabi Tour · Day 1 Arrival &amp; Day 2 Burj Khalifa</span>
+                        <span class="ds-row-tag">ACTIVE</span>
                       </div>
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot blue"></span> Driver Duty Roster · Fatigue Limit Followed</span>
-                        <span class="ds-row-tag blue">COMPLIANT</span>
+                        <span class="ds-row-main"><span class="ds-row-dot blue"></span> Bali &amp; Thailand Packages · 652 Confirmed Bookings</span>
+                        <span class="ds-row-tag blue">CONFIRMED</span>
                       </div>
                     </div>
                   </div>
 
                   <!-- Slide 3: Audit & Security / Telemetry -->
-                  <div class="ds-slide" data-slide="3" data-badge-text="Statutory Fleet Telemetry">
+                  <div class="ds-slide" data-slide="3" data-badge-text="Smart Quote Simulator">
                     <div class="ds-ui-top">
-                      <span class="ds-ui-crumb"><span>🛰️</span> Statutory Permits &amp; AIS-140 Vault</span>
-                      <span class="ds-ui-badge">MORTH AIS-140</span>
+                      <span class="ds-ui-crumb"><span>⚡</span> Instant Smart Quote &amp; Itineraries</span>
+                      <span class="ds-ui-badge">60s BUILDER</span>
                     </div>
                     <div class="ds-ui-table">
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot green"></span> 13:23:55 · gps.telemetry · Geofence 60 km/h</span>
-                        <span class="ds-row-tag">VERIFIED</span>
+                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Quick Quote: Delhi to Manali · 320 KM · Innova Crysta</span>
+                        <span class="ds-row-tag">₹18,950</span>
                       </div>
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot green"></span> 13:18:40 · fleet.ops · All-India Permit Validated</span>
-                        <span class="ds-row-tag">ACTIVE</span>
+                        <span class="ds-row-main"><span class="ds-row-dot green"></span> Sample Itinerary: Day 1 Arrival in Dubai · Day 2 Burj Khalifa</span>
+                        <span class="ds-row-tag">READY</span>
                       </div>
                       <div class="ds-table-row">
-                        <span class="ds-row-main"><span class="ds-row-dot blue"></span> 13:12:00 · corporate.desk · Duty Slip B2B</span>
-                        <span class="ds-row-tag blue">SAC 9964</span>
+                        <span class="ds-row-main"><span class="ds-row-dot blue"></span> Trending: Dubai, Bali, Thailand, Singapore, Europe</span>
+                        <span class="ds-row-tag blue">TRENDING</span>
                       </div>
                     </div>
                     <div class="ds-kpi-card" style="margin-top:2px;">
-                      <span class="ds-kpi-label">Mobility Compliance Status</span>
-                      <span class="ds-kpi-val" style="font-size:11.5px;color:#34D399;">AIS-140 Certified · Sub-5s Indian GPS Latency</span>
+                      <span class="ds-kpi-label">Smart Quote Status</span>
+                      <span class="ds-kpi-val" style="font-size:11.5px;color:#34D399;">Delhi to Manali · 320 KM · Fare: ₹18,950 (10% Buffer)</span>
                     </div>
                   </div>
                 </div>
@@ -643,8 +688,8 @@
                     <button class="ds-dot" aria-label="Slide 3"></button>
                   </div>
                   <div class="ds-capsule-badge">
-                    <span class="capsule-icon">🚌</span>
-                    <span class="capsule-text">Real-Time Fleet Dispatch</span>
+                    <span class="capsule-icon">📈</span>
+                    <span class="capsule-text">Monthly Bookings: 652 Confirmed (+22.7%)</span>
                   </div>
                 </div>
               </div>
@@ -664,51 +709,48 @@
                     <!-- Phone Slide 1 -->
                     <div class="phone-slide is-active" data-slide="1">
                       <div class="phone-ui-header">
-                        <span class="phone-brand-tag">TravelOS</span>
+                        <span class="phone-brand-tag">Travel OS</span>
                         <span class="phone-live-dot"></span>
                       </div>
                       <div class="phone-action-card">
-                        <span class="phone-card-title">Driver Assigned</span>
-                        <span class="phone-card-desc">Trip #882 accepted by Cab KA-01-MJ-4412</span>
-                        <span class="phone-action-btn">Track Vehicle ↗</span>
+                        <span class="phone-card-title">Quick Quote Ready</span>
+                        <span class="phone-card-desc">Delhi to Manali · Innova Crysta · 320 KM</span>
+                        <span class="phone-action-btn">Fare: ₹18,950</span>
                       </div>
                       <div class="phone-metric-row">
-                        <span>ETA Pickup</span>
-                        <strong style="color:#10B981;">6 Mins</strong>
+                        <span>Monthly Bookings</span>
+                        <strong style="color:#10B981;">652 Confirmed (+22.7%)</strong>
                       </div>
                     </div>
 
                     <!-- Phone Slide 2 -->
                     <div class="phone-slide" data-slide="2">
                       <div class="phone-ui-header">
-                        <span class="phone-brand-tag">Billing</span>
+                        <span class="phone-brand-tag">Itinerary</span>
                         <span class="phone-live-dot"></span>
                       </div>
                       <div class="phone-action-card">
-                        <span class="phone-card-title">Duty Slip Settled</span>
-                        <span class="phone-card-desc">Corporate invoice #1041 settled in real-time</span>
-                        <span class="phone-action-btn" style="background:#0F1C2E;border:1px solid rgba(255,255,255,0.2);">View Duty Slip</span>
+                        <span class="phone-card-title">Dubai Tour Active</span>
+                        <span class="phone-card-desc">Day 1 Arrival · Day 2 Burj Khalifa tour</span>
+                        <span class="phone-action-btn" style="background:#0F1C2E;border:1px solid rgba(255,255,255,0.2);">View Itinerary</span>
                       </div>
                       <div class="phone-metric-row">
-                        <span>Fastag Toll</span>
-                        <strong style="color:#34D399;">₹125 Auto</strong>
+                        <span>Trending</span>
+                        <strong style="color:#34D399;">Dubai, Bali, Europe</strong>
                       </div>
                     </div>
 
                     <!-- Phone Slide 3 -->
                     <div class="phone-slide" data-slide="3">
                       <div class="phone-ui-header">
-                        <span class="phone-brand-tag">AIS-140</span>
-                        <span class="phone-live-dot"></span>
-                      </div>
-                      <div class="phone-action-card">
-                        <span class="phone-card-title">Permit Validated</span>
-                        <span class="phone-card-desc">KA-01-MJ-4412 fitness &amp; SOS passed</span>
-                        <span class="phone-action-btn" style="background:#10B981;">Verified ✓</span>
+                        <span class="phone-brand-tag">Smart Quote</span>
+                        <span class="phone-card-title">Quote Approved</span>
+                        <span class="phone-card-desc">Delhi to Manali · 320 KM · Innova Crysta</span>
+                        <span class="phone-action-btn" style="background:#10B981;">₹18,950 (10% Buffer)</span>
                       </div>
                       <div class="phone-metric-row">
-                        <span>GPS Ping</span>
-                        <strong style="color:#60A5FA;">1.8s live</strong>
+                        <span>Growth</span>
+                        <strong style="color:#60A5FA;">+22.7% YoY</strong>
                       </div>
                     </div>
                   </div>
@@ -731,82 +773,82 @@
     <section class="stat-strip-section" aria-label="Key Performance Indicators">
       <div class="shell stat-strip-grid reveal">
         <div class="stat-strip-item">
-          <span class="stat-strip-val">+18.4%</span>
-          <span class="stat-strip-label">Fleet Seat Utilization</span>
-          <p class="stat-strip-desc">Through algorithmic dynamic pricing and real-time inventory syndication across all OTA distribution networks.</p>
+          <span class="stat-strip-val">70% Less</span>
+          <span class="stat-strip-label">Manual Work</span>
+          <p class="stat-strip-desc">Eliminate spreadsheet chaos and repetitive data entry across enquiries and billing.</p>
         </div>
         <div class="stat-strip-item">
-          <span class="stat-strip-val">95%</span>
-          <span class="stat-strip-label">Fewer Corporate Billing Disputes</span>
-          <p class="stat-strip-desc">Digital duty slips with GPS mileage timestamps and employee OTP confirmations prevent inflated fare claims.</p>
+          <span class="stat-strip-val">3X Faster</span>
+          <span class="stat-strip-label">Quote-to-Booking</span>
+          <p class="stat-strip-desc">Send accurate, branded proposals in under 60 seconds before competitors reply.</p>
         </div>
         <div class="stat-strip-item">
-          <span class="stat-strip-val">Zero</span>
-          <span class="stat-strip-label">OTA Seat Collisions</span>
-          <p class="stat-strip-desc">Sub-second Redis inventory locks eliminate double-bookings across RedBus, AbhiBus, and counter agents.</p>
+          <span class="stat-strip-val">40% Higher</span>
+          <span class="stat-strip-label">Profitability</span>
+          <p class="stat-strip-desc">Protect margins with automated distance buffers and vendor rate tracking.</p>
         </div>
         <div class="stat-strip-item">
-          <span class="stat-strip-val">SAC 9964</span>
-          <span class="stat-strip-label">Compliant Passenger Invoicing</span>
-          <p class="stat-strip-desc">Instant NIC e-invoicing and automated Input Tax Credit breakdowns for corporate travel desks.</p>
+          <span class="stat-strip-val">100%</span>
+          <span class="stat-strip-label">Real-Time Visibility</span>
+          <p class="stat-strip-desc">Live tracking of confirmed bookings, revenue growth, and fleet dispatch.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 03: PROBLEM VS SOLUTION (Standardized UI/UX) -->
+    <!-- SECTION 03: WHY THIS MATTERS (Standardized UI/UX) -->
     <section class="section-pad">
       <div class="shell reveal">
         <div class="section-heading">
           <div>
-            <div class="eyebrow">MOBILITY DISPATCH FRICTION</div>
-            <h2>Why fragmented travel tech leaks<br /><em>margins across routes.</em></h2>
+            <div class="eyebrow">WHY THIS MATTERS</div>
+            <h2>WHY THIS MATTERS: ENGINEERED TO ELIMINATE<br /><em>OPERATIONAL FRICTION.</em></h2>
           </div>
-          <p>Juggling phone calls with drivers, manual seat allotments across multiple OTAs, manual FASTag tallying, and delayed B2B billing leak operational margins. TravelOS unifies reservation and wheels in motion.</p>
+          <p>Replace disconnected spreadsheets, delayed approvals, and WhatsApp text-thread archaeology with a single operating system for travel.</p>
         </div>
 
         <div class="comparison-grid">
           <div class="comparison-card comparison-legacy">
-            <span class="comparison-badge"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12.01" x2="12.01" y1="17" y2="17"/></svg> Legacy Dispatch Methods</span>
-            <h3>Disconnected, Chaotic &amp; Vulnerable to Fraud</h3>
+            <span class="comparison-badge"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12.01" x2="12.01" y1="17" y2="17"/></svg> Legacy Operational Friction</span>
+            <h3>Disconnected Spreadsheets &amp; Manual Delays</h3>
             <ul class="comparison-list">
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✕</span>
-                <div><strong>OTA Seat Allocation Clashes:</strong> Counter agents and online booking portals sell the same sleeper berths, leading to embarrassing passenger disputes at boarding points.</div>
+                <div><strong>Manual Approvals &amp; Rogue Spending:</strong> Disconnected approval delays, unauthorized markups, and rogue spending across unverified suppliers.</div>
               </li>
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✕</span>
-                <div><strong>Manual Duty Slip Manipulation:</strong> Cab and bus drivers hand-write opening/closing odometers and toll amounts, leading to inflated B2B corporate billing friction.</div>
+                <div><strong>Error-Prone Manual Calculations:</strong> Slow spreadsheet math for route mileage, hotel tariffs, and profit margins that cause lost bookings and pricing errors.</div>
               </li>
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✕</span>
-                <div><strong>Static Rate Rigidity:</strong> Empty seats depart unsold while high-demand weekend festive departures are underpriced due to lack of dynamic pricing engines.</div>
+                <div><strong>Fragmented Data &amp; Billing Chaos:</strong> Scattered invoices, manual vendor payouts, and uncoordinated GST/TCS tax calculations leading to margin leakage.</div>
               </li>
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✕</span>
-                <div><strong>Delayed B2B GST Invoicing:</strong> Accounts teams spend 3 weeks collating physical trip vouchers before issuing monthly invoices to corporate clients.</div>
+                <div><strong>WhatsApp &amp; Phone Call Archaeology:</strong> Constant chaotic phone calls, lost WhatsApp messages, and zero visibility into vehicle locations or driver assignments.</div>
               </li>
             </ul>
           </div>
 
           <div class="comparison-card comparison-ojix">
-            <span class="comparison-badge"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> TravelOS Connected Model</span>
-            <h3>Real-Time, Automated &amp; Tamper-Evident</h3>
+            <span class="comparison-badge"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> TravelOS Unified Platform</span>
+            <h3>Engineered to Eliminate Operational Friction</h3>
             <ul class="comparison-list">
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✓</span>
-                <div><strong>Unified Sub-Second Inventory Lock:</strong> Distributed Redis caching syncs RedBus, AbhiBus, website, and branch counters with zero seat duplication risk.</div>
+                <div><strong>Unified Booking and Policy Enforcement:</strong> Eliminates manual approval delays, unauthorized markups, and rogue spending by embedding corporate compliance directly into booking workflows.</div>
               </li>
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✓</span>
-                <div><strong>GPS &amp; FASTag Verified Duty Slips:</strong> Digital trip closes automatically extract telematics distance and toll plaza deductions with employee OTP authorization.</div>
+                <div><strong>Automated Itinerary and Quote Generation:</strong> Replaces error-prone manual calculations with digital builders that auto-calculate route distance, hotel tariffs, and profit buffers in under 60 seconds.</div>
               </li>
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✓</span>
-                <div><strong>Algorithmic Yield Maximizer:</strong> Dynamic fare algorithms automatically adjust seat prices based on departure lead times and seat velocity to maximize occupancy.</div>
+                <div><strong>Single-Layer Data and Billing Architecture:</strong> Consolidates client invoices, vendor payouts, GST/TCS tax calculations, and net profitability into one unified financial dashboard.</div>
               </li>
               <li>
                 <span class="comparison-list-icon" aria-hidden="true">✓</span>
-                <div><strong>Instant SAC 9964 GST Invoicing:</strong> Auto-generates NIC e-invoices with IRN QR codes upon trip completion, shortening payment recovery from 45 days to 7.</div>
+                <div><strong>Real-Time Fleet and Dispatch Intelligence:</strong> Replaces chaotic phone calls and WhatsApp groups with live GPS vehicle tracking, automated kilometer buffers, and instant driver assignments.</div>
               </li>
             </ul>
           </div>
@@ -852,88 +894,211 @@
       </div>
     </section>
 
-    <!-- SECTION 05: CORE CAPABILITY ENGINES (6 MODULES WITH 3 TAGS EACH) -->
+    <!-- SECTION 04: THE 9 CORE MODULES -->
     <section class="section-pad" id="modules">
       <div class="shell reveal">
         <div class="section-heading">
           <div>
-            <div class="eyebrow">CORE CAPABILITIES</div>
-            <h2>Six purpose-built engines<br /><em>for high-frequency mobility.</em></h2>
+            <div class="eyebrow">CORE MODULES</div>
+            <h2>POWERFUL MODULES FOR A FUTURE-READY<br /><em>TRAVEL BUSINESS.</em></h2>
           </div>
-          <p>Every module in TravelOS is optimized for massive transaction spikes, sub-second latency, and rigorous transportation compliance.</p>
+          <p>Everything your travel agency, DMC, or corporate travel desk needs under one roof.</p>
         </div>
 
         <div class="pillar-module-grid">
+          <!-- Module 1 -->
           <article class="pillar-module-card">
-            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-            <h3>Multi-Channel Inventory &amp; Seat Engine</h3>
-            <p>Distribute seat layouts across direct web, mobile apps, counter agent networks, and OTAs (RedBus, AbhiBus) with millisecond distributed locks that prevent double bookings.</p>
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <h3>Smart Quote Engine and Auto-Fare Calculator</h3>
+            <p>Auto-calculate route fares, apply 10 km or 15 km distance buffers, factor vehicle categories, and generate branded quotes in seconds.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Automatic point-to-point mileage mapping without third-party map tabs, dynamic margin buffers, and instant multi-vehicle quotes for Innova Crysta, Tempo Travellers, and luxury coaches.</p>
+              </div>
+            </details>
             <div class="module-feature-tags">
-              <span class="module-tag">Redis In-Memory Locks</span>
-              <span class="module-tag">Seat Layout Builder</span>
-              <span class="module-tag">Quota Allocation</span>
+              <span class="module-tag">Point-to-Point Mileage</span>
+              <span class="module-tag">Dynamic Margin Buffers</span>
+              <span class="module-tag">Multi-Vehicle Quotes</span>
             </div>
           </article>
 
+          <!-- Module 2 -->
           <article class="pillar-module-card">
-            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <h3>Dynamic Tariff &amp; Yield Management</h3>
-            <p>Maximize route load factors and average revenue per passenger kilometer (ARPK). Algorithmic yield rules automatically adjust fares based on lead times and seat occupancy velocity.</p>
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <h3>End-to-End Booking and Itinerary Builder</h3>
+            <p>Seamlessly manage flights, hotels, ground transport, and day-by-day itinerary schedules from enquiry to trip completion.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Drag-and-drop itinerary builder, multi-service synchronization linking PNRs and hotel vouchers to a single booking ID, and one-click quote-to-booking conversion.</p>
+              </div>
+            </details>
             <div class="module-feature-tags">
-              <span class="module-tag">Occupancy Triggers</span>
-              <span class="module-tag">Festive Surge Rules</span>
-              <span class="module-tag">Competitor Benchmark</span>
+              <span class="module-tag">Drag &amp; Drop Builder</span>
+              <span class="module-tag">PNR &amp; Voucher Sync</span>
+              <span class="module-tag">1-Click Booking</span>
             </div>
           </article>
 
+          <!-- Module 3 -->
           <article class="pillar-module-card">
-            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <h3>AIS-140 GPS &amp; Telematics Gateway</h3>
-            <p>Connect government-mandated AIS-140 GPS devices. Monitor live route adherence, speeding violations, sudden braking, panic button triggers, and boarding point ETA broadcasts.</p>
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Group, MICE and Corporate Travel Management</h3>
+            <p>Purpose-built workflows for school excursions, MICE events, corporate conferences, and large group rooming lists.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Bulk passenger manifest uploads, automated twin and triple room sharing assignments, corporate approval hierarchies, and group flight coordination.</p>
+              </div>
+            </details>
             <div class="module-feature-tags">
-              <span class="module-tag">AIS-140 Compliant</span>
-              <span class="module-tag">Geofence ETA Alerts</span>
-              <span class="module-tag">Driver Safety Telemetry</span>
+              <span class="module-tag">Manifest Bulk Upload</span>
+              <span class="module-tag">Room Sharing Logic</span>
+              <span class="module-tag">Corporate Approval Matrix</span>
             </div>
           </article>
 
+          <!-- Module 4 -->
           <article class="pillar-module-card">
-            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <h3>Corporate Travel Desk &amp; Duty Slips</h3>
-            <p>Automate enterprise employee travel. Enforce corporate trip budgets, cost center tags, and paperless digital duty slips confirmed via OTP and telematics timestamps.</p>
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <h3>Automated Document and Visa Management</h3>
+            <p>Centralize passports, visa applications, insurance policies, flight tickets, and hotel vouchers in a secure cloud vault.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>OCR passport scanning to eliminate typing errors, automated WhatsApp reminders for visa biometrics and passport expiry dates, and one-click downloadable travel kits.</p>
+              </div>
+            </details>
             <div class="module-feature-tags">
-              <span class="module-tag">Corporate SSO &amp; DoA</span>
-              <span class="module-tag">Digital Duty Slips</span>
-              <span class="module-tag">OTP Trip Validation</span>
+              <span class="module-tag">OCR Passport Scan</span>
+              <span class="module-tag">WhatsApp Reminders</span>
+              <span class="module-tag">Travel Kit Generator</span>
             </div>
           </article>
 
+          <!-- Module 5 -->
           <article class="pillar-module-card">
-            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <h3>FASTag Toll &amp; Fuel Reconciliation</h3>
-            <p>Ingest live FASTag toll deductions and fuel dispenser telemetry automatically. Match toll expenses with approved trip routes to prevent unauthorized detours and fuel skimming.</p>
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+            <h3>Integrated Payments, Invoices and Accounting</h3>
+            <p>Collect online payments, generate tax-compliant invoices, track installment schedules, and manage bank reconciliation.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Automated payment links, full Indian GST and TCS tax calculations for domestic and international tours, and real-time net profitability per booking.</p>
+              </div>
+            </details>
             <div class="module-feature-tags">
-              <span class="module-tag">NETC FASTag Stream</span>
-              <span class="module-tag">Fuel Card Matching</span>
-              <span class="module-tag">Route Variance Audit</span>
+              <span class="module-tag">Payment Gateway Links</span>
+              <span class="module-tag">GST &amp; TCS Engine</span>
+              <span class="module-tag">Net Margin Audit</span>
             </div>
           </article>
 
+          <!-- Module 6 -->
           <article class="pillar-module-card">
-            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
-            <h3>SAC 9964 Automated GST Invoicing</h3>
-            <p>One-click bulk invoicing compliant with Indian passenger transport GST provisions. Automatic calculation of state-wise CGST, SGST, IGST, and instant NIC IRN generation.</p>
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+            <h3>Supplier, DMC and Vendor Rate Cards</h3>
+            <p>Centralize contracted hotel rates, transport fleet tariffs, local guide fees, and vendor performance SLAs.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Dynamic seasonal hotel rates, blackout date controls, automated purchase orders, and vendor ratings based on punctuality and vehicle cleanliness.</p>
+              </div>
+            </details>
             <div class="module-feature-tags">
-              <span class="module-tag">SAC 9964 Slabs</span>
-              <span class="module-tag">NIC IRN &amp; QR Code</span>
-              <span class="module-tag">Automated B2B ITC Sync</span>
+              <span class="module-tag">Seasonal Tariffs</span>
+              <span class="module-tag">Blackout Controls</span>
+              <span class="module-tag">Vendor Rating SLA</span>
+            </div>
+          </article>
+
+          <!-- Module 7 -->
+          <article class="pillar-module-card">
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <h3>White-Label Customer Travel Portal</h3>
+            <p>Empower travellers and corporate clients with 24/7 self-service access to live itineraries, documents, invoices, and updates.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Branded digital proposals with deposit approvals, self-service passport uploads, and a live companion showing driver contacts and hotel check-in vouchers.</p>
+              </div>
+            </details>
+            <div class="module-feature-tags">
+              <span class="module-tag">Branded Proposals</span>
+              <span class="module-tag">Self-Service Uploads</span>
+              <span class="module-tag">Live Trip Companion</span>
+            </div>
+          </article>
+
+          <!-- Module 8 -->
+          <article class="pillar-module-card">
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg></div>
+            <h3>AI Travel Assist and Business Intelligence</h3>
+            <p>Leverage generative AI itinerary suggestions, seasonal demand forecasting, and actionable revenue insights.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>AI Co-Pilot generating personalized day-by-day itineraries for trending destinations like Dubai, Bali, and Europe, conversion forecasting, and executive revenue dashboards.</p>
+              </div>
+            </details>
+            <div class="module-feature-tags">
+              <span class="module-tag">AI Itinerary Co-Pilot</span>
+              <span class="module-tag">Demand Forecasting</span>
+              <span class="module-tag">Executive BI Dashboard</span>
+            </div>
+          </article>
+
+          <!-- Module 9 -->
+          <article class="pillar-module-card">
+            <div class="module-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <h3>100% Mobile-First Cloud Travel Platform</h3>
+            <p>Run your entire travel business from anywhere with full operational parity across smartphones, tablets, and desktops.</p>
+            <details class="module-expand-details">
+              <summary class="module-expand-trigger">
+                <span>Expanded Details</span>
+                <span class="expand-arrow" aria-hidden="true">↓</span>
+              </summary>
+              <div class="module-expand-content">
+                <p>Send complete quotes via WhatsApp in under 60 seconds from your phone, manage airport ground operations, and set role-based security for staff.</p>
+              </div>
+            </details>
+            <div class="module-feature-tags">
+              <span class="module-tag">WhatsApp 60s Quotes</span>
+              <span class="module-tag">Airport Ground Ops</span>
+              <span class="module-tag">Role-Based Security</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 06: ENGINEERING SPECIFICATIONS (3-CARD BENTO GRID) -->
+    <!-- SECTION 05: ENGINEERING SPECIFICATIONS (3-CARD BENTO GRID) -->
     <section class="section-pad" style="background: var(--soft);">
       <div class="shell reveal">
         <div class="section-heading">
@@ -1039,17 +1204,17 @@
       </div>
     </section>
 
-    <!-- SECTION 07: FREQUENTLY ASKED QUESTIONS (Standardized Accordion) -->
+    <!-- SECTION 06: FREQUENTLY ASKED QUESTIONS (Standardized Accordion) -->
     <section class="faq-section section-pad" id="faq" style="border-top: 1px solid var(--line);">
       <div class="shell reveal">
         <div class="faq-layout">
           <div class="faq-intro">
-            <div class="eyebrow">MOBILITY OPERATIONS FAQS</div>
-            <h2>Clarifications on<br /><em>TravelOS deployment.</em></h2>
-            <p>Direct answers regarding OTA inventory sync, AIS-140 GPS compliance, corporate duty slip automation, and phone number privacy.</p>
+            <div class="eyebrow">FREQUENTLY ASKED QUESTIONS</div>
+            <h2>Clarifications on<br /><em>Travel OS deployment.</em></h2>
+            <p>Direct answers regarding smart quotes, international packages, fleet dispatch, margin protection, and client self-service portals.</p>
             <div class="faq-contact-card">
-              <span>Have a mobility operations query?</span>
-              <strong>Speak with our transport systems engineers</strong>
+              <span>Have a travel operations query?</span>
+              <strong>Speak with our travel solutions team</strong>
               <a href="mailto:info@ojix.in" class="btn btn-outline">Email info@ojix.in <span aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -1057,51 +1222,51 @@
           <div class="faq-accordion" role="region" aria-label="TravelOS FAQ Accordion">
             <details class="faq-item" open>
               <summary class="faq-question">
-                <span>How does TravelOS prevent seat inventory double-booking across multiple OTAs?</span>
+                <span>What is Travel OS and who is it built for?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                <p>TravelOS implements distributed Redis in-memory locks. When an agent or customer initiates a booking on RedBus, AbhiBus, MakeMyTrip, or your direct counter, the seat is locked instantaneously across all channels with millisecond timeout controls.</p>
+                <p>Travel OS by RAKTIX and Eagle's Eye Destination is an all-in-one AI travel management system built for modern travel agencies, tour operators, DMCs, MICE planners, and corporate travel desks. It unifies enquiries, smart quotes, itineraries, visas, suppliers, fleet dispatch, and invoicing on a single platform.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                <span>Does TravelOS support mandatory government AIS-140 GPS tracking?</span>
+                <span>How does the Smart Quote Engine calculate transport and tour fares?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                <p>Yes. TravelOS has native telematics listeners supporting AIS-140, Teltonika, and Concox protocols. Location, SOS alerts, speed violations, and unauthorized route detours stream directly to your centralized operations cockpit with sub-5-second latency.</p>
+                <p>The Smart Quote Engine automatically calculates point-to-point distance and travel duration, applies contracted vehicle rates, and adds a customizable 10 km, 15 km, or percentage-based buffer to generate an accurate, ready-to-send quote in under 60 seconds.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                <span>How does the system streamline corporate duty slip approvals and billing?</span>
+                <span>Can Travel OS handle both international holiday packages and domestic fleet dispatch?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                <p>Drivers close duty slips on the mobile driver app. The system records start/end GPS odometer readings, automated FASTag toll deductions, and passenger OTP confirmation, instantly generating SAC 9964 GST e-invoices with zero manual billing disputes.</p>
+                <p>Yes. Travel OS supports international multi-day itineraries for destinations like Dubai, Bali, Thailand, Singapore, and Europe, alongside domestic outstation cab quoting, live GPS vehicle tracking, and automated driver assignments.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                <span>Can TravelOS handle dynamic tariff rules during festive rush periods?</span>
+                <span>How much time and revenue can a travel agency save with Travel OS?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                <p>Yes. Our automated yield management engine adjusts fares in real time based on departure proximity, remaining seat inventory, historical festive demand spikes, and competitor scraping rules to maximize bus operator revenue.</p>
+                <p>Businesses using Travel OS report up to 70% less manual administrative work, a 3X faster quote-to-booking turnaround time, and up to 40% higher profitability through automated margin protection, leakage prevention, and single-layer billing reconciliation.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                <span>How are customer phone numbers protected from unauthorized driver harvesting?</span>
+                <span>Does Travel OS include a self-service portal for travellers and corporate clients?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                <p>Under India's DPDP Act 2023, TravelOS integrates virtual number masking. Drivers and dispatchers connect with passengers via masked VoIP proxy bridges, ensuring passenger phone numbers remain strictly concealed and protected from data harvesting.</p>
+                <p>Yes. Every booking includes access to a Customer Travel Portal where travellers and corporate managers can view itineraries, upload passport and visa documents, download vouchers, and pay invoices online.</p>
               </div>
             </details>
           </div>
