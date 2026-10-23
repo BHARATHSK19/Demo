@@ -1402,3 +1402,161 @@ if (heroCards.length > 0) {
     startTimer();
   });
 })();
+
+/**
+ * Portfolio Card Image Lightbox Modal Controller
+ * Expands high-resolution UI screen mockups with backdrop blur and keyboard navigation
+ */
+(function initPortfolioLightbox() {
+  const modal = document.getElementById('portfolio-lightbox-modal');
+  if (!modal) return;
+
+  const modalImg = modal.querySelector('#portfolio-lightbox-img');
+  const modalTitle = modal.querySelector('#portfolio-lightbox-title');
+  const modalBadge = modal.querySelector('#portfolio-lightbox-badge');
+  const closeBtns = modal.querySelectorAll('[data-close-portfolio-lightbox]');
+
+  function openPortfolioModal(card) {
+    if (!card) return;
+    const imgEl = card.querySelector('.product-expand-img');
+    const titleEl = card.querySelector('.product-title');
+    const badgeEl = card.querySelector('.discipline-tag span:last-child') || card.querySelector('.platform-badge');
+
+    if (!imgEl) return;
+
+    // Use full-resolution local image asset path directly
+    const highResSrc = imgEl.getAttribute('data-full-src') || imgEl.getAttribute('src');
+    const title = (titleEl ? titleEl.textContent : 'Portfolio System Interface').trim();
+    const badge = (badgeEl ? badgeEl.textContent : 'OJIX System').trim();
+
+    if (modalImg) {
+      modalImg.src = highResSrc;
+      modalImg.alt = imgEl.alt || title;
+    }
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalBadge) modalBadge.textContent = badge;
+
+    modal.removeAttribute('hidden');
+    document.body.classList.add('modal-open');
+
+    // Accessibility focus on close button
+    const closeBtn = modal.querySelector('.portfolio-lightbox-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closePortfolioModal() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('modal-open');
+    if (modalImg) modalImg.src = '';
+  }
+
+  // Bind to zoom trigger buttons and expand-bg triggers
+  document.querySelectorAll('.ojix-products-grid .product-zoom-trigger').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest('.product-card');
+      openPortfolioModal(card);
+    });
+  });
+
+  // Close triggers
+  closeBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closePortfolioModal();
+    });
+  });
+
+  // Click outside to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closePortfolioModal();
+    }
+  });
+
+  // ESC key listener
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) {
+      closePortfolioModal();
+    }
+  });
+})();
+
+// ==========================================================================
+// INTERACTIVE TABBED FEATURE SHOWCASE HANDLER
+// ==========================================================================
+(function initShowcaseTabs() {
+  function setupShowcase(container) {
+    const tabList = container.querySelector('[role="tablist"]');
+    if (!tabList) return;
+    const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(container.querySelectorAll('[role="tabpanel"]'));
+
+    function activateTab(tab, focus = false) {
+      tabs.forEach((t) => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+        t.setAttribute('tabindex', '-1');
+      });
+      panels.forEach((p) => {
+        p.classList.remove('is-active');
+        p.setAttribute('hidden', '');
+      });
+
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.removeAttribute('tabindex');
+
+      const targetId = tab.getAttribute('aria-controls');
+      const targetPanel = container.querySelector(`#${targetId}`);
+      if (targetPanel) {
+        targetPanel.classList.add('is-active');
+        targetPanel.removeAttribute('hidden');
+      }
+
+      if (focus) {
+        tab.focus();
+      }
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        activateTab(tab);
+      });
+
+      tab.addEventListener('keydown', (e) => {
+        let newIndex = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          newIndex = (index + 1) % tabs.length;
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          newIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          newIndex = 0;
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          newIndex = tabs.length - 1;
+        }
+
+        if (newIndex !== null) {
+          activateTab(tabs[newIndex], true);
+        }
+      });
+    });
+  }
+
+  function init() {
+    document.querySelectorAll('.showcase-tabs-layout').forEach(setupShowcase);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+

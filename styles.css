@@ -11484,13 +11484,17 @@ a.eleks-mega-preview-media:hover .eleks-preview-img {
 .product-expand-bg {
   z-index: 2;
   border-radius: 14px;
+  aspect-ratio: 16 / 10;
+  background-color: #f1f5f9;
+  border: 1px solid rgba(15, 28, 47, 0.08);
   transition:
     top 0.65s cubic-bezier(0.16, 1, 0.3, 1),
     bottom 0.65s cubic-bezier(0.16, 1, 0.3, 1),
     left 0.65s cubic-bezier(0.16, 1, 0.3, 1),
     right 0.65s cubic-bezier(0.16, 1, 0.3, 1),
     border-radius 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
   position: absolute;
   inset: calc(100% - 242px) 22px 74px;
   overflow: hidden;
@@ -11506,6 +11510,43 @@ a.eleks-mega-preview-media:hover .eleks-preview-img {
   transform: scale(1);
   filter: none !important;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.product-zoom-trigger {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  padding: 0;
+}
+
+.product-card.product-card-expand.platform-card:hover .product-zoom-trigger,
+.product-card.product-card-expand.platform-card:focus-within .product-zoom-trigger {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-zoom-trigger:hover {
+  background: var(--orange, #c9662f);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.12);
 }
 
 .product-expand-scrim {
@@ -11559,6 +11600,8 @@ a.eleks-mega-preview-media:hover .eleks-preview-img {
   box-shadow: none;
   border-radius: 22px;
   inset: 0;
+  border-color: transparent;
+  aspect-ratio: auto;
 }
 
 .product-card.product-card-expand.platform-card:hover .product-expand-img {
@@ -11621,6 +11664,140 @@ a.eleks-mega-preview-media:hover .eleks-preview-img {
   border-color: var(--orange, #c9662f) !important;
   color: #ffffff !important;
 }
+
+/* Portfolio Lightbox Modal (Full-Resolution Crisp UI Preview) */
+.portfolio-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-lightbox-backdrop[hidden] {
+  display: none;
+  opacity: 0;
+}
+
+.portfolio-lightbox-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  width: 100%;
+  max-height: 92vh;
+  background: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 30px 90px -10px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  animation: modal-pop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.portfolio-lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portfolio-lightbox-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange, #c9662f);
+  background: rgba(201, 102, 47, 0.15);
+  border: 1px solid rgba(201, 102, 47, 0.3);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.portfolio-lightbox-title {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.portfolio-lightbox-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.portfolio-lightbox-close:hover {
+  background: var(--orange, #c9662f);
+  border-color: var(--orange, #c9662f);
+  transform: rotate(90deg) scale(1.08);
+}
+
+.portfolio-lightbox-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #020617;
+  overflow: auto;
+  min-height: 300px;
+}
+
+.portfolio-lightbox-body img {
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 768px) {
+  .portfolio-lightbox-backdrop {
+    padding: 12px;
+  }
+  .portfolio-lightbox-header {
+    padding: 12px 16px;
+  }
+  .portfolio-lightbox-title {
+    font-size: 15px;
+  }
+  .portfolio-lightbox-body img {
+    max-height: 75vh;
+  }
+}
+
 
 /* ==========================================================================
    ALIGNMENT & LAYOUT REFINEMENTS (Image 1 & Image 2 Fixes)
@@ -13778,5 +13955,348 @@ body .hero.pillar-hero-21 #cockpit {
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 }
+
+/* ==========================================================================
+   INTERACTIVE TABBED FEATURE SHOWCASE (SECTION 05 REFACTOR)
+   ========================================================================== */
+.showcase-tabs-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 36px;
+}
+
+.showcase-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.showcase-tab-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  transition: all 0.22s ease;
+  font-family: inherit;
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(15, 28, 46, 0.03);
+  width: 100%;
+}
+
+.showcase-tab-btn:hover {
+  border-color: rgba(201, 102, 47, 0.4);
+  background: #FAFBFD;
+  transform: translateX(3px);
+}
+
+.showcase-tab-btn.is-active {
+  border-color: var(--orange);
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(201, 102, 47, 0.12), 0 0 0 1px var(--orange);
+}
+
+.showcase-tab-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--soft);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+
+.showcase-tab-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.showcase-tab-btn.is-active .showcase-tab-icon {
+  background: rgba(201, 102, 47, 0.12);
+  color: var(--orange);
+}
+
+.showcase-tab-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.showcase-tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.showcase-tab-title {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.showcase-tab-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.showcase-tab-btn.is-active .showcase-tab-dot {
+  background: var(--orange);
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(201, 102, 47, 0.6);
+}
+
+.showcase-tab-desc {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Right Column Panel Container */
+.showcase-preview-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.showcase-preview-panel {
+  display: none;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 12px 36px rgba(15, 28, 46, 0.06);
+  flex-direction: column;
+  height: 100%;
+}
+
+.showcase-preview-panel.is-active {
+  display: flex;
+  animation: showcaseFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes showcaseFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.showcase-panel-meta {
+  margin-bottom: 22px;
+}
+
+.showcase-panel-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.showcase-panel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(201, 102, 47, 0.08);
+  border: 1px solid rgba(201, 102, 47, 0.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.showcase-panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.showcase-panel-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  background: var(--soft);
+  border: 1px solid rgba(15, 28, 46, 0.06);
+  padding: 2px 9px;
+  border-radius: 6px;
+}
+
+.showcase-panel-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.showcase-panel-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.showcase-panel-mockup {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+/* ==========================================================================
+   STREAMLINED TRUST & ASSURANCE BAR (SECTION 06 REFACTOR)
+   ========================================================================== */
+.enterprise-trust-section {
+  background: var(--soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.enterprise-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.enterprise-trust-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(15, 28, 46, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+}
+
+.enterprise-trust-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 102, 47, 0.35);
+  box-shadow: 0 10px 24px rgba(15, 28, 46, 0.06);
+}
+
+.enterprise-trust-card svg,
+.enterprise-trust-icon svg,
+.trust-card-icon-wrap svg {
+  width: 32px;
+  height: 32px;
+  color: #C9662F;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.enterprise-trust-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.enterprise-trust-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.enterprise-trust-kicker,
+.trust-card-pill {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+  margin-bottom: 6px;
+}
+
+.enterprise-trust-title,
+.trust-card-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.enterprise-trust-text,
+.trust-card-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #64748B;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.trust-card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  background: transparent;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .showcase-tabs-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .showcase-tabs-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .enterprise-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .showcase-tabs-list {
+    grid-template-columns: 1fr;
+  }
+  .enterprise-trust-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .showcase-preview-panel {
+    padding: 20px 16px;
+  }
+}
+
 
 
